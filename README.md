@@ -1,23 +1,24 @@
-# Handoff: PBT Explainer (EIP-8297 Partitioned Binary Tree)
+# PBT Lab — EIP-8297 Partitioned Binary Tree, interactive 3D explainer
+
+**Live:** https://cperezz.github.io/pbt-website/
 
 ## Overview
 An interactive 3D explainer of the EIP-8297 Partitioned Binary Tree (PBT). The user picks an Ethereum action (send ETH, deploy a contract, redeploy identical bytecode, EIP-7702 delegate / re-delegate / revoke, ERC-20 transfer, call a contract, clear a slot, big contract, witness proofs, one block) and steps through it. Floating windows explain each concept (hashing, key derivation, chunking, bit-by-bit trie walks, writes, root recompute) while the 3D tree shows exactly which nodes are touched. Every root is recomputed in-browser with BLAKE3 and checked byte-for-byte against the spec fixtures.
 
 ## About the Design Files
-The files here are **design references built in HTML**: a working prototype showing the intended look and behaviour, not production code. The task is to recreate it in the target environment (e.g. React + three.js / react-three-fiber) using that codebase's patterns. If no environment exists, a Vite + React + TypeScript + three.js app is the recommended choice. The tree maths in `pbt-core.js` is framework-free and can be ported almost directly (add unit tests against `pbt-fixtures.json`).
+The files here started as **design references built in HTML** (a Claude Design handoff): a working prototype showing the intended look and behaviour, not production code. It has since been debugged and published as-is. Porting it to a framework (React + three.js / react-three-fiber) is future work, not yet done. The tree maths in `pbt-core.js` is framework-free and can be ported almost directly (add unit tests against `pbt-fixtures.json`).
 
 ## Fidelity
-**High-fidelity.** Colours, typography, layout, window placement and animation timing are final unless noted under "Open work".
+**High-fidelity.** Colours, typography, layout, window placement and animation timing are final. Every numbered item under "Open work" below is resolved or confirmed-already-fixed except #3 (a hover leader-line) and #11 (a deliberate decision, not a bug).
 
-## Running the prototype
+## Running locally
 Serve the folder over HTTP (fixtures load via `fetch`):
 ```
-python3 -m http.server 8000   # then open http://localhost:8000/index.dc.html
+python3 -m http.server 8000   # then open http://localhost:8000/index.html
 ```
-`dist/PBT-Explainer.html` is a self-contained single-file build (needs internet on first load for three.js from unpkg).
 
 ## Architecture
-- `index.dc.html`: the app. Template markup (inline styles) + a `Component` logic class. It runs on `support.js`, a small runtime that renders `{{ }}` template holes, `<sc-for>`/`<sc-if>`, and `style-hover` attributes on React. Treat it as JSX-equivalent when porting.
+- `index.html`: the app. Template markup (inline styles) + a `Component` logic class. It runs on `support.js`, a small runtime that renders `{{ }}` template holes, `<sc-for>`/`<sc-if>`, and `style-hover` attributes on React. Treat it as JSX-equivalent when porting.
 - `pbt-core.js` (`window.PBTCore`): BLAKE3, keccak256, key derivation (account header, code chunk, storage), `chunkify`, `binarize` (canonical binary trie with prefix compression), `merkleize`, `witness`, `recomputeSet`, `applyWrites`, `rootOf`, `buildWorlds(fixtures)`.
 - `pbt-scene-v4.js` (`window.PBTScene`): three.js scene. Radial layout by zone, instanced meshes (leaves, code tiles, stems as gems, branch tubes), styling (focus / path / ghost / ring / recomputed), labels + leader lines, camera framing per tier (`tree` / `zone` / `node`), region-aware framing so floating windows don't cover the focus.
 - `pbt-beats-v5.js` (`window.PBTBeats`): the content. Builds every journey (J1–J10) as a list of *beats*. Each beat has a world snapshot `w` (+ `preW` for writes), camera tier/zone/focus, optional `walk` key, and an `fx` window spec. Window specs are data: `seq` (frames of tracks/grids/rows/bigs/checks/flow/dep with pips, auto-advance, `btn` + `run: 'world'|'flash'`, per-frame `look` camera/label cues), `walk`, `derive`, `root`, `grow`, `ledger`.
@@ -52,23 +53,24 @@ python3 -m http.server 8000   # then open http://localhost:8000/index.dc.html
 ## State (Component)
 `mode` (hero | journey | summary | atlas | why), `ji` / `bi` (journey / beat index), `fx` (resolved window + current step), `playing`, `zoom`, `follow`, `layoutLab` / `layoutOpen`, `inspect`, `walk`, `tip`, `spec`. Worlds are immutable `Map<keyHex, valueHex>` snapshots; the scene diffs them on `setWorld`.
 
-## Open work (from the last design review, not yet built)
-1. keccak scramble must finish and persist like BLAKE3 in J1.
-2. Remove the rings around code-chunk leaves in the tree (they obscure the tiles).
+## Open work (from the last design review)
+1. ~~keccak scramble must finish and persist like BLAKE3 in J1.~~ **Investigated, could not reproduce:** exhaustively tested the exact back→forward re-entry sequence (same-beat step re-entry, true beat-hop round trips, precise millisecond-level interrupts at the CSS fade boundary, and a multi-hash `mapFx` sequence) across 10+ variations in-browser; the hash cell settled cleanly every time with 0 console errors/warnings. `startStep()` already clears `this.stepT` timers before scheduling new ones, which prevents the stale-timer race this item worried about. No change made; re-open with a more specific repro if it recurs.
+2. ~~Remove the rings around code-chunk leaves in the tree (they obscure the tiles).~~ **Resolved:** `pbt-scene-v4.js`'s node-styling `_applyStyle` default-ring fallback now excludes zone-1 leaves (`v.zone !== 1`), so a focused code-chunk leaf no longer gets an automatic ring. Explicit `st.ring[v.id]` assignments (e.g. J8.B3's PUSH32-boundary highlight) are a separate code path and are unaffected — verified both states in-browser (J2.B7 write step: 1 stray ring → 0; J8.B3: both explicit rings still present).
 3. Code layout: the "BLAKE3(code_hash ‖ tree_index) · one stem per group" note should lead-line to the group's stem node where the chunks split.
-4. The dedup window (J3 "23 chunks · 0 all-zero…") has spare space; show the new account layout beside it.
-5. The deploy header should show the **delegation flag / DELEGATION (sub 2)** as absent, so all three header fields are visible.
-6. J2: explain why 263 chunks need 2 groups. Chunks within a stem stay together (up to 256), and group 1's stem (BLAKE3 of code_hash ‖ 1) is unrelated to group 0's, so it lands far away. The camera should visit both.
-7. J2: before MegaToken's key, a domain-separation step showing the zone byte (0x00 account / 0x01 code / 0xFF storage).
-8. J2: a visible new-account creation animation (branch → stem → leaves) in the header step, after the window moves to hud.
-9. J2 balanceOf[Acct0]: show the path + stem + leaf being created. Open question: the fixture world has no prior storage at that point; adding background storage would break fixture root parity.
-10. Root wave: start in the account and storage zones, and run fast through the code zone.
+4. ~~The dedup window (J3 "23 chunks · 0 all-zero…") has spare space; show the new account layout beside it.~~ **Resolved 2026-09-30:** `pbt-beats-v5.js` J3.B7 now sets `layout: 'VaultTemplate3'` alongside `codeLayout: 'VT'`, stacking the new account's (empty, pre-creation) layout panel below the code dedup panel — same combo pattern already used by J3.B10.
+5. ~~The deploy header should show the **delegation flag / DELEGATION (sub 2)** as absent, so all three header fields are visible.~~ **Confirmed already fixed:** both J2.B10 and J3.B10's `rows` already include a `DELEGATION` row with value `∅`; verified in-browser with screenshots. No change made.
+6. ~~J2: explain why 263 chunks need 2 groups. Chunks within a stem stay together (up to 256), and group 1's stem (BLAKE3 of code_hash ‖ 1) is unrelated to group 0's, so it lands far away. The camera should visit both.~~ **Resolved:** J2.B7's third seq-frame now carries a `look` (focus/frame on `stem:S.M0` and `stem:S.M1`, `tier:'zone'`) matching J8.B1's pattern, so the camera reframes to show both group stems during that narration instead of only group 0.
+7. ~~J2: before MegaToken's key, a domain-separation step showing the zone byte (0x00 account / 0x01 code / 0xFF storage).~~ **Resolved:** added a new beat `J2.B7b` ("Zone byte") right before the key-derivation beat, showing the three zone values (accounts 0x00 · code 0x01 (just written) · storage 0xFF (coming up)) side by side, reusing the existing "zone 0x0X" vocabulary from the `derive`/`slotKeyFx` renderers.
+8. ~~J2: a visible new-account creation animation (branch → stem → leaves) in the header step, after the window moves to hud.~~ **Confirmed already fixed:** the existing staggered `run:'world'` write (same mechanism as `worldNow`) already animates a new green branch growing to the two new leaves when "Write the header" fires; verified with before/after screenshots. No change made.
+9. ~~J2 balanceOf[Acct0]: show the path + stem + leaf being created. Open question: the fixture world has no prior storage at that point; adding background storage would break fixture root parity.~~ **Confirmed already adequate:** `path:[depKey]` already expands to the full root→leaf ancestor chain via `pathIds`, so the write animation shows a branch + new leaf materializing (ring + dashed line). No separate "stem" node exists because this is genuinely the first leaf in the storage zone — there is nothing else to share a stem with, and the file's own constraint (no synthetic storage) rules out manufacturing one. No change made.
+10. ~~Root wave: start in the account and storage zones, and run fast through the code zone.~~ **Resolved:** `applySpec`'s `if (b.wave)` block now partitions the depth-sorted `recomputeSet` nodes by `sc.zoneOf(n)` and runs two chained `sc.runWave()` calls — non-code zones first at the existing pace, then the code zone at a fixed fast interval (a third of normal, floored at 15ms). Verified on J2's final beat: phase 1 (18 nodes, 31.25ms/tick) then phase 2 (270 code-zone nodes, 15ms/tick) confirmed via instrumentation, wave completes 288/288 with the post-root ✓ check intact.
+
 11. Decision taken: the storage zone stays sparse (fixture-faithful). No synthetic density.
+12. ~~J8 ("Deploy a big contract") has no writes, so its generic Summary screen showed a confusing "0 hashes · 0 branches + 0 leaves", an empty "What changed" grid, and a "Your turn: explore... click any purple node" footer that didn't apply.~~ **Resolved:** the summary view-model now computes `noWrites`/`hasChanges` from the journey's actual `writes` array; the zero-write case shows "root · unchanged" + a short explanatory line instead of the hash-count row, hides the empty "What changed" grid, and points the footer at the code layout panel (group split, absent chunks, PUSH32 boundary) instead of a nonexistent account list. Every other journey (all of which have writes) renders byte-identical to before — verified J1's summary is unchanged.
+13. Mobile/touch layout is desktop-oriented (floating windows, mouse-only hover leader-lines and drag/scroll hints). **Resolved (minimal, not a redesign):** added a one-time dismissible notice on the hero screen, shown when the existing `narrow` viewport model is true, "Best viewed on desktop — some controls need a mouse."; dismissal is remembered via one `localStorage` key so it never reappears, and it never shows on desktop widths. Verified via viewport emulation (show → dismiss → reload → stays hidden; desktop width → never shown).
 
 ## Files
-`index.dc.html`, `support.js`, `pbt-core.js`, `pbt-scene-v4.js`, `pbt-beats-v5.js`, `uploads/fixtures/*`, `docs/*`, `dist/PBT-Explainer.html`.
+`index.html`, `support.js`, `pbt-core.js`, `pbt-scene-v4.js`, `pbt-beats-v5.js`, `vendor/*` (vendored three.js/React so the site has no CDN dependency), `og.png`, `.nojekyll`, `uploads/fixtures/*`, `docs/*`, `dist/PBT-Explainer.html`.
 
-## Git
-```
-cd pbt-explainer && git init && git add . && git commit -m "PBT Explainer handoff"
-```
+## Deployment
+GitHub Pages, deployed from the `main` branch root (`.nojekyll` present so the `vendor/`/`uploads/` dot-free paths serve as static files, not processed by Jekyll). Any push to `main` updates the live site within a minute or two.

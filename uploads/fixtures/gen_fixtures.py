@@ -8,8 +8,8 @@ src/ethereum/binary_trie/{trie.py,embedding.py}) -- every key, every hash and
 every chunk in this file's output was computed by that code, never
 hand-typed. Run with that checkout's own environment:
 
-    cd /Users/random_anon/dev/execution-specs-ports-wt
-    uv run python /Users/random_anon/dev/projects/pbt-3d-explainer/fixtures/gen_fixtures.py
+    cd /path/to/execution-specs-ports-wt
+    uv run python /path/to/pbt-website/uploads/fixtures/gen_fixtures.py
 
 Real, compiled Solidity bytecode lives in fixtures/sol/{VaultTemplate,MegaToken,
 Ephemeral}.sol, compiled with solc into fixtures/sol/combined.json (see
@@ -24,7 +24,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, "/Users/random_anon/dev/execution-specs-ports-wt/src")
+sys.path.insert(0, os.environ.get("EXECUTION_SPECS_PORTS_SRC", "/path/to/execution-specs-ports-wt/src"))
 
 from ethereum.binary_trie.trie import (  # noqa: E402
     BinaryTrie,

@@ -9,6 +9,17 @@
 <x-dc>
 <helmet>
 <title>PBT Lab — Ethereum's Partitioned Binary Tree in 3D</title>
+<meta name="description" content="An interactive 3D explainer of EIP-8297's Partitioned Binary Tree. Pick an Ethereum action and watch exactly what gets hashed, where, and why.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PBT Lab — Ethereum's Partitioned Binary Tree in 3D">
+<meta property="og:description" content="An interactive 3D explainer of EIP-8297's Partitioned Binary Tree. Pick an Ethereum action and watch exactly what gets hashed, where, and why.">
+<meta property="og:image" content="https://cperezz.github.io/pbt-website/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PBT Lab — Ethereum's Partitioned Binary Tree in 3D">
+<meta name="twitter:description" content="An interactive 3D explainer of EIP-8297's Partitioned Binary Tree. Pick an Ethereum action and watch exactly what gets hashed, where, and why.">
+<meta name="twitter:image" content="https://cperezz.github.io/pbt-website/og.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&amp;family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap">
@@ -22,7 +33,7 @@ button{font:inherit;color:inherit}
 button:focus-visible,[tabindex]:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #33FF33;outline-offset:2px}
 ::selection{background:#33FF33;color:#0A0D14}
 </style>
-<script src="https://unpkg.com/three@0.149.0/build/three.min.js"></script>
+<script src="vendor/three.min.js"></script>
 <script src="pbt-core.js"></script>
 <script src="pbt-scene-v4.js"></script>
 <script src="pbt-beats-v5.js"></script>
@@ -172,6 +183,13 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible,textarea:focus
       </div>
     </div>
   </sc-if>
+  <sc-if value="{{ showMobileNotice }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:16px;right:16px;top:70px;z-index:9;display:flex;align-items:center;gap:10px;background:rgba(12,16,24,.95);border:1px solid rgba(230,159,0,.5);border-radius:8px;padding:9px 12px;font-size:12px;color:#E2E6E2;box-shadow:0 8px 24px rgba(0,0,0,.4)">
+      <span style="flex:1">Best viewed on desktop — some controls need a mouse.</span>
+      <button onClick="{{ dismissMobileNotice }}" aria-label="Dismiss" style="background:none;border:0;color:#B9C2B9;font-size:16px;line-height:1;cursor:pointer;padding:2px 4px">×</button>
+    </div>
+  </sc-if>
+
 
   <!-- PICKER -->
   <sc-if value="{{ isPicker }}" hint-placeholder-val="{{ false }}">
@@ -440,11 +458,19 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible,textarea:focus
         <button onClick="{{ goPicker }}" style="flex:1 1 200px;display:flex;align-items:center;justify-content:center;gap:8px;background:#33FF33;color:#0A0D14;border:0;border-radius:7px;padding:11px 16px;font:inherit;font-weight:600;cursor:pointer;font-size:13.5px;white-space:nowrap;box-shadow:0 0 22px rgba(51,255,51,.35)">⌂ Pick another action →</button>
         <button onClick="{{ replay }}" style="flex:0 0 auto;border:1px solid rgba(226,230,226,.35);background:none;color:#E2E6E2;border-radius:7px;padding:11px 14px;cursor:pointer;font:inherit;font-size:12.5px;white-space:nowrap" style-hover="border-color:#E2E6E2">↺ Replay</button>
       </div>
-      <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:5px 12px;align-items:baseline;font-size:12px;padding:10px 12px;border-radius:8px;background:rgba(181,123,255,.08);border:1px solid rgba(181,123,255,.4)">
-        <span style="color:#8F9A8F;white-space:nowrap">state root</span><span style="overflow-wrap:anywhere"><span style="color:#8F9A8F">{{ sum.pre }}</span> → <span style="color:#B57BFF;font-weight:600">{{ sum.post }}</span></span>
-        <span style="color:#8F9A8F;white-space:nowrap">rehashed</span><span>{{ sum.rehash }}</span>
-        <sc-if value="{{ sum.check }}"><span></span><span style="color:#33FF33;font-size:11.5px">{{ sum.check }}</span></sc-if>
-      </div>
+      <sc-if value="{{ !sum.noWrites }}">
+        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:5px 12px;align-items:baseline;font-size:12px;padding:10px 12px;border-radius:8px;background:rgba(181,123,255,.08);border:1px solid rgba(181,123,255,.4)">
+          <span style="color:#8F9A8F;white-space:nowrap">state root</span><span style="overflow-wrap:anywhere"><span style="color:#8F9A8F">{{ sum.pre }}</span> → <span style="color:#B57BFF;font-weight:600">{{ sum.post }}</span></span>
+          <span style="color:#8F9A8F;white-space:nowrap">rehashed</span><span>{{ sum.rehash }}</span>
+          <sc-if value="{{ sum.check }}"><span></span><span style="color:#33FF33;font-size:11.5px">{{ sum.check }}</span></sc-if>
+        </div>
+      </sc-if>
+      <sc-if value="{{ sum.noWrites }}">
+        <div style="display:flex;flex-direction:column;gap:4px;font-size:12px;padding:10px 12px;border-radius:8px;background:rgba(181,123,255,.08);border:1px solid rgba(181,123,255,.4)">
+          <span style="color:#8F9A8F;white-space:nowrap">state root</span><span style="overflow-wrap:anywhere;color:#B57BFF;font-weight:600">{{ sum.post }} · unchanged</span>
+          <span style="color:#B9C2B9">{{ sum.readOnlyNote }}</span>
+        </div>
+      </sc-if>
       <div style="display:flex;flex-direction:column;gap:2px">
         <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8F9A8F;margin-bottom:4px">What happened</div>
         <sc-for list="{{ sum.steps }}" as="p" hint-placeholder-count="4">
@@ -455,21 +481,32 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible,textarea:focus
           </button>
         </sc-for>
       </div>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap"><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8F9A8F">What changed</span><span style="display:flex;gap:10px;font-size:10.5px;font-weight:600;white-space:nowrap"><span style="color:#33FF33">+ created</span><span style="color:#FF9F43">~ updated</span><span style="color:#F0504A">− removed</span><span style="color:#B57BFF">rehashed</span></span></div>
-        <sc-for list="{{ sum.accts }}" as="a" hint-placeholder-count="2">
-          <button onClick="{{ a.go }}" style="display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;text-align:left;background:rgba(108,184,234,.06);border:1px solid rgba(108,184,234,.35);border-radius:8px;padding:9px 12px;cursor:{{ a.cur }};color:#E2E6E2;font:inherit" style-hover="border-color:#6CB8EA;background:rgba(108,184,234,.12)">
-            <span style="display:flex;flex-direction:column;gap:1px;min-width:0"><span style="font-family:VT323,monospace;font-size:24px;line-height:1;color:{{ a.c }}">{{ a.name }}</span><span style="font-size:11.5px;color:#B9C2B9">{{ a.what }}</span><span style="display:flex;gap:10px;font-size:11.5px;font-weight:600;flex-wrap:wrap"><span style="color:#33FF33">{{ a.ins }}</span><span style="color:#FF9F43">{{ a.upd }}</span><span style="color:#F0504A">{{ a.del }}</span></span></span>
-            <span style="font-size:12px;color:#33FF33;white-space:nowrap">{{ a.arrow }}</span>
-          </button>
-        </sc-for>
-        <sc-if value="{{ sum.aside }}"><div style="font-size:11px;color:#8F9A8F;text-wrap:pretty">{{ sum.aside }}</div></sc-if>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:8px;border:1px dashed rgba(51,255,51,.45);background:rgba(51,255,51,.04)">
-        <div style="font-size:14px;color:#E2E6E2">Your turn: explore the new state.</div>
-        <div style="font-size:12px;color:#B9C2B9;text-wrap:pretty">Open an account above, or click any <span style="color:#B57BFF;font-weight:600">purple</span> node in the tree, to see exactly what changed.</div>
-        <div style="font-size:11.5px;color:#33FF33">↙ Orbit, pan and zoom with the controls in the bottom-left corner.</div>
-      </div>
+      <sc-if value="{{ sum.hasChanges }}">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap"><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8F9A8F">What changed</span><span style="display:flex;gap:10px;font-size:10.5px;font-weight:600;white-space:nowrap"><span style="color:#33FF33">+ created</span><span style="color:#FF9F43">~ updated</span><span style="color:#F0504A">− removed</span><span style="color:#B57BFF">rehashed</span></span></div>
+          <sc-for list="{{ sum.accts }}" as="a" hint-placeholder-count="2">
+            <button onClick="{{ a.go }}" style="display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;text-align:left;background:rgba(108,184,234,.06);border:1px solid rgba(108,184,234,.35);border-radius:8px;padding:9px 12px;cursor:{{ a.cur }};color:#E2E6E2;font:inherit" style-hover="border-color:#6CB8EA;background:rgba(108,184,234,.12)">
+              <span style="display:flex;flex-direction:column;gap:1px;min-width:0"><span style="font-family:VT323,monospace;font-size:24px;line-height:1;color:{{ a.c }}">{{ a.name }}</span><span style="font-size:11.5px;color:#B9C2B9">{{ a.what }}</span><span style="display:flex;gap:10px;font-size:11.5px;font-weight:600;flex-wrap:wrap"><span style="color:#33FF33">{{ a.ins }}</span><span style="color:#FF9F43">{{ a.upd }}</span><span style="color:#F0504A">{{ a.del }}</span></span></span>
+              <span style="font-size:12px;color:#33FF33;white-space:nowrap">{{ a.arrow }}</span>
+            </button>
+          </sc-for>
+          <sc-if value="{{ sum.aside }}"><div style="font-size:11px;color:#8F9A8F;text-wrap:pretty">{{ sum.aside }}</div></sc-if>
+        </div>
+      </sc-if>
+      <sc-if value="{{ !sum.noWrites }}">
+        <div style="display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:8px;border:1px dashed rgba(51,255,51,.45);background:rgba(51,255,51,.04)">
+          <div style="font-size:14px;color:#E2E6E2">Your turn: explore the new state.</div>
+          <div style="font-size:12px;color:#B9C2B9;text-wrap:pretty">Open an account above, or click any <span style="color:#B57BFF;font-weight:600">purple</span> node in the tree, to see exactly what changed.</div>
+          <div style="font-size:11.5px;color:#33FF33">↙ Orbit, pan and zoom with the controls in the bottom-left corner.</div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ sum.noWrites }}">
+        <div style="display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:8px;border:1px dashed rgba(51,255,51,.45);background:rgba(51,255,51,.04)">
+          <div style="font-size:14px;color:#E2E6E2">{{ sum.footTitle }}</div>
+          <div style="font-size:12px;color:#B9C2B9;text-wrap:pretty">{{ sum.footBody }}</div>
+          <div style="font-size:11.5px;color:#33FF33">↙ Orbit, pan and zoom with the controls in the bottom-left corner.</div>
+        </div>
+      </sc-if>
       
     </div>
   </sc-if>
@@ -797,7 +834,7 @@ const ORDER = ['J1', 'J3', 'J2', 'J5', 'J4a', 'J4b', 'J4c', 'J7', 'J9', 'J10', '
 
 class Component extends DCLogic {
   state = { speed: 1, inspect: null, fx: null, fxStage: 0, fxStep: 0, fxSubDone: false, typedText: '', fxIn: false, fxDocked: false, dockWait: false, loading: true, loadText: 'loading the tree…', mode: 'hero', ji: 0, bi: 0, visited: {}, follow: 'tree', zoom: 'tree', playing: false, help: false, keys: false,
-    ai: 0, af: 0, wi: 0, wf: 0, tip: null, spec: null, chips: [], wave: null, narrow: false,
+    ai: 0, af: 0, wi: 0, wf: 0, tip: null, spec: null, chips: [], wave: null, narrow: false, mobileNoticeDismissed: !!localStorage.getItem('pbt-mobile-notice-seen'),
     layoutOpen: typeof innerWidth === 'undefined' || innerWidth >= 1200, chainOn: false, delegOn: false, shuffles: [], chunkIn: EIP_EX, slotC: 'MegaToken', slotIn: '1000', mapHolder: '0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65', mapBase: '4', fmode: 'address', fin: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8' };
   sceneRef = React.createRef();
 
@@ -830,6 +867,7 @@ class Component extends DCLogic {
     } catch (e) { console.error(e); this.setState({ loadText: 'Could not load: ' + e.message }); }
   }
   componentWillUnmount() { window.removeEventListener('keydown', this.onKey); window.removeEventListener('resize', this.onResize); clearTimeout(this.timer); if (this.scene) cancelAnimationFrame(this.scene._raf); }
+  dismissMobileNotice() { localStorage.setItem('pbt-mobile-notice-seen', '1'); this.setState({ mobileNoticeDismissed: true }); }
 
   // ---------- helpers ----------
   allIds() { return [...this.scene.nodes.values()].filter(v => !v.dying && (v.type === 'leaf' || v.depth < 2)).map(v => v.id); }
@@ -956,16 +994,18 @@ class Component extends DCLogic {
       if (!manual) this.walkTimer = setTimeout(stepW, sc.reduced ? 0 : (o.entry ? 1400 : 1000) * this.pace());
     }
     if (b.wave) {
-      const set = C.recomputeSet(sc.root, b.wave), ids = [...set.values()].sort((p, q) => q.depth - p.depth).map(n => n.id);
+      const sorted = [...C.recomputeSet(sc.root, b.wave).values()].sort((p, q) => q.depth - p.depth);
+      const nonCode = sorted.filter(n => sc.zoneOf(n) !== 1).map(n => n.id), codeZone = sorted.filter(n => sc.zoneOf(n) === 1).map(n => n.id);
+      const ids = [...nonCode, ...codeZone];
       this.baseStyle.path = [...path, ...ids]; sc.setStyle(this.baseStyle);
       st.wave = { i: 0, n: ids.length };
       const delay = o.entry ? 1300 : 900;
-      const iv = this.waveIv(ids.length);
-      this.waveTimer = setTimeout(() => sc.runWave(ids, { interval: iv,
-        tick: (i, id) => { this.baseStyle.recomputed.add(id); this.setState({ wave: { i, n: ids.length } }); this.forgeLabel(id); },
-        done: () => { sc.setLabels(this.baseLabels); if (this.state.playing) this.schedule(900); },
-      }), sc.reduced ? 0 : delay);
-      this.waveMs = delay + ids.length * iv;
+      const iv = this.waveIv(ids.length), fastIv = Math.max(15, iv / 3);
+      const tick = (i, id) => { this.baseStyle.recomputed.add(id); this.setState({ wave: { i, n: ids.length } }); this.forgeLabel(id); };
+      const done = () => { sc.setLabels(this.baseLabels); if (this.state.playing) this.schedule(900); };
+      const runCode = () => codeZone.length ? sc.runWave(codeZone, { interval: fastIv, tick: (i, id) => tick(nonCode.length + i, id), done }) : done();
+      this.waveTimer = setTimeout(() => nonCode.length ? sc.runWave(nonCode, { interval: iv, tick, done: runCode }) : runCode(), sc.reduced ? 0 : delay);
+      this.waveMs = delay + nonCode.length * iv + codeZone.length * fastIv;
     } else this.waveMs = 0;
     this.setState(st, () => setTimeout(() => this.autoLead(), 60));
     this.startFx(b);
@@ -1675,6 +1715,7 @@ class Component extends DCLogic {
       isHero: m === 'hero' && !st.loading, isPicker: m === 'picker', isSummary: m === 'summary', showCorners: m !== 'hero',
       goHome: () => this.goPicker(), goPicker: () => this.goPicker(), goAtlas: () => this.enterAtlas(0, 0), goWhy: () => this.enterWhy(0, 0), goForge: () => this.enterForge(),
       toggleHelp: () => this.setState({ help: !st.help, keys: false }), toggleKeys: () => this.setState({ keys: !st.keys, help: false }),
+      showMobileNotice: m === 'hero' && !st.loading && st.narrow && !st.mobileNoticeDismissed, dismissMobileNotice: () => this.dismissMobileNotice(),
       heroNote: this.fx ? `${this.fx.zone_atlas.total_leaves} real leaves · ${this.fx.zone_atlas.total_nodes} nodes · from the EIP-8297 reference implementation` : '' };
     if (st.loading) return Object.assign(v, { showTitle: false, hasChips: false, hasCaption: false, showControls: false, hasTabs: false, hasDiagram: false, hasBytes: false, hasPanel: false, hasWidget: false, showScrub: false, liveText: '', fxOn: false, hasLedger: false, showLegend: false, isInspect: false });
     const b = st.spec, j = this.curJ();
@@ -1734,9 +1775,13 @@ class Component extends DCLogic {
         const cn = g.ck ? { VT: 'VaultTemplate code', Mega: 'MegaToken code', Eph: 'Ephemeral code' }[g.ck] : 'Code';
         return { name: g.lab ? this.x.nice(g.lab) : cn, what, ins: g.ins ? '+' + g.ins + ' new' : '', upd: g.upd ? '~' + g.upd + ' updated' : '', del: g.del ? '−' + g.del + ' removed' : '', arrow: g.lab || g.ck ? 'inspect →' : '', cur: g.lab || g.ck ? 'pointer' : 'default', c: g.lab ? '#6CB8EA' : '#E69F00', go: () => g.lab ? this.inspect(g.lab) : g.ck && this.inspectCode(g.ck) }; });
       const rs = [...this.C.recomputeSet(this.rootOf(j.beats[j.beats.length - 1].w), writes.map(w => w.key)).values()], br = rs.filter(q => q.type === 'branch').length;
+      const noWrites = !writes.length;
       v.sum = { title: `${j.id} · ${j.title}`, pre: s(j.pre, 8, 6), post: s(j.post, 8, 6), check: st.sumCheck || '', rehash: `${rs.length} hashes · ${br} branches + ${rs.length - br} leaves`,
+        noWrites, readOnlyNote: 'No writes this trip: it only reads the existing tree, so the root is unchanged.',
+        footTitle: noWrites ? 'Your turn: explore the code layout.' : 'Your turn: explore the new state.',
+        footBody: noWrites ? 'Open the code layout panel on the left for the group split, the absent zero chunks, and the PUSH32 boundary up close.' : '',
         steps: j.beats.map((q, k) => { const f = this.jFacts && this.jFacts[k]; return { n: String(k + 1).padStart(2, '0'), l: f ? f.l : q.name, v: f ? f.v : '', dc: f ? f.c : '#8F9A8F', go: () => this.goBeat(k) }; }),
-        accts, aside: j.aside ? j.aside.note : '' };
+        accts, hasChanges: accts.length > 0, aside: j.aside ? j.aside.note : '' };
       v.replay = () => this.enterJourney(st.ji); v.backSummary = () => this.backSummary(); v.isInspect = !!st.inspect; v.isSummary = !st.inspect; v.inspName = st.inspect ? (String(st.inspect).startsWith('code:') ? ({ VT: 'VaultTemplate code', Mega: 'MegaToken code', Eph: 'Ephemeral code' }[st.inspect.slice(5)]) : this.x.nice(st.inspect)) : ''; { const W = innerWidth, R = this.layoutW() + 40, L = W >= 900 ? 404 : 0, fr = W - R - L; if (fr >= 320) { v.inspLeft = Math.round(L + fr / 2) + 'px'; v.inspTop = '20px'; v.inspBottom = 'auto'; v.inspW = (fr - 24) + 'px'; } else { v.inspLeft = Math.round(Math.min(404, W * .45) / 2) + 'px'; v.inspTop = 'auto'; v.inspBottom = '130px'; v.inspW = (Math.min(404, W * .45) - 24) + 'px'; } }
     }
     if (m === 'picker') v.cards = this.journeys.map((q, i) => ({ n: String(i + 1).padStart(2, '0'), id: q.id, title: q.title, teaches: q.teaches, go: () => this.enterJourney(i) }));

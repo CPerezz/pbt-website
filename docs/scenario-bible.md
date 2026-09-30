@@ -6,12 +6,12 @@ status: complete
 # PBT 3D explainer — scenario bible
 
 Ground truth for every journey, zone-atlas panel, why-PBT panel and the sandbox. Every `TRUTH` line
-cites an exact EIP-8297 formula (`/Users/random_anon/dev/EIPs/EIPS/eip-8297.md`) with concrete numbers,
+cites an exact EIP-8297 formula (`EIPS/EIPS/eip-8297.md`) with concrete numbers,
 plus the exact `fixtures/pbt-fixtures.json` object/key it refers to. Nothing here is hand-typed: every
 hash, key and chunk was produced by running the real Python reference implementation
 (`execution-specs-ports-wt/src/ethereum/binary_trie/{trie.py,embedding.py}`, branch
-`tests/binary-tree-geth-ports`) via `fixtures/gen_fixtures.py`. Beat IDs match `local://pbt-beats.md`
-exactly; this file adds full TREE/CAPTION/End-state/Traps prose per beat.
+`tests/binary-tree-geth-ports`) via `fixtures/gen_fixtures.py`. Beat IDs match an internal beat-list
+note exactly; this file adds full TREE/CAPTION/End-state/Traps prose per beat.
 
 Read standalone; you do not need the brief or the EIP open to use this file, though every claim is
 traceable back to both.
@@ -709,10 +709,10 @@ Teaches: leaf/branch preimages, `encode_bit_prefix`, BLAKE3 vs Keccak.
   anchor block, or downloads a snapshot and verifies it against the anchor's state root... the tree
   becomes the canonical state commitment at a single coordinated hard fork." EIP-8347 is authored by the
   same Anon who authored this EIP-8297 co-authorship; article at
-  `/Users/random_anon/dev/articles/mpt-to-pbt-migration/`.
+  `/articles/mpt-to-pbt-migration/` (sibling article, not included in this handoff).
   | CAPTION: "The switch happens once, off the critical path, at a single fork."
 
-## W8 — State expiry preview *(new panel — see justification in `local://pbt-beats.md`)*
+## W8 — State expiry preview *(new panel — see justification in the internal beat-list note)*
 - W8.B1 Expiry unit — TRUTH: EIP-8297 Rationale "State expiry": "Per-account and per-bucket expiry is a
   natural operation on the zone topology. The storage bucket keyed by key_hash(address) roots one
   account's storage in the common case. Record its hash and prune below it. The account header's stem
@@ -721,7 +721,7 @@ Teaches: leaf/branch preimages, `encode_bit_prefix`, BLAKE3 vs Keccak.
   separate EIP."
   | CAPTION: "A bucket or a stem: the natural unit to expire and prune."
 
-## W9 — Grinding & security margins *(new panel — see justification in `local://pbt-beats.md`)*
+## W9 — Grinding & security margins *(new panel — see justification in the internal beat-list note)*
 - W9.B1 Collision cost — TRUTH: EIP-8297 "Security Considerations": "Each is a full 256-bit digest, so
   any collision costs about `2^128` birthday work, far beyond reach. Keys of different zones differ in
   their first byte and cannot collide at all."

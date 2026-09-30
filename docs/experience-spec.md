@@ -5,11 +5,12 @@ status: complete — §7's 84-row beat table verified 1:1 against PbtTruth's FIN
 
 # Experience spec — PBT 3D explainer
 
-Companion files: `reference-board.md` (visual references + screenshots), `local://pbt-visual-encodings.md`
-(every encoding's fact-justification, IDs `E1`-`E15`, cross-referenced below rather than re-derived).
-Ground truth: `EIPS/EIPS/eip-8297.md` and `local://pbt-explainer-brief.md` §4 (fact sheet). This file
-stands alone — a design agent implementing it needs no other file to build the experience, though it
-should also read the two above for the *why* behind each rule here.
+Companion files: `reference-board.md` (visual references + screenshots). The design process also
+drew on two internal notes not included in this handoff — a full visual-encoding fact-justification
+doc (IDs `E1`-`E15`, referenced below rather than re-derived) and a project brief §4 fact sheet.
+Ground truth: `EIPS/EIPS/eip-8297.md` (the EIP-8297 spec text). This file stands alone — a design
+agent implementing it needs no other file to build the experience, though the encoding rationale
+behind each rule here was captured in that internal note.
 
 ## 1. Information architecture
 
@@ -170,7 +171,7 @@ is fully determined by its `TREE:` node ids.
 
 ## 4. Visual / geometric encoding — every tree concept
 
-This section gives concrete geometry; `local://pbt-visual-encodings.md` (E1-E15) gives the
+This section gives concrete geometry; the internal visual-encodings note (E1-E15) gives the
 fact-justification for each. Cross-referenced by ID.
 
 ### 4.1 Tree layout algorithm
@@ -419,7 +420,7 @@ switch, confirm on a real device before spending effort on tier 3's point-sprite
 
 ## 7. Beat-by-beat mapping table
 
-Sourced from `local://pbt-beats.md` (PbtTruth, IDs stable, every number pulled from the real generated `pbt-fixtures.json`). 84 beat ids total: 51 across 14 journeys (J1-J11b, including the J4a/b/c and J11a/b splits PbtTruth's generator required), 21 across the Zone Atlas (A0-A5), 11 across Why-PBT (W1-W9, including PbtTruth's two justified additions W8/W9), 1 for Key Forge (X1) — matching `pbt-beats.md`'s id count exactly, no sampling. `E<n>` ids reference `local://pbt-visual-encodings.md`. Atlas/Why/Sandbox beats are self-paced facets (no forced camera flight or play-timer, per §1's IA rule) — their "camera" column describes the framing *when that facet is opened*, not an automatic flight; "duration" is a dwell default, not a hard cut. Journey beats (J*) are the guided, timer-advanceable sequence described in §3.
+Sourced from an internal beat-list note (PbtTruth, IDs stable, every number pulled from the real generated `pbt-fixtures.json`). 84 beat ids total: 51 across 14 journeys (J1-J11b, including the J4a/b/c and J11a/b splits PbtTruth's generator required), 21 across the Zone Atlas (A0-A5), 11 across Why-PBT (W1-W9, including PbtTruth's two justified additions W8/W9), 1 for Key Forge (X1) — matching that note's id count exactly, no sampling. `E<n>` ids reference the internal visual-encodings note. Atlas/Why/...
 
 ### Journeys (J1-J11b)
 

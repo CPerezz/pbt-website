@@ -154,7 +154,7 @@
         v.ghostT = g;
         v.hl = st.color && st.color[v.id] || null;
         v.onPath = path.has(v.id);
-        v.ring = st.ring && st.ring[v.id] || (focus.has(v.id) && v.type === 'leaf' ? GREEN : null);
+        v.ring = st.ring && st.ring[v.id] || (focus.has(v.id) && v.type === 'leaf' && v.zone !== 1 ? GREEN : null);
         v.recomputed = st.recomputed && st.recomputed.has(v.id);
       }
       this.beads = (st.siblings || []);
