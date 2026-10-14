@@ -1,5 +1,5 @@
 // What it cost: CPU, memory and disk of each client's import, replayed on the shared clock.
-import { COL, controls, countUp, fmt, h, hover, num, onVisible, s, scale } from './bench.js';
+import { COL, controls, countUp, fmt, h, hover, num, onVisible, s, scale, who } from './bench.js';
 
 export default async function (root, ctx) {
   const { res, clock } = ctx;
@@ -45,7 +45,7 @@ export default async function (root, ctx) {
 
     const box = h('div', { class: 'panel', style: 'display:flex;flex-direction:column;gap:14px;transition:opacity .4s' },
       h('div', { style: 'display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap' },
-        h('span', { class: 'big', style: `color:${color}` }, c.name)),
+        who(c, 30, 'font-family:VT323,monospace;font-size:34px;font-weight:400;line-height:1')),
       h('div', {},
         h('div', { class: 'lbl' }, `CPU · ${CORES} cores`),
         h('div', { style: 'display:flex;gap:4px;height:26px;margin:6px 0' },

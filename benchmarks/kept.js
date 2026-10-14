@@ -1,5 +1,5 @@
 // "Still validating?" — did each node keep validating blocks during its import?
-import { COL, DATA, REDUCED, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, tip } from './bench.js';
+import { COL, DATA, REDUCED, avatar, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, tip, who } from './bench.js';
 
 const W = 1120, AX = { fill: COL.muted, 'font-size': 10 };
 const ms = (v) => (v >= 1000 ? `${fmt.n(v / 1000, 2)} s` : `${fmt.n(v, v < 100 ? 1 : 0)} ms`);
@@ -103,7 +103,7 @@ function panel(c, rows, ctx) {
 
   const el = h('div', { class: 'panel reveal', style: `margin-bottom:14px;border-left:3px solid ${col}` },
     h('div', { style: 'display:flex;align-items:center;gap:10px;margin-bottom:6px' },
-      h('span', { class: 'dot', style: `background:${col}` }), h('b', {}, c.name),
+      who(c, 22),
       h('span', { class: 'lbl' }, 'blocks validated during import'), num(fmt.n(pts.length), isrc, { class: 'num', style: `color:${col}` }),
       h('span', { class: 'lbl' }, `· import ${fmt.hm(imp.duration_s)}`)),
     h('div', { style: 'display:flex;gap:18px;flex-wrap:wrap' }, h('div', { style: 'flex:4 1 560px;min-width:0' }, svg), stats));
@@ -129,7 +129,7 @@ function dumbbell(ctx) {
     const col = ctx.color(c.id), cy = T + i * RH + RH / 2, b = c.baseline.follow.mgas_per_s;
     const w = c.imports[0], to = w.follow.mgas_per_s;
     const x0 = x(b), x1 = x(to), dir = Math.sign(x1 - x0) || 1;
-    svg.append(s('text', { x: L - 16, y: cy + 4, 'text-anchor': 'end', fill: col, 'font-size': 12, text: c.name }));
+    svg.append(avatar(c.id, 18, { x: 8, y: cy - 9 }), s('text', { x: 32, y: cy + 4, fill: col, 'font-size': 12, text: c.name }));
     const arrow = s('g', { style: REDUCED ? '' : 'opacity:0;transition:opacity .4s ease 1s' },
       s('line', { x1: x0 - dir * 8, x2: x1 + dir * 9, y1: cy, y2: cy, stroke: col, 'stroke-width': 1.5 }),
       s('path', { d: `M${x1 + dir * 8},${cy} l${-dir * 7},-4 v8 z`, fill: col }),

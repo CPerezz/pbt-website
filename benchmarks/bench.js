@@ -21,6 +21,16 @@ function build(el, attrs, kids) {
   return el;
 }
 
+// Client mark (pbt-devnet monitor's one-colour silhouettes, clients.svg) in the client's colour.
+// Inline in HTML, or nested inside an SVG chart by passing {x, y}.
+const MARKS = new URL('clients.svg', import.meta.url).href;
+export const avatar = (id, size = 18, attrs = {}) =>
+  s('svg', { width: size, height: size, color: CLIENT[id], class: 'avatar', 'aria-hidden': 'true', ...attrs },
+    s('use', { href: `${MARKS}#${id}`, width: '100%', height: '100%' }));
+// Avatar + name in the client's colour.
+export const who = (c, size = 18, style = '') =>
+  h('span', { class: 'who', style: `color:${CLIENT[c.id]};${style}` }, avatar(c.id, size), c.name);
+
 // Linear / log scales: f(x) maps domain → range, f.inv maps back.
 export function scale(d0, d1, r0, r1) {
   const f = (x) => r0 + ((x - d0) / (d1 - d0)) * (r1 - r0);

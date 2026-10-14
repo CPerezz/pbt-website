@@ -1,5 +1,5 @@
 // Hero: every import replayed on one clock (t = seconds since each import's own start).
-import { COL, DATA, controls, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, scramble } from './bench.js';
+import { COL, DATA, avatar, controls, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, scramble } from './bench.js';
 
 const W = 1120, X0 = 160, X1 = 900, FX = 922; // label column | race track | finish column
 const BIN = 300, SLOT = 12, GENESIS = 1606824023; // 5-min comb bins; mainnet beacon slots
@@ -76,10 +76,10 @@ export default async function (root, ctx) {
       hover(pct, `<b>${fmt.dur(d)}</b> vs <b>${fmt.dur(l.run1.duration_s)}</b> (run 1)<br>${source(ctx.src(w.src))}`);
       svg.append(s('text', { x: 0, y: by + bh - 1, 'font-size': 12, 'font-weight': 600, fill: col, opacity: 0.7, text: 'run 2' }), pct);
     } else {
-      svg.append(s('text', { x: 0, y: by + 2, 'font-size': 15, 'font-weight': 600, fill: col, text: c.name }));
+      svg.append(avatar(c.id, 24, { x: 0, y: by - 18 }), s('text', { x: 30, y: by + 2, 'font-size': 15, 'font-weight': 600, fill: col, text: c.name }));
       if (data) {
         const src = ctx.src(w.files.newpayload);
-        counter = s('text', { x: 0, y: by + 18, 'font-size': 10.5, fill: COL.muted });
+        counter = s('text', { x: 30, y: by + 18, 'font-size': 10.5, fill: COL.muted });
         svg.append(hover(s('a', { href: src, target: '_blank' }, counter), source(src)));
       }
     }
@@ -118,7 +118,10 @@ export default async function (root, ctx) {
         g.append(s('text', { x: sx + sw / 2, y: by + bh + 13, 'text-anchor': 'middle', 'font-size': 9.5, fill: COL.muted, text: st.label }));
     }
 
-    const head = s('rect', { x: -1.5, y: by - 3, width: 3, height: bh + 6, rx: 1.5, fill: col, filter: 'url(#race-glow)' });
+    // The client's mark rides the front of its bar while the import runs.
+    const hr = 11 * k, hy = by + bh / 2;
+    const head = s('g', {}, s('circle', { cy: hy, r: hr, fill: COL.bg, stroke: col, 'stroke-width': 1.5, filter: 'url(#race-glow)' }),
+      avatar(c.id, hr * 1.3, { x: -hr * 0.65, y: hy - hr * 0.65 }));
     const fin = s('line', { x1: xe, x2: xe, y1: l.y - 4, y2: by + bh + 4, stroke: col, 'stroke-width': 2 });
     g.append(fin, head);
 
@@ -180,7 +183,7 @@ export default async function (root, ctx) {
     'zoom · the 5 minutes at the cursor · one cell per 12 s slot'), lens);
   lensLanes.forEach((l, i) => {
     const { c, w, data } = l, col = ctx.color(c.id), d = w.duration_s, top = i * LRH + 4, base = top + LBH;
-    lens.append(s('text', { x: 0, y: top + LBH / 2 + 5, 'font-size': 13, 'font-weight': 600, fill: col, text: c.name }),
+    lens.append(avatar(c.id, 18, { x: 0, y: top + LBH / 2 - 9 }), s('text', { x: 24, y: top + LBH / 2 + 5, 'font-size': 13, 'font-weight': 600, fill: col, text: c.name }),
       s('line', { x1: X0, x2: X1, y1: base - ly(1000), y2: base - ly(1000), stroke: COL.line, 'stroke-dasharray': '2 4' }),
       s('text', { x: X1 + 4, y: base - ly(1000) + 3, 'font-size': 9, fill: COL.muted, text: '1 s' }));
     const range = s('text', { x: FX, y: top + LBH / 2 + 4, 'font-size': 10.5, fill: COL.muted });

@@ -1,4 +1,4 @@
-import { CLIENT, REDUCED, countUp, fmt, h, hover, num, onVisible, s, scramble } from './bench.js';
+import { CLIENT, REDUCED, avatar, countUp, fmt, h, hover, num, onVisible, s, scramble, who } from './bench.js';
 
 // What goes in and what must come out: mainnet state → the snapshot pair → the clients → one PBT root.
 export default async function (root, ctx) {
@@ -46,17 +46,17 @@ export default async function (root, ctx) {
     h('div', { style: 'display:flex;flex-direction:column;gap:3px;margin-top:4px' }, counts));
 
   // 3. The clients and the branch each one ran.
-  const who = h('div', { class: 'panel' }, h('span', { class: 'lbl' }, 'imported by'),
+  const clientsBox = h('div', { class: 'panel' }, h('span', { class: 'lbl' }, 'imported by'),
     clients.map((c) => h('div', { style: 'display:flex;flex-direction:column;gap:2px;padding:7px 0;border-bottom:1px solid rgba(226,230,226,.06)' },
-      h('span', { style: `display:flex;gap:8px;align-items:center;font-weight:600;color:${CLIENT[c.id]};font-size:15px` }, h('span', { class: 'dot', style: `background:${CLIENT[c.id]}` }), c.name),
-      h('span', { class: 'muted', style: 'font-size:10.5px;padding-left:16px;overflow-wrap:anywhere' }, `${c.builds[0].ref}@${c.builds[0].commit.slice(0, 8)}`))));
+      who(c, 26, 'font-size:15px'),
+      h('span', { class: 'muted', style: 'font-size:10.5px;padding-left:34px;overflow-wrap:anywhere' }, `${c.builds[0].ref}@${c.builds[0].commit.slice(0, 8)}`))));
 
   // 4. The root they must all reproduce.
   const rootText = h('div', { style: 'font-size:12px;color:#33FF33;word-break:break-all;line-height:1.45' }, '0x' + '·'.repeat(64));
   onVisible(rootText, () => scramble(rootText, pair.pbt_root, 1600), 0.6);
   const ticks = clients.map((c) => {
     const ok = c.imports.every((w) => w.root_verified);
-    return hover(h('span', { style: `color:${ok ? CLIENT[c.id] : '#F0504A'};font-size:15px;font-weight:600` }, ok ? `✓ ${c.name}` : `✗ ${c.name}`),
+    return hover(h('span', { style: `display:inline-flex;align-items:center;gap:8px;color:${ok ? CLIENT[c.id] : '#F0504A'};font-size:15px;font-weight:600` }, ok ? '✓' : '✗', avatar(c.id, 18), c.name),
       `${c.name}: ${ok ? 'its own log verified this root' : 'root not verified'} (${c.imports.length} run${c.imports.length > 1 ? 's' : ''})`);
   });
   const rootBox = h('div', { class: 'panel', style: 'border-color:rgba(51,255,51,.45);box-shadow:0 0 24px rgba(51,255,51,.08)' },
@@ -68,6 +68,6 @@ export default async function (root, ctx) {
       h('span', { class: 'lbl' }, 'Mainnet benchmark · EIP-8347 import'), h('span', { class: 'chip' }, `${round.label} · ${round.date}`)),
     h('h1', { class: 'h1' }, `One snapshot, ${['zero', 'one', 'two', 'three', 'four', 'five', 'six'][clients.length] ?? clients.length} clients, `,
       h('span', { class: 'glow' }, 'one root.')),
-    h('div', { class: 'flow' }, anchor, arrow(), pairBox, arrow(), who, arrow(), rootBox),
+    h('div', { class: 'flow' }, anchor, arrow(), pairBox, arrow(), clientsBox, arrow(), rootBox),
   );
 }

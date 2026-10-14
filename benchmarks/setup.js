@@ -1,5 +1,5 @@
 // The machine and the method: rig, preflight, builds.
-import { COL, h, s, hover, onVisible } from './bench.js';
+import { COL, h, s, hover, onVisible, who } from './bench.js';
 
 const GREEN = COL.green;
 
@@ -65,8 +65,8 @@ export default async function (root, ctx) {
   // Preflight pips, per client, fetched live.
   const preflightRows = clients.map((c) => {
     const row = h('div', { class: 'row', style: 'gap:3px' });
-    const line = h('div', { style: 'display:grid;grid-template-columns:90px 1fr;gap:10px;align-items:center' },
-      h('span', { style: `color:${ctx.color(c.id)}` }, c.name), row);
+    const line = h('div', { style: 'display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:center' },
+      who(c, 16, 'font-weight:400'), row);
     fetch(ctx.src(`${c.id}/${c.baseline.phase}/preflight.txt`)).then((r) => r.text()).then((txt) => {
       const lines = txt.trim().split('\n');
       for (const l of lines) {
@@ -94,8 +94,8 @@ export default async function (root, ctx) {
     }
     return h('a', { class: 'chip', href: `https://github.com/${b.repo}/commit/${b.commit}`, target: '_blank', rel: 'noopener' }, `${b.repo}@${b.commit}`);
   };
-  const buildRows = clients.map((c) => h('div', { style: 'display:grid;grid-template-columns:90px 1fr;gap:10px;align-items:center;padding:5px 0;border-bottom:1px solid rgba(226,230,226,.06)' },
-    h('span', { style: `color:${ctx.color(c.id)}` }, c.name),
+  const buildRows = clients.map((c) => h('div', { style: 'display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:center;padding:5px 0;border-bottom:1px solid rgba(226,230,226,.06)' },
+    who(c, 16, 'font-weight:400'),
     h('div', { class: 'row', style: 'gap:6px;align-items:center' },
       ...c.builds.map(buildChip), h('span', { class: 'muted', style: 'font-size:11px' }, c.runtime))));
   const buildsBox = h('div', { class: 'panel', style: 'display:grid;gap:4px;margin-top:18px' },

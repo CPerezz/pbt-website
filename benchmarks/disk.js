@@ -1,5 +1,5 @@
 // What the PBT adds on disk: database before → after per client, and bytes per PBT leaf.
-import { COL, REDUCED, h, fmt, hover, num, onVisible } from './bench.js';
+import { COL, REDUCED, h, fmt, hover, num, onVisible, who } from './bench.js';
 
 const GREEN = COL.green;
 const HATCH = `repeating-linear-gradient(135deg, rgba(51,255,51,.55) 0 4px, rgba(51,255,51,.12) 4px 9px)`;
@@ -30,8 +30,8 @@ export default async function (root, ctx) {
       h('div', { style: 'display:flex;height:18px' },
         h('div', { style: `width:${pctW(z.after_gib - z.pbt_gib, max)};background:rgba(143,154,143,.35);border-radius:4px 0 0 4px` }),
         pbt));
-    return h('div', { style: 'display:grid;grid-template-columns:minmax(80px,110px) minmax(0,1fr) auto;gap:14px;align-items:center' },
-      h('span', { style: `color:${col};font-weight:600` }, h('span', { class: 'dot', style: `background:${col};margin-right:7px` }), c.name),
+    return h('div', { style: 'display:grid;grid-template-columns:minmax(110px,140px) minmax(0,1fr) auto;gap:14px;align-items:center' },
+      who(c, 20),
       bars,
       h('div', { style: 'text-align:right;white-space:nowrap' },
         h('div', { class: 'muted', style: 'font-size:11px' },
@@ -55,8 +55,8 @@ export default async function (root, ctx) {
   const leafRows = per.map(({ c, b }) => {
     const fill = h('div', { class: 'fill', style: `background:${ctx.color(c.id)};height:14px;border-radius:3px` });
     grows.push([fill, pctW(b, bmax)]);
-    return h('div', { style: 'display:grid;grid-template-columns:minmax(80px,110px) minmax(0,1fr) 84px;gap:14px;align-items:center' },
-      h('span', { style: `color:${ctx.color(c.id)}` }, c.name),
+    return h('div', { style: 'display:grid;grid-template-columns:minmax(110px,140px) minmax(0,1fr) 84px;gap:14px;align-items:center' },
+      who(c, 16, 'font-weight:400'),
       h('div', { style: 'height:14px' }, fill),
       h('span', { class: 'big', style: 'font-size:26px;text-align:right' }, num(`${fmt.n(b, 1)} B`, ctx.src(c.sizes.src[1]))));
   });
