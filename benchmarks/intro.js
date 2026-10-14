@@ -1,4 +1,4 @@
-import { CLIENT, REDUCED, countUp, fmt, h, hover, num, onVisible, s, scramble } from '../bench.js';
+import { CLIENT, REDUCED, countUp, fmt, h, hover, num, onVisible, s, scramble } from './bench.js';
 
 // What goes in and what must come out: mainnet state → the snapshot pair → the clients → one PBT root.
 export default async function (root, ctx) {

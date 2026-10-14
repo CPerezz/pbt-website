@@ -19,8 +19,6 @@ svg text { font-family: 'IBM Plex Mono', ui-monospace, monospace }
 .logo { font-family: VT323, monospace; font-size: 30px; line-height: 1; color: var(--green); letter-spacing: 1px; text-shadow: 0 0 12px rgba(51,255,51,.45); text-decoration: none }
 .logo:hover { color: var(--green) }
 .crumb { font-size: 11px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase }
-.crumb a { color: var(--muted); text-decoration: none }
-.crumb a:hover { color: var(--ink) }
 .grow { flex: 1 }
 
 .lbl { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }

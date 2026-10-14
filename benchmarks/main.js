@@ -1,4 +1,4 @@
-import { CLIENT, DATA, Clock, getCSV, getJSON, h, reveal } from '../bench.js';
+import { CLIENT, DATA, Clock, getCSV, getJSON, h, reveal } from './bench.js';
 
 const BASE = `${DATA}import/`;
 const { rounds } = await getJSON(`${BASE}rounds.json`);

@@ -1,5 +1,5 @@
 // The machine and the method: rig, preflight, builds.
-import { COL, h, s, hover, onVisible } from '../bench.js';
+import { COL, h, s, hover, onVisible } from './bench.js';
 
 const GREEN = COL.green;
 

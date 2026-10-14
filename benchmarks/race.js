@@ -1,5 +1,5 @@
 // Hero: every import replayed on one clock (t = seconds since each import's own start).
-import { COL, DATA, controls, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, scramble } from '../bench.js';
+import { COL, DATA, controls, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, scramble } from './bench.js';
 
 const W = 1120, X0 = 160, X1 = 900, FX = 922; // label column | race track | finish column
 const BIN = 300, SLOT = 12, GENESIS = 1606824023; // 5-min comb bins; mainnet beacon slots

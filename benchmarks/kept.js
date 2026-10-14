@@ -1,5 +1,5 @@
 // "Still validating?" — did each node keep validating blocks during its import?
-import { COL, DATA, REDUCED, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, tip } from '../bench.js';
+import { COL, DATA, REDUCED, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, tip } from './bench.js';
 
 const W = 1120, AX = { fill: COL.muted, 'font-size': 10 };
 const ms = (v) => (v >= 1000 ? `${fmt.n(v / 1000, 2)} s` : `${fmt.n(v, v < 100 ? 1 : 0)} ms`);

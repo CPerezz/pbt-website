@@ -1,5 +1,5 @@
 // What it cost: CPU, memory and disk of each client's import, replayed on the shared clock.
-import { COL, controls, countUp, fmt, h, hover, num, onVisible, s, scale } from '../bench.js';
+import { COL, controls, countUp, fmt, h, hover, num, onVisible, s, scale } from './bench.js';
 
 export default async function (root, ctx) {
   const { res, clock } = ctx;

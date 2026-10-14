@@ -1,5 +1,5 @@
 // What the PBT adds on disk: database before → after per client, and bytes per PBT leaf.
-import { COL, REDUCED, h, fmt, hover, num, onVisible } from '../bench.js';
+import { COL, REDUCED, h, fmt, hover, num, onVisible } from './bench.js';
 
 const GREEN = COL.green;
 const HATCH = `repeating-linear-gradient(135deg, rgba(51,255,51,.55) 0 4px, rgba(51,255,51,.12) 4px 9px)`;

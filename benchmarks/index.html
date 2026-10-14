@@ -3,35 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Benchmarks — PBT Lab</title>
-<meta name="description" content="Mainnet benchmarks of EIP-8297 Partitioned Binary Tree migration across Ethereum execution clients, on an EIP-7870 node profile.">
+<title>EIP-8347 import benchmark — PBT Lab</title>
+<meta name="description" content="Mainnet benchmark: besu and Nethermind import the same EIP-8347 snapshot into EIP-8297's Partitioned Binary Tree on an 8-core, 32 GB node, while they keep validating blocks.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Benchmarks — PBT Lab">
-<meta property="og:description" content="Mainnet benchmarks of the PBT migration across Ethereum execution clients.">
+<meta property="og:title" content="EIP-8347 import benchmark — PBT Lab">
+<meta property="og:description" content="Ethereum clients import the same PBT snapshot on mainnet: time, cost, block processing, disk.">
 <meta property="og:url" content="https://cperezz.github.io/pbt-website/benchmarks/">
 <meta property="og:image" content="https://cperezz.github.io/pbt-website/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <link rel="stylesheet" href="bench.css">
-<style>
-  .tiles { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 16px; margin-top: 44px }
-  .tile { display: flex; flex-direction: column; gap: 14px; padding: 22px; border-radius: 10px; border: 1px solid rgba(51,255,51,.25); background: rgba(12,16,24,.9); color: var(--ink); text-decoration: none; transition: border-color .2s, box-shadow .2s }
-  a.tile:hover { color: var(--ink); border-color: var(--green); box-shadow: 0 0 28px rgba(51,255,51,.12) }
-  .tile.next { border-style: dashed; border-color: rgba(226,230,226,.18); opacity: .55 }
-  .lane { display: grid; grid-template-columns: 96px minmax(0, 1fr) 112px; gap: 12px; align-items: center }
-  .cores { display: grid; grid-template-columns: repeat(10, 12px); gap: 4px }
-  .cores i { width: 12px; height: 12px; border-radius: 2px; background: rgba(226,230,226,.08); border: 1px solid rgba(226,230,226,.14) }
-  .cores i.on { background: var(--green); border-color: var(--green); box-shadow: 0 0 8px rgba(51,255,51,.5) }
-  @media (max-width: 860px) { .tiles { grid-template-columns: 1fr } .lane { grid-template-columns: 80px minmax(0, 1fr) 96px } }
-</style>
 </head>
 <body>
 <header class="top"><div class="wrap">
   <a class="logo" href="../" aria-label="PBT Lab home">PBT·LAB</a>
-  <span class="crumb">Benchmarks</span>
+  <span class="crumb">Benchmarks · EIP-8347 import</span>
+  <span class="grow"></span>
+  <nav id="rounds" class="row" aria-label="Rounds" style="gap:6px"></nav>
 </div></header>
-<main class="wrap" id="hub" style="padding-top:64px;padding-bottom:80px"></main>
-<script type="module" src="hub.js"></script>
+<main>
+  <section id="intro" class="wrap" style="padding:64px 28px 56px"></section>
+  <section id="race" class="sec"><div class="wrap"></div></section>
+  <section id="kept" class="sec"><div class="wrap"></div></section>
+  <section id="cost" class="sec"><div class="wrap"></div></section>
+  <section id="disk" class="sec"><div class="wrap"></div></section>
+  <section id="setup" class="sec"><div class="wrap"></div></section>
+</main>
+<footer><div class="wrap" id="foot"></div></footer>
+<script type="module" src="main.js"></script>
 </body>
 </html>
