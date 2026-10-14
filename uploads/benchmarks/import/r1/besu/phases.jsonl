@@ -1,0 +1,8 @@
+{"ts":"2026-10-12T10:44:11Z","unix":1791801851.585414435,"client":"besu","phase":"P1-sync-catchup","edge":"start","note":"EL head 26139867"}
+{"ts":"2026-10-12T12:25:30Z","unix":1791807930.188189368,"client":"besu","phase":"P1-sync-catchup","edge":"end","note":"EL head 26176379, lag 0"}
+{"ts":"2026-10-12T13:30:58Z","unix":1791811858.600735844,"client":"besu","phase":"P1","edge":"start","note":"window 4h"}
+{"ts":"2026-10-12T17:30:58Z","unix":1791826258.625798106,"client":"besu","phase":"P1","edge":"end"}
+{"ts":"2026-10-12T17:42:57Z","unix":1791826977.740142706,"client":"besu","phase":"P2a-restart-catchup","edge":"start","note":"EL head 26177959"}
+{"ts":"2026-10-12T17:43:12Z","unix":1791826992.778310115,"client":"besu","phase":"P2a-restart-catchup","edge":"end","note":"EL head 26177961, lag 0"}
+{"ts":"2026-10-12T18:48:32Z","unix":1791830912.305880334,"client":"besu","phase":"P2a","edge":"start","note":"consumption pair"}
+{"ts":"2026-10-12T23:38:56Z","unix":1791848336.472504530,"client":"besu","phase":"P2a","edge":"end"}

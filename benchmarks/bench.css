@@ -1,0 +1,84 @@
+/* PBT Lab benchmarks: same tokens as index.html (README "Design Tokens"), but a scrolling page. */
+:root {
+  --bg: #0A0D14; --panel: rgba(12,16,24,.9); --ink: #E2E6E2; --ink2: #B9C2B9; --muted: #8F9A8F; --line: rgba(226,230,226,.16);
+  --green: #33FF33; --blue: #6CB8EA; --amber: #E69F00; --mint: #1FC08F; --orange: #FF9F43; --red: #F0504A; --lilac: #B57BFF; --verm: #D55E00;
+  --geth: #6CB8EA; --besu: #E69F00; --nethermind: #1FC08F; --erigon: #B57BFF;
+}
+* { box-sizing: border-box }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; line-height: 1.5 }
+a { color: var(--green); text-underline-offset: 3px }
+a:hover { color: var(--ink) }
+button { font: inherit; color: inherit }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 2px }
+::selection { background: var(--green); color: var(--bg) }
+svg text { font-family: 'IBM Plex Mono', ui-monospace, monospace }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px }
+.top { position: sticky; top: 0; z-index: 20; background: rgba(10,13,20,.86); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(226,230,226,.08) }
+.top .wrap { display: flex; align-items: center; gap: 16px; min-height: 60px; flex-wrap: wrap }
+.logo { font-family: VT323, monospace; font-size: 30px; line-height: 1; color: var(--green); letter-spacing: 1px; text-shadow: 0 0 12px rgba(51,255,51,.45); text-decoration: none }
+.logo:hover { color: var(--green) }
+.crumb { font-size: 11px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase }
+.crumb a { color: var(--muted); text-decoration: none }
+.crumb a:hover { color: var(--ink) }
+.grow { flex: 1 }
+
+.lbl { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }
+.big { font-family: VT323, monospace; font-size: 34px; line-height: 1 }
+.huge { font-family: VT323, monospace; font-size: 64px; line-height: .9 }
+.h1 { font-family: VT323, monospace; font-size: clamp(46px, 7vw, 86px); line-height: .88; margin: 0; font-weight: 400; text-wrap: balance }
+.h2 { font-family: VT323, monospace; font-size: 46px; line-height: 1; margin: 0; font-weight: 400 }
+.glow { color: var(--green); text-shadow: 0 0 18px rgba(51,255,51,.4) }
+.cap { font-size: 12px; color: var(--ink2); max-width: 680px; text-wrap: pretty }
+.muted { color: var(--muted) }
+
+.sec { padding: 76px 0; border-top: 1px solid rgba(226,230,226,.06) }
+.sec-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 26px; flex-wrap: wrap }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px }
+.row { display: flex; gap: 14px; flex-wrap: wrap }
+.grid3 { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 14px }
+
+.btn { display: inline-block; background: var(--green); color: var(--bg); border: 0; border-radius: 6px; padding: 12px 22px; font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap; text-decoration: none; box-shadow: 0 0 24px rgba(51,255,51,.35) }
+.btn:hover { color: var(--bg) }
+.btn2 { display: inline-flex; align-items: center; gap: 7px; border: 1px solid rgba(226,230,226,.35); background: none; color: var(--ink); border-radius: 7px; padding: 7px 13px; cursor: pointer; text-decoration: none; font-size: 12.5px; white-space: nowrap }
+.btn2:hover { border-color: var(--ink); color: var(--ink) }
+.pill { display: inline-block; border: 1px solid rgba(51,255,51,.35); background: transparent; color: var(--ink); border-radius: 999px; padding: 3px 11px; font-size: 11.5px; cursor: pointer; text-decoration: none; white-space: nowrap }
+.pill.on { background: var(--green); color: var(--bg); border-color: var(--green); font-weight: 600 }
+.pill.off { opacity: .45; cursor: default; border-style: dashed }
+.chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 4px; padding: 2px 8px; font-size: 11px; color: var(--ink2); text-decoration: none; white-space: nowrap }
+a.chip:hover { border-color: var(--ink); color: var(--ink) }
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none }
+
+/* Provenance: every published number links to its raw file. */
+a.num { color: inherit; text-decoration: none; border-bottom: 1px dotted transparent; cursor: help }
+a.num:hover { border-bottom-color: currentColor }
+.tip { position: fixed; z-index: 50; pointer-events: none; background: rgba(12,16,24,.97); border: 1px solid rgba(51,255,51,.35); border-radius: 6px; padding: 6px 9px; font-size: 11px; color: var(--ink2); max-width: 380px; opacity: 0; transition: opacity .12s; box-shadow: 0 8px 24px rgba(0,0,0,.4) }
+.tip.on { opacity: 1 }
+.tip b { color: var(--ink); font-weight: 600 }
+
+/* Bars (site's race-bar idiom) */
+.track { height: 10px; border-radius: 5px; background: rgba(226,230,226,.07); overflow: hidden }
+.fill { height: 100%; border-radius: 5px; width: 0; transition: width 1.2s cubic-bezier(.2,.9,.25,1) }
+
+/* Clock controls */
+.clock { display: flex; align-items: center; gap: 12px; flex-wrap: wrap }
+.clock button { width: 34px; height: 34px; border-radius: 8px; border: 1px solid rgba(51,255,51,.45); background: rgba(51,255,51,.1); color: var(--green); cursor: pointer; font-size: 13px; line-height: 1 }
+.clock button:hover { background: var(--green); color: var(--bg) }
+.clock input[type=range] { flex: 1; min-width: 160px; accent-color: var(--green) }
+.clock .t { font-family: VT323, monospace; font-size: 24px; color: var(--green); min-width: 104px }
+
+.reveal { opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease }
+.reveal.in { opacity: 1; transform: none }
+
+footer { padding: 40px 0 60px; color: var(--muted); font-size: 11.5px; border-top: 1px solid rgba(226,230,226,.06) }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important }
+  .reveal { opacity: 1; transform: none }
+}
+@media (max-width: 760px) {
+  .wrap { padding: 0 16px }
+  .sec { padding: 52px 0 }
+  .h2 { font-size: 36px }
+  .grid3 { grid-template-columns: 1fr }
+}

@@ -1,0 +1,74 @@
+{
+ "client": "nethermind",
+ "phase": "P2a",
+ "start": 1791923286.0082908,
+ "end": 1791928739.993529,
+ "seconds": 5454,
+ "rate_window_seconds": 5454,
+ "blocks": [
+  26185960,
+  26186413
+ ],
+ "head_coverage": 0.999,
+ "newPayload_ms": {
+  "n": 454,
+  "p50": 23.324,
+  "p95": 56.913,
+  "p99": 85.809,
+  "max": 323.218
+ },
+ "newPayload_plus_fcu_ms": {
+  "n": 454,
+  "p50": 24.45,
+  "p95": 57.479,
+  "p99": 88.055
+ },
+ "mgas_per_s": 1124.2,
+ "ms_per_mgas": 0.889,
+ "head_lag_blocks": {
+  "max": 1.0,
+  "mean": 0.0009165902841429881
+ },
+ "thermal": {
+  "package_temp_max_c": 91.0,
+  "package_throttles": 0.0,
+  "measured_core_throttles": 0.0
+ },
+ "el": {
+  "cpu_seconds": 13590.21020678547,
+  "mem_peak_bytes": 26444009472.0,
+  "anon_peak_bytes": 17239777280.0,
+  "file_peak_bytes": 17127227392.0,
+  "test_disk_read_bytes": 884573093022.2032,
+  "test_disk_write_bytes": 1634955339019.8716
+ },
+ "cl": {
+  "cpu_seconds": 1549.2200204998144,
+  "mem_peak_bytes": 8923090944.0,
+  "anon_peak_bytes": 8653258752.0,
+  "file_peak_bytes": 214585344.0,
+  "test_disk_read_bytes": null,
+  "test_disk_write_bytes": null
+ },
+ "slice": {
+  "cpu_seconds": 15149.239766297047,
+  "mem_peak_bytes": 34359738368.0,
+  "anon_peak_bytes": 25327120384.0,
+  "file_peak_bytes": 17248747520.0,
+  "test_disk_read_bytes": 884573093022.2032,
+  "test_disk_write_bytes": 1635300507817.8523
+ },
+ "tool": {
+  "cpu_seconds": null,
+  "mem_peak_bytes": null,
+  "anon_peak_bytes": null,
+  "file_peak_bytes": null,
+  "test_disk_read_bytes": null,
+  "test_disk_write_bytes": null
+ },
+ "dir_bytes_at_end": {
+  "<artifact-disk>/pairs": 325251633873.0,
+  "<producer-disk>/erigon": 506791628606.0,
+  "lighthouse": 19020135667.0
+ }
+}

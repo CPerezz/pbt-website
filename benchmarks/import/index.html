@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EIP-8347 import benchmark — PBT Lab</title>
+<meta name="description" content="Mainnet benchmark: besu and Nethermind import the same EIP-8347 snapshot into EIP-8297's Partitioned Binary Tree on an 8-core, 32 GB node, while they keep validating blocks.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="EIP-8347 import benchmark — PBT Lab">
+<meta property="og:description" content="Ethereum clients import the same PBT snapshot on mainnet: time, cost, block processing, disk.">
+<meta property="og:url" content="https://cperezz.github.io/pbt-website/benchmarks/import/">
+<meta property="og:image" content="https://cperezz.github.io/pbt-website/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../bench.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="../../" aria-label="PBT Lab home">PBT·LAB</a>
+  <span class="crumb"><a href="../">Benchmarks</a> / EIP-8347 import</span>
+  <span class="grow"></span>
+  <nav id="rounds" class="row" aria-label="Rounds" style="gap:6px"></nav>
+</div></header>
+<main>
+  <section id="intro" class="wrap" style="padding:64px 28px 56px"></section>
+  <section id="race" class="sec"><div class="wrap"></div></section>
+  <section id="kept" class="sec"><div class="wrap"></div></section>
+  <section id="cost" class="sec"><div class="wrap"></div></section>
+  <section id="disk" class="sec"><div class="wrap"></div></section>
+  <section id="setup" class="sec"><div class="wrap"></div></section>
+</main>
+<footer><div class="wrap" id="foot"></div></footer>
+<script type="module" src="main.js"></script>
+</body>
+</html>

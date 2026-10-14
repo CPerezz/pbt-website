@@ -1,0 +1,7 @@
+stage,first_utc,last_utc,lines
+PBT migrator starting; binaryTrieTime milestone=4100000000,2026-10-12T18:48:50Z,2026-10-12T18:48:50Z,1
+PBT migrator verifying and loading snapshot <test-disk>/pairs/con,2026-10-12T18:48:51Z,2026-10-12T18:48:51Z,1
+EIP-8347 internal PBT consistency OK,2026-10-12T22:01:24Z,2026-10-12T22:01:24Z,1
+EIP-8347 consensus anchoring OK,2026-10-12T23:38:54Z,2026-10-12T23:38:54Z,1
+PBT migrator bootstrapped from snapshot at block,2026-10-12T23:38:54Z,2026-10-12T23:38:54Z,1
+PBT migrator fetched,2026-10-12T23:38:54Z,2026-10-12T23:38:58Z,4

@@ -1,0 +1,74 @@
+{
+ "client": "besu",
+ "phase": "P2a",
+ "start": 1791830912.3058803,
+ "end": 1791848336.4725046,
+ "seconds": 17424,
+ "rate_window_seconds": 17424,
+ "blocks": [
+  26178288,
+  26179735
+ ],
+ "head_coverage": 0.999,
+ "newPayload_ms": {
+  "n": 1450,
+  "p50": 152.157,
+  "p95": 312.053,
+  "p99": 468.623,
+  "max": 3850.062
+ },
+ "newPayload_plus_fcu_ms": {
+  "n": 1450,
+  "p50": 259.727,
+  "p95": 481.327,
+  "p99": 763.564
+ },
+ "mgas_per_s": 178.2,
+ "ms_per_mgas": 5.612,
+ "head_lag_blocks": {
+  "max": 1.0,
+  "mean": 0.021520803443328552
+ },
+ "thermal": {
+  "package_temp_max_c": 91.0,
+  "package_throttles": 0.0,
+  "measured_core_throttles": 0.0
+ },
+ "el": {
+  "cpu_seconds": 48350.13961174099,
+  "mem_peak_bytes": 26385399808.0,
+  "anon_peak_bytes": 17859084288.0,
+  "file_peak_bytes": 17730560000.0,
+  "test_disk_read_bytes": 816821470711.4177,
+  "test_disk_write_bytes": 1578805982413.2703
+ },
+ "cl": {
+  "cpu_seconds": 4950.785688005507,
+  "mem_peak_bytes": 10611298304.0,
+  "anon_peak_bytes": 9445470208.0,
+  "file_peak_bytes": 359157760.0,
+  "test_disk_read_bytes": null,
+  "test_disk_write_bytes": null
+ },
+ "slice": {
+  "cpu_seconds": 53332.97732687945,
+  "mem_peak_bytes": 34359738368.0,
+  "anon_peak_bytes": 26493210624.0,
+  "file_peak_bytes": 17898307584.0,
+  "test_disk_read_bytes": 816821610007.3956,
+  "test_disk_write_bytes": 1578806002897.973
+ },
+ "tool": {
+  "cpu_seconds": null,
+  "mem_peak_bytes": null,
+  "anon_peak_bytes": null,
+  "file_peak_bytes": null,
+  "test_disk_read_bytes": null,
+  "test_disk_write_bytes": null
+ },
+ "dir_bytes_at_end": {
+  "<artifact-disk>/pairs": 325251633873.0,
+  "<producer-disk>/erigon": 503714329555.0,
+  "lighthouse": 18698757070.0
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "rig": {
+  "cpu": "Intel Core Ultra 7 265",
+  "cores_total": 20,
+  "cores_measured": 8,
+  "cores_note": "8 E-cores at 4.6 GHz in an exclusive cgroup-v2 cpuset; everything else on the other 12",
+  "mem_gib": 32,
+  "mem_note": "limit shared by EL + CL, no swap",
+  "disk": "Samsung PM9A3 3.84 TB NVMe, dedicated to the client under test",
+  "cl": "Lighthouse v8.2.3",
+  "class": "EIP-7870: full-node RAM, attester-grade CPU"
+ },
+ "rounds": [
+  {
+   "id": "r1",
+   "label": "Round 1",
+   "date": "2026-10",
+   "pair": {
+    "anchor_block": 26142444,
+    "anchor_hash": "0xcd80780cdaaad337bf3e4ea51f2e61a3040d1ed13ca40c1720cab2e2e5645f70",
+    "anchor_state_root": "0xa668cad6ace2eb4397c507412c2f7ffd252d2c852ffec00a55914224dcbe5027",
+    "pbt_root": "0x773d19dfb7757f6c5ac470934dce60d4e0f42051bdbb2b7da61bbef6cecf4338",
+    "hash_suite": "blake3",
+    "snapshot_bytes": 98947710659,
+    "preimages_bytes": 63479160200,
+    "accounts": 423196419,
+    "slots": 1666326442,
+    "leaves": 3020382712,
+    "code_count": 2802657,
+    "producer": "erigon export-pbt"
+   },
+   "clients": [
+    {
+     "id": "besu",
+     "name": "besu",
+     "builds": [{"repo": "matkt/besu", "ref": "glamsterdam-devnet-8-pbt", "commit": "0cab5042"},
+                {"repo": "besu-eth/besu-stateless", "ref": "feat/partitioned-binary-trie", "commit": "62b75234"}],
+     "runtime": "Temurin JDK 25, -Xmx8g, Bonsai",
+     "baseline": "P1",
+     "imports": ["P2a"],
+     "stages": [["load + consistency check", "PBT migrator verifying"], ["MPT anchoring", "EIP-8347 internal PBT consistency OK"]],
+     "root_check": "EIP-8347 consensus anchoring OK",
+     "sizes": {"kind": "besu-rocksdb", "before": "besu/sizes/P1-rocksdb-usage.txt", "after": "besu/sizes/P2a-rocksdb-usage.txt",
+               "pbt": ["BINARY_TRIE_BRANCH_STORAGE"], "attributed": false}
+    },
+    {
+     "id": "nethermind",
+     "name": "Nethermind",
+     "builds": [{"repo": "NethermindEth/nethermind", "ref": "pbt-state", "commit": "2da08a1eb1"},
+                {"repo": "NethermindEth/nethermind", "pr": 14642}],
+     "runtime": ".NET 10, flat state",
+     "baseline": "P1",
+     "imports": ["P2a"],
+     "stages": [["verify preimages", "PBT verify preimages"], ["import", "PBT import"], ["verify MPT root", "PBT verify MPT"]],
+     "root_check": "PBT verified",
+     "sizes": {"kind": "du", "before": "nethermind/sizes/du-tree-20261013T153750Z.txt",
+               "after": "nethermind/sizes/du-tree-20261013T220458Z.txt", "pbt": ["pbt"], "attributed": false}
+    }
+   ]
+  }
+ ]
+}
