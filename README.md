@@ -14,11 +14,11 @@ The files here started as **design references built in HTML** (a Claude Design h
 ## Running locally
 Serve the folder over HTTP (fixtures load via `fetch`):
 ```
-python3 -m http.server 8000   # then open http://localhost:8000/index.html
+python3 -m http.server 8000   # then open http://localhost:8000/lab.html
 ```
 
 ## Architecture
-- `index.html`: the app. Template markup (inline styles) + a `Component` logic class. It runs on `support.js`, a small runtime that renders `{{ }}` template holes, `<sc-for>`/`<sc-if>`, and `style-hover` attributes on React. Treat it as JSX-equivalent when porting.
+- `lab.html`: the 3D app (deep-linkable via `#trip` / `#atlas` / `#why` / `#forge`). Template markup (inline styles) + a `Component` logic class. It runs on `support.js`, a small runtime that renders `{{ }}` template holes, `<sc-for>`/`<sc-if>`, and `style-hover` attributes on React. Treat it as JSX-equivalent when porting.
 - `pbt-core.js` (`window.PBTCore`): BLAKE3, keccak256, key derivation (account header, code chunk, storage), `chunkify`, `binarize` (canonical binary trie with prefix compression), `merkleize`, `witness`, `recomputeSet`, `applyWrites`, `rootOf`, `buildWorlds(fixtures)`.
 - `pbt-scene-v4.js` (`window.PBTScene`): three.js scene. Radial layout by zone, instanced meshes (leaves, code tiles, stems as gems, branch tubes), styling (focus / path / ghost / ring / recomputed), labels + leader lines, camera framing per tier (`tree` / `zone` / `node`), region-aware framing so floating windows don't cover the focus.
 - `pbt-beats-v5.js` (`window.PBTBeats`): the content. Builds every journey (J1–J10) as a list of *beats*. Each beat has a world snapshot `w` (+ `preW` for writes), camera tier/zone/focus, optional `walk` key, and an `fx` window spec. Window specs are data: `seq` (frames of tracks/grids/rows/bigs/checks/flow/dep with pips, auto-advance, `btn` + `run: 'world'|'flash'`, per-frame `look` camera/label cues), `walk`, `derive`, `root`, `grow`, `ledger`.
@@ -70,7 +70,7 @@ python3 -m http.server 8000   # then open http://localhost:8000/index.html
 13. Mobile/touch layout is desktop-oriented (floating windows, mouse-only hover leader-lines and drag/scroll hints). **Resolved (minimal, not a redesign):** added a one-time dismissible notice on the hero screen, shown when the existing `narrow` viewport model is true, "Best viewed on desktop — some controls need a mouse."; dismissal is remembered via one `localStorage` key so it never reappears, and it never shows on desktop widths. Verified via viewport emulation (show → dismiss → reload → stays hidden; desktop width → never shown).
 
 ## Files
-`index.html`, `support.js`, `pbt-core.js`, `pbt-scene-v4.js`, `pbt-beats-v5.js`, `vendor/*` (vendored three.js/React so the site has no CDN dependency), `og.png`, `.nojekyll`, `uploads/fixtures/*`, `docs/*`, `dist/PBT-Explainer.html`.
+`index.html` (home page), `lab.html` (the 3D app), `support.js`, `pbt-core.js`, `pbt-scene-v4.js`, `pbt-beats-v5.js`, `vendor/*` (vendored three.js/React so the site has no CDN dependency), `og.png`, `.nojekyll`, `uploads/fixtures/*`, `docs/*`, `dist/PBT-Explainer.html`.
 
 ## Deployment
 GitHub Pages, deployed from the `main` branch root (`.nojekyll` present so the `vendor/`/`uploads/` dot-free paths serve as static files, not processed by Jekyll). Any push to `main` updates the live site within a minute or two.

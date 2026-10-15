@@ -8,7 +8,7 @@
 <body>
 <x-dc>
 <helmet>
-<title>PBT Lab — Ethereum's Partitioned Binary Tree in 3D</title>
+<title>Explore the tree in 3D — PBT Lab</title>
 <meta name="description" content="An interactive 3D explainer of EIP-8297's Partitioned Binary Tree. Pick an Ethereum action and watch exactly what gets hashed, where, and why.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="PBT Lab — Ethereum's Partitioned Binary Tree in 3D">
@@ -45,7 +45,7 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible,textarea:focus
   <!-- top-left HUD column -->
   <div style="position:absolute;left:24px;top:20px;width:min(380px, calc(100vw - 48px));max-height:calc(100vh - 132px);display:flex;flex-direction:column;gap:12px;pointer-events:none;z-index:5">
     <div style="display:flex;align-items:center;gap:8px 10px;flex-wrap:wrap;pointer-events:auto">
-      <button onClick="{{ goHome }}" aria-label="Home: pick an action" style="background:none;border:0;padding:0;cursor:pointer;font-family:VT323,monospace;font-size:30px;line-height:1;color:#33FF33;letter-spacing:1px;text-shadow:0 0 12px rgba(51,255,51,.45)">PBT·LAB</button>
+      <a href="./" aria-label="PBT Lab home" style="text-decoration:none;font-family:VT323,monospace;font-size:30px;line-height:1;color:#33FF33;letter-spacing:1px;text-shadow:0 0 12px rgba(51,255,51,.45)">PBT·LAB</a>
       <span style="font-size:11px;color:#8F9A8F;letter-spacing:.08em;text-transform:uppercase">EIP-8297 state tree</span>
       <sc-if value="{{ showCorners }}" hint-placeholder-val="{{ false }}"><button onClick="{{ goHome }}" aria-label="Pick another action" style="display:flex;align-items:center;gap:7px;background:rgba(51,255,51,.1);border:1px solid #33FF33;color:#33FF33;border-radius:7px;padding:7px 13px;font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 0 14px rgba(51,255,51,.18)" style-hover="background:#33FF33;color:#0A0D14"><span style="font-size:15px;line-height:1">⌂</span>Pick another action</button></sc-if>
     </div>
@@ -864,7 +864,9 @@ class Component extends DCLogic {
       sc.onHover = (v, px, py) => this.hover(v, px, py); sc.onClick = v => this.clickNode(v);
       this.onKey = e => this.key(e); window.addEventListener('keydown', this.onKey);
       this.onResize = () => { this.setState({ narrow: innerWidth < 900 }); if (this.scene && this.scene.region) { this.scene.region = [Math.min(404, innerWidth * .45), this.layoutW() + 40]; this.scene._resize(); } }; window.addEventListener('resize', this.onResize);
-      this.setState({ loading: false, narrow: innerWidth < 900 });
+      // Deep links from the home page: lab.html#trip | #atlas | #why | #forge (no hash keeps the hero).
+      const route = { '#trip': () => this.goPicker(), '#atlas': () => this.enterAtlas(0, 0), '#why': () => this.enterWhy(0, 0), '#forge': () => this.enterForge() }[location.hash];
+      this.setState({ loading: false, narrow: innerWidth < 900 }, route);
     } catch (e) { console.error(e); this.setState({ loadText: 'Could not load: ' + e.message }); }
   }
   componentWillUnmount() { window.removeEventListener('keydown', this.onKey); window.removeEventListener('resize', this.onResize); clearTimeout(this.timer); if (this.scene) cancelAnimationFrame(this.scene._raf); }
