@@ -77,7 +77,10 @@ export default async function (root, ctx) {
       `Each client ran alone on the same machine, limited to ${rig.cores_measured} cores and ${rig.mem_gib} GiB of memory shared with its consensus client (${rig.cl}). After a 4-hour baseline of ordinary block processing, we restarted it with the import flags. A proxy between the consensus client and the execution client timed every engine_newPayload, and the node's cgroup gave CPU, memory and disk every 5 s. An import counts only when the client's own log reports the expected PBT root.`));
   // Hash links would reload the page (the hash selects the round), so these scroll instead.
   const jump = (label, id) => h('a', { class: 'chip', href: '', onclick: (e) => {
-    e.preventDefault(); document.getElementById(id).scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth' });
+    e.preventDefault();
+    const el = document.getElementById(id);
+    el.querySelector('details')?.setAttribute('open', '');
+    el.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth' });
   } }, label);
   const linkRow = h('div', { class: 'row', style: 'gap:8px;margin-top:2px' },
     h('a', { class: 'chip', href: eipUrl(8347), target: '_blank', rel: 'noopener' }, 'EIP-8347 ↗'),

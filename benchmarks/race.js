@@ -11,23 +11,13 @@ const median = (a) => { const v = [...a].sort((p, q) => p - q), m = v.length >> 
 const source = (src) => `<span class="lbl">source</span><br><b>${src.replace(DATA, '')}</b> ↗`;
 
 export default async function (root, ctx) {
-  const { res, clock, paused } = ctx;
+  const { res, clock } = ctx;
   root.append(h('div', { class: 'sec-head' },
     h('h2', { class: 'h2' }, 'Import, replayed'),
     h('span', { class: 'cap row', style: 'gap:8px' },
       h('span', { class: 'chip' }, swatch(...[5, 9, 11, 7, 10].map(bar)), 'blocks per 5 min'),
       h('span', { class: 'chip' }, swatch(bar(11)), 'one block (height = ', term('newpayload', 'newPayload'), ' time)'))));
-  const link = h('button', { class: 'btn2', type: 'button', title: 'Copy a link to this moment' },
-    '⚭ link to here');
-  link.onclick = () => {
-    const url = `${location.origin}${location.pathname}?t=${Math.round(clock.t)}#${ctx.round.id}`;
-    navigator.clipboard.writeText(url);
-    link.textContent = '✓ copied';
-    setTimeout(() => { link.textContent = '⚭ link to here'; }, 1400);
-  };
-  const ctl = controls(clock);
-  ctl.style.flex = '1';
-  root.append(h('div', { class: 'row', style: 'margin-bottom:18px;align-items:center' }, ctl, link));
+  root.append(h('div', { style: 'margin-bottom:18px' }, controls(clock)));
 
   // Lanes: each client's imports in order; any import after the first renders as a thinner ghost lane.
   const lanes = [];
@@ -234,5 +224,5 @@ export default async function (root, ctx) {
     cursor.setAttribute('x1', cx); cursor.setAttribute('x2', cx);
     for (const l of lanes) { l.update(t); if (l.lens) l.lens(t); }
   });
-  if (!paused) onVisible(root, () => clock.play(), 0.35);
+  onVisible(root, () => clock.play(), 0.35);
 }
