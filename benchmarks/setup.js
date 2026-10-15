@@ -1,5 +1,5 @@
 // The machine and the method: rig, preflight, builds.
-import { COL, h, s, hover, onVisible } from './bench.js';
+import { COL, h, s, hover, onVisible, secHead, who } from './bench.js';
 
 const GREEN = COL.green;
 
@@ -7,9 +7,9 @@ export default async function (root, ctx) {
   const { res } = ctx;
   const { rig, clients } = res;
 
-  const head = h('div', { class: 'sec-head' },
-    h('h2', { class: 'h2' }, 'Setup'),
-    h('span', { class: 'cap' }, 'One rig, the same checklist, before every run.'));
+  const head = secHead('Setup',
+    `Every run stood on the same ground. Each client ran alone on the same machine: ${rig.cores_measured} of its cores and ${rig.mem_gib} GiB of memory fenced off for the node and its consensus client, ` +
+    'the same checklist passed before every measured window, and the exact builds listed below.');
 
   // --- Rig diagram --------------------------------------------------------
   const sq = 16, gap = 4, cols = 10;
@@ -65,8 +65,8 @@ export default async function (root, ctx) {
   // Preflight pips, per client, fetched live.
   const preflightRows = clients.map((c) => {
     const row = h('div', { class: 'row', style: 'gap:3px' });
-    const line = h('div', { style: 'display:grid;grid-template-columns:90px 1fr;gap:10px;align-items:center' },
-      h('span', { style: `color:${ctx.color(c.id)}` }, c.name), row);
+    const line = h('div', { style: 'display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:center' },
+      who(c, 16, 'font-weight:400'), row);
     fetch(ctx.src(`${c.id}/${c.baseline.phase}/preflight.txt`)).then((r) => r.text()).then((txt) => {
       const lines = txt.trim().split('\n');
       for (const l of lines) {
@@ -94,11 +94,11 @@ export default async function (root, ctx) {
     }
     return h('a', { class: 'chip', href: `https://github.com/${b.repo}/commit/${b.commit}`, target: '_blank', rel: 'noopener' }, `${b.repo}@${b.commit}`);
   };
-  const buildRows = clients.map((c) => h('div', { style: 'display:grid;grid-template-columns:90px 1fr;gap:10px;align-items:center;padding:5px 0;border-bottom:1px solid rgba(226,230,226,.06)' },
-    h('span', { style: `color:${ctx.color(c.id)}` }, c.name),
+  const buildRows = clients.map((c) => h('div', { style: 'display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:center;padding:5px 0;border-bottom:1px solid rgba(226,230,226,.06)' },
+    who(c, 16, 'font-weight:400'),
     h('div', { class: 'row', style: 'gap:6px;align-items:center' },
       ...c.builds.map(buildChip), h('span', { class: 'muted', style: 'font-size:11px' }, c.runtime))));
-  const buildsBox = h('div', { class: 'panel', style: 'display:grid;gap:4px;margin-top:18px' },
+  const buildsBox = h('div', { id: 'builds', class: 'panel', style: 'display:grid;gap:4px;margin-top:18px' },
     h('span', { class: 'lbl' }, 'builds'), ...buildRows);
   root.append(head, rigBox, methodBox, buildsBox);
 }

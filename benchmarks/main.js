@@ -7,6 +7,7 @@ const base = `${BASE}${round.id}/`;
 const res = await getJSON(`${base}results.json`);
 
 // Shared context handed to every section module: export default async function (root, ctx).
+const clock = new Clock(Math.max(...res.clients.flatMap((c) => c.imports.map((w) => w.duration_s))));
 const ctx = {
   res,
   base,
@@ -14,7 +15,8 @@ const ctx = {
   csv: (rel) => getCSV(base + rel),
   color: (id) => CLIENT[id],
   client: (id) => res.clients.find((c) => c.id === id),
-  clock: new Clock(Math.max(...res.clients.flatMap((c) => c.imports.map((w) => w.duration_s)))),
+  clock,
+  tree: `https://github.com/CPerezz/pbt-website/tree/main/uploads/benchmarks/import/${round.id}`,
 };
 
 document.getElementById('rounds').append(
@@ -22,7 +24,7 @@ document.getElementById('rounds').append(
 );
 const links = [
   ['results.json', `${base}results.json`],
-  ['raw files', `https://github.com/CPerezz/pbt-website/tree/main/uploads/benchmarks/import/${round.id}`],
+  ['raw files', ctx.tree],
   ['build_results.py', `${BASE}build_results.py`],
 ];
 document.getElementById('foot').append(
@@ -32,7 +34,7 @@ document.getElementById('foot').append(
 );
 addEventListener('hashchange', () => location.reload());
 
-await Promise.all(['intro', 'race', 'kept', 'cost', 'disk', 'setup'].map(async (id) => {
+await Promise.all(['intro', 'race', 'kept', 'cost', 'disk', 'setup', 'reproduce'].map(async (id) => {
   const sec = document.getElementById(id);
   try {
     const mod = await import(`./${id}.js`);

@@ -1,4 +1,4 @@
-/* PBT Lab benchmarks: same tokens as index.html (README "Design Tokens"), but a scrolling page. */
+/* PBT Lab benchmarks: same tokens as lab.html (README "Design Tokens"), but a scrolling page. */
 :root {
   --bg: #0A0D14; --panel: rgba(12,16,24,.9); --ink: #E2E6E2; --ink2: #B9C2B9; --muted: #8F9A8F; --line: rgba(226,230,226,.16);
   --green: #33FF33; --blue: #6CB8EA; --amber: #E69F00; --mint: #1FC08F; --orange: #FF9F43; --red: #F0504A; --lilac: #B57BFF; --verm: #D55E00;
@@ -30,8 +30,11 @@ svg text { font-family: 'IBM Plex Mono', ui-monospace, monospace }
 .cap { font-size: 12px; color: var(--ink2); max-width: 680px; text-wrap: pretty }
 .muted { color: var(--muted) }
 
-.sec { padding: 76px 0; border-top: 1px solid rgba(226,230,226,.06) }
+.sec { padding: 76px 0; border-top: 1px solid rgba(226,230,226,.06); scroll-margin-top: 48px }
+#builds { scroll-margin-top: 80px }
 .sec-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 26px; flex-wrap: wrap }
+.sec-head:has(+ .explain) { margin-bottom: 10px }
+.explain { max-width: 920px; margin: 0 0 26px; font-size: 13.5px; line-height: 1.6; color: var(--ink2); text-wrap: pretty }
 .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px }
 .row { display: flex; gap: 14px; flex-wrap: wrap }
 .grid3 { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 14px }
@@ -46,10 +49,13 @@ svg text { font-family: 'IBM Plex Mono', ui-monospace, monospace }
 .chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 4px; padding: 2px 8px; font-size: 11px; color: var(--ink2); text-decoration: none; white-space: nowrap }
 a.chip:hover { border-color: var(--ink); color: var(--ink) }
 .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none }
+.avatar { flex: none; overflow: visible; filter: drop-shadow(0 0 5px color-mix(in srgb, currentColor 45%, transparent)) }
+.who { display: inline-flex; align-items: center; gap: 8px; font-weight: 600 }
 
 /* Provenance: every published number links to its raw file. */
 a.num { color: inherit; text-decoration: none; border-bottom: 1px dotted transparent; cursor: help }
 a.num:hover { border-bottom-color: currentColor }
+.term { border-bottom: 1px dotted var(--ink2); cursor: help }
 .tip { position: fixed; z-index: 50; pointer-events: none; background: rgba(12,16,24,.97); border: 1px solid rgba(51,255,51,.35); border-radius: 6px; padding: 6px 9px; font-size: 11px; color: var(--ink2); max-width: 380px; opacity: 0; transition: opacity .12s; box-shadow: 0 8px 24px rgba(0,0,0,.4) }
 .tip.on { opacity: 1 }
 .tip b { color: var(--ink); font-weight: 600 }

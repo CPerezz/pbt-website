@@ -1,5 +1,5 @@
 // What the PBT adds on disk: database before → after per client, and bytes per PBT leaf.
-import { COL, REDUCED, h, fmt, hover, num, onVisible } from './bench.js';
+import { COL, REDUCED, h, fmt, hover, num, onVisible, secHead, term, who } from './bench.js';
 
 const GREEN = COL.green;
 const HATCH = `repeating-linear-gradient(135deg, rgba(51,255,51,.55) 0 4px, rgba(51,255,51,.12) 4px 9px)`;
@@ -10,9 +10,9 @@ export default async function (root, ctx) {
   const max = Math.max(...res.clients.map((c) => c.sizes.after_gib));
   const grows = []; // [el, width] animated on visible
 
-  const head = h('div', { class: 'sec-head' },
-    h('h2', { class: 'h2' }, 'What the PBT adds'),
-    h('span', { class: 'cap' }, 'Same tree, every client: database size before and after the import.'));
+  const head = secHead('What the PBT adds',
+    'Until the fork, a node keeps its Merkle Patricia state and stores the new tree next to it, so the import costs disk. The thin bar is each client\u2019s database before the import; in the thick bar, green is what the tree added. ' +
+    'Below, the same growth per tree leaf, next to the snapshot file\u2019s own bytes per leaf: every client stores the same tree, each in its own layout.');
 
   const rows = res.clients.map((c) => {
     const z = c.sizes, col = ctx.color(c.id);
@@ -30,8 +30,8 @@ export default async function (root, ctx) {
       h('div', { style: 'display:flex;height:18px' },
         h('div', { style: `width:${pctW(z.after_gib - z.pbt_gib, max)};background:rgba(143,154,143,.35);border-radius:4px 0 0 4px` }),
         pbt));
-    return h('div', { style: 'display:grid;grid-template-columns:minmax(80px,110px) minmax(0,1fr) auto;gap:14px;align-items:center' },
-      h('span', { style: `color:${col};font-weight:600` }, h('span', { class: 'dot', style: `background:${col};margin-right:7px` }), c.name),
+    return h('div', { style: 'display:grid;grid-template-columns:minmax(110px,140px) minmax(0,1fr) auto;gap:14px;align-items:center' },
+      who(c, 20),
       bars,
       h('div', { style: 'text-align:right;white-space:nowrap' },
         h('div', { class: 'muted', style: 'font-size:11px' },
@@ -42,7 +42,7 @@ export default async function (root, ctx) {
   const legend = h('div', { class: 'row lbl', style: 'gap:18px;margin-top:4px' },
     h('span', {}, h('span', { style: `display:inline-block;width:22px;height:4px;background:${COL.muted};opacity:.5;vertical-align:middle;margin-right:6px` }), 'before'),
     h('span', {}, h('span', { style: 'display:inline-block;width:22px;height:10px;background:rgba(143,154,143,.35);vertical-align:middle;margin-right:6px' }), 'after'),
-    h('span', {}, h('span', { style: `display:inline-block;width:22px;height:10px;background:${GREEN};vertical-align:middle;margin-right:6px` }), 'PBT'),
+    h('span', {}, h('span', { style: `display:inline-block;width:22px;height:10px;background:${GREEN};vertical-align:middle;margin-right:6px` }), term('pbt', 'PBT')),
     res.clients.some((c) => c.sizes.attributed) &&
       h('span', {}, h('span', { style: `display:inline-block;width:22px;height:10px;background:${HATCH};outline:1px dashed ${GREEN};vertical-align:middle;margin-right:6px` }), 'PBT, attributed'),
     h('span', { class: 'grow' }), h('span', {}, `0 → ${fmt.n(max, 0)} GiB`));
@@ -55,8 +55,8 @@ export default async function (root, ctx) {
   const leafRows = per.map(({ c, b }) => {
     const fill = h('div', { class: 'fill', style: `background:${ctx.color(c.id)};height:14px;border-radius:3px` });
     grows.push([fill, pctW(b, bmax)]);
-    return h('div', { style: 'display:grid;grid-template-columns:minmax(80px,110px) minmax(0,1fr) 84px;gap:14px;align-items:center' },
-      h('span', { style: `color:${ctx.color(c.id)}` }, c.name),
+    return h('div', { style: 'display:grid;grid-template-columns:minmax(110px,140px) minmax(0,1fr) 84px;gap:14px;align-items:center' },
+      who(c, 16, 'font-weight:400'),
       h('div', { style: 'height:14px' }, fill),
       h('span', { class: 'big', style: 'font-size:26px;text-align:right' }, num(`${fmt.n(b, 1)} B`, ctx.src(c.sizes.src[1]))));
   });

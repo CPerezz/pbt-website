@@ -1,5 +1,5 @@
 // What it cost: CPU, memory and disk of each client's import, replayed on the shared clock.
-import { COL, controls, countUp, fmt, h, hover, num, onVisible, s, scale } from './bench.js';
+import { COL, controls, countUp, fmt, h, hover, num, onVisible, s, scale, secHead, term, who } from './bench.js';
 
 export default async function (root, ctx) {
   const { res, clock } = ctx;
@@ -21,7 +21,7 @@ export default async function (root, ctx) {
   const v = (x) => x ?? 0;
 
   const updates = [];
-  const panel = (col) => {
+  const panel = (col, i) => {
     const { c, imp, src } = col, color = ctx.color(c.id), r = imp.res;
     const cells = Array.from({ length: CORES }, () => h('div', { style: `height:100%;width:0;background:${color};box-shadow:0 0 10px ${color}` }));
     const cpuNow = num('', src, { class: 'num big', style: `color:${color}` });
@@ -45,7 +45,7 @@ export default async function (root, ctx) {
 
     const box = h('div', { class: 'panel', style: 'display:flex;flex-direction:column;gap:14px;transition:opacity .4s' },
       h('div', { style: 'display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap' },
-        h('span', { class: 'big', style: `color:${color}` }, c.name)),
+        who(c, 30, 'font-family:VT323,monospace;font-size:34px;font-weight:400;line-height:1')),
       h('div', {},
         h('div', { class: 'lbl' }, `CPU · ${CORES} cores`),
         h('div', { style: 'display:flex;gap:4px;height:26px;margin:6px 0' },
@@ -53,6 +53,7 @@ export default async function (root, ctx) {
         h('div', { style: 'display:flex;align-items:baseline;gap:10px' }, cpuNow, h('span', { class: 'lbl' }, 'cores · avg ', avg))),
       h('div', {},
         h('div', { style: 'display:flex;justify-content:space-between' }, h('span', { class: 'lbl' }, 'Memory'), h('span', { class: 'lbl' }, `${res.rig.mem_gib} GiB limit`)),
+        i === 0 && h('div', { class: 'muted', style: 'font-size:9.5px;margin:2px 0 -2px' }, term('anon', 'anon'), ' = this process\u2019s own memory · ', term('pagecache', 'page cache'), ' = cached reads'),
         h('div', { style: 'margin:8px 0' }, tank),
         h('div', { class: 'lbl' }, 'peak process ', num(`${fmt.n(r.anon_peak_gb, 1)} GB`, ctx.src(imp.src), { style: `color:${color}` }))),
       h('div', {},
@@ -114,10 +115,12 @@ export default async function (root, ctx) {
   const maxOf = (key) => Math.max(...cols.flatMap(({ rows }) => rows.map((r) => v(r[key]))));
 
   root.append(
-    h('div', { class: 'sec-head' }, h('h2', { class: 'h2' }, 'What it cost'),
-      h('span', { class: 'cap' }, 'CPU, memory and disk of each import, replayed side by side.')),
+    secHead('What it cost',
+      `Reading and verifying a ${fmt.gb(res.pair.snapshot_bytes + res.pair.preimages_bytes)} snapshot pair is heavy work, and on a live node it shares the machine with block processing. ` +
+      `These gauges show what the whole node used during the import, sampled every 15 s: busy cores out of its ${CORES}, memory against its ${res.rig.mem_gib} GiB limit (process memory, page cache and the consensus client), and disk reads and writes. ` +
+      'They follow the replay clock above; the charts below show the full run.'),
     h('div', { style: 'margin-bottom:18px' }, controls(clock)),
-    h('div', { class: 'grid3', style: `--n:${cols.length}` }, cols.map(panel)),
+    h('div', { class: 'grid3', style: `--n:${cols.length}` }, cols.map((col, i) => panel(col, i))),
     h('div', { class: 'panel', style: 'margin-top:14px' },
       chart('CPU cores', 'el_cores', CORES, 'cores', 2, false),
       chart('process memory (EL anon)', 'el_anon_gb', Math.ceil(maxOf('el_anon_gb')), 'GB', 1, false),
