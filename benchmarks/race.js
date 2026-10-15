@@ -25,7 +25,9 @@ export default async function (root, ctx) {
     link.textContent = '✓ copied';
     setTimeout(() => { link.textContent = '⚭ link to here'; }, 1400);
   };
-  root.append(h('div', { class: 'row', style: 'margin-bottom:18px;align-items:center' }, controls(clock), link));
+  const ctl = controls(clock);
+  ctl.style.flex = '1';
+  root.append(h('div', { class: 'row', style: 'margin-bottom:18px;align-items:center' }, ctl, link));
 
   // Lanes: each client's imports in order; any import after the first renders as a thinner ghost lane.
   const lanes = [];
