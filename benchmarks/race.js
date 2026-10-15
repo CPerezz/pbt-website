@@ -1,5 +1,5 @@
 // Hero: every import replayed on one clock (t = seconds since each import's own start).
-import { COL, DATA, avatar, controls, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, scramble } from './bench.js';
+import { COL, DATA, avatar, controls, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, scramble, term } from './bench.js';
 
 const W = 1120, X0 = 160, X1 = 900, FX = 922; // label column | race track | finish column
 const BIN = 300, SLOT = 12, GENESIS = 1606824023; // 5-min comb bins; mainnet beacon slots
@@ -16,7 +16,7 @@ export default async function (root, ctx) {
     h('h2', { class: 'h2' }, 'Import, replayed'),
     h('span', { class: 'cap row', style: 'gap:8px' },
       h('span', { class: 'chip' }, swatch(...[5, 9, 11, 7, 10].map(bar)), 'blocks per 5 min'),
-      h('span', { class: 'chip' }, swatch(bar(11)), 'one block (height = newPayload time)'))));
+      h('span', { class: 'chip' }, swatch(bar(11)), 'one block (height = ', term('newpayload', 'newPayload'), ' time)'))));
   root.append(h('div', { style: 'margin-bottom:18px' }, controls(clock)));
 
   // Lanes: each client's imports in order; any import after the first renders as a thinner ghost lane.

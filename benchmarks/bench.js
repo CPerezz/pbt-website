@@ -145,6 +145,21 @@ export function num(text, src, attrs = {}) {
   const a = h('a', { class: 'num', href: src, target: '_blank', rel: 'noopener', ...attrs }, text);
   return hover(a, `<span class="lbl">source</span><br><b>${src.replace(DATA, '')}</b> ↗`);
 }
+// Glossary: one sentence per term (HANDOVER §4 / EIP-8347). term(key, text?) → dotted-underline span, hover defines it.
+const GLOSSARY = {
+  newpayload: "The <code>engine_newPayload</code> call a proxy times between Lighthouse and the EL: how long the EL takes to validate and execute one block.",
+  mgas: 'Execution throughput while following the head — Σ gas ÷ Σ newPayload time over the window, not sync speed.',
+  headcov: 'Valid newPayloads ÷ (window ÷ 12 s); ~0.99 is a perfect score given mainnet\u2019s own ~1% missed slots, below 0.9 would mean the node fell behind.',
+  headlag: 'How many blocks the EL is behind the CL\u2019s head; max 1 everywhere here means it was never behind.',
+  pctl: 'A percentile of the window\u2019s newPayload times — p50/p95/p99 mean 50%/95%/99% of blocks were processed at least that fast.',
+  pbt: 'EIP-8297\u2019s Partitioned Binary Tree — the binary state commitment that replaces the MPT.',
+  mptroot: 'The root hash of Ethereum\u2019s current state commitment, the hexary Merkle Patricia Trie.',
+  preimages: 'The raw account addresses and storage-slot keys needed to re-derive the MPT\u2019s hashed paths into PBT keys, since Keccak can\u2019t be inverted.',
+  anchor: 'The finalized mainnet block whose state the snapshot pair was converted from (EIP-8347\u2019s ANCHOR_BLOCK).',
+  pagecache: 'File-backed memory the kernel caches from disk reads — reclaimable under pressure, unlike a process\u2019s own memory.',
+  anon: 'A process\u2019s own resident memory, as counted by the cgroup — separate from the reclaimable page cache.',
+};
+export const term = (key, text) => hover(h('span', { class: 'term' }, text ?? key), GLOSSARY[key]);
 
 // Shared replay clock: t = seconds since each import's own start. speed = simulated seconds per real second.
 export class Clock {

@@ -53,6 +53,7 @@ a.chip:hover { border-color: var(--ink); color: var(--ink) }
 /* Provenance: every published number links to its raw file. */
 a.num { color: inherit; text-decoration: none; border-bottom: 1px dotted transparent; cursor: help }
 a.num:hover { border-bottom-color: currentColor }
+.term { border-bottom: 1px dotted var(--ink2); cursor: help }
 .tip { position: fixed; z-index: 50; pointer-events: none; background: rgba(12,16,24,.97); border: 1px solid rgba(51,255,51,.35); border-radius: 6px; padding: 6px 9px; font-size: 11px; color: var(--ink2); max-width: 380px; opacity: 0; transition: opacity .12s; box-shadow: 0 8px 24px rgba(0,0,0,.4) }
 .tip.on { opacity: 1 }
 .tip b { color: var(--ink); font-weight: 600 }

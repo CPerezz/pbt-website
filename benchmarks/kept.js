@@ -1,5 +1,5 @@
 // "Still validating?" — did each node keep validating blocks during its import?
-import { COL, DATA, REDUCED, avatar, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, tip, who } from './bench.js';
+import { COL, DATA, REDUCED, avatar, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, term, tip, who } from './bench.js';
 
 const W = 1120, AX = { fill: COL.muted, 'font-size': 10 };
 const ms = (v) => (v >= 1000 ? `${fmt.n(v / 1000, 2)} s` : `${fmt.n(v, v < 100 ? 1 : 0)} ms`);
@@ -15,11 +15,11 @@ export default async function (root, ctx) {
 
   const cs = ctx.res.clients.filter((c) => c.imports[0].files.newpayload);
   const rows = await Promise.all(cs.map((c) => ctx.csv(c.imports[0].files.newpayload)));
-  cs.forEach((c, i) => root.append(panel(c, rows[i], ctx)));
+  cs.forEach((c, i) => root.append(panel(c, rows[i], ctx, i === 0)));
   root.append(dumbbell(ctx));
 }
 
-function panel(c, rows, ctx) {
+function panel(c, rows, ctx, first) {
   const imp = c.imports[0], base = c.baseline.follow, f = imp.follow, col = ctx.color(c.id);
   const bms = base.newpayload_ms, fms = f.newpayload_ms;
   const H = 300, L = 54, R = W - 96, T = 24, B = H - 28;
@@ -84,21 +84,21 @@ function panel(c, rows, ctx) {
   const counters = [];
   const big = (v, f0, src) => { const a = num(f0(v), src, { class: 'num big' }); counters.push([a, v, f0]); return a; };
   const pair = (label, b, i, f0, better) => h('div', {},
-    h('div', { class: 'lbl' }, label),
+    h('div', { class: 'lbl' }, ...(Array.isArray(label) ? label : [label])),
     h('div', { style: 'display:flex;align-items:baseline;gap:6px;flex-wrap:wrap' },
       num(f0(b), bsrc, { class: 'num muted', style: 'font-family:VT323,monospace;font-size:22px' }),
       h('span', { class: 'muted' }, '→'), big(i, f0, isrc),
       better != null && num(fmt.pct(b, i), isrc, { class: 'num', style: `font-size:12px;color:${pctColor(b, i, better)}` })));
   const msN = (v) => fmt.n(v, v < 100 ? 1 : 0);
   const stats = h('div', { style: 'flex:1 1 210px;display:grid;gap:12px;align-content:start' },
-    pair('newPayload p50 · ms', bms.p50, fms.p50, msN, false),
+    pair(first ? [term('newpayload', 'newPayload'), ' ', term('pctl', 'p50'), ' · ms'] : 'newPayload p50 · ms', bms.p50, fms.p50, msN, false),
     pair('newPayload p99 · ms', bms.p99, fms.p99, msN, null),
-    pair('throughput · MGas/s', base.mgas_per_s, f.mgas_per_s, (v) => fmt.n(v, 0), true),
-    h('div', {}, h('div', { class: 'lbl' }, 'head coverage'), big(f.head_coverage * 100, (v) => `${fmt.n(v, 1)} %`, isrc)),
+    pair(first ? ['throughput · ', term('mgas', 'MGas/s')] : 'throughput · MGas/s', base.mgas_per_s, f.mgas_per_s, (v) => fmt.n(v, 0), true),
+    h('div', {}, h('div', { class: 'lbl' }, first ? term('headcov', 'head coverage') : 'head coverage'), big(f.head_coverage * 100, (v) => `${fmt.n(v, 1)} %`, isrc)),
     f.head_lag_max_blocks <= 1
       ? hover(h('span', { class: 'chip', style: `border-color:${COL.green};color:${COL.green};justify-self:start` },
           '● never behind'), `max head lag during the import: <b>${fmt.n(f.head_lag_max_blocks)} block</b>`)
-      : h('div', {}, h('div', { class: 'lbl' }, 'max head lag · blocks'), big(f.head_lag_max_blocks, (v) => fmt.n(v), isrc)),
+      : h('div', {}, h('div', { class: 'lbl' }, first ? term('headlag', 'max head lag') : 'max head lag', ' · blocks'), big(f.head_lag_max_blocks, (v) => fmt.n(v), isrc)),
   );
 
   const el = h('div', { class: 'panel reveal', style: `margin-bottom:14px;border-left:3px solid ${col}` },

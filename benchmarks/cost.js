@@ -1,5 +1,5 @@
 // What it cost: CPU, memory and disk of each client's import, replayed on the shared clock.
-import { COL, controls, countUp, fmt, h, hover, num, onVisible, s, scale, who } from './bench.js';
+import { COL, controls, countUp, fmt, h, hover, num, onVisible, s, scale, term, who } from './bench.js';
 
 export default async function (root, ctx) {
   const { res, clock } = ctx;
@@ -21,7 +21,7 @@ export default async function (root, ctx) {
   const v = (x) => x ?? 0;
 
   const updates = [];
-  const panel = (col) => {
+  const panel = (col, i) => {
     const { c, imp, src } = col, color = ctx.color(c.id), r = imp.res;
     const cells = Array.from({ length: CORES }, () => h('div', { style: `height:100%;width:0;background:${color};box-shadow:0 0 10px ${color}` }));
     const cpuNow = num('', src, { class: 'num big', style: `color:${color}` });
@@ -53,6 +53,7 @@ export default async function (root, ctx) {
         h('div', { style: 'display:flex;align-items:baseline;gap:10px' }, cpuNow, h('span', { class: 'lbl' }, 'cores · avg ', avg))),
       h('div', {},
         h('div', { style: 'display:flex;justify-content:space-between' }, h('span', { class: 'lbl' }, 'Memory'), h('span', { class: 'lbl' }, `${res.rig.mem_gib} GiB limit`)),
+        i === 0 && h('div', { class: 'muted', style: 'font-size:9.5px;margin:2px 0 -2px' }, term('anon', 'anon'), ' = this process\u2019s own memory · ', term('pagecache', 'page cache'), ' = cached reads'),
         h('div', { style: 'margin:8px 0' }, tank),
         h('div', { class: 'lbl' }, 'peak process ', num(`${fmt.n(r.anon_peak_gb, 1)} GB`, ctx.src(imp.src), { style: `color:${color}` }))),
       h('div', {},
@@ -117,7 +118,7 @@ export default async function (root, ctx) {
     h('div', { class: 'sec-head' }, h('h2', { class: 'h2' }, 'What it cost'),
       h('span', { class: 'cap' }, 'CPU, memory and disk of each import, replayed side by side.')),
     h('div', { style: 'margin-bottom:18px' }, controls(clock)),
-    h('div', { class: 'grid3', style: `--n:${cols.length}` }, cols.map(panel)),
+    h('div', { class: 'grid3', style: `--n:${cols.length}` }, cols.map((col, i) => panel(col, i))),
     h('div', { class: 'panel', style: 'margin-top:14px' },
       chart('CPU cores', 'el_cores', CORES, 'cores', 2, false),
       chart('process memory (EL anon)', 'el_anon_gb', Math.ceil(maxOf('el_anon_gb')), 'GB', 1, false),

@@ -1,4 +1,4 @@
-import { CLIENT, REDUCED, avatar, countUp, fmt, h, hover, num, onVisible, s, scramble, who } from './bench.js';
+import { CLIENT, REDUCED, avatar, countUp, fmt, h, hover, num, onVisible, s, scramble, term, who } from './bench.js';
 
 // What goes in and what must come out: mainnet state → the snapshot pair → the clients → one PBT root.
 export default async function (root, ctx) {
@@ -23,9 +23,9 @@ export default async function (root, ctx) {
 
   // 1. Mainnet state at the anchor.
   const anchor = h('div', { class: 'panel' },
-    h('span', { class: 'lbl' }, 'mainnet state at block'),
+    h('span', { class: 'lbl' }, 'state at the ', term('anchor', 'anchor block')),
     h('div', { class: 'big', style: 'font-size:clamp(30px,3.2vw,44px)' }, num(`#${fmt.n(pair.anchor_block)}`, src)),
-    h('span', { class: 'lbl' }, 'MPT state root'),
+    h('span', { class: 'lbl' }, term('mptroot', 'MPT state root')),
     hover(h('div', { class: 'muted', style: 'font-size:12px' }, fmt.short(pair.anchor_state_root)), pair.anchor_state_root));
 
   // 2. The pair every client imports: two files sized by bytes, and what they hold.
@@ -34,7 +34,7 @@ export default async function (root, ctx) {
     const fill = h('div', { class: 'fill', style: `background:${color};box-shadow:0 0 10px ${color}` });
     onVisible(fill, () => { fill.style.width = `${(bytes / maxB) * 100}%`; });
     return h('div', {},
-      h('div', { class: 'stat' }, h('span', { class: 'lbl' }, label), h('span', { class: 'big', style: 'font-size:24px' }, num(fmt.gb(bytes), src))),
+      h('div', { class: 'stat' }, h('span', { class: 'lbl' }, ...(Array.isArray(label) ? label : [label])), h('span', { class: 'big', style: 'font-size:24px' }, num(fmt.gb(bytes), src))),
       h('div', { class: 'track' }, fill));
   };
   const counts = [['accounts', pair.accounts], ['storage slots', pair.slots], ['PBT leaves', pair.leaves], ['contract codes', pair.code_count]]
@@ -45,8 +45,8 @@ export default async function (root, ctx) {
     });
   const pairBox = h('div', { class: 'panel', style: 'border-color:rgba(51,255,51,.3)' },
     h('div', {}, h('div', { class: 'lbl', style: 'color:#33FF33' }, 'EIP-8347 snapshot pair'), h('div', { class: 'muted', style: 'font-size:11px' }, `exported by ${pair.producer}`)),
-    file('PBT snapshot', pair.snapshot_bytes, '#33FF33'),
-    file('preimages', pair.preimages_bytes, '#B9C2B9'),
+    file([term('pbt', 'PBT'), ' snapshot'], pair.snapshot_bytes, '#33FF33'),
+    file(term('preimages', 'preimages'), pair.preimages_bytes, '#B9C2B9'),
     h('div', { style: 'display:flex;flex-direction:column;gap:3px;margin-top:4px' }, counts));
 
   // 3. The clients and the branch each one ran.

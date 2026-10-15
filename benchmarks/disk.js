@@ -1,5 +1,5 @@
 // What the PBT adds on disk: database before → after per client, and bytes per PBT leaf.
-import { COL, REDUCED, h, fmt, hover, num, onVisible, who } from './bench.js';
+import { COL, REDUCED, h, fmt, hover, num, onVisible, term, who } from './bench.js';
 
 const GREEN = COL.green;
 const HATCH = `repeating-linear-gradient(135deg, rgba(51,255,51,.55) 0 4px, rgba(51,255,51,.12) 4px 9px)`;
@@ -42,7 +42,7 @@ export default async function (root, ctx) {
   const legend = h('div', { class: 'row lbl', style: 'gap:18px;margin-top:4px' },
     h('span', {}, h('span', { style: `display:inline-block;width:22px;height:4px;background:${COL.muted};opacity:.5;vertical-align:middle;margin-right:6px` }), 'before'),
     h('span', {}, h('span', { style: 'display:inline-block;width:22px;height:10px;background:rgba(143,154,143,.35);vertical-align:middle;margin-right:6px' }), 'after'),
-    h('span', {}, h('span', { style: `display:inline-block;width:22px;height:10px;background:${GREEN};vertical-align:middle;margin-right:6px` }), 'PBT'),
+    h('span', {}, h('span', { style: `display:inline-block;width:22px;height:10px;background:${GREEN};vertical-align:middle;margin-right:6px` }), term('pbt', 'PBT')),
     res.clients.some((c) => c.sizes.attributed) &&
       h('span', {}, h('span', { style: `display:inline-block;width:22px;height:10px;background:${HATCH};outline:1px dashed ${GREEN};vertical-align:middle;margin-right:6px` }), 'PBT, attributed'),
     h('span', { class: 'grow' }), h('span', {}, `0 → ${fmt.n(max, 0)} GiB`));
