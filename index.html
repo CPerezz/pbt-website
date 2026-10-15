@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PBT Lab — Ethereum's Partitioned Binary Tree</title>
+<meta name="description" content="An interactive 3D explainer of EIP-8297's Partitioned Binary Tree, plus mainnet import benchmarks for EIP-8347. Pick an action and watch exactly what gets hashed.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PBT Lab — Ethereum's Partitioned Binary Tree">
+<meta property="og:description" content="An interactive 3D explainer of EIP-8297's Partitioned Binary Tree, plus mainnet import benchmarks for EIP-8347.">
+<meta property="og:url" content="https://cperezz.github.io/pbt-website/">
+<meta property="og:image" content="https://cperezz.github.io/pbt-website/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PBT Lab — Ethereum's Partitioned Binary Tree">
+<meta name="twitter:description" content="An interactive 3D explainer of EIP-8297's Partitioned Binary Tree, plus mainnet import benchmarks for EIP-8347.">
+<meta name="twitter:image" content="https://cperezz.github.io/pbt-website/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="benchmarks/bench.css">
+<style>
+  .hero { padding: 64px 28px 44px }
+  .tiles { padding-bottom: 64px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px }
+  .tile { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); overflow: hidden; text-decoration: none; color: inherit; transition: border-color .15s }
+  a.tile:hover { border-color: var(--green) }
+  .tile-media { position: relative; height: 200px; background: #060810; overflow: hidden }
+  .tile-media video, .tile-media img { width: 100%; height: 100%; object-fit: cover; display: block }
+  .tile-media img.fallback { display: none }
+  .tile.dim .tile-media { display: flex; align-items: center; justify-content: center; border-bottom: 1px dashed var(--line) }
+  .tile-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1 }
+  .tile-title { font-family: VT323, monospace; font-size: 26px; line-height: 1; color: var(--ink); text-decoration: none }
+  a.tile:hover .tile-title, a.tile-title:hover { color: var(--green) }
+  .tile-desc { font-size: 12px; color: var(--ink2); text-wrap: pretty }
+  .tile.dim { opacity: .5 }
+  .tile.dim .tile-title { color: var(--muted) }
+  @media (prefers-reduced-motion: reduce) {
+    .tile-media video { display: none }
+    .tile-media img.fallback { display: block }
+  }
+  @media (max-width: 760px) {
+    .tiles { grid-template-columns: 1fr }
+  }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <span class="logo">PBT·LAB</span>
+  <span class="grow"></span>
+  <nav class="row" aria-label="Primary" style="gap:20px;font-size:12.5px">
+    <a href="lab.html">Explore</a>
+    <a href="benchmarks/">Benchmarks</a>
+    <a href="https://eips.ethereum.org/EIPS/eip-8297" target="_blank" rel="noopener">EIPs ↗</a>
+    <a href="https://github.com/CPerezz/pbt-website" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
+</div></header>
+<main>
+  <section class="wrap hero">
+    <h1 class="h1">Ethereum's state tree, <span class="glow">made visible.</span></h1>
+    <p class="cap" style="margin-top:10px;font-size:13px">Pick an action and watch exactly what gets hashed — then see it holding up on mainnet.</p>
+  </section>
+  <section class="wrap tiles">
+    <a class="tile" href="lab.html">
+      <div class="tile-media">
+        <video src="media/home-hero-orbit.webm" poster="media/home-hero-poster.webp" autoplay muted loop playsinline></video>
+        <img class="fallback" src="media/home-hero-poster.webp" alt="The PBT tree, orbiting" loading="lazy">
+      </div>
+      <div class="tile-body">
+        <div class="tile-title">Explore the tree</div>
+        <div class="tile-desc">191 real leaves, 381 nodes, from the EIP-8297 reference implementation. Orbit it yourself.</div>
+      </div>
+    </a>
+    <a class="tile" href="lab.html#trip">
+      <div class="tile-media"><img src="media/home-trip.webp" alt="Action picker: 12 real Ethereum actions" loading="lazy"></div>
+      <div class="tile-body">
+        <div class="tile-title">Take a trip</div>
+        <div class="tile-desc">12 actions, numbered in recommended order. Follow exactly what gets hashed, where, and why.</div>
+      </div>
+    </a>
+    <a class="tile" href="lab.html#atlas">
+      <div class="tile-media"><img src="media/home-atlas.webp" alt="Zone atlas: self-paced facets of the tree" loading="lazy"></div>
+      <div class="tile-body">
+        <div class="tile-title">Zone atlas</div>
+        <div class="tile-desc">Self-paced facets — header, code, storage — browse the tree without a story.</div>
+      </div>
+    </a>
+    <a class="tile" href="lab.html#why">
+      <div class="tile-media"><img src="media/home-why.webp" alt="Why PBT: proof-size race panel" loading="lazy"></div>
+      <div class="tile-body">
+        <div class="tile-title">Why PBT at all</div>
+        <div class="tile-desc">Proof sizes, witness costs, the case against wider trees — the Motivation section, interactive.</div>
+      </div>
+    </a>
+    <a class="tile" href="lab.html#forge">
+      <div class="tile-media"><img src="media/home-forge.webp" alt="Key forge: derive a tree key live" loading="lazy"></div>
+      <div class="tile-body">
+        <div class="tile-title">Forge your own key</div>
+        <div class="tile-desc">Type an address or paste bytecode — watch its tree key derive live, with the same formulas.</div>
+      </div>
+    </a>
+    <div class="tile tile-race">
+      <div class="tile-body">
+        <a class="tile-title" href="benchmarks/">Mainnet benchmarks →</a>
+        <div class="tile-desc">besu and Nethermind import the same EIP-8347 snapshot on mainnet, while they keep validating blocks.</div>
+        <div id="race" style="margin-top:14px"></div>
+      </div>
+    </div>
+    <div class="tile dim" aria-disabled="true">
+      <div class="tile-media">
+        <span class="lbl">coming up</span>
+      </div>
+      <div class="tile-body">
+        <div class="tile-title">Self-migration</div>
+        <div class="tile-desc">Next round.</div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">
+  <a href="https://eips.ethereum.org/EIPS/eip-8297" target="_blank" rel="noopener">EIP-8297</a>
+  · <a href="https://eips.ethereum.org/EIPS/eip-8347" target="_blank" rel="noopener">EIP-8347</a>
+</div></footer>
+<script type="module" src="home.js"></script>
+</body>
+</html>
