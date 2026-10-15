@@ -2,15 +2,19 @@ import { CLIENT, REDUCED, avatar, countUp, fmt, h, hover, num, onVisible, s, scr
 
 // What goes in and what must come out: mainnet state → the snapshot pair → the clients → one PBT root.
 export default async function (root, ctx) {
-  const { pair, round, clients } = ctx.res;
+  const { pair, round, clients, rig } = ctx.res;
   const src = ctx.src('results.json');
   root.append(h('style', {}, `
     .flow { display: grid; grid-template-columns: 1fr 40px 1.3fr 40px 1fr 40px 1.1fr; align-items: stretch; margin-top: 40px }
     .flow .panel { display: flex; flex-direction: column; gap: 10px; min-width: 0 }
     .flow .arrow { display: flex; align-items: center; justify-content: center }
     .flow .stat { display: flex; justify-content: space-between; gap: 10px; align-items: baseline }
+    .ctx-p { max-width: 680px; font-size: 13.5px; line-height: 1.6; color: var(--ink2); margin: 0; text-wrap: pretty }
     @media (max-width: 900px) { .flow { grid-template-columns: 1fr } .flow .arrow { height: 34px } .flow .arrow svg { transform: rotate(90deg) } }
   `));
+
+  const eipUrl = (n) => `https://eips.ethereum.org/EIPS/eip-${n}`;
+  const eip = (n) => h('a', { href: eipUrl(n), target: '_blank', rel: 'noopener' }, `EIP-${n}`);
 
   const arrow = () => h('div', { class: 'arrow' }, s('svg', { width: 34, height: 14, viewBox: '0 0 34 14' },
     s('line', { x1: 0, y1: 7, x2: 27, y2: 7, stroke: '#33FF33', 'stroke-width': 1.5, 'stroke-dasharray': '4 3' },
@@ -63,11 +67,25 @@ export default async function (root, ctx) {
     h('span', { class: 'lbl' }, `expected PBT root · ${pair.hash_suite}`), rootText,
     h('div', { style: 'display:flex;flex-direction:column;gap:4px;margin-top:auto' }, ticks));
 
+  // 5. Context block: what this measures and how, plus links out.
+  const ctxBlock = h('div', { style: 'margin-top:22px;display:flex;flex-direction:column;gap:10px' },
+    h('p', { class: 'ctx-p' },
+      eip(8347), " converts Ethereum's state to the Partitioned Binary Tree (", eip(8297), ") off the chain's critical path: a finalized block is designated the anchor, converted into a byte-canonical snapshot plus the preimages needed to rebuild it, and the commitment is swapped for every node at one hard fork. This page measures that conversion on mainnet: synced besu and Nethermind nodes import the same pair, exported at that anchor, while they keep validating new blocks — the job a node does on fork day."),
+    h('p', { class: 'ctx-p' },
+      `Both clients ran on one ${rig.cores_measured}-core, ${rig.mem_gib} GiB rig, under the same limits. We record a 4-hour baseline of ordinary block processing, then the import window: every engine_newPayload timed by a proxy between the consensus client and the EL, CPU, memory and disk sampled from the node's cgroup every 5 s. An import only counts once the client's own log reports the snapshot's expected PBT root — anchored at mainnet block ${fmt.n(pair.anchor_block)}.`));
+  const linkRow = h('div', { class: 'row', style: 'gap:8px;margin-top:2px' },
+    h('a', { class: 'chip', href: eipUrl(8347), target: '_blank', rel: 'noopener' }, 'EIP-8347 ↗'),
+    h('a', { class: 'chip', href: eipUrl(8297), target: '_blank', rel: 'noopener' }, 'EIP-8297 ↗'),
+    h('a', { class: 'chip', href: '#builds' }, 'client builds ↓'),
+    h('a', { class: 'chip', href: ctx.tree, target: '_blank', rel: 'noopener' }, 'raw data ↗'),
+    h('a', { class: 'chip', href: '#reproduce' }, 'reproduce ↓'));
+
   root.append(
     h('div', { class: 'row', style: 'gap:10px;align-items:center;margin-bottom:18px' },
       h('span', { class: 'lbl' }, 'Mainnet benchmark · EIP-8347 import'), h('span', { class: 'chip' }, `${round.label} · ${round.date}`)),
     h('h1', { class: 'h1' }, `One snapshot, ${['zero', 'one', 'two', 'three', 'four', 'five', 'six'][clients.length] ?? clients.length} clients, `,
       h('span', { class: 'glow' }, 'one root.')),
+    ctxBlock, linkRow,
     h('div', { class: 'flow' }, anchor, arrow(), pairBox, arrow(), clientsBox, arrow(), rootBox),
   );
 }

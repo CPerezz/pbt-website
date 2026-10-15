@@ -98,7 +98,7 @@ export default async function (root, ctx) {
     who(c, 16, 'font-weight:400'),
     h('div', { class: 'row', style: 'gap:6px;align-items:center' },
       ...c.builds.map(buildChip), h('span', { class: 'muted', style: 'font-size:11px' }, c.runtime))));
-  const buildsBox = h('div', { class: 'panel', style: 'display:grid;gap:4px;margin-top:18px' },
+  const buildsBox = h('div', { id: 'builds', class: 'panel', style: 'display:grid;gap:4px;margin-top:18px' },
     h('span', { class: 'lbl' }, 'builds'), ...buildRows);
   root.append(head, rigBox, methodBox, buildsBox);
 }
