@@ -44,18 +44,17 @@ def stages(d, client, phase, marks, w, root_check):
     w["stages_src"] = f"{client}/{phase}/stages.csv"
 
 
-def geth_inspect(path):
-    out = {}
+def inspect_logical(path):
+    """geth `db inspect` of one key prefix: its logical size in GiB (key-value rows + unaccounted data)."""
+    total = 0.0
     for line in open(path):
-        m = re.match(r"\|\s*(.+?)\s*\|\s*(.+?)\s*\|\s*([\d.]+)\s*(B|KiB|MiB|GiB|TiB)\s*\|\s*(\d+)\s*\|", line)
+        m = re.match(r"\|\s*Key-Value store\s*\|\s*(.+?)\s*\|\s*([\d.]+)\s*(B|KiB|MiB|GiB|TiB)\s*\|", line)
         if m:
-            mult = {"B": 1, "KiB": 2 ** 10, "MiB": 2 ** 20, "GiB": GIB, "TiB": 2 ** 40}[m.group(4)]
-            out[f"{m.group(1)} / {m.group(2)}"] = float(m.group(3)) * mult / GIB
+            total += float(m.group(2)) * {"B": 1, "KiB": 2 ** 10, "MiB": 2 ** 20, "GiB": GIB, "TiB": 2 ** 40}[m.group(3)] / GIB
         m = re.search(r'unaccounted data\s+size="([\d.]+) GiB"', line)
         if m:
-            out["Key-Value store / unaccounted"] = float(m.group(1))
-    out["total"] = next(v for k, v in out.items() if k.endswith("/ Total"))
-    return out
+            total += float(m.group(1))
+    return total
 
 
 def besu_rocksdb(path):
@@ -70,22 +69,28 @@ def besu_rocksdb(path):
 
 
 def du(path):
+    """`du` tree: GiB per directory, keyed by its path below the datadir."""
     out = {}
     for line in open(path):
         b, p = line.rstrip("\n").split("\t", 1)
-        m = re.search(r"nethermind_db/mainnet(?:/([^/]+))?$", p)
-        if m:
-            out[m.group(1) or "total"] = int(b) / GIB
+        out[p.split("/", 1)[1] if "/" in p else ""] = int(b) / GIB
     return out
 
 
 def sizes(d, cfg):
-    read = {"geth-inspect": geth_inspect, "besu-rocksdb": besu_rocksdb, "du": du}[cfg["kind"]]
+    read = {"besu-rocksdb": besu_rocksdb, "du": du}[cfg["kind"]]
     before, after = read(f"{d}/{cfg['before']}"), read(f"{d}/{cfg['after']}")
-    parts = [{"label": k.split(" / ")[-1], "gib": round(after.get(k, 0) - before.get(k, 0), 1)} for k in cfg["pbt"]]
-    return {"before_gib": round(before["total"], 1), "after_gib": round(after["total"], 1),
-            "pbt_gib": round(sum(p["gib"] for p in parts), 1), "pbt_parts": parts, "attributed": cfg["attributed"],
-            "src": [cfg["before"], cfg["after"]]}
+    root = cfg.get("root")  # du: the database directory; rocksdb: the estimated total
+    key = lambda k: f"{root}/{k}" if root else k
+    tot = lambda s: s[root] if root else s["total"]
+    if "pbt" in cfg:  # the PBT has its own column/directory: its growth is the measurement
+        parts = [{"label": k, "gib": round(after.get(key(k), 0) - before.get(key(k), 0), 1)} for k in cfg["pbt"]]
+        pbt = sum(p["gib"] for p in parts)
+    else:  # no separate store: the whole database's growth, attributed to the PBT
+        parts = [{"label": l, "gib": round(inspect_logical(f"{d}/{f}"), 1)} for l, f in cfg.get("parts", [])]
+        pbt = tot(after) - tot(before)
+    return {"before_gib": round(tot(before), 1), "after_gib": round(tot(after), 1), "pbt_gib": round(pbt, 1),
+            "pbt_parts": parts, "attributed": cfg["attributed"], "note": cfg.get("note"), "src": [cfg["before"], cfg["after"]]}
 
 
 def build(rid):

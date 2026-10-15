@@ -1,0 +1,10 @@
+{"ts":"2026-10-07T20:14:33Z","unix":1791404073.478662422,"client":"geth","phase":"P1","edge":"start","note":"window 4h"}
+{"ts":"2026-10-07T22:07:28Z","unix":1791410848.022901605,"client":"geth","phase":"P1","edge":"end","note":"aborted: Lighthouse backfill inside the slice"}
+{"ts":"2026-10-09T14:19:27Z","unix":1791555567.947716028,"client":"geth","phase":"P1","edge":"start","note":"window 4h"}
+{"ts":"2026-10-09T18:19:27Z","unix":1791569967.991683631,"client":"geth","phase":"P1","edge":"end"}
+{"ts":"2026-10-15T07:57:34Z","unix":1792051054.3911796,"client":"geth","phase":"sync-catchup","edge":"start","note":"EL head 26193510"}
+{"ts":"2026-10-15T08:36:59Z","unix":1792053419.7636588,"client":"geth","phase":"sync-catchup","edge":"end","note":"EL head 26196760, lag 1"}
+{"ts":"2026-10-15T09:47:37Z","unix":1792057657.0328038,"client":"geth","phase":"P2a","edge":"start","note":"round 2: consumption pair, online (PR #61)"}
+{"ts":"2026-10-15T09:47:43Z","unix":1792057663.9390717,"client":"geth","phase":"P2a-init","edge":"start","note":"<bin>/geth --datadir <datadir> init <host-path> "}
+{"ts":"2026-10-15T09:47:47Z","unix":1792057667.9123719,"client":"geth","phase":"P2a-init","edge":"end","note":"exit 0"}
+{"ts":"2026-10-15T11:11:20Z","unix":1792062680.9559724,"client":"geth","phase":"P2a","edge":"end"}

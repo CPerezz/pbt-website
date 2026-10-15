@@ -77,7 +77,7 @@ export default async function (root, ctx) {
 
   // 5. One line of context, then a map of the page: each card scrolls to its section (a hash link would reload the
   // page, since the hash selects the round) and opens it if it's collapsed.
-  const names = clients.map((c) => c.name).join(clients.length > 2 ? ', ' : ' and ');
+  const names = new Intl.ListFormat('en', { type: 'conjunction' }).format(clients.map((c) => c.name));
   const lead = h('p', { class: 'lead' },
     eip(8347), " moves Ethereum's state to the Partitioned Binary Tree of ", eip(8297), ' through one verifiable snapshot. ',
     `Here, ${names} import that snapshot on a live mainnet node while it keeps validating blocks.`);

@@ -24,7 +24,7 @@ export default async function (root, ctx) {
     grows.push([pbt, pctW(z.pbt_gib, max)]);
     hover(pbt, `<span class="lbl">PBT · ${z.pbt_gib} GiB</span><br>` +
       z.pbt_parts.map((p) => `${p.label} <b>${p.gib} GiB</b>`).join('<br>') +
-      (z.attributed ? '<br><span class="lbl">attribution</span><br>growth of these db-inspect categories, not a direct measurement' : ''));
+      (z.note ? `<br><span class="lbl">note</span><br>${z.note}` : ''));
     const bars = h('div', { style: 'display:grid;gap:5px' },
       h('div', { style: `height:4px;border-radius:2px;width:${pctW(z.before_gib, max)};background:${COL.muted};opacity:.5` }),
       h('div', { style: 'display:flex;height:18px' },
@@ -71,14 +71,14 @@ export default async function (root, ctx) {
       h('span', { class: 'muted', style: 'font-size:11px' }, num(fmt.n(leaves), ctx.src('results.json')), ' leaves'),
       h('span', { class: 'grow' }), chip),
     // the ref line sits in a box aligned with the bar column
-    h('div', { style: 'display:grid;grid-template-columns:minmax(80px,110px) minmax(0,1fr) 84px;gap:14px' },
+    h('div', { style: 'display:grid;grid-template-columns:minmax(110px,140px) minmax(0,1fr) 84px;gap:14px' },
       h('span'),
       h('div', { style: 'position:relative;font-size:11px;color:var(--ink2);height:16px' },
         h('span', { style: `position:absolute;left:${pctW(snap, bmax)};transform:translateX(-50%);white-space:nowrap` },
           'snapshot file ', num(`${fmt.n(snap, 1)} B`, ctx.src('results.json'))))),
     h('div', { style: 'position:relative;display:grid;gap:10px' },
       ...leafRows,
-      h('div', { style: 'position:absolute;inset:0;display:grid;grid-template-columns:minmax(80px,110px) minmax(0,1fr) 84px;gap:14px;pointer-events:none' },
+      h('div', { style: 'position:absolute;inset:0;display:grid;grid-template-columns:minmax(110px,140px) minmax(0,1fr) 84px;gap:14px;pointer-events:none' },
         h('span'), h('div', { style: 'position:relative' }, refLine))));
 
   root.append(head, h('div', { class: 'panel', style: 'display:grid;gap:18px' }, ...rows, legend), leafChart);

@@ -1,0 +1,6 @@
+1636350533116	<datadir>
+6705394957	<datadir>/caches
+1629644490688	<datadir>/database
+0	<datadir>/fastsync
+0	<datadir>/pbt-migration
+0	<datadir>/syncFolder

@@ -24,15 +24,17 @@ function panel(c, rows, ctx, first) {
   const imp = c.imports[0], base = c.baseline.follow, f = imp.follow, col = ctx.color(c.id);
   const bms = base.newpayload_ms, fms = f.newpayload_ms;
   const H = 300, L = 54, R = W - 96, T = 24, B = H - 28;
-  const x = scale(0, imp.duration_s, L, R), y = logScale(5, 5000, B, T);
+  // Log scale from 5 ms up to the next power of ten above the slowest block (at least 5 s), so no dot falls off the top.
+  const top = 10 ** Math.ceil(Math.log10(Math.max(5000, fms.max)));
+  const x = scale(0, imp.duration_s, L, R), y = logScale(5, top, B, T);
   const svg = s('svg', { viewBox: `0 0 ${W} ${H}`, style: 'width:100%;display:block;cursor:crosshair', role: 'img',
     'aria-label': `${c.name}: newPayload time per block during the import` });
 
   // Stage bands.
   imp.stages.forEach((st, i) => {
     const x0 = x(st.start - imp.start), x1 = x(st.end - imp.start);
-    svg.append(s('rect', { x: x0, y: T, width: x1 - x0, height: B - T, fill: i % 2 ? 'rgba(226,230,226,.025)' : 'rgba(226,230,226,.06)' }),
-      s('text', { x: x0 + 6, y: T - 8, ...AX, 'font-size': 9, text: st.label }));
+    svg.append(s('rect', { x: x0, y: T, width: x1 - x0, height: B - T, fill: i % 2 ? 'rgba(226,230,226,.025)' : 'rgba(226,230,226,.06)' }));
+    if (st.label.length * 5.6 + 10 < x1 - x0) svg.append(s('text', { x: x0 + 6, y: T - 8, ...AX, 'font-size': 9, text: st.label }));
   });
   // Gridlines + axes.
   for (const v of [10, 100, 1000]) {
@@ -63,9 +65,11 @@ function panel(c, rows, ctx, first) {
   // Outliers > 1 s: value + thin leader, alternating sides so neighbours don't collide.
   const isrc = ctx.src(imp.src);
   pts.filter((p) => p.r.newpayload_ms > 1000).forEach((p, i) => {
-    const dx = i % 2 ? 46 : -46, ly = T + 26 + (i % 2) * 14;
+    // Alternate sides, but never past the plot's edges.
+    const right = p.cx - 46 < L + 40 ? true : p.cx + 46 > R - 40 ? false : i % 2 === 1;
+    const dx = right ? 46 : -46, ly = T + 26 + (i % 2) * 14;
     svg.append(s('line', { x1: p.cx, y1: p.cy - 3, x2: p.cx + dx, y2: ly + 3, stroke: COL.muted, 'stroke-width': 0.6 }),
-      snum(ms(p.r.newpayload_ms), isrc, { x: p.cx + dx, y: ly, 'text-anchor': i % 2 ? 'start' : 'end', fill: col, 'font-size': 11 }));
+      snum(ms(p.r.newpayload_ms), isrc, { x: p.cx + dx, y: ly, 'text-anchor': right ? 'start' : 'end', fill: col, 'font-size': 11 }));
   });
 
   // Hover: nearest dot within 12 px.

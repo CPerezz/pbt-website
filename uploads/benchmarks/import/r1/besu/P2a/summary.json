@@ -1,62 +1,62 @@
 {
  "client": "besu",
- "phase": "P2a",
- "start": 1791830912.3058803,
- "end": 1791848336.4725046,
- "seconds": 17424,
- "rate_window_seconds": 17424,
+ "phase": "R2-P2a",
+ "start": 1791990112.809512,
+ "end": 1792007477.11884,
+ "seconds": 17364,
+ "rate_window_seconds": 17364,
  "blocks": [
-  26178288,
-  26179735
+  26191505,
+  26192948
  ],
  "head_coverage": 0.999,
  "newPayload_ms": {
-  "n": 1450,
-  "p50": 152.157,
-  "p95": 312.053,
-  "p99": 468.623,
-  "max": 3850.062
+  "n": 1445,
+  "p50": 140.13,
+  "p95": 320.734,
+  "p99": 503.896,
+  "max": 7048.874
  },
  "newPayload_plus_fcu_ms": {
-  "n": 1450,
-  "p50": 259.727,
-  "p95": 481.327,
-  "p99": 763.564
+  "n": 1444,
+  "p50": 245.044,
+  "p95": 502.632,
+  "p99": 667.067
  },
- "mgas_per_s": 178.2,
- "ms_per_mgas": 5.612,
+ "mgas_per_s": 178.8,
+ "ms_per_mgas": 5.593,
  "head_lag_blocks": {
   "max": 1.0,
-  "mean": 0.021520803443328552
+  "mean": 0.022458969190901238
  },
  "thermal": {
-  "package_temp_max_c": 91.0,
-  "package_throttles": 0.0,
+  "package_temp_max_c": 90.0,
+  "package_throttles": 1.0005185825410545,
   "measured_core_throttles": 0.0
  },
  "el": {
-  "cpu_seconds": 48350.13961174099,
-  "mem_peak_bytes": 26385399808.0,
-  "anon_peak_bytes": 17859084288.0,
-  "file_peak_bytes": 17730560000.0,
-  "test_disk_read_bytes": 816821470711.4177,
-  "test_disk_write_bytes": 1578805982413.2703
+  "cpu_seconds": 46454.09462671521,
+  "mem_peak_bytes": 26220990464.0,
+  "anon_peak_bytes": 17829384192.0,
+  "file_peak_bytes": 17977462784.0,
+  "test_disk_read_bytes": 810948584524.446,
+  "test_disk_write_bytes": 1589486783514.4258
  },
  "cl": {
-  "cpu_seconds": 4950.785688005507,
-  "mem_peak_bytes": 10611298304.0,
-  "anon_peak_bytes": 9445470208.0,
-  "file_peak_bytes": 359157760.0,
+  "cpu_seconds": 4931.3614546492945,
+  "mem_peak_bytes": 10948292608.0,
+  "anon_peak_bytes": 10057457664.0,
+  "file_peak_bytes": 345747456.0,
   "test_disk_read_bytes": null,
   "test_disk_write_bytes": null
  },
  "slice": {
-  "cpu_seconds": 53332.97732687945,
+  "cpu_seconds": 51417.391011948384,
   "mem_peak_bytes": 34359738368.0,
-  "anon_peak_bytes": 26493210624.0,
-  "file_peak_bytes": 17898307584.0,
-  "test_disk_read_bytes": 816821610007.3956,
-  "test_disk_write_bytes": 1578806002897.973
+  "anon_peak_bytes": 27579289600.0,
+  "file_peak_bytes": 18209591296.0,
+  "test_disk_read_bytes": 810948457519.1888,
+  "test_disk_write_bytes": 1589488901634.3594
  },
  "tool": {
   "cpu_seconds": null,
@@ -67,8 +67,10 @@
   "test_disk_write_bytes": null
  },
  "dir_bytes_at_end": {
-  "<artifact-disk>/pairs": 325251633873.0,
-  "<producer-disk>/erigon": 503714329555.0,
-  "lighthouse": 18698757070.0
+  "<disk>": 325251633873.0,
+  "<disk>": 507025316149.0,
+  "<cl-datadir>": 19536844525.0,
+  "<datadir>": 1702863206873.0,
+  "<datadir>/database": 1629667082557.0
  }
 }
