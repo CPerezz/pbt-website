@@ -23,7 +23,7 @@ export default async function (root, ctx) {
         `jq -r .pbtRoot <pair>/pbt-snapshot.meta.json   # ${pair.pbt_root}`] },
     { line: 'Sync, then settle inside the limits (EL within 1 block of the CL head for 60 min) and pass every preflight check.',
       links: clients.map((c) => [`${c.name} preflight.txt`, ctx.src(`${c.id}/${c.baseline.phase}/preflight.txt`)]) },
-    { line: 'Record 4 hours of block processing, then restart the node with the import flags; it keeps following the chain. Log every engine_newPayload latency and the cgroup\u2019s CPU, memory and I/O every 5 s.',
+    { line: 'Record 4 hours of block processing, then restart the node with the import flags; it keeps following the chain. Log every engine_newPayload latency and, every 5 s, the cgroup\u2019s CPU, memory, I/O and pressure stalls plus the test disk\u2019s used space (its peak includes the import\u2019s scratch files, which are gone by the end); sample each client directory\u2019s size (du) every 1\u20132 min.',
       perClient: perClient((c) => c.reproduce.import) },
     { line: `Done when the client logs the line below; the PBT root it reports must equal ${pair.pbt_root}.`,
       perClient: clients.map((c) => ({ client: c, lines: [`${c.reproduce.done}…`] })) },
