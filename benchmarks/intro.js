@@ -2,14 +2,22 @@ import { CLIENT, REDUCED, avatar, countUp, fmt, h, hover, num, onVisible, s, scr
 
 // What goes in and what must come out: mainnet state → the snapshot pair → the clients → one PBT root.
 export default async function (root, ctx) {
-  const { pair, round, clients, rig } = ctx.res;
+  const { pair, round, clients } = ctx.res;
   const src = ctx.src('results.json');
   root.append(h('style', {}, `
     .flow { display: grid; grid-template-columns: 1fr 40px 1.3fr 40px 1fr 40px 1.1fr; align-items: stretch; margin-top: 40px }
     .flow .panel { display: flex; flex-direction: column; gap: 10px; min-width: 0 }
     .flow .arrow { display: flex; align-items: center; justify-content: center }
     .flow .stat { display: flex; justify-content: space-between; gap: 10px; align-items: baseline }
-    .ctx-p { max-width: 680px; font-size: 13.5px; line-height: 1.6; color: var(--ink2); margin: 0; text-wrap: pretty }
+    .lead { max-width: 640px; font-size: 14px; line-height: 1.6; color: var(--ink2); margin: 18px 0 0; text-wrap: pretty }
+    .agenda { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin-top: 34px }
+    .agenda a { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid var(--line); border-radius: 8px;
+      background: var(--panel); color: var(--ink); text-decoration: none; transition: border-color .15s, transform .15s }
+    .agenda a:hover { border-color: var(--green); color: var(--ink); transform: translateY(-2px) }
+    .agenda .n { font-family: VT323, monospace; font-size: 18px; color: var(--green); line-height: 1 }
+    .agenda b { font-size: 12.5px; font-weight: 600 }
+    .agenda span { font-size: 11px; color: var(--muted); line-height: 1.4 }
+    @media (max-width: 900px) { .agenda { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
     @media (max-width: 900px) { .flow { grid-template-columns: 1fr } .flow .arrow { height: 34px } .flow .arrow svg { transform: rotate(90deg) } }
   `));
 
@@ -67,34 +75,47 @@ export default async function (root, ctx) {
     h('span', { class: 'lbl' }, `expected PBT root · ${pair.hash_suite}`), rootText,
     h('div', { style: 'display:flex;flex-direction:column;gap:4px;margin-top:auto' }, ticks));
 
-  // 5. Context: what this round measures and how, plus links out. Names and numbers come from the round's data.
+  // 5. One line of context, then a map of the page: each card scrolls to its section (a hash link would reload the
+  // page, since the hash selects the round) and opens it if it's collapsed.
   const names = clients.map((c) => c.name).join(clients.length > 2 ? ', ' : ' and ');
-  const ctxBlock = h('div', { style: 'margin-top:22px;display:flex;flex-direction:column;gap:10px' },
-    h('p', { class: 'ctx-p' },
-      eip(8347), " moves Ethereum's state from the Merkle Patricia Trie to the Partitioned Binary Tree of ", eip(8297),
-      ` off the consensus-critical path. The state at a finalized anchor block is converted once and distributed as a verifiable snapshot plus a preimage file; each node imports that pair, checks it against the anchor's MPT state root, and the tree becomes canonical at one hard fork. This round measures the import on mainnet: ${names} each imported the same pair, exported at block ${fmt.n(pair.anchor_block)}, while still validating new blocks.`),
-    h('p', { class: 'ctx-p' },
-      `Each client ran alone on the same machine, limited to ${rig.cores_measured} cores and ${rig.mem_gib} GiB of memory shared with its consensus client (${rig.cl}). After a 4-hour baseline of ordinary block processing, we restarted it with the import flags. A proxy between the consensus client and the execution client timed every engine_newPayload, and the node's cgroup gave CPU, memory and disk every 5 s. An import counts only when the client's own log reports the expected PBT root.`));
-  // Hash links would reload the page (the hash selects the round), so these scroll instead.
-  const jump = (label, id) => h('a', { class: 'chip', href: '', onclick: (e) => {
+  const lead = h('p', { class: 'lead' },
+    eip(8347), " moves Ethereum's state to the Partitioned Binary Tree of ", eip(8297), ' through one verifiable snapshot. ',
+    `Here, ${names} import that snapshot on a live mainnet node while it keeps validating blocks.`);
+
+  const G = '#33FF33', M = 'rgba(226,230,226,.3)';
+  const glyph = (...kids) => s('svg', { width: 44, height: 20, viewBox: '0 0 44 20', 'aria-hidden': 'true' }, ...kids);
+  const glyphs = {
+    race: glyph([4, 7, 10, 13, 16, 18].map((y, i) => s('rect', { x: i * 7, y: 20 - y, width: 5, height: y, rx: 1, fill: i < 4 ? G : M }))),
+    kept: glyph(s('line', { x1: 0, x2: 44, y1: 12, y2: 12, stroke: M, 'stroke-dasharray': '2 2' }),
+      [[3, 10], [9, 13], [15, 8], [21, 12], [27, 9], [33, 14], [39, 10]].map(([x, y]) => s('circle', { cx: x, cy: y, r: 1.8, fill: G }))),
+    cost: glyph([0, 1, 2, 3].map((i) => s('rect', { x: i * 11, y: 4, width: 9, height: 12, rx: 2, fill: i < 2 ? G : 'none', stroke: i < 2 ? G : M }))),
+    disk: glyph(s('rect', { x: 0, y: 6, width: 30, height: 8, rx: 2, fill: M }), s('rect', { x: 30, y: 6, width: 14, height: 8, rx: 2, fill: G })),
+    setup: glyph([0, 1, 2, 3, 4, 5].map((i) => s('circle', { cx: 4 + i * 7, cy: 10, r: 2.6, fill: G }))),
+    reproduce: glyph(s('path', { d: 'M2 5 L8 10 L2 15', fill: 'none', stroke: G, 'stroke-width': 1.6 }),
+      s('rect', { x: 12, y: 13, width: 10, height: 2, fill: G })),
+  };
+  const agenda = h('nav', { class: 'agenda', 'aria-label': 'On this page' }, [
+    ['race', 'Import, replayed', 'How long each import takes'],
+    ['kept', 'Still validating?', 'Do blocks keep flowing meanwhile'],
+    ['cost', 'What it cost', 'CPU, memory and disk'],
+    ['disk', 'What the PBT adds', 'Disk the new tree takes'],
+    ['setup', 'Setup', 'Same machine, same limits'],
+    ['reproduce', 'Reproduce', 'Run it yourself'],
+  ].map(([id, title, line], i) => h('a', { href: '', onclick: (e) => {
     e.preventDefault();
     const el = document.getElementById(id);
     el.querySelector('details')?.setAttribute('open', '');
     el.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth' });
-  } }, label);
-  const linkRow = h('div', { class: 'row', style: 'gap:8px;margin-top:2px' },
-    h('a', { class: 'chip', href: eipUrl(8347), target: '_blank', rel: 'noopener' }, 'EIP-8347 ↗'),
-    h('a', { class: 'chip', href: eipUrl(8297), target: '_blank', rel: 'noopener' }, 'EIP-8297 ↗'),
-    jump('client builds ↓', 'builds'),
-    h('a', { class: 'chip', href: ctx.tree, target: '_blank', rel: 'noopener' }, 'raw data ↗'),
-    jump('reproduce ↓', 'reproduce'));
+  } }, h('div', { class: 'row', style: 'justify-content:space-between;align-items:center' }, h('span', { class: 'n' }, String(i + 1)), glyphs[id]),
+    h('b', {}, title), h('span', {}, line))));
 
   root.append(
     h('div', { class: 'row', style: 'gap:10px;align-items:center;margin-bottom:18px' },
       h('span', { class: 'lbl' }, 'Mainnet benchmark · EIP-8347 import'), h('span', { class: 'chip' }, `${round.label} · ${round.date}`)),
     h('h1', { class: 'h1' }, `One snapshot, ${['zero', 'one', 'two', 'three', 'four', 'five', 'six'][clients.length] ?? clients.length} clients, `,
       h('span', { class: 'glow' }, 'one root.')),
-    ctxBlock, linkRow,
+    lead,
     h('div', { class: 'flow' }, anchor, arrow(), pairBox, arrow(), clientsBox, arrow(), rootBox),
+    agenda,
   );
 }
