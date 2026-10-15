@@ -32,6 +32,31 @@ a{color:#33FF33;text-decoration:underline;text-underline-offset:2px}a:hover{colo
 button{font:inherit;color:inherit}
 button:focus-visible,[tabindex]:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #33FF33;outline-offset:2px}
 ::selection{background:#33FF33;color:#0A0D14}
+.dock{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;max-width:620px}
+.tile{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:8px;background:rgba(12,16,24,.9);border:1px solid rgba(226,230,226,.16);border-radius:8px;padding:10px;color:#E2E6E2;text-decoration:none;cursor:pointer;text-align:left;font-size:12px;font-weight:600;transition:border-color .15s,transform .15s}
+.tile:hover,.tile:focus-visible{border-color:#33FF33;color:#E2E6E2;transform:translateY(-2px)}
+.tile:focus-visible{outline:2px solid #33FF33;outline-offset:2px}
+.tile .g{position:relative;width:100%;height:26px;display:flex;align-items:flex-end;gap:3px;overflow:hidden}
+.tile .tip{position:absolute;left:0;bottom:calc(100% + 6px);white-space:nowrap;background:rgba(5,7,11,.95);border:1px solid #33FF33;border-radius:3px;padding:3px 7px;font-size:11px;font-weight:400;color:#B9C2B9;opacity:0;pointer-events:none;transition:opacity .15s}
+.tile:hover .tip,.tile:focus-visible .tip{opacity:1}
+.g-trip::before{content:'';position:absolute;left:0;right:0;top:12px;border-top:1px dashed rgba(226,230,226,.35)}
+.g-trip i{position:absolute;top:8px;left:0;width:9px;height:9px;border-radius:50%;background:#33FF33;box-shadow:0 0 8px #33FF33;animation:dkTrip 2.4s ease-in-out infinite}
+.g-zone i{flex:1;height:100%;border-radius:2px;animation:dkZone 2.4s ease-in-out infinite}
+.g-zone i:nth-child(2){animation-delay:.3s}.g-zone i:nth-child(3){animation-delay:.6s}.g-zone i:nth-child(4){animation-delay:.9s}
+.g-why i{width:30%;border-radius:2px 2px 0 0}
+.g-why i:first-child{height:100%;background:rgba(226,230,226,.3)}
+.g-why i:last-child{height:35%;background:#33FF33;animation:dkShrink 2.4s ease-in-out infinite}
+.g-key{align-items:center!important;font-size:12px;color:#33FF33;font-weight:400;letter-spacing:.5px}
+.g-key b{display:inline-block;width:6px;height:13px;background:#33FF33;margin-left:2px;animation:pbtCaret 1s steps(1) infinite}
+.g-race{flex-direction:column;align-items:stretch!important;justify-content:center;gap:5px!important}
+.g-race i{height:7px;border-radius:2px;transform-origin:left;animation:dkRace 2.8s ease-out infinite}
+.g-race i:last-child{animation-duration:3.4s}
+@keyframes dkTrip{0%,100%{left:0}50%{left:calc(100% - 9px)}}
+@keyframes dkZone{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes dkShrink{0%,15%{height:100%}60%,100%{height:35%}}
+@keyframes dkRace{0%{transform:scaleX(.05)}70%,100%{transform:scaleX(1)}}
+@media (max-width:899px){.dock{grid-template-columns:repeat(3,minmax(0,1fr))}.tile .tip{display:none}}
+@media (prefers-reduced-motion:reduce){.dock *{animation:none!important;transition:none!important}.g-trip i{left:calc(50% - 4px)}}
 </style>
 <script src="vendor/three.min.js"></script>
 <script src="pbt-core.js"></script>
@@ -179,9 +204,15 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible,textarea:focus
       <div style="font-size:15px;color:#B9C2B9;max-width:470px;text-wrap:pretty">Pick an action — send ETH, deploy, delegate, transfer a token — and follow exactly what gets hashed, where, and why.</div>
       <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
         <button onClick="{{ goPicker }}" style="background:#33FF33;color:#0A0D14;border:0;border-radius:6px;padding:12px 22px;font-weight:600;font-size:14px;cursor:pointer;white-space:nowrap;box-shadow:0 0 24px rgba(51,255,51,.35)">Start a trip</button>
-        <a href="benchmarks/" style="display:inline-block;border:1px solid rgba(51,255,51,.55);background:rgba(51,255,51,.08);color:#33FF33;border-radius:6px;padding:11px 20px;font-weight:600;font-size:14px;white-space:nowrap;text-decoration:none" style-hover="background:#33FF33;color:#0A0D14">Mainnet benchmarks →</a>
         <span style="font-size:11.5px;color:#8F9A8F">{{ heroNote }}</span>
       </div>
+      <nav class="dock" aria-label="Destinations">
+        <button class="tile" onClick="{{ goPicker }}"><span class="g g-trip" aria-hidden="true"><i></i></span>Take a trip<span class="tip">Follow one action through the tree</span></button>
+        <button class="tile" onClick="{{ goAtlas }}"><span class="g g-zone" aria-hidden="true"><i style="background:#33FF33"></i><i style="background:#6CB8EA"></i><i style="background:#1FC08F"></i><i style="background:#E69F00"></i></span>Zone atlas<span class="tip">Where every kind of state lives</span></button>
+        <button class="tile" onClick="{{ goWhy }}"><span class="g g-why" aria-hidden="true"><i></i><i></i></span>Why PBT<span class="tip">Smaller proofs, fewer hashes</span></button>
+        <button class="tile" onClick="{{ goForge }}"><span class="g g-key" aria-hidden="true">0x____<b></b></span>Forge a key<span class="tip">Derive a tree key yourself</span></button>
+        <a class="tile" href="benchmarks/"><span class="g g-race" aria-hidden="true"><i style="background:#E69F00"></i><i style="background:#1FC08F"></i></span>Benchmarks<span class="tip">Mainnet import, besu vs Nethermind</span></a>
+      </nav>
     </div>
   </sc-if>
   <sc-if value="{{ showMobileNotice }}" hint-placeholder-val="{{ false }}">
