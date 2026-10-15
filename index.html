@@ -27,13 +27,10 @@
   .tile-media { position: relative; height: 200px; background: #060810; overflow: hidden }
   .tile-media video, .tile-media img { width: 100%; height: 100%; object-fit: cover; display: block }
   .tile-media img.fallback { display: none }
-  .tile.dim .tile-media { display: flex; align-items: center; justify-content: center; border-bottom: 1px dashed var(--line) }
   .tile-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1 }
   .tile-title { font-family: VT323, monospace; font-size: 26px; line-height: 1; color: var(--ink); text-decoration: none }
   a.tile:hover .tile-title, a.tile-title:hover { color: var(--green) }
-  .tile-desc { font-size: 12px; color: var(--ink2); text-wrap: pretty }
-  .tile.dim { opacity: .5 }
-  .tile.dim .tile-title { color: var(--muted) }
+  .tile-desc { font-size: 12px; color: var(--ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
   @media (prefers-reduced-motion: reduce) {
     .tile-media video { display: none }
     .tile-media img.fallback { display: block }
@@ -67,51 +64,42 @@
       </div>
       <div class="tile-body">
         <div class="tile-title">Explore the tree</div>
-        <div class="tile-desc">191 real leaves, 381 nodes, from the EIP-8297 reference implementation. Orbit it yourself.</div>
+        <div class="tile-desc">Orbit the real tree yourself.</div>
       </div>
     </a>
     <a class="tile" href="lab.html#trip">
-      <div class="tile-media"><img src="media/home-trip.webp" alt="Action picker: 12 real Ethereum actions" loading="lazy"></div>
+      <div class="tile-media"><img src="media/home-trip.webp" alt="Action picker: pick an Ethereum action" loading="lazy"></div>
       <div class="tile-body">
         <div class="tile-title">Take a trip</div>
-        <div class="tile-desc">12 actions, numbered in recommended order. Follow exactly what gets hashed, where, and why.</div>
+        <div class="tile-desc">Follow exactly what gets hashed and why.</div>
       </div>
     </a>
     <a class="tile" href="lab.html#atlas">
       <div class="tile-media"><img src="media/home-atlas.webp" alt="Zone atlas: self-paced facets of the tree" loading="lazy"></div>
       <div class="tile-body">
         <div class="tile-title">Zone atlas</div>
-        <div class="tile-desc">Self-paced facets — header, code, storage — browse the tree without a story.</div>
+        <div class="tile-desc">Browse the tree without a story.</div>
       </div>
     </a>
     <a class="tile" href="lab.html#why">
       <div class="tile-media"><img src="media/home-why.webp" alt="Why PBT: proof-size race panel" loading="lazy"></div>
       <div class="tile-body">
         <div class="tile-title">Why PBT at all</div>
-        <div class="tile-desc">Proof sizes, witness costs, the case against wider trees — the Motivation section, interactive.</div>
+        <div class="tile-desc">The case against wider trees, interactive.</div>
       </div>
     </a>
     <a class="tile" href="lab.html#forge">
       <div class="tile-media"><img src="media/home-forge.webp" alt="Key forge: derive a tree key live" loading="lazy"></div>
       <div class="tile-body">
         <div class="tile-title">Forge your own key</div>
-        <div class="tile-desc">Type an address or paste bytecode — watch its tree key derive live, with the same formulas.</div>
+        <div class="tile-desc">Watch a tree key derive, live.</div>
       </div>
     </a>
     <div class="tile tile-race">
       <div class="tile-body">
         <a class="tile-title" href="benchmarks/">Mainnet benchmarks →</a>
-        <div class="tile-desc">besu and Nethermind import the same EIP-8347 snapshot on mainnet, while they keep validating blocks.</div>
+        <div class="tile-desc">Two clients, one mainnet snapshot.</div>
         <div id="race" style="margin-top:14px"></div>
-      </div>
-    </div>
-    <div class="tile dim" aria-disabled="true">
-      <div class="tile-media">
-        <span class="lbl">coming up</span>
-      </div>
-      <div class="tile-body">
-        <div class="tile-title">Self-migration</div>
-        <div class="tile-desc">Next round.</div>
       </div>
     </div>
   </section>
