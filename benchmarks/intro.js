@@ -67,18 +67,24 @@ export default async function (root, ctx) {
     h('span', { class: 'lbl' }, `expected PBT root · ${pair.hash_suite}`), rootText,
     h('div', { style: 'display:flex;flex-direction:column;gap:4px;margin-top:auto' }, ticks));
 
-  // 5. Context block: what this measures and how, plus links out.
+  // 5. Context: what this round measures and how, plus links out. Names and numbers come from the round's data.
+  const names = clients.map((c) => c.name).join(clients.length > 2 ? ', ' : ' and ');
   const ctxBlock = h('div', { style: 'margin-top:22px;display:flex;flex-direction:column;gap:10px' },
     h('p', { class: 'ctx-p' },
-      eip(8347), " converts Ethereum's state to the Partitioned Binary Tree (", eip(8297), ") off the chain's critical path: a finalized block is designated the anchor, converted into a byte-canonical snapshot plus the preimages needed to rebuild it, and the commitment is swapped for every node at one hard fork. This page measures that conversion on mainnet: synced besu and Nethermind nodes import the same pair, exported at that anchor, while they keep validating new blocks — the job a node does on fork day."),
+      eip(8347), " moves Ethereum's state from the Merkle Patricia Trie to the Partitioned Binary Tree of ", eip(8297),
+      ` off the consensus-critical path. The state at a finalized anchor block is converted once and distributed as a verifiable snapshot plus a preimage file; each node imports that pair, checks it against the anchor's MPT state root, and the tree becomes canonical at one hard fork. This round measures the import on mainnet: ${names} each imported the same pair, exported at block ${fmt.n(pair.anchor_block)}, while still validating new blocks.`),
     h('p', { class: 'ctx-p' },
-      `Both clients ran on one ${rig.cores_measured}-core, ${rig.mem_gib} GiB rig, under the same limits. We record a 4-hour baseline of ordinary block processing, then the import window: every engine_newPayload timed by a proxy between the consensus client and the EL, CPU, memory and disk sampled from the node's cgroup every 5 s. An import only counts once the client's own log reports the snapshot's expected PBT root — anchored at mainnet block ${fmt.n(pair.anchor_block)}.`));
+      `Each client ran alone on the same machine, limited to ${rig.cores_measured} cores and ${rig.mem_gib} GiB of memory shared with its consensus client (${rig.cl}). After a 4-hour baseline of ordinary block processing, we restarted it with the import flags. A proxy between the consensus client and the execution client timed every engine_newPayload, and the node's cgroup gave CPU, memory and disk every 5 s. An import counts only when the client's own log reports the expected PBT root.`));
+  // Hash links would reload the page (the hash selects the round), so these scroll instead.
+  const jump = (label, id) => h('a', { class: 'chip', href: '', onclick: (e) => {
+    e.preventDefault(); document.getElementById(id).scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth' });
+  } }, label);
   const linkRow = h('div', { class: 'row', style: 'gap:8px;margin-top:2px' },
     h('a', { class: 'chip', href: eipUrl(8347), target: '_blank', rel: 'noopener' }, 'EIP-8347 ↗'),
     h('a', { class: 'chip', href: eipUrl(8297), target: '_blank', rel: 'noopener' }, 'EIP-8297 ↗'),
-    h('a', { class: 'chip', href: '#builds' }, 'client builds ↓'),
+    jump('client builds ↓', 'builds'),
     h('a', { class: 'chip', href: ctx.tree, target: '_blank', rel: 'noopener' }, 'raw data ↗'),
-    h('a', { class: 'chip', href: '#reproduce' }, 'reproduce ↓'));
+    jump('reproduce ↓', 'reproduce'));
 
   root.append(
     h('div', { class: 'row', style: 'gap:10px;align-items:center;margin-bottom:18px' },

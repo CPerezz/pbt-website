@@ -27,7 +27,8 @@
     "slots": 1666326442,
     "leaves": 3020382712,
     "code_count": 2802657,
-    "producer": "erigon export-pbt"
+    "producer": "erigon export-pbt",
+    "producer_build": {"repo": "erigontech/erigon", "ref": "binary-trie", "commit": "d694d4a1"}
    },
    "clients": [
     {
@@ -41,7 +42,21 @@
      "stages": [["load + consistency check", "PBT migrator verifying"], ["MPT anchoring", "EIP-8347 internal PBT consistency OK"]],
      "root_check": "EIP-8347 consensus anchoring OK",
      "sizes": {"kind": "besu-rocksdb", "before": "besu/sizes/P1-rocksdb-usage.txt", "after": "besu/sizes/P2a-rocksdb-usage.txt",
-               "pbt": ["BINARY_TRIE_BRANCH_STORAGE"], "attributed": false}
+               "pbt": ["BINARY_TRIE_BRANCH_STORAGE"], "attributed": false},
+     "reproduce": {
+      "build": ["git clone https://github.com/besu-eth/besu-stateless && cd besu-stateless",
+                "git checkout 62b75234   # feat/partitioned-binary-trie",
+                "./gradlew build publishToMavenLocal -x test && cd ..",
+                "git clone https://github.com/matkt/besu && cd besu",
+                "git checkout 0cab5042   # glamsterdam-devnet-8-pbt",
+                "./gradlew installDist -x test"],
+      "import": ["BESU_OPTS=-Xmx8g besu --network=mainnet --data-path=<datadir> --data-storage-format=BONSAI <engine flags> \\",
+                 "  --override-genesis-config=binaryTrieTime=4100000000 \\",
+                 "  --Xpbt-snapshot-file=<pair>/pbt-snapshot.bin \\",
+                 "  --Xpbt-preimages-file=<pair>/framed.bin \\",
+                 "  --Xpbt-snapshot-anchor-block-hash={anchor_hash}"],
+      "done": "PBT migrator bootstrapped from snapshot"
+     }
     },
     {
      "id": "nethermind",
@@ -54,7 +69,20 @@
      "stages": [["verify preimages", "PBT verify preimages"], ["import", "PBT import"], ["verify MPT root", "PBT verify MPT"]],
      "root_check": "PBT verified",
      "sizes": {"kind": "du", "before": "nethermind/sizes/du-tree-20261013T153750Z.txt",
-               "after": "nethermind/sizes/du-tree-20261013T220458Z.txt", "pbt": ["pbt"], "attributed": false}
+               "after": "nethermind/sizes/du-tree-20261013T220458Z.txt", "pbt": ["pbt"], "attributed": false},
+     "reproduce": {
+      "build": ["git clone https://github.com/NethermindEth/nethermind && cd nethermind",
+                "git checkout 1f44194a5c   # pbt-state: 2da08a1eb1 + #14642, the tree this round ran",
+                "dotnet publish src/Nethermind/Nethermind.Runner -c release -o <out> -p:BuildTimestamp=0",
+                "jq '.params.eip7928TransitionTimestamp=\"0xee6b2800\" | .params.eip8347TransitionTimestamp=\"0xf4610900\"' \\",
+                "  <out>/chainspec/foundation.json > <out>/mainnet-pbt.json   # far-future 4,000,000,000 < 4,100,000,000"],
+      "import": ["nethermind --config mainnet --data-dir <datadir> <engine flags> \\",
+                 "  --Init.ChainSpecPath <out>/mainnet-pbt.json --Pbt.Enabled true --Sync.FastSync false \\",
+                 "  --Pbt.MigrationSnapshotPath <pair>/pbt-snapshot.bin \\",
+                 "  --Pbt.MigrationPreimagesPath <pair>/framed.bin \\",
+                 "  --Pbt.MigrationAnchor {anchor_block}"],
+      "done": "Imported the PBT migration anchor"
+     }
     }
    ]
   }

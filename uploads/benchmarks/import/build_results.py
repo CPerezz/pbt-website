@@ -101,7 +101,7 @@ def build(rid):
             imports.append(w)
         clients.append({"id": c["id"], "name": c["name"], "builds": c["builds"], "runtime": c["runtime"],
                         "baseline": window(d, c["id"], c["baseline"]), "imports": imports,
-                        "sizes": sizes(d, c["sizes"])})
+                        "sizes": sizes(d, c["sizes"]), "reproduce": c.get("reproduce")})
     return {"round": {k: rnd[k] for k in ("id", "label", "date")}, "rig": manifest["rig"], "pair": rnd["pair"],
             "clients": clients}
 
