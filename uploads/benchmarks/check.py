@@ -7,12 +7,14 @@ import json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 PAGE = os.path.normpath(f"{HERE}/../../benchmarks")
 sys.path.insert(0, f"{HERE}/import")
+sys.dont_write_bytecode = True  # a .pyc embeds this machine's absolute path
 from build_results import build
 
 LEAK = re.compile(r"(?<![\w<>.!-])/(mnt|opt|home|etc|usr|var|srv|root|Users|tmp)/")
 fail = []
 for base in (HERE, PAGE):
-    for root, _, files in os.walk(base):
+    for root, dirs, files in os.walk(base):
+        dirs[:] = [d for d in dirs if d != "__pycache__"]  # gitignored, never published
         for f in files:
             p = os.path.join(root, f)
             m = LEAK.search(open(p, errors="ignore").read())
