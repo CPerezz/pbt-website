@@ -21,15 +21,16 @@
 <link rel="stylesheet" href="benchmarks/bench.css">
 <style>
   .hero { padding: 64px 28px 44px }
-  .tiles { padding-bottom: 64px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px }
+  .tiles { padding-bottom: 64px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px }
   .tile { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); overflow: hidden; text-decoration: none; color: inherit; transition: border-color .15s }
   a.tile:hover { border-color: var(--green) }
-  .tile-media { position: relative; height: 200px; background: #060810; overflow: hidden }
+  .tile-media { position: relative; height: 300px; background: #060810; overflow: hidden }
+  .race-media { padding: 34px 30px; display: flex; flex-direction: column; justify-content: center }
   .tile-media video, .tile-media img { width: 100%; height: 100%; object-fit: cover; display: block }
   .tile-media img.fallback { display: none }
   .tile-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1 }
   .tile-title { font-family: VT323, monospace; font-size: 26px; line-height: 1; color: var(--ink); text-decoration: none }
-  a.tile:hover .tile-title, a.tile-title:hover { color: var(--green) }
+  a.tile:hover .tile-title { color: var(--green) }
   .tile-desc { font-size: 12px; color: var(--ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
   @media (prefers-reduced-motion: reduce) {
     .tile-media video { display: none }
@@ -37,6 +38,7 @@
   }
   @media (max-width: 760px) {
     .tiles { grid-template-columns: 1fr }
+    .tile-desc { white-space: normal }
   }
 </style>
 </head>
@@ -63,45 +65,17 @@
         <img class="fallback" src="media/home-hero-poster.webp" alt="The PBT tree, orbiting" loading="lazy">
       </div>
       <div class="tile-body">
-        <div class="tile-title">Explore the tree</div>
-        <div class="tile-desc">Orbit the real tree yourself.</div>
+        <div class="tile-title">Explore the tree →</div>
+        <div class="tile-desc">Take a trip · zone atlas · why PBT · forge a key</div>
       </div>
     </a>
-    <a class="tile" href="lab.html#trip">
-      <div class="tile-media"><img src="media/home-trip.webp" alt="Action picker: pick an Ethereum action" loading="lazy"></div>
+    <a class="tile" href="benchmarks/">
+      <div class="tile-media race-media"><div id="race"></div></div>
       <div class="tile-body">
-        <div class="tile-title">Take a trip</div>
-        <div class="tile-desc">Follow exactly what gets hashed and why.</div>
-      </div>
-    </a>
-    <a class="tile" href="lab.html#atlas">
-      <div class="tile-media"><img src="media/home-atlas.webp" alt="Zone atlas: self-paced facets of the tree" loading="lazy"></div>
-      <div class="tile-body">
-        <div class="tile-title">Zone atlas</div>
-        <div class="tile-desc">Browse the tree without a story.</div>
-      </div>
-    </a>
-    <a class="tile" href="lab.html#why">
-      <div class="tile-media"><img src="media/home-why.webp" alt="Why PBT: proof-size race panel" loading="lazy"></div>
-      <div class="tile-body">
-        <div class="tile-title">Why PBT at all</div>
-        <div class="tile-desc">The case against wider trees, interactive.</div>
-      </div>
-    </a>
-    <a class="tile" href="lab.html#forge">
-      <div class="tile-media"><img src="media/home-forge.webp" alt="Key forge: derive a tree key live" loading="lazy"></div>
-      <div class="tile-body">
-        <div class="tile-title">Forge your own key</div>
-        <div class="tile-desc">Watch a tree key derive, live.</div>
-      </div>
-    </a>
-    <div class="tile tile-race">
-      <div class="tile-body">
-        <a class="tile-title" href="benchmarks/">Mainnet benchmarks →</a>
+        <div class="tile-title">Mainnet benchmarks →</div>
         <div class="tile-desc">One mainnet snapshot, every client.</div>
-        <div id="race" style="margin-top:14px"></div>
       </div>
-    </div>
+    </a>
   </section>
 </main>
 <footer><div class="wrap">
