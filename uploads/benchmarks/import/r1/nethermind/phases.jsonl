@@ -1,12 +1,6 @@
-{"ts":"2026-10-13T09:57:05Z","unix":1791885425.390312842,"client":"nethermind","phase":"flat-import","edge":"start"}
-{"ts":"2026-10-13T10:30:05Z","unix":1791887405.854428945,"client":"nethermind","phase":"flat-import","edge":"end"}
-{"ts":"2026-10-13T10:32:05Z","unix":1791887525.937515225,"client":"nethermind","phase":"P1-sync-catchup","edge":"start","note":"EL head 26182989"}
-{"ts":"2026-10-13T10:32:20Z","unix":1791887540.973138044,"client":"nethermind","phase":"P1-sync-catchup","edge":"end","note":"EL head 26182990, lag 0"}
 {"ts":"2026-10-13T11:37:50Z","unix":1791891470.641229614,"client":"nethermind","phase":"P1","edge":"start","note":"window 4h"}
 {"ts":"2026-10-13T15:37:50Z","unix":1791905870.666539879,"client":"nethermind","phase":"P1","edge":"end"}
-{"ts":"2026-10-13T15:38:05Z","unix":1791905885.638329638,"client":"nethermind","phase":"P2a","edge":"start","note":"consumption pair"}
-{"ts":"2026-10-13T15:46:16Z","unix":1791906376.748122319,"client":"nethermind","phase":"P2a","edge":"end","note":"nethermind exited"}
-{"ts":"2026-10-13T19:32:31Z","unix":1791919951.678907634,"client":"nethermind","phase":"P1-sync-catchup","edge":"start","note":"EL head 26185682"}
-{"ts":"2026-10-13T19:32:46Z","unix":1791919966.731271640,"client":"nethermind","phase":"P1-sync-catchup","edge":"end","note":"EL head 26185683, lag 0"}
-{"ts":"2026-10-13T20:28:06Z","unix":1791923286.008290769,"client":"nethermind","phase":"P2a","edge":"start","note":"consumption pair"}
-{"ts":"2026-10-13T21:58:59Z","unix":1791928739.993529174,"client":"nethermind","phase":"P2a","edge":"end"}
+{"ts": "2026-10-14T08:39:37Z", "unix": 1791967177.0080156, "client": "nethermind", "phase": "sync-catchup", "edge": "start", "note": "EL head 26186999"}
+{"ts": "2026-10-14T08:48:27Z", "unix": 1791967707.152437, "client": "nethermind", "phase": "sync-catchup", "edge": "end", "note": "EL head 26189642, lag 0"}
+{"ts": "2026-10-14T09:53:51Z", "unix": 1791971631.7163093, "client": "nethermind", "phase": "P2a", "edge": "start", "note": "round 2: consumption pair"}
+{"ts": "2026-10-14T11:25:55Z", "unix": 1791977155.7910793, "client": "nethermind", "phase": "P2a", "edge": "end"}

@@ -1,17 +1,17 @@
 PASS eth_syncing=false
 PASS Lighthouse synced, no backfill
 PASS EL within 1 block of the CL head for 60 min
-PASS EL head advanced >= 250 blocks in 60 min (~300 expected): 299 blocks
+PASS EL head advanced >= 250 blocks in 60 min (~300 expected): 300 blocks
 PASS beacon node not syncing, sync_distance <= 1
 PASS no snapshot download or unpack running
 PASS no ext4lazyinit
-PASS fstrim <test-disk>: <test-disk>: 457.7 GiB (491409932288 bytes) trimmed
+PASS fstrim <disk>: <disk>: 1 TiB (1146983698432 bytes) trimmed
 PASS page cache dropped
 PASS producer stopped
 PASS no erigon export or debug pass running
 PASS no userspace task outside pbt.slice may run on 8-15
 PASS load on 8-15 outside pbt.slice < 0.5 cores: -0.02 cores
-PASS test disk writes settled (< 50 MB/s over 5 min): 0 MB/s
+PASS test disk writes settled (< 50 MB/s over 5 min): 1 MB/s
 PASS anchor 26142444 canonical
 PASS anchor finalized
 PASS cpuset partition 8-15

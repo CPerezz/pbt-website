@@ -36,6 +36,180 @@
  },
  "clients": [
   {
+   "id": "geth",
+   "name": "geth",
+   "builds": [
+    {
+     "repo": "CPerezz/go-ethereum",
+     "ref": "pbt-online-import",
+     "commit": "aeac79fac5"
+    },
+    {
+     "repo": "CPerezz/go-ethereum",
+     "pr": 61
+    }
+   ],
+   "runtime": "Go 1.26.8, path scheme, 4 import workers",
+   "baseline": {
+    "phase": "P1",
+    "src": "geth/P1/summary.json",
+    "start": 1791555567.947716,
+    "end": 1791569967.9916837,
+    "duration_s": 14400,
+    "res": {
+     "cpu_s": 2171,
+     "avg_cores": 0.15,
+     "anon_peak_gb": 9.4,
+     "page_cache_peak_gb": 13.9,
+     "test_disk_read_gb": 13,
+     "test_disk_write_gb": 12
+    },
+    "thermal": {
+     "package_temp_max_c": 87.0,
+     "package_throttles": 0.0,
+     "measured_core_throttles": 0.0
+    },
+    "files": {
+     "newpayload": "geth/P1/newpayload.csv",
+     "resources": "geth/P1/resources-15s.csv"
+    },
+    "follow": {
+     "blocks": [
+      26155707,
+      26156602
+     ],
+     "head_coverage": 0.998,
+     "newpayload_ms": {
+      "n": 898,
+      "p50": 51.916,
+      "p95": 96.088,
+      "p99": 126.771,
+      "max": 216.407
+     },
+     "mgas_per_s": 541.7,
+     "ms_per_mgas": 1.846,
+     "head_lag_max_blocks": 1.0,
+     "stats_window_s": 10800
+    }
+   },
+   "imports": [
+    {
+     "phase": "P2a",
+     "src": "geth/P2a/summary.json",
+     "start": 1792057657.0328038,
+     "end": 1792062680.9559724,
+     "duration_s": 5024,
+     "res": {
+      "cpu_s": 21296,
+      "avg_cores": 4.24,
+      "anon_peak_gb": 14.7,
+      "page_cache_peak_gb": 20.6,
+      "test_disk_read_gb": 2112,
+      "test_disk_write_gb": 2879
+     },
+     "thermal": {
+      "package_temp_max_c": 93.0,
+      "package_throttles": 0.0,
+      "measured_core_throttles": 0.0
+     },
+     "files": {
+      "newpayload": "geth/P2a/newpayload.csv",
+      "resources": "geth/P2a/resources-15s.csv"
+     },
+     "follow": {
+      "blocks": [
+       26197113,
+       26197528
+      ],
+      "head_coverage": 0.998,
+      "newpayload_ms": {
+       "n": 418,
+       "p50": 108.986,
+       "p95": 342.79,
+       "p99": 804.494,
+       "max": 1335.642
+      },
+      "mgas_per_s": 211.9,
+      "ms_per_mgas": 4.719,
+      "head_lag_max_blocks": 1.0,
+      "stats_window_s": 5024
+     },
+     "stages": [
+      {
+       "label": "verify preimages",
+       "start": 1792057657.0328038,
+       "end": 1792058030.0
+      },
+      {
+       "label": "verify snapshot",
+       "start": 1792058030.0,
+       "end": 1792059646.0
+      },
+      {
+       "label": "write tree",
+       "start": 1792059646.0,
+       "end": 1792060850.0
+      },
+      {
+       "label": "verify code + MPT root",
+       "start": 1792060850.0,
+       "end": 1792062067.0
+      },
+      {
+       "label": "write + check flat state",
+       "start": 1792062067.0,
+       "end": 1792062680.9559724
+      }
+     ],
+     "root_verified": true,
+     "stages_src": "geth/P2a/stages.csv"
+    }
+   ],
+   "sizes": {
+    "before_gib": 1349.8,
+    "after_gib": 1645.0,
+    "pbt_gib": 295.2,
+    "pbt_parts": [
+     {
+      "label": "tree nodes",
+      "gib": 389.2
+     },
+     {
+      "label": "flat storage",
+      "gib": 121.6
+     },
+     {
+      "label": "flat accounts",
+      "gib": 19.3
+     }
+    ],
+    "attributed": true,
+    "note": "On disk: the whole database's growth during the import (du). Parts: logical size of each PBT key family (db inspect), before compression.",
+    "src": [
+     "geth/sizes/P2a-du-tree-before.txt",
+     "geth/sizes/P2a-du-tree-after.txt"
+    ]
+   },
+   "reproduce": {
+    "build": [
+     "git clone https://github.com/CPerezz/go-ethereum && cd go-ethereum",
+     "git checkout aeac79fac5   # pbt-online-import, PR #61",
+     "go run build/ci.go install ./cmd/geth   # Go 1.26.8",
+     "build/bin/geth dumpgenesis --mainnet | jq '.config.amsterdamTime=4000000000 | .config.binaryTrieTime=4100000000' \\",
+     "  > <out>/genesis-pbt.json   # far-future 4,000,000,000 < 4,100,000,000"
+    ],
+    "import": [
+     "geth --datadir <datadir> init <out>/genesis-pbt.json",
+     "geth --datadir <datadir> --override.genesis <out>/genesis-pbt.json --networkid 1 \\",
+     "  --state.scheme=path --history.chain=postmerge <engine flags> \\",
+     "  --pbt.import.snapshot <pair>/pbt-snapshot.bin \\",
+     "  --pbt.import.preimages <pair>/framed.bin \\",
+     "  --pbt.import.anchor {anchor_hash} --pbt.import.workers 4"
+    ],
+    "done": "Import complete"
+   }
+  },
+  {
    "id": "besu",
    "name": "besu",
    "builds": [
@@ -97,20 +271,20 @@
     {
      "phase": "P2a",
      "src": "besu/P2a/summary.json",
-     "start": 1791830912.3058803,
-     "end": 1791848336.4725046,
-     "duration_s": 17424,
+     "start": 1791990112.809512,
+     "end": 1792007477.11884,
+     "duration_s": 17364,
      "res": {
-      "cpu_s": 48350,
-      "avg_cores": 2.77,
-      "anon_peak_gb": 17.9,
-      "page_cache_peak_gb": 17.7,
-      "test_disk_read_gb": 817,
-      "test_disk_write_gb": 1579
+      "cpu_s": 46454,
+      "avg_cores": 2.68,
+      "anon_peak_gb": 17.8,
+      "page_cache_peak_gb": 18.0,
+      "test_disk_read_gb": 811,
+      "test_disk_write_gb": 1589
      },
      "thermal": {
-      "package_temp_max_c": 91.0,
-      "package_throttles": 0.0,
+      "package_temp_max_c": 90.0,
+      "package_throttles": 1.0005185825410545,
       "measured_core_throttles": 0.0
      },
      "files": {
@@ -119,32 +293,32 @@
      },
      "follow": {
       "blocks": [
-       26178288,
-       26179735
+       26191505,
+       26192948
       ],
       "head_coverage": 0.999,
       "newpayload_ms": {
-       "n": 1450,
-       "p50": 152.157,
-       "p95": 312.053,
-       "p99": 468.623,
-       "max": 3850.062
+       "n": 1445,
+       "p50": 140.13,
+       "p95": 320.734,
+       "p99": 503.896,
+       "max": 7048.874
       },
-      "mgas_per_s": 178.2,
-      "ms_per_mgas": 5.612,
+      "mgas_per_s": 178.8,
+      "ms_per_mgas": 5.593,
       "head_lag_max_blocks": 1.0,
-      "stats_window_s": 17424
+      "stats_window_s": 17364
      },
      "stages": [
       {
        "label": "load + consistency check",
-       "start": 1791830912.3058803,
-       "end": 1791842484.0
+       "start": 1791990112.809512,
+       "end": 1792001658.0
       },
       {
        "label": "MPT anchoring",
-       "start": 1791842484.0,
-       "end": 1791848336.4725046
+       "start": 1792001658.0,
+       "end": 1792007477.11884
       }
      ],
      "root_verified": true,
@@ -152,8 +326,8 @@
     }
    ],
    "sizes": {
-    "before_gib": 1305.0,
-    "after_gib": 1512.0,
+    "before_gib": 1308.0,
+    "after_gib": 1516.0,
     "pbt_gib": 208.0,
     "pbt_parts": [
      {
@@ -162,9 +336,10 @@
      }
     ],
     "attributed": false,
+    "note": null,
     "src": [
-     "besu/sizes/P1-rocksdb-usage.txt",
-     "besu/sizes/P2a-rocksdb-usage.txt"
+     "besu/sizes/P2a-rocksdb-usage-before.txt",
+     "besu/sizes/P2a-rocksdb-usage-after.txt"
     ]
    },
    "reproduce": {
@@ -193,7 +368,7 @@
     {
      "repo": "NethermindEth/nethermind",
      "ref": "pbt-state",
-     "commit": "2da08a1eb1"
+     "commit": "1f44194a5c"
     },
     {
      "repo": "NethermindEth/nethermind",
@@ -247,19 +422,19 @@
     {
      "phase": "P2a",
      "src": "nethermind/P2a/summary.json",
-     "start": 1791923286.0082908,
-     "end": 1791928739.993529,
-     "duration_s": 5454,
+     "start": 1791971631.7163093,
+     "end": 1791977155.7910793,
+     "duration_s": 5524,
      "res": {
-      "cpu_s": 13590,
-      "avg_cores": 2.49,
-      "anon_peak_gb": 17.2,
-      "page_cache_peak_gb": 17.1,
-      "test_disk_read_gb": 885,
-      "test_disk_write_gb": 1635
+      "cpu_s": 13897,
+      "avg_cores": 2.52,
+      "anon_peak_gb": 17.3,
+      "page_cache_peak_gb": 17.6,
+      "test_disk_read_gb": 881,
+      "test_disk_write_gb": 1640
      },
      "thermal": {
-      "package_temp_max_c": 91.0,
+      "package_temp_max_c": 93.0,
       "package_throttles": 0.0,
       "measured_core_throttles": 0.0
      },
@@ -269,37 +444,37 @@
      },
      "follow": {
       "blocks": [
-       26185960,
-       26186413
+       26189971,
+       26190428
       ],
-      "head_coverage": 0.999,
+      "head_coverage": 0.997,
       "newpayload_ms": {
-       "n": 454,
-       "p50": 23.324,
-       "p95": 56.913,
-       "p99": 85.809,
-       "max": 323.218
+       "n": 459,
+       "p50": 24.627,
+       "p95": 72.476,
+       "p99": 155.906,
+       "max": 281.398
       },
-      "mgas_per_s": 1124.2,
-      "ms_per_mgas": 0.889,
+      "mgas_per_s": 973.6,
+      "ms_per_mgas": 1.027,
       "head_lag_max_blocks": 1.0,
-      "stats_window_s": 5454
+      "stats_window_s": 5524
      },
      "stages": [
       {
        "label": "verify preimages",
-       "start": 1791923286.0082908,
-       "end": 1791924171.0
+       "start": 1791971631.7163093,
+       "end": 1791972531.0
       },
       {
        "label": "import",
-       "start": 1791924171.0,
-       "end": 1791926756.0
+       "start": 1791972531.0,
+       "end": 1791975172.0
       },
       {
        "label": "verify MPT root",
-       "start": 1791926756.0,
-       "end": 1791928739.993529
+       "start": 1791975172.0,
+       "end": 1791977155.7910793
       }
      ],
      "root_verified": true,
@@ -307,8 +482,8 @@
     }
    ],
    "sizes": {
-    "before_gib": 1247.7,
-    "after_gib": 1593.4,
+    "before_gib": 1248.3,
+    "after_gib": 1595.2,
     "pbt_gib": 346.3,
     "pbt_parts": [
      {
@@ -317,15 +492,16 @@
      }
     ],
     "attributed": false,
+    "note": null,
     "src": [
-     "nethermind/sizes/du-tree-20261013T153750Z.txt",
-     "nethermind/sizes/du-tree-20261013T220458Z.txt"
+     "nethermind/sizes/P2a-du-tree-before.txt",
+     "nethermind/sizes/P2a-du-tree-after.txt"
     ]
    },
    "reproduce": {
     "build": [
      "git clone https://github.com/NethermindEth/nethermind && cd nethermind",
-     "git checkout 1f44194a5c   # pbt-state: 2da08a1eb1 + #14642, the tree this round ran",
+     "git checkout 1f44194a5c   # pbt-state, includes #14642",
      "dotnet publish src/Nethermind/Nethermind.Runner -c release -o <out> -p:BuildTimestamp=0",
      "jq '.params.eip7928TransitionTimestamp=\"0xee6b2800\" | .params.eip8347TransitionTimestamp=\"0xf4610900\"' \\",
      "  <out>/chainspec/foundation.json > <out>/mainnet-pbt.json   # far-future 4,000,000,000 < 4,100,000,000"

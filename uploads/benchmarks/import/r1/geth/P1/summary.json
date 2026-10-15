@@ -1,0 +1,69 @@
+{
+ "client": "geth",
+ "phase": "P1",
+ "start": 1791555567.947716,
+ "end": 1791569967.9916837,
+ "seconds": 14400,
+ "rate_window_seconds": 10800,
+ "blocks": [
+  26155707,
+  26156602
+ ],
+ "head_coverage": 0.998,
+ "newPayload_ms": {
+  "n": 898,
+  "p50": 51.916,
+  "p95": 96.088,
+  "p99": 126.771,
+  "max": 216.407
+ },
+ "newPayload_plus_fcu_ms": {
+  "n": 898,
+  "p50": 54.822,
+  "p95": 99.783,
+  "p99": 130.562
+ },
+ "mgas_per_s": 541.7,
+ "ms_per_mgas": 1.846,
+ "head_lag_blocks": {
+  "max": 1.0,
+  "mean": 0.000925925925925926
+ },
+ "thermal": {
+  "package_temp_max_c": 87.0,
+  "package_throttles": 0.0,
+  "measured_core_throttles": 0.0
+ },
+ "el": {
+  "cpu_seconds": 2170.675531781869,
+  "mem_peak_bytes": 23992778752.0,
+  "anon_peak_bytes": 9357627392.0,
+  "file_peak_bytes": 13886939136.0,
+  "test_disk_read_bytes": 12602393879.208057,
+  "test_disk_write_bytes": 12170349335.741577
+ },
+ "cl": {
+  "cpu_seconds": 3643.747293032303,
+  "mem_peak_bytes": 9072648192.0,
+  "anon_peak_bytes": 7065006080.0,
+  "file_peak_bytes": 1706164224.0,
+  "test_disk_read_bytes": null,
+  "test_disk_write_bytes": null
+ },
+ "slice": {
+  "cpu_seconds": 5837.901294060436,
+  "mem_peak_bytes": 32746012672.0,
+  "anon_peak_bytes": 16237031424.0,
+  "file_peak_bytes": 15570747392.0,
+  "test_disk_read_bytes": 12602393879.208057,
+  "test_disk_write_bytes": 12170349335.741577
+ },
+ "dir_bytes_at_end": {
+  "<artifact-disk>/pairs": 162426871737.0,
+  "<producer-disk>/erigon": 493405303387.0,
+  "lighthouse": 16534120337.0,
+  "<test-disk>/geth/geth/chaindata": 1441263180301.0,
+  "<test-disk>/geth/geth/chaindata/ancient": 976517356775.0,
+  "<test-disk>/geth/geth/triedb": 484788866.0
+ }
+}

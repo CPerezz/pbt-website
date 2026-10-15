@@ -1,0 +1,5 @@
+1414121758612	<datadir>
+6704941581	<datadir>/caches
+1407416169560	<datadir>/database
+0	<datadir>/fastsync
+0	<datadir>/syncFolder
