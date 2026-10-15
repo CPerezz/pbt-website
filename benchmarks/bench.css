@@ -1,4 +1,4 @@
-/* PBT Lab benchmarks: same tokens as index.html (README "Design Tokens"), but a scrolling page. */
+/* PBT Lab benchmarks: same tokens as lab.html (README "Design Tokens"), but a scrolling page. */
 :root {
   --bg: #0A0D14; --panel: rgba(12,16,24,.9); --ink: #E2E6E2; --ink2: #B9C2B9; --muted: #8F9A8F; --line: rgba(226,230,226,.16);
   --green: #33FF33; --blue: #6CB8EA; --amber: #E69F00; --mint: #1FC08F; --orange: #FF9F43; --red: #F0504A; --lilac: #B57BFF; --verm: #D55E00;
