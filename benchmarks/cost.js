@@ -2,7 +2,7 @@
 import { COL, controls, countUp, fmt, h, hover, num, onVisible, s, scale, term, who } from './bench.js';
 
 export default async function (root, ctx) {
-  const { res, clock } = ctx;
+  const { res, clock, paused } = ctx;
   const CORES = res.rig.cores_measured;
   const LIMIT = (res.rig.mem_gib * 2 ** 30) / 1e9; // cgroup limit in GB
   const cols = await Promise.all(res.clients.map(async (c) => {
@@ -125,5 +125,5 @@ export default async function (root, ctx) {
       chart('disk write', 'test_disk_write_mbps', Math.ceil(maxOf('test_disk_write_mbps') / 100) * 100, 'MB/s', 0, true)),
   );
   clock.on((t) => updates.forEach((u) => u(t)));
-  onVisible(root, () => { if (!clock.playing) { clock.seek(0); clock.play(); } });
+  if (!paused) onVisible(root, () => { if (!clock.playing) { clock.seek(0); clock.play(); } });
 }
