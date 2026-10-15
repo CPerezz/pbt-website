@@ -7,14 +7,20 @@ const base = `${BASE}${round.id}/`;
 const res = await getJSON(`${base}results.json`);
 
 // Shared context handed to every section module: export default async function (root, ctx).
+const tParam = new URLSearchParams(location.search).get('t');
+const clock = new Clock(Math.max(...res.clients.flatMap((c) => c.imports.map((w) => w.duration_s))));
+const paused = tParam != null && !Number.isNaN(+tParam);
+if (paused) clock.seek(+tParam);
 const ctx = {
   res,
   base,
+  round,
+  paused,
   src: (rel) => base + rel,
   csv: (rel) => getCSV(base + rel),
   color: (id) => CLIENT[id],
   client: (id) => res.clients.find((c) => c.id === id),
-  clock: new Clock(Math.max(...res.clients.flatMap((c) => c.imports.map((w) => w.duration_s)))),
+  clock,
 };
 
 document.getElementById('rounds').append(
@@ -41,4 +47,5 @@ await Promise.all(['intro', 'race', 'kept', 'cost', 'disk', 'setup'].map(async (
     console.error(`section ${id}:`, e);
   }
 }));
+if (paused) document.getElementById('race').scrollIntoView();
 reveal();
