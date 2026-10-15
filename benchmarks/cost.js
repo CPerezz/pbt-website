@@ -1,5 +1,5 @@
 // What it cost: CPU, memory and disk of each client's import, replayed on the shared clock.
-import { COL, controls, countUp, fmt, h, hover, num, onVisible, s, scale, term, who } from './bench.js';
+import { COL, controls, countUp, fmt, h, hover, num, onVisible, s, scale, secHead, term, who } from './bench.js';
 
 export default async function (root, ctx) {
   const { res, clock } = ctx;
@@ -115,8 +115,10 @@ export default async function (root, ctx) {
   const maxOf = (key) => Math.max(...cols.flatMap(({ rows }) => rows.map((r) => v(r[key]))));
 
   root.append(
-    h('div', { class: 'sec-head' }, h('h2', { class: 'h2' }, 'What it cost'),
-      h('span', { class: 'cap' }, 'CPU, memory and disk of each import, replayed side by side.')),
+    secHead('What it cost',
+      `Reading and verifying a ${fmt.gb(res.pair.snapshot_bytes + res.pair.preimages_bytes)} snapshot pair is heavy work, and on a live node it shares the machine with block processing. ` +
+      `These gauges show what the whole node used during the import, sampled every 15 s: busy cores out of its ${CORES}, memory against its ${res.rig.mem_gib} GiB limit (process memory, page cache and the consensus client), and disk reads and writes. ` +
+      'They follow the replay clock above; the charts below show the full run.'),
     h('div', { style: 'margin-bottom:18px' }, controls(clock)),
     h('div', { class: 'grid3', style: `--n:${cols.length}` }, cols.map((col, i) => panel(col, i))),
     h('div', { class: 'panel', style: 'margin-top:14px' },

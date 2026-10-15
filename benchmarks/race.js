@@ -1,5 +1,5 @@
 // Hero: every import replayed on one clock (t = seconds since each import's own start).
-import { COL, DATA, avatar, controls, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, scramble, term } from './bench.js';
+import { COL, DATA, avatar, controls, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, scramble, secHead, term } from './bench.js';
 
 const W = 1120, X0 = 160, X1 = 900, FX = 922; // label column | race track | finish column
 const BIN = 300, SLOT = 12, GENESIS = 1606824023; // 5-min comb bins; mainnet beacon slots
@@ -12,8 +12,10 @@ const source = (src) => `<span class="lbl">source</span><br><b>${src.replace(DAT
 
 export default async function (root, ctx) {
   const { res, clock } = ctx;
-  root.append(h('div', { class: 'sec-head' },
-    h('h2', { class: 'h2' }, 'Import, replayed'),
+  root.append(secHead('Import, replayed',
+    ['In the offline migration (EIP-8347), a node imports a snapshot of the new tree, taken at the ', term('anchor', 'anchor block'),
+      ` (#${fmt.n(res.pair.anchor_block)}), while it keeps processing new blocks. Here that import and its correctness checks replay on a live mainnet node (1 s = ${clock.speed / 60} min): `,
+      'the long bar is the import\u2019s phases, the small bars above it count blocks validated every 5 min, the ✓ is the client\u2019s own root check, and under each name sits its worst lag behind the chain head.'],
     h('span', { class: 'cap row', style: 'gap:8px' },
       h('span', { class: 'chip' }, swatch(...[5, 9, 11, 7, 10].map(bar)), 'blocks per 5 min'),
       h('span', { class: 'chip' }, swatch(bar(11)), 'one block (height = ', term('newpayload', 'newPayload'), ' time)'))));
@@ -81,6 +83,12 @@ export default async function (root, ctx) {
         const src = ctx.src(w.files.newpayload);
         counter = s('text', { x: 30, y: by + 18, 'font-size': 10.5, fill: COL.muted });
         svg.append(hover(s('a', { href: src, target: '_blank' }, counter), source(src)));
+      }
+      if (w.follow) {
+        const lag = w.follow.head_lag_max_blocks, src = ctx.src(w.src);
+        svg.append(hover(s('a', { href: src, target: '_blank' },
+          s('text', { x: 30, y: by + 32, 'font-size': 10.5, fill: COL.muted, text: `max lag ${fmt.n(lag)} block${lag === 1 ? '' : 's'}` })),
+          `Worst distance behind the chain head during the import<br>${source(src)}`));
       }
     }
 

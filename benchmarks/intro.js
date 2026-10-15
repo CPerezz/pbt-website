@@ -115,7 +115,9 @@ export default async function (root, ctx) {
     h('h1', { class: 'h1' }, `One snapshot, ${['zero', 'one', 'two', 'three', 'four', 'five', 'six'][clients.length] ?? clients.length} clients, `,
       h('span', { class: 'glow' }, 'one root.')),
     lead,
-    h('div', { class: 'flow' }, anchor, arrow(), pairBox, arrow(), clientsBox, arrow(), rootBox),
+    h('p', { class: 'explain', style: 'margin:38px 0 0' },
+      'An EIP-8347 migration starts from one shared artifact. Left to right: the mainnet state at the anchor block, the snapshot pair exported from it (the new tree, plus the preimages that let a node check it against the old one), the clients that imported it, and the root each one had to reproduce.'),
+    h('div', { class: 'flow', style: 'margin-top:14px' }, anchor, arrow(), pairBox, arrow(), clientsBox, arrow(), rootBox),
     agenda,
   );
 }

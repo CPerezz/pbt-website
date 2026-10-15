@@ -1,5 +1,5 @@
 // The machine and the method: rig, preflight, builds.
-import { COL, h, s, hover, onVisible, who } from './bench.js';
+import { COL, h, s, hover, onVisible, secHead, who } from './bench.js';
 
 const GREEN = COL.green;
 
@@ -7,9 +7,9 @@ export default async function (root, ctx) {
   const { res } = ctx;
   const { rig, clients } = res;
 
-  const head = h('div', { class: 'sec-head' },
-    h('h2', { class: 'h2' }, 'Setup'),
-    h('span', { class: 'cap' }, 'One rig, the same checklist, before every run.'));
+  const head = secHead('Setup',
+    `Every run stood on the same ground. Each client ran alone on the same machine: ${rig.cores_measured} of its cores and ${rig.mem_gib} GiB of memory fenced off for the node and its consensus client, ` +
+    'the same checklist passed before every measured window, and the exact builds listed below.');
 
   // --- Rig diagram --------------------------------------------------------
   const sq = 16, gap = 4, cols = 10;

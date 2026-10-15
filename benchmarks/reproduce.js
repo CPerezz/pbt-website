@@ -1,6 +1,6 @@
 // Reproduce: every step from a bare machine to this page's numbers. Collapsed by default; one button copies the
 // same steps as Markdown for a coding agent. Steps are data, rendered twice (page + Markdown), so they can't drift.
-import { fmt, h, who } from './bench.js';
+import { fmt, h, secHead, who } from './bench.js';
 
 export default async function (root, ctx) {
   const { res } = ctx;
@@ -94,9 +94,8 @@ export default async function (root, ctx) {
         st.links.map(([t, u]) => h('a', { class: 'chip', href: u, target: '_blank', rel: 'noopener' }, `${t} ↗`)))))));
 
   root.append(
-    h('div', { class: 'sec-head' },
-      h('h2', { class: 'h2' }, 'Reproduce'),
-      h('span', { class: 'cap' }, 'Every step from a bare machine to the numbers above.')),
+    secHead('Reproduce',
+      'New rounds follow as clients get faster, and anyone can run one. This is the full recipe: machine limits, client builds, exporting the snapshot, the exact import commands, and the log check that makes a run count.'),
     h('div', { class: 'agent' },
       h('span', { style: 'flex:1 1 320px' }, 'Want to run a benchmark like this one? ',
         h('b', { style: 'color:var(--green)' }, 'Point your coding agent at these steps'),

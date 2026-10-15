@@ -31,6 +31,11 @@ export const avatar = (id, size = 18, attrs = {}) =>
 export const who = (c, size = 18, style = '') =>
   h('span', { class: 'who', style: `color:${CLIENT[c.id]};${style}` }, avatar(c.id, size), c.name);
 
+// Section title (+ optional legend) and a two-line "what you're looking at" under it.
+export const secHead = (title, explain, ...extra) => h('div', {},
+  h('div', { class: 'sec-head' }, h('h2', { class: 'h2' }, title), ...extra),
+  h('p', { class: 'explain' }, explain));
+
 // Linear / log scales: f(x) maps domain → range, f.inv maps back.
 export function scale(d0, d1, r0, r1) {
   const f = (x) => r0 + ((x - d0) / (d1 - d0)) * (r1 - r0);

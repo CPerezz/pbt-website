@@ -1,5 +1,5 @@
 // "Still validating?" — did each node keep validating blocks during its import?
-import { COL, DATA, REDUCED, avatar, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, term, tip, who } from './bench.js';
+import { COL, DATA, REDUCED, avatar, countUp, fmt, h, hover, logScale, num, onVisible, s, scale, secHead, term, tip, who } from './bench.js';
 
 const W = 1120, AX = { fill: COL.muted, 'font-size': 10 };
 const ms = (v) => (v >= 1000 ? `${fmt.n(v / 1000, 2)} s` : `${fmt.n(v, v < 100 ? 1 : 0)} ms`);
@@ -9,9 +9,10 @@ const snum = (text, src, attrs = {}) =>
   hover(s('a', { href: src, target: '_blank' }, s('text', attrs, text)), `<span class="lbl">source</span><br><b>${src.replace(DATA, '')}</b> ↗`);
 
 export default async function (root, ctx) {
-  root.append(h('div', { class: 'sec-head' },
-    h('h2', { class: 'h2' }, 'Still validating?'),
-    h('span', { class: 'cap' }, 'Every dot is a block the node validated during the import, over its own baseline.')));
+  root.append(secHead('Still validating?',
+    ['The import must not cost the node its main job: validating every new block in time. Each dot is one block during the import, placed by its ',
+      term('newpayload', 'engine_newPayload'), ' time (log scale), over a grey band of the same client\u2019s normal times before the import. ',
+      'On the right, before → during: block times, gas throughput, slots covered and worst lag. Compare each client with itself: their baselines ran on different stretches of mainnet.']));
 
   const cs = ctx.res.clients.filter((c) => c.imports[0].files.newpayload);
   const rows = await Promise.all(cs.map((c) => ctx.csv(c.imports[0].files.newpayload)));

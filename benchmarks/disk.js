@@ -1,5 +1,5 @@
 // What the PBT adds on disk: database before → after per client, and bytes per PBT leaf.
-import { COL, REDUCED, h, fmt, hover, num, onVisible, term, who } from './bench.js';
+import { COL, REDUCED, h, fmt, hover, num, onVisible, secHead, term, who } from './bench.js';
 
 const GREEN = COL.green;
 const HATCH = `repeating-linear-gradient(135deg, rgba(51,255,51,.55) 0 4px, rgba(51,255,51,.12) 4px 9px)`;
@@ -10,9 +10,9 @@ export default async function (root, ctx) {
   const max = Math.max(...res.clients.map((c) => c.sizes.after_gib));
   const grows = []; // [el, width] animated on visible
 
-  const head = h('div', { class: 'sec-head' },
-    h('h2', { class: 'h2' }, 'What the PBT adds'),
-    h('span', { class: 'cap' }, 'Same tree, every client: database size before and after the import.'));
+  const head = secHead('What the PBT adds',
+    'Until the fork, a node keeps its Merkle Patricia state and stores the new tree next to it, so the import costs disk. The thin bar is each client\u2019s database before the import; in the thick bar, green is what the tree added. ' +
+    'Below, the same growth per tree leaf, next to the snapshot file\u2019s own bytes per leaf: every client stores the same tree, each in its own layout.');
 
   const rows = res.clients.map((c) => {
     const z = c.sizes, col = ctx.color(c.id);
