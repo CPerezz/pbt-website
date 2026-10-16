@@ -134,7 +134,8 @@ function dumbbell(ctx) {
     const col = ctx.color(c.id), cy = T + i * RH + RH / 2, b = c.baseline.follow.mgas_per_s;
     const w = c.imports[0], to = w.follow.mgas_per_s;
     const x0 = x(b), x1 = x(to), dir = Math.sign(x1 - x0) || 1;
-    svg.append(avatar(c.id, 18, { x: 8, y: cy - 9 }), s('text', { x: 32, y: cy + 4, fill: col, 'font-size': 12, text: c.name }));
+    svg.append(avatar(c.id, 18, { x: 8, y: cy - 9 }), s('text', { x: 32, y: cy + 4, fill: col, 'font-size': 12, text: c.name }),
+      ...(c.badge ? [s('text', { x: 32, y: cy + 17, ...AX, 'font-size': 9.5, text: c.badge })] : []));
     const arrow = s('g', { style: REDUCED ? '' : 'opacity:0;transition:opacity .4s ease 1s' },
       s('line', { x1: x0 - dir * 8, x2: x1 + dir * 9, y1: cy, y2: cy, stroke: col, 'stroke-width': 1.5 }),
       s('path', { d: `M${x1 + dir * 8},${cy} l${-dir * 7},-4 v8 z`, fill: col }),

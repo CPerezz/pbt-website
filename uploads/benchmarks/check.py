@@ -21,11 +21,11 @@ for base in (HERE, PAGE):
             if m:
                 fail.append(f"local path {m.group(0)!r} in {os.path.relpath(p, base)}")
 for r in json.load(open(f"{HERE}/import/rounds.json"))["rounds"]:
-    d = f"{HERE}/import/{r['id']}"
     res = json.loads(json.dumps(build(r["id"])))
-    if json.load(open(f"{d}/results.json")) != res:
+    if json.load(open(f"{HERE}/import/{r['id']}/results.json")) != res:
         fail.append(f"{r['id']}/results.json is stale: run build_results.py {r['id']}")
+    # results.json paths are relative to import/ (a run may use another round's baseline)
     fail += [f"{r['id']}: missing {x}" for x in re.findall(r'"([\w./-]+\.(?:csv|json|txt))"', json.dumps(res))
-             if not os.path.exists(f"{d}/{x}")]
+             if not os.path.exists(f"{HERE}/import/{x}")]
 print("\n".join(fail) or "ok")
 sys.exit(bool(fail))

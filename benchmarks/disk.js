@@ -7,11 +7,13 @@ const pctW = (v, max) => `${(v / max) * 100}%`;
 
 export default async function (root, ctx) {
   const { res } = ctx;
-  const max = Math.max(...res.clients.map((c) => c.sizes.after_gib));
+  // Peak = the test disk's growth at its fullest during the import (5 s samples), temporary files included.
+  const peak = (c) => c.imports[0].disk_peak_gib;
+  const max = Math.max(...res.clients.map((c) => Math.max(c.sizes.after_gib, c.sizes.before_gib + (peak(c) ?? 0))));
   const grows = []; // [el, width] animated on visible
 
   const head = secHead('What the PBT adds',
-    'Until the fork, a node keeps its Merkle Patricia state and stores the new tree next to it, so the import costs disk. The thin bar is each client\u2019s database before the import; in the thick bar, green is what the tree added. ' +
+    'Until the fork, a node keeps its Merkle Patricia state and stores the new tree next to it, so the import costs disk. The thin bar is each client\u2019s database before the import; in the thick bar, green is what the tree added, and the dashed outline is how full the disk got during the import, temporary files included. ' +
     'Below, the same growth per tree leaf, next to the snapshot file\u2019s own bytes per leaf: every client stores the same tree, each in its own layout.');
 
   const rows = res.clients.map((c) => {
@@ -27,16 +29,20 @@ export default async function (root, ctx) {
       (z.note ? `<br><span class="lbl">note</span><br>${z.note}` : ''));
     const bars = h('div', { style: 'display:grid;gap:5px' },
       h('div', { style: `height:4px;border-radius:2px;width:${pctW(z.before_gib, max)};background:${COL.muted};opacity:.5` }),
-      h('div', { style: 'display:flex;height:18px' },
+      h('div', { style: 'display:flex;height:18px;position:relative' },
         h('div', { style: `width:${pctW(z.after_gib - z.pbt_gib, max)};background:rgba(143,154,143,.35);border-radius:4px 0 0 4px` }),
-        pbt));
+        pbt,
+        peak(c) > z.pbt_gib && hover(h('div', { style: `position:absolute;top:-3px;bottom:-3px;left:${pctW(z.after_gib, max)};width:${pctW(z.before_gib + peak(c) - z.after_gib, max)};` +
+          `border:1px dashed ${COL.ink2};border-left:0;border-radius:0 4px 4px 0;cursor:help` }),
+        `<span class="lbl">peak during the import</span><br>disk <b>+${fmt.n(peak(c), 1)} GiB</b> over its start, temporary files included; they are gone by the end`)));
     return h('div', { style: 'display:grid;grid-template-columns:minmax(110px,140px) minmax(0,1fr) auto;gap:14px;align-items:center' },
       who(c, 20),
       bars,
       h('div', { style: 'text-align:right;white-space:nowrap' },
         h('div', { class: 'muted', style: 'font-size:11px' },
           num(`${fmt.n(z.before_gib, 1)}`, ctx.src(z.src[0])), ' → ', num(`${fmt.n(z.after_gib, 1)} GiB`, ctx.src(z.src[1]))),
-        h('div', { class: 'big', style: `color:${GREEN}` }, '+', num(`${fmt.n(z.pbt_gib, 1)} GiB`, ctx.src(z.src[1])), h('span', { class: 'lbl', style: 'margin-left:6px' }, 'PBT'))));
+        h('div', { class: 'big', style: `color:${GREEN}` }, '+', num(`${fmt.n(z.pbt_gib, 1)} GiB`, ctx.src(z.src[1])), h('span', { class: 'lbl', style: 'margin-left:6px' }, 'PBT')),
+        peak(c) != null && h('div', { class: 'muted', style: 'font-size:11px' }, 'peak +', num(`${fmt.n(peak(c), 1)} GiB`, ctx.src(c.imports[0].src)))));
   });
 
   const legend = h('div', { class: 'row lbl', style: 'gap:18px;margin-top:4px' },
@@ -45,6 +51,8 @@ export default async function (root, ctx) {
     h('span', {}, h('span', { style: `display:inline-block;width:22px;height:10px;background:${GREEN};vertical-align:middle;margin-right:6px` }), term('pbt', 'PBT')),
     res.clients.some((c) => c.sizes.attributed) &&
       h('span', {}, h('span', { style: `display:inline-block;width:22px;height:10px;background:${HATCH};outline:1px dashed ${GREEN};vertical-align:middle;margin-right:6px` }), 'PBT, attributed'),
+    res.clients.some((c) => peak(c) != null) &&
+      h('span', {}, h('span', { style: `display:inline-block;width:22px;height:10px;border:1px dashed ${COL.ink2};vertical-align:middle;margin-right:6px` }), 'peak during import'),
     h('span', { class: 'grow' }), h('span', {}, `0 → ${fmt.n(max, 0)} GiB`));
 
   // Bytes per PBT leaf, vs the snapshot file's bytes per leaf.
@@ -68,14 +76,14 @@ export default async function (root, ctx) {
   const leafChart = h('div', { class: 'panel', style: 'margin-top:22px;display:grid;gap:10px' },
     h('div', { class: 'row', style: 'align-items:center;gap:10px' },
       h('span', { class: 'lbl' }, 'bytes per PBT leaf'),
-      h('span', { class: 'muted', style: 'font-size:11px' }, num(fmt.n(leaves), ctx.src('results.json')), ' leaves'),
+      h('span', { class: 'muted', style: 'font-size:11px' }, num(fmt.n(leaves), ctx.resultsSrc), ' leaves'),
       h('span', { class: 'grow' }), chip),
     // the ref line sits in a box aligned with the bar column
     h('div', { style: 'display:grid;grid-template-columns:minmax(110px,140px) minmax(0,1fr) 84px;gap:14px' },
       h('span'),
       h('div', { style: 'position:relative;font-size:11px;color:var(--ink2);height:16px' },
         h('span', { style: `position:absolute;left:${pctW(snap, bmax)};transform:translateX(-50%);white-space:nowrap` },
-          'snapshot file ', num(`${fmt.n(snap, 1)} B`, ctx.src('results.json'))))),
+          'snapshot file ', num(`${fmt.n(snap, 1)} B`, ctx.resultsSrc)))),
     h('div', { style: 'position:relative;display:grid;gap:10px' },
       ...leafRows,
       h('div', { style: 'position:absolute;inset:0;display:grid;grid-template-columns:minmax(110px,140px) minmax(0,1fr) 84px;gap:14px;pointer-events:none' },

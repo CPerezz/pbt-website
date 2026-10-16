@@ -3,14 +3,15 @@ import { CLIENT, REDUCED, avatar, countUp, fmt, h, hover, num, onVisible, s, scr
 // What goes in and what must come out: mainnet state → the snapshot pair → the clients → one PBT root.
 export default async function (root, ctx) {
   const { pair, round, clients } = ctx.res;
-  const src = ctx.src('results.json');
+  const src = ctx.resultsSrc;
   root.append(h('style', {}, `
     .flow { display: grid; grid-template-columns: 1fr 40px 1.3fr 40px 1fr 40px 1.1fr; align-items: stretch; margin-top: 40px }
     .flow .panel { display: flex; flex-direction: column; gap: 10px; min-width: 0 }
     .flow .arrow { display: flex; align-items: center; justify-content: center }
     .flow .stat { display: flex; justify-content: space-between; gap: 10px; align-items: baseline }
     .lead { max-width: 640px; font-size: 14px; line-height: 1.6; color: var(--ink2); margin: 18px 0 0; text-wrap: pretty }
-    .agenda { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin-top: 34px }
+    .agenda { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-top: 34px }
+    .view-note { max-width: 640px; font-size: 12.5px; color: var(--muted); margin: 8px 0 0 }
     .agenda a { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid var(--line); border-radius: 8px;
       background: var(--panel); color: var(--ink); text-decoration: none; transition: border-color .15s, transform .15s }
     .agenda a:hover { border-color: var(--green); color: var(--ink); transform: translateY(-2px) }
@@ -60,15 +61,17 @@ export default async function (root, ctx) {
   // 3. The clients and the branch each one ran.
   const clientsBox = h('div', { class: 'panel' }, h('span', { class: 'lbl' }, 'imported by'),
     clients.map((c) => h('div', { style: 'display:flex;flex-direction:column;gap:2px;padding:7px 0;border-bottom:1px solid rgba(226,230,226,.06)' },
-      who(c, 26, 'font-size:15px'),
-      h('span', { class: 'muted', style: 'font-size:10.5px;padding-left:34px;overflow-wrap:anywhere' }, `${c.builds[0].ref}@${c.builds[0].commit.slice(0, 8)}`))));
+      who({ ...c, badge: null }, 26, 'font-size:15px'),
+      h('span', { class: 'muted', style: 'font-size:10.5px;padding-left:34px;overflow-wrap:anywhere' },
+        c.badge ? `${c.badge} · ` : '', `${c.builds[0].ref}@${c.builds[0].commit.slice(0, 8)}`))));
 
   // 4. The root they must all reproduce.
   const rootText = h('div', { style: 'font-size:12px;color:#33FF33;word-break:break-all;line-height:1.45' }, '0x' + '·'.repeat(64));
   onVisible(rootText, () => scramble(rootText, pair.pbt_root, 1600), 0.6);
   const ticks = clients.map((c) => {
     const ok = c.imports.every((w) => w.root_verified);
-    return hover(h('span', { style: `display:inline-flex;align-items:center;gap:8px;color:${ok ? CLIENT[c.id] : '#F0504A'};font-size:15px;font-weight:600` }, ok ? '✓' : '✗', avatar(c.id, 18), c.name),
+    return hover(h('span', { style: `display:inline-flex;align-items:center;gap:8px;color:${ok ? CLIENT[c.id] : '#F0504A'};font-size:15px;font-weight:600` },
+      ok ? '✓' : '✗', avatar(c.id, 18), c.name, c.badge && h('span', { style: 'font-size:10.5px;font-weight:400;color:var(--muted)' }, c.badge)),
       `${c.name}: ${ok ? 'its own log verified this root' : 'root not verified'} (${c.imports.length} run${c.imports.length > 1 ? 's' : ''})`);
   });
   const rootBox = h('div', { class: 'panel', style: 'border-color:rgba(51,255,51,.45);box-shadow:0 0 24px rgba(51,255,51,.08)' },
@@ -76,11 +79,16 @@ export default async function (root, ctx) {
     h('div', { style: 'display:flex;flex-direction:column;gap:4px;margin-top:auto' }, ticks));
 
   // 5. One line of context, then a map of the page: each card scrolls to its section (a hash link would reload the
-  // page, since the hash selects the round) and opens it if it's collapsed.
-  const names = new Intl.ListFormat('en', { type: 'conjunction' }).format(clients.map((c) => c.name));
+  // page, since the hash selects the view) and opens it if it's collapsed.
+  const word = (n) => ['zero', 'one', 'two', 'three', 'four', 'five', 'six'][n] ?? n;
+  const ids = [...new Set(clients.map((c) => c.id))];
+  const oneClient = ids.length === 1 && clients.length > 1; // a round that reran one client's builds
+  const subject = oneClient ? `${word(clients.length)} ${clients[0].name} builds` : `${word(ids.length)} client${ids.length > 1 ? 's' : ''}`;
+  const names = oneClient ? subject : new Intl.ListFormat('en', { type: 'conjunction' }).format(clients.map((c) => c.name));
   const lead = h('p', { class: 'lead' },
     eip(8347), " moves Ethereum's state to the Partitioned Binary Tree of ", eip(8297), ' through one verifiable snapshot. ',
     `Here, ${names} import that snapshot on a live mainnet node while it keeps validating blocks.`);
+  const note = round.note && h('p', { class: 'view-note' }, round.note);
 
   const G = '#33FF33', M = 'rgba(226,230,226,.3)';
   const glyph = (...kids) => s('svg', { width: 44, height: 20, viewBox: '0 0 44 20', 'aria-hidden': 'true' }, ...kids);
@@ -93,15 +101,18 @@ export default async function (root, ctx) {
     setup: glyph([0, 1, 2, 3, 4, 5].map((i) => s('circle', { cx: 4 + i * 7, cy: 10, r: 2.6, fill: G }))),
     reproduce: glyph(s('path', { d: 'M2 5 L8 10 L2 15', fill: 'none', stroke: G, 'stroke-width': 1.6 }),
       s('rect', { x: 12, y: 13, width: 10, height: 2, fill: G })),
+    history: glyph(s('polyline', { points: '3,15 15,12 27,7 39,5', fill: 'none', stroke: M, 'stroke-width': 1.2 }),
+      [[3, 15], [15, 12], [27, 7], [39, 5]].map(([x, y], i) => s('circle', { cx: x, cy: y, r: 2.4, fill: i === 3 ? G : M }))),
   };
   const agenda = h('nav', { class: 'agenda', 'aria-label': 'On this page' }, [
+    ctx.history && ['history', 'Across rounds', 'Every run, compared'],
     ['race', 'Import, replayed', 'How long each import takes'],
     ['kept', 'Still validating?', 'Do blocks keep flowing meanwhile'],
     ['cost', 'What it cost', 'CPU, memory and disk'],
     ['disk', 'What the PBT adds', 'Disk the new tree takes'],
     ['setup', 'Setup', 'Same machine, same limits'],
     ['reproduce', 'Reproduce', 'Run it yourself'],
-  ].map(([id, title, line], i) => h('a', { href: '', onclick: (e) => {
+  ].filter(Boolean).map(([id, title, line], i) => h('a', { href: '', onclick: (e) => {
     e.preventDefault();
     const el = document.getElementById(id);
     el.querySelector('details')?.setAttribute('open', '');
@@ -111,10 +122,11 @@ export default async function (root, ctx) {
 
   root.append(
     h('div', { class: 'row', style: 'gap:10px;align-items:center;margin-bottom:18px' },
-      h('span', { class: 'lbl' }, 'Mainnet benchmark · EIP-8347 import'), h('span', { class: 'chip' }, `${round.label} · ${round.date}`)),
-    h('h1', { class: 'h1' }, `One snapshot, ${['zero', 'one', 'two', 'three', 'four', 'five', 'six'][clients.length] ?? clients.length} clients, `,
+      h('span', { class: 'lbl' }, 'Mainnet benchmark · EIP-8347 import'), h('span', { class: 'chip' }, `${round.label} · ${fmt.day(round.date)}`)),
+    h('h1', { class: 'h1' }, `One snapshot, ${subject}, `,
       h('span', { class: 'glow' }, 'one root.')),
     lead,
+    note,
     h('p', { class: 'explain', style: 'margin:38px 0 0' },
       'An EIP-8347 migration starts from one shared artifact. Left to right: the mainnet state at the anchor block, the snapshot pair exported from it (the new tree, plus the preimages that let a node check it against the old one), the clients that imported it, and the root each one had to reproduce.'),
     h('div', { class: 'flow', style: 'margin-top:14px' }, anchor, arrow(), pairBox, arrow(), clientsBox, arrow(), rootBox),

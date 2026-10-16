@@ -14,7 +14,8 @@
   {
    "id": "r1",
    "label": "Round 1",
-   "date": "2026-10",
+   "date": "2026-10-15",
+   "note": "Every client imports the same snapshot on the same machine.",
    "pair": {
     "anchor_block": 26142444,
     "anchor_hash": "0xcd80780cdaaad337bf3e4ea51f2e61a3040d1ed13ca40c1720cab2e2e5645f70",
@@ -34,6 +35,7 @@
     {
      "id": "geth",
      "name": "geth",
+     "tag": "PR #61",
      "builds": [{"repo": "CPerezz/go-ethereum", "ref": "pbt-online-import", "commit": "aeac79fac5"},
                 {"repo": "CPerezz/go-ethereum", "pr": 61}],
      "runtime": "Go 1.26.8, path scheme, 4 import workers",
@@ -114,6 +116,83 @@
                  "  --Pbt.MigrationPreimagesPath <pair>/framed.bin \\",
                  "  --Pbt.MigrationAnchor {anchor_block}"],
       "done": "Imported the PBT migration anchor"
+     }
+    }
+   ]
+  },
+  {
+   "id": "r2",
+   "label": "Round 2",
+   "date": "2026-10-16",
+   "note": "Two newer geth builds, from the same starting database as round 1; besu and Nethermind were not rerun.",
+   "pair": "r1",
+   "clients": [
+    {
+     "id": "geth",
+     "name": "geth",
+     "tag": "PR #61",
+     "builds": [{"repo": "CPerezz/go-ethereum", "ref": "pbt-online-import", "commit": "568e972a14"},
+                {"repo": "CPerezz/go-ethereum", "pr": 61}],
+     "runtime": "Go 1.26.8, path scheme, 4 import workers",
+     "baseline": "r1/geth/P1",
+     "imports": ["P2a-pr61"],
+     "stages": [["verify preimages", "Verifying preimage file"], ["verify snapshot", "Verifying snapshot"],
+                ["write tree", "Writing tree nodes"], ["verify code + MPT root", "Verifying code"],
+                ["write + check flat state", "Writing flat accounts"]],
+     "root_check": "Import complete",
+     "sizes": {"kind": "du", "root": "geth/chaindata", "before": "geth/sizes/P2a-pr61-du-tree-before.txt", "after": "geth/sizes/P2a-pr61-du-tree-after.txt",
+               "attributed": true,
+               "parts": [["tree nodes", "geth/sizes/P2a-pr61-db-inspect-0x6241.txt"], ["flat storage", "geth/sizes/P2a-pr61-db-inspect-0x626f.txt"],
+                         ["flat accounts", "geth/sizes/P2a-pr61-db-inspect-0x6261.txt"]],
+               "note": "On disk: the whole database's growth during the import (du). Parts: logical size of each PBT key family (db inspect), before compression."},
+     "reproduce": {
+      "build": ["git clone https://github.com/CPerezz/go-ethereum && cd go-ethereum",
+                "git checkout 568e972a14   # pbt-online-import, PR #61 (merged into pbt)",
+                "go run build/ci.go install ./cmd/geth   # Go 1.26.8",
+                "build/bin/geth dumpgenesis --mainnet | jq '.config.amsterdamTime=4000000000 | .config.binaryTrieTime=4100000000' \\",
+                "  > <out>/genesis-pbt.json   # far-future 4,000,000,000 < 4,100,000,000"],
+      "import": ["geth --datadir <datadir> init <out>/genesis-pbt.json",
+                 "geth --datadir <datadir> --override.genesis <out>/genesis-pbt.json --networkid 1 \\",
+                 "  --state.scheme=path --history.chain=postmerge <engine flags> \\",
+                 "  --pbt.import.snapshot <pair>/pbt-snapshot.bin \\",
+                 "  --pbt.import.preimages <pair>/framed.bin \\",
+                 "  --pbt.import.anchor {anchor_hash} --pbt.import.workers 4"],
+      "done": "Import complete"
+     }
+    },
+    {
+     "id": "geth",
+     "name": "geth",
+     "tag": "PR #64",
+     "latest": false,
+     "note": "PR #64 (closed, not merged): import speedups ported onto PR #61.",
+     "builds": [{"repo": "CPerezz/go-ethereum", "ref": "pbt-online-import-perf", "commit": "1611c517d0"},
+                {"repo": "CPerezz/go-ethereum", "pr": 64}],
+     "runtime": "Go 1.26.8, path scheme, 4 import workers",
+     "baseline": "r1/geth/P1",
+     "imports": ["P2a-pr64"],
+     "stages": [["verify preimages", "Verifying preimage file"], ["verify snapshot", "Verifying snapshot"],
+                ["write tree", "Writing tree nodes"], ["verify code + MPT root", "Verifying code"],
+                ["write + check flat state", "Writing flat accounts"]],
+     "root_check": "Import complete",
+     "sizes": {"kind": "du", "root": "geth/chaindata", "before": "geth/sizes/P2a-pr64-du-tree-before.txt", "after": "geth/sizes/P2a-pr64-du-tree-after.txt",
+               "attributed": true,
+               "parts": [["tree nodes", "geth/sizes/P2a-pr64-db-inspect-0x6241.txt"], ["flat storage", "geth/sizes/P2a-pr64-db-inspect-0x626f.txt"],
+                         ["flat accounts", "geth/sizes/P2a-pr64-db-inspect-0x6261.txt"]],
+               "note": "On disk: the whole database's growth during the import (du). Parts: logical size of each PBT key family (db inspect), before compression."},
+     "reproduce": {
+      "build": ["git clone https://github.com/CPerezz/go-ethereum && cd go-ethereum",
+                "git checkout 1611c517d0   # pbt-online-import-perf, PR #64 (closed)",
+                "go run build/ci.go install ./cmd/geth   # Go 1.26.8",
+                "build/bin/geth dumpgenesis --mainnet | jq '.config.amsterdamTime=4000000000 | .config.binaryTrieTime=4100000000' \\",
+                "  > <out>/genesis-pbt.json   # far-future 4,000,000,000 < 4,100,000,000"],
+      "import": ["geth --datadir <datadir> init <out>/genesis-pbt.json",
+                 "geth --datadir <datadir> --override.genesis <out>/genesis-pbt.json --networkid 1 \\",
+                 "  --state.scheme=path --history.chain=postmerge <engine flags> \\",
+                 "  --pbt.import.snapshot <pair>/pbt-snapshot.bin \\",
+                 "  --pbt.import.preimages <pair>/framed.bin \\",
+                 "  --pbt.import.anchor {anchor_hash} --pbt.import.workers 4"],
+      "done": "Import complete"
      }
     }
    ]
