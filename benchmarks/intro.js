@@ -101,18 +101,15 @@ export default async function (root, ctx) {
     setup: glyph([0, 1, 2, 3, 4, 5].map((i) => s('circle', { cx: 4 + i * 7, cy: 10, r: 2.6, fill: G }))),
     reproduce: glyph(s('path', { d: 'M2 5 L8 10 L2 15', fill: 'none', stroke: G, 'stroke-width': 1.6 }),
       s('rect', { x: 12, y: 13, width: 10, height: 2, fill: G })),
-    history: glyph(s('polyline', { points: '3,15 15,12 27,7 39,5', fill: 'none', stroke: M, 'stroke-width': 1.2 }),
-      [[3, 15], [15, 12], [27, 7], [39, 5]].map(([x, y], i) => s('circle', { cx: x, cy: y, r: 2.4, fill: i === 3 ? G : M }))),
   };
   const agenda = h('nav', { class: 'agenda', 'aria-label': 'On this page' }, [
-    ctx.history && ['history', 'Across rounds', 'Every run, compared'],
     ['race', 'Import, replayed', 'How long each import takes'],
     ['kept', 'Still validating?', 'Do blocks keep flowing meanwhile'],
     ['cost', 'What it cost', 'CPU, memory and disk'],
     ['disk', 'What the PBT adds', 'Disk the new tree takes'],
     ['setup', 'Setup', 'Same machine, same limits'],
     ['reproduce', 'Reproduce', 'Run it yourself'],
-  ].filter(Boolean).map(([id, title, line], i) => h('a', { href: '', onclick: (e) => {
+  ].map(([id, title, line], i) => h('a', { href: '', onclick: (e) => {
     e.preventDefault();
     const el = document.getElementById(id);
     el.querySelector('details')?.setAttribute('open', '');

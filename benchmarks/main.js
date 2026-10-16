@@ -1,4 +1,5 @@
 import { CLIENT, Clock, fmt, getCSV, h, loadRuns, reveal } from './bench.js';
+import { addSwitch } from './diff.js';
 
 // The hash picks the view: '' / #latest = each client's newest run, #r1, #r2… = one round as published.
 const data = await loadRuns();
@@ -37,11 +38,13 @@ document.getElementById('foot').append(
 );
 addEventListener('hashchange', () => location.reload());
 
-await Promise.all(['intro', 'history', 'race', 'kept', 'cost', 'disk', 'setup', 'reproduce'].map(async (id) => {
+await Promise.all(['intro', 'race', 'kept', 'cost', 'disk', 'setup', 'reproduce'].map(async (id) => {
   const sec = document.getElementById(id);
   try {
     const mod = await import(`./${id}.js`);
-    await mod.default(sec.querySelector('.wrap') || sec, ctx);
+    const root = sec.querySelector('.wrap') || sec;
+    await mod.default(root, ctx);
+    if (ctx.history) addSwitch(id, root, ctx); // results sections get a "Compare rounds" switch
   } catch (e) {
     console.error(`section ${id}:`, e);
   }

@@ -37,6 +37,7 @@ svg text { font-family: 'IBM Plex Mono', ui-monospace, monospace }
 .explain { max-width: 920px; margin: 0 0 26px; font-size: 13.5px; line-height: 1.6; color: var(--ink2); text-wrap: pretty }
 .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px }
 .row { display: flex; gap: 14px; flex-wrap: wrap }
+[hidden] { display: none !important } /* .chip/.row set display; the round-diff switch hides them */
 .grid3 { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 14px }
 
 .btn { display: inline-block; background: var(--green); color: var(--bg); border: 0; border-radius: 6px; padding: 12px 22px; font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap; text-decoration: none; box-shadow: 0 0 24px rgba(51,255,51,.35) }
