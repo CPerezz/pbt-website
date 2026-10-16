@@ -13,8 +13,9 @@ const STYLE = `
   .rd .grp { grid-column: 1 / -1; display: flex; align-items: baseline; gap: 12px; padding: 16px 0 6px }
   .rd .run { display: contents }
   .rd .run > div { padding: 8px 0; border-bottom: 1px solid rgba(226,230,226,.05) }
-  .rd .run.dim > div { opacity: .5 }
-  .rd .run:hover > div { opacity: 1 }
+  .rd .run.dim > div:not(.lab), .rd .run.dim .lab > :not(.out) { opacity: .5 }
+  .rd .run:hover > div, .rd .run:hover .lab > * { opacity: 1 }
+  .rd .out { color: ${COL.red}; border-color: rgba(240,80,74,.6); background: rgba(240,80,74,.1); cursor: help }
   .rd .lab { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; padding-left: 10px !important; border-left: 2px solid transparent }
   .rd .v { display: flex; align-items: baseline; gap: 8px; font-size: 13px; margin-bottom: 5px; white-space: nowrap }
   .rd .d { font-size: 11px }
@@ -55,7 +56,7 @@ function rows(ctx, cells, head) {
         h('a', { class: 'chip', href: `#${r.round.id}`, title: `Show ${r.round.label}` }, `${r.round.label} · ${fmt.day(r.round.date)}`),
         hover(h('a', { class: 'chip', href: `https://github.com/${b.repo}/commit/${b.commit}`, target: '_blank', rel: 'noopener' },
           r.tag ? `${r.tag} · ${b.commit.slice(0, 7)}` : b.commit.slice(0, 7)), `${b.repo}@${b.commit}${r.note ? `<br>${r.note}` : ''}`),
-        r.latest === false && hover(h('span', { class: 'muted', style: 'font-size:11px;cursor:help' }, 'not in Latest'),
+        r.latest === false && hover(h('span', { class: 'chip out' }, 'not in Latest'),
           r.note ?? 'Kept for comparison; not shown as this client\u2019s current run.'));
       return h('div', { class: `run${shown.has(r.run) ? '' : ' dim'}` }, lab, ...cells(r, prev));
     })];
