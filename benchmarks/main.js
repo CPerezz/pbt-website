@@ -26,6 +26,7 @@ document.getElementById('views').append(
   h('a', { class: `pill${view.id === 'latest' ? ' on' : ''}`, href: '#latest' }, 'Latest'),
   ...data.rounds.map((r) => h('a', { class: `pill${r.id === view.id ? ' on' : ''}`, href: `#${r.id}` }, `${r.label} · ${fmt.day(r.date)}`)),
 );
+document.querySelector('#views .on')?.scrollIntoView({ block: 'nearest', inline: 'nearest' }); // phones: the row scrolls
 const links = [
   ...view.results.map((p) => [p, data.base + p]),
   ['raw files', ctx.tree],

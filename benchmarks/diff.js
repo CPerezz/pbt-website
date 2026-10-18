@@ -50,7 +50,8 @@ function rows(ctx, cells, head) {
       h('span', { class: 'muted', style: 'font-size:11px' },
         `${mine.length} run${mine.length > 1 ? 's' : ''} · ${where.length === ctx.rounds.length ? 'every round' : `${new Intl.ListFormat('en').format(where)} only`}`));
     return [name, ...(head ? head(mine) : []), ...mine.map((r, i) => {
-      const prev = mine.slice(0, i).reverse().find((p) => p.pair.anchor_block === r.pair.anchor_block);
+      // the run it's measured against: rounds.json's `vs` (an experiment's reference), else the client's previous run
+      const prev = r.vs ? ctx.runs.find((p) => p.run === r.vs) : mine.slice(0, i).reverse().find((p) => p.pair.anchor_block === r.pair.anchor_block);
       const b = r.builds[0];
       const lab = h('div', { class: 'lab', style: shown.has(r.run) ? `border-left-color:${CLIENT[id]}` : '' },
         h('a', { class: 'chip', href: `#${r.round.id}`, title: `Show ${r.round.label}` }, `${r.round.label} · ${fmt.day(r.round.date)}`),

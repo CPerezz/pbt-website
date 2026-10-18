@@ -113,7 +113,7 @@ def build(rid):
             imports.append(w)
         base = c["baseline"] if "/" in c["baseline"] else f"{rid}/{c['id']}/{c['baseline']}"  # another round's, or own
         clients.append({"run": f"{rid}/{c['id']}/{c['imports'][0]}", "id": c["id"], "name": c["name"], "tag": c.get("tag"),
-                        "latest": c.get("latest", True), "note": c.get("note"), "builds": c["builds"], "runtime": c["runtime"],
+                        "latest": c.get("latest", True), "vs": c.get("vs"), "note": c.get("note"), "builds": c["builds"], "runtime": c["runtime"],
                         "baseline": window(base), "imports": imports, "sizes": sizes(rid, c["sizes"]),
                         "reproduce": c.get("reproduce")})
     return {"round": {k: rnd.get(k) for k in ("id", "label", "date", "note")}, "rig": manifest["rig"], "pair": pair,

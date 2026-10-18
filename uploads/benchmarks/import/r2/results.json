@@ -42,6 +42,7 @@
    "name": "geth",
    "tag": "PR #61",
    "latest": true,
+   "vs": null,
    "note": null,
    "builds": [
     {
@@ -223,6 +224,7 @@
    "name": "geth",
    "tag": "PR #64",
    "latest": false,
+   "vs": null,
    "note": "PR #64 (closed, not merged): import speedups ported onto PR #61.",
    "builds": [
     {

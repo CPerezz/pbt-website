@@ -1,0 +1,18 @@
+stage,first_utc,last_utc,lines
+Verifying preimage file,2026-10-17T15:27:27Z,2026-10-17T15:44:31Z,129
+Verified preimage file,2026-10-17T15:44:36Z,2026-10-17T15:44:36Z,1
+Verifying snapshot,2026-10-17T15:44:36Z,2026-10-17T16:04:12Z,148
+Verified snapshot consistency,2026-10-17T16:04:15Z,2026-10-17T16:04:15Z,1
+Writing tree nodes,2026-10-17T16:04:15Z,2026-10-17T16:24:15Z,151
+Wrote tree nodes,2026-10-17T16:24:19Z,2026-10-17T16:24:19Z,1
+Reading back tree node records,2026-10-17T16:24:19Z,2026-10-17T16:38:59Z,111
+Verifying code,2026-10-17T16:24:20Z,2026-10-17T16:25:48Z,12
+Verified code against its hashes,2026-10-17T16:25:49Z,2026-10-17T16:25:49Z,1
+Re-deriving merkle state,2026-10-17T16:25:51Z,2026-10-17T16:43:43Z,135
+Writing flat accounts,2026-10-17T16:43:48Z,2026-10-17T16:45:24Z,13
+Reading back flat storage records,2026-10-17T16:43:48Z,2026-10-17T16:47:40Z,30
+Wrote flat accounts,2026-10-17T16:45:27Z,2026-10-17T16:45:27Z,1
+Verified consensus anchoring,2026-10-17T16:45:27Z,2026-10-17T16:45:27Z,1
+Reading back flat account records,2026-10-17T16:45:27Z,2026-10-17T16:46:23Z,8
+Verified the written state,2026-10-17T16:47:48Z,2026-10-17T16:47:48Z,1
+Import complete,2026-10-17T16:47:48Z,2026-10-17T16:47:48Z,1

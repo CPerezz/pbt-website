@@ -1,0 +1,222 @@
+{
+ "round": {
+  "id": "r3",
+  "label": "Round 3",
+  "date": "2026-10-16",
+  "note": "geth's merged build (PR #61) again, with one import worker instead of the default four."
+ },
+ "rig": {
+  "cpu": "Intel Core Ultra 7 265",
+  "cores_total": 20,
+  "cores_measured": 8,
+  "cores_note": "8 E-cores at 4.6 GHz in an exclusive cgroup-v2 cpuset; everything else on the other 12",
+  "mem_gib": 32,
+  "mem_note": "limit shared by EL + CL, no swap",
+  "disk": "Samsung PM9A3 3.84 TB NVMe, dedicated to the client under test",
+  "cl": "Lighthouse v8.2.3",
+  "class": "EIP-7870: full-node RAM, attester-grade CPU"
+ },
+ "pair": {
+  "anchor_block": 26142444,
+  "anchor_hash": "0xcd80780cdaaad337bf3e4ea51f2e61a3040d1ed13ca40c1720cab2e2e5645f70",
+  "anchor_state_root": "0xa668cad6ace2eb4397c507412c2f7ffd252d2c852ffec00a55914224dcbe5027",
+  "pbt_root": "0x773d19dfb7757f6c5ac470934dce60d4e0f42051bdbb2b7da61bbef6cecf4338",
+  "hash_suite": "blake3",
+  "snapshot_bytes": 98947710659,
+  "preimages_bytes": 63479160200,
+  "accounts": 423196419,
+  "slots": 1666326442,
+  "leaves": 3020382712,
+  "code_count": 2802657,
+  "producer": "erigon export-pbt",
+  "producer_build": {
+   "repo": "erigontech/erigon",
+   "ref": "binary-trie",
+   "commit": "d694d4a1"
+  }
+ },
+ "clients": [
+  {
+   "run": "r3/geth/P2a-pr61-w1",
+   "id": "geth",
+   "name": "geth",
+   "tag": "PR #61 \u00b7 1 worker",
+   "latest": false,
+   "vs": "r2/geth/P2a-pr61",
+   "note": "Round 2's PR #61 build again, started with --pbt.import.workers 1 (default 4).",
+   "builds": [
+    {
+     "repo": "CPerezz/go-ethereum",
+     "ref": "pbt-online-import",
+     "commit": "568e972a14"
+    },
+    {
+     "repo": "CPerezz/go-ethereum",
+     "pr": 61
+    }
+   ],
+   "runtime": "Go 1.26.8, path scheme, 1 import worker",
+   "baseline": {
+    "phase": "P1",
+    "src": "r1/geth/P1/summary.json",
+    "start": 1791555567.947716,
+    "end": 1791569967.9916837,
+    "duration_s": 14400,
+    "res": {
+     "cpu_s": 2171,
+     "avg_cores": 0.15,
+     "anon_peak_gb": 9.4,
+     "page_cache_peak_gb": 13.9,
+     "test_disk_read_gb": 13,
+     "test_disk_write_gb": 12
+    },
+    "thermal": {
+     "package_temp_max_c": 87.0,
+     "package_throttles": 0.0,
+     "measured_core_throttles": 0.0
+    },
+    "files": {
+     "newpayload": "r1/geth/P1/newpayload.csv",
+     "resources": "r1/geth/P1/resources-15s.csv",
+     "preflight": "r1/geth/P1/preflight.txt"
+    },
+    "follow": {
+     "blocks": [
+      26155707,
+      26156602
+     ],
+     "head_coverage": 0.998,
+     "newpayload_ms": {
+      "n": 898,
+      "p50": 51.916,
+      "p95": 96.088,
+      "p99": 126.771,
+      "max": 216.407
+     },
+     "mgas_per_s": 541.7,
+     "ms_per_mgas": 1.846,
+     "head_lag_max_blocks": 1.0,
+     "stats_window_s": 10800
+    }
+   },
+   "imports": [
+    {
+     "phase": "P2a-pr61-w1",
+     "src": "r3/geth/P2a-pr61-w1/summary.json",
+     "start": 1792146151.5632722,
+     "end": 1792151011.8365476,
+     "duration_s": 4860,
+     "res": {
+      "cpu_s": 19431,
+      "avg_cores": 4.0,
+      "anon_peak_gb": 14.7,
+      "page_cache_peak_gb": 21.1,
+      "test_disk_read_gb": 1755,
+      "test_disk_write_gb": 2502
+     },
+     "thermal": {
+      "package_temp_max_c": 90.0,
+      "package_throttles": 0.0,
+      "measured_core_throttles": 0.0
+     },
+     "files": {
+      "newpayload": "r3/geth/P2a-pr61-w1/newpayload.csv",
+      "resources": "r3/geth/P2a-pr61-w1/resources-15s.csv",
+      "preflight": "r3/geth/P2a-pr61-w1/preflight.txt"
+     },
+     "follow": {
+      "blocks": [
+       26204468,
+       26204870
+      ],
+      "head_coverage": 0.995,
+      "newpayload_ms": {
+       "n": 403,
+       "p50": 105.387,
+       "p95": 326.332,
+       "p99": 591.619,
+       "max": 1538.12
+      },
+      "mgas_per_s": 218.0,
+      "ms_per_mgas": 4.587,
+      "head_lag_max_blocks": 1.0,
+      "stats_window_s": 4860
+     },
+     "disk_peak_gib": 1042.0,
+     "stages": [
+      {
+       "label": "verify preimages",
+       "start": 1792146151.5632722,
+       "end": 1792147179.0
+      },
+      {
+       "label": "verify snapshot",
+       "start": 1792147179.0,
+       "end": 1792148519.0
+      },
+      {
+       "label": "write tree",
+       "start": 1792148519.0,
+       "end": 1792149499.0
+      },
+      {
+       "label": "verify code + MPT root",
+       "start": 1792149499.0,
+       "end": 1792150746.0
+      },
+      {
+       "label": "write + check flat state",
+       "start": 1792150746.0,
+       "end": 1792151011.8365476
+      }
+     ],
+     "root_verified": true,
+     "stages_src": "r3/geth/P2a-pr61-w1/stages.csv"
+    }
+   ],
+   "sizes": {
+    "before_gib": 1350.0,
+    "after_gib": 1660.7,
+    "pbt_gib": 310.7,
+    "pbt_parts": [
+     {
+      "label": "tree nodes",
+      "gib": 389.2
+     },
+     {
+      "label": "flat storage",
+      "gib": 121.6
+     },
+     {
+      "label": "flat accounts",
+      "gib": 19.3
+     }
+    ],
+    "attributed": true,
+    "note": "On disk: the whole database's growth during the import (du). Parts: logical size of each PBT key family (db inspect), before compression.",
+    "src": [
+     "r3/geth/sizes/P2a-pr61-w1-du-tree-before.txt",
+     "r3/geth/sizes/P2a-pr61-w1-du-tree-after.txt"
+    ]
+   },
+   "reproduce": {
+    "build": [
+     "git clone https://github.com/CPerezz/go-ethereum && cd go-ethereum",
+     "git checkout 568e972a14   # pbt-online-import, PR #61 (merged into pbt)",
+     "go run build/ci.go install ./cmd/geth   # Go 1.26.8",
+     "build/bin/geth dumpgenesis --mainnet | jq '.config.amsterdamTime=4000000000 | .config.binaryTrieTime=4100000000' \\",
+     "  > <out>/genesis-pbt.json   # far-future 4,000,000,000 < 4,100,000,000"
+    ],
+    "import": [
+     "geth --datadir <datadir> init <out>/genesis-pbt.json",
+     "geth --datadir <datadir> --override.genesis <out>/genesis-pbt.json --networkid 1 \\",
+     "  --state.scheme=path --history.chain=postmerge <engine flags> \\",
+     "  --pbt.import.snapshot <pair>/pbt-snapshot.bin \\",
+     "  --pbt.import.preimages <pair>/framed.bin \\",
+     "  --pbt.import.anchor {anchor_hash} --pbt.import.workers 1"
+    ],
+    "done": "Import complete"
+   }
+  }
+ ]
+}

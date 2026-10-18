@@ -1,0 +1,64 @@
+INFO [10-17|19:17:22.210] Maximum peer count                       ETH=50 total=50
+INFO [10-17|19:17:22.211] Smartcard socket not found, disabling    err="stat /run/pcscd/pcscd.comm: no such file or directory"
+INFO [10-17|19:17:22.214] Set global gas cap                       cap=50,000,000
+INFO [10-17|19:17:22.214] Engine API maximum reorg depth           depth=32
+INFO [10-17|19:17:22.214] Initializing the KZG library             backend=gokzg
+INFO [10-17|19:17:22.263] Using pebble as the backing database
+WARN [10-17|19:17:22.291] Pebble database uses legacy v1 format; upgrade offline with 'geth db pebble-upgrade'
+INFO [10-17|19:17:22.291] Allocated cache and file handles         database=<datadir>/geth/chaindata cache=2.00GiB handles=262,144 version=v1
+INFO [10-17|19:17:24.131] Opened ancient database                  database=<datadir>/geth/chaindata/ancient/chain readonly=true
+INFO [10-17|19:17:24.131] Opened Era store                         datadir=<datadir>/geth/chaindata/ancient/chain/era
+INFO [10-17|19:17:32.133] Inspecting database                      count=196,970,584 size=8.99GiB elapsed=8.000s
+INFO [10-17|19:17:40.133] Inspecting database                      count=395,462,450 size=18.04GiB elapsed=16.000s
+INFO [10-17|19:17:41.402] Opened ancient database                  database=<datadir>/geth/chaindata/ancient/state readonly=true
+INFO [10-17|19:17:41.402] Opened ancient database                  database=<datadir>/geth/chaindata/ancient/state_pbt readonly=true
++---------------------------+-----------------------------+------------+-----------+
+|         Database          |          Category           |    Size    |   Items   |
++---------------------------+-----------------------------+------------+-----------+
+|      Key-Value store      |           Headers           |   0.00 B   |     0     |
+|      Key-Value store      |           Bodies            |   0.00 B   |     0     |
+|      Key-Value store      |        Receipt lists        |   0.00 B   |     0     |
+|      Key-Value store      |  Difficulties (deprecated)  |   0.00 B   |     0     |
+|      Key-Value store      |     Block number->hash      |   0.00 B   |     0     |
+|      Key-Value store      |     Block hash->number      |   0.00 B   |     0     |
+|      Key-Value store      |      Block accessList       |   0.00 B   |     0     |
+|      Key-Value store      |     Shadow state roots      |   0.00 B   |     0     |
+|      Key-Value store      |      Transaction index      |   0.00 B   |     0     |
+|      Key-Value store      |  Log index filter-map rows  |   0.00 B   |     0     |
+|      Key-Value store      | Log index last-block-of-map |   0.00 B   |     0     |
+|      Key-Value store      |     Log index block-lv      |   0.00 B   |     0     |
+|      Key-Value store      | Log bloombits (deprecated)  |   0.00 B   |     0     |
+|      Key-Value store      |       Contract codes        |   0.00 B   |     0     |
+|      Key-Value store      |       Hash trie nodes       |   0.00 B   |     0     |
+|      Key-Value store      |   Path trie state lookups   |   0.00 B   |     0     |
+|      Key-Value store      |   Path trie account nodes   |   0.00 B   |     0     |
+|      Key-Value store      |   Path trie storage nodes   |   0.00 B   |     0     |
+|      Key-Value store      |      Verkle trie nodes      |   0.00 B   |     0     |
+|      Key-Value store      |  Verkle trie state lookups  |   0.00 B   |     0     |
+|      Key-Value store      |       Trie preimages        |   0.00 B   |     0     |
+|      Key-Value store      |      Account snapshot       |   0.00 B   |     0     |
+|      Key-Value store      |      Storage snapshot       |   0.00 B   |     0     |
+|      Key-Value store      |   Historical state index    |   0.00 B   |     0     |
+|      Key-Value store      |    Historical trie index    |   0.00 B   |     0     |
+|      Key-Value store      |     Beacon sync headers     |   0.00 B   |     0     |
+|      Key-Value store      |      Clique snapshots       |   0.00 B   |     0     |
+|      Key-Value store      |     Singleton metadata      |   0.00 B   |     0     |
+|   Ancient store (Chain)   |           Hashes            | 949.97 MiB | 26213476  |
+|   Ancient store (Chain)   |           Bodies            | 628.73 GiB | 10676083  |
+|   Ancient store (Chain)   |          Receipts           | 265.11 GiB | 10676083  |
+|   Ancient store (Chain)   |            Bals             |  2.78 MiB  |  416711   |
+|   Ancient store (Chain)   |           Headers           | 13.04 GiB  | 26213476  |
+|   Ancient store (State)   |        Storage.Index        |  1.97 GiB  |   90000   |
+|   Ancient store (State)   |        Account.Data         |  1.29 GiB  |   90000   |
+|   Ancient store (State)   |        Storage.Data         | 590.66 MiB |   90000   |
+|   Ancient store (State)   |        History.Meta         | 25.33 MiB  |   90000   |
+|   Ancient store (State)   |        Account.Index        |  1.19 GiB  |   90000   |
+| Ancient store (State_pbt) |        Storage.Data         |   6.00 B   |     0     |
+| Ancient store (State_pbt) |        History.Meta         |   6.00 B   |     0     |
+| Ancient store (State_pbt) |        Account.Index        |   6.00 B   |     0     |
+| Ancient store (State_pbt) |        Storage.Index        |   6.00 B   |     0     |
+| Ancient store (State_pbt) |        Account.Data         |   6.00 B   |     0     |
++---------------------------+-----------------------------+------------+-----------+
+|                           |            Total            | 932.16 GiB | 423196419 |
++---------------------------+-----------------------------+------------+-----------+
+ERROR[10-17|19:17:41.403] Database contains unaccounted data       size="19.31 GiB" count=423196419

@@ -87,4 +87,6 @@ footer { padding: 40px 0 60px; color: var(--muted); font-size: 11.5px; border-to
   .sec { padding: 52px 0 }
   .h2 { font-size: 36px }
   .grid3 { grid-template-columns: 1fr }
+  /* round pills: one swipeable row instead of a sticky header three rows tall */
+  #views { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; max-width: 100%; padding-bottom: 8px }
 }

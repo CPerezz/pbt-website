@@ -1,0 +1,938 @@
+{
+ "round": {
+  "id": "r5",
+  "label": "Round 5",
+  "date": "2026-10-17",
+  "note": "PR #65 (draft), which keeps block processing fast beside the import, and three builds that each leave one of its commits out, all at one import worker. The full build ran twice, and its two runs differ about as much as the builds do."
+ },
+ "rig": {
+  "cpu": "Intel Core Ultra 7 265",
+  "cores_total": 20,
+  "cores_measured": 8,
+  "cores_note": "8 E-cores at 4.6 GHz in an exclusive cgroup-v2 cpuset; everything else on the other 12",
+  "mem_gib": 32,
+  "mem_note": "limit shared by EL + CL, no swap",
+  "disk": "Samsung PM9A3 3.84 TB NVMe, dedicated to the client under test",
+  "cl": "Lighthouse v8.2.3",
+  "class": "EIP-7870: full-node RAM, attester-grade CPU"
+ },
+ "pair": {
+  "anchor_block": 26142444,
+  "anchor_hash": "0xcd80780cdaaad337bf3e4ea51f2e61a3040d1ed13ca40c1720cab2e2e5645f70",
+  "anchor_state_root": "0xa668cad6ace2eb4397c507412c2f7ffd252d2c852ffec00a55914224dcbe5027",
+  "pbt_root": "0x773d19dfb7757f6c5ac470934dce60d4e0f42051bdbb2b7da61bbef6cecf4338",
+  "hash_suite": "blake3",
+  "snapshot_bytes": 98947710659,
+  "preimages_bytes": 63479160200,
+  "accounts": 423196419,
+  "slots": 1666326442,
+  "leaves": 3020382712,
+  "code_count": 2802657,
+  "producer": "erigon export-pbt",
+  "producer_build": {
+   "repo": "erigontech/erigon",
+   "ref": "binary-trie",
+   "commit": "d694d4a1"
+  }
+ },
+ "clients": [
+  {
+   "run": "r5/geth/P2a-pr65-full-w1",
+   "id": "geth",
+   "name": "geth",
+   "tag": "PR #65",
+   "latest": false,
+   "vs": "r3/geth/P2a-pr61-w1",
+   "note": "PR #65 (draft) on top of PR #61: stand aside while a block is processed (C1), cut the import's garbage (C2), one hashing pool sized by the workers flag (C3), write the import's files behind the page cache (C5).",
+   "builds": [
+    {
+     "repo": "CPerezz/go-ethereum",
+     "ref": "pbt-import-latency",
+     "commit": "69cd4a4491"
+    },
+    {
+     "repo": "CPerezz/go-ethereum",
+     "pr": 65
+    }
+   ],
+   "runtime": "Go 1.26.8, path scheme, 1 import worker",
+   "baseline": {
+    "phase": "P1",
+    "src": "r1/geth/P1/summary.json",
+    "start": 1791555567.947716,
+    "end": 1791569967.9916837,
+    "duration_s": 14400,
+    "res": {
+     "cpu_s": 2171,
+     "avg_cores": 0.15,
+     "anon_peak_gb": 9.4,
+     "page_cache_peak_gb": 13.9,
+     "test_disk_read_gb": 13,
+     "test_disk_write_gb": 12
+    },
+    "thermal": {
+     "package_temp_max_c": 87.0,
+     "package_throttles": 0.0,
+     "measured_core_throttles": 0.0
+    },
+    "files": {
+     "newpayload": "r1/geth/P1/newpayload.csv",
+     "resources": "r1/geth/P1/resources-15s.csv",
+     "preflight": "r1/geth/P1/preflight.txt"
+    },
+    "follow": {
+     "blocks": [
+      26155707,
+      26156602
+     ],
+     "head_coverage": 0.998,
+     "newpayload_ms": {
+      "n": 898,
+      "p50": 51.916,
+      "p95": 96.088,
+      "p99": 126.771,
+      "max": 216.407
+     },
+     "mgas_per_s": 541.7,
+     "ms_per_mgas": 1.846,
+     "head_lag_max_blocks": 1.0,
+     "stats_window_s": 10800
+    }
+   },
+   "imports": [
+    {
+     "phase": "P2a-pr65-full-w1",
+     "src": "r5/geth/P2a-pr65-full-w1/summary.json",
+     "start": 1792192390.4114301,
+     "end": 1792197121.6547477,
+     "duration_s": 4731,
+     "res": {
+      "cpu_s": 16362,
+      "avg_cores": 3.46,
+      "anon_peak_gb": 12.7,
+      "page_cache_peak_gb": 17.6,
+      "test_disk_read_gb": 1603,
+      "test_disk_write_gb": 2377
+     },
+     "thermal": {
+      "package_temp_max_c": 90.0,
+      "package_throttles": 0.0,
+      "measured_core_throttles": 0.0
+     },
+     "files": {
+      "newpayload": "r5/geth/P2a-pr65-full-w1/newpayload.csv",
+      "resources": "r5/geth/P2a-pr65-full-w1/resources-15s.csv",
+      "preflight": "r5/geth/P2a-pr65-full-w1/preflight.txt"
+     },
+     "follow": {
+      "blocks": [
+       26208313,
+       26208706
+      ],
+      "head_coverage": 0.999,
+      "newpayload_ms": {
+       "n": 394,
+       "p50": 67.221,
+       "p95": 285.91,
+       "p99": 468.545,
+       "max": 688.734
+      },
+      "mgas_per_s": 304.5,
+      "ms_per_mgas": 3.285,
+      "head_lag_max_blocks": 1.0,
+      "stats_window_s": 4731
+     },
+     "disk_peak_gib": 932.0,
+     "stages": [
+      {
+       "label": "verify preimages",
+       "start": 1792192390.4114301,
+       "end": 1792193431.0
+      },
+      {
+       "label": "verify snapshot",
+       "start": 1792193431.0,
+       "end": 1792194614.0
+      },
+      {
+       "label": "write tree",
+       "start": 1792194614.0,
+       "end": 1792195579.0
+      },
+      {
+       "label": "verify code + MPT root",
+       "start": 1792195579.0,
+       "end": 1792196729.0
+      },
+      {
+       "label": "write + check flat state",
+       "start": 1792196729.0,
+       "end": 1792197121.6547477
+      }
+     ],
+     "root_verified": true,
+     "stages_src": "r5/geth/P2a-pr65-full-w1/stages.csv"
+    }
+   ],
+   "sizes": {
+    "before_gib": 1353.2,
+    "after_gib": 1670.3,
+    "pbt_gib": 317.1,
+    "pbt_parts": [
+     {
+      "label": "tree nodes",
+      "gib": 389.2
+     },
+     {
+      "label": "flat storage",
+      "gib": 121.6
+     },
+     {
+      "label": "flat accounts",
+      "gib": 19.3
+     }
+    ],
+    "attributed": true,
+    "note": "On disk: the whole database's growth during the import (du). Parts: logical size of each PBT key family (db inspect), before compression.",
+    "src": [
+     "r5/geth/sizes/P2a-pr65-full-w1-du-tree-before.txt",
+     "r5/geth/sizes/P2a-pr65-full-w1-du-tree-after.txt"
+    ]
+   },
+   "reproduce": {
+    "build": [
+     "git clone https://github.com/CPerezz/go-ethereum && cd go-ethereum",
+     "git checkout 69cd4a4491   # pbt-import-latency, PR #65 (draft)",
+     "go run build/ci.go install ./cmd/geth   # Go 1.26.8",
+     "build/bin/geth dumpgenesis --mainnet | jq '.config.amsterdamTime=4000000000 | .config.binaryTrieTime=4100000000' \\",
+     "  > <out>/genesis-pbt.json   # far-future 4,000,000,000 < 4,100,000,000"
+    ],
+    "import": [
+     "geth --datadir <datadir> init <out>/genesis-pbt.json",
+     "geth --datadir <datadir> --override.genesis <out>/genesis-pbt.json --networkid 1 \\",
+     "  --state.scheme=path --history.chain=postmerge <engine flags> \\",
+     "  --pbt.import.snapshot <pair>/pbt-snapshot.bin \\",
+     "  --pbt.import.preimages <pair>/framed.bin \\",
+     "  --pbt.import.anchor {anchor_hash} --pbt.import.workers 1"
+    ],
+    "done": "Import complete"
+   }
+  },
+  {
+   "run": "r5/geth/P2a-pr65-noC5-w1",
+   "id": "geth",
+   "name": "geth",
+   "tag": "PR #65 \u2212 write-behind",
+   "latest": false,
+   "vs": "r5/geth/P2a-pr65-full-w1",
+   "note": "PR #65 without C5 (writing the import's files behind the page cache): the commit before it on the PR branch.",
+   "builds": [
+    {
+     "repo": "CPerezz/go-ethereum",
+     "ref": "pbt-import-latency~1",
+     "commit": "b8448145d0"
+    }
+   ],
+   "runtime": "Go 1.26.8, path scheme, 1 import worker",
+   "baseline": {
+    "phase": "P1",
+    "src": "r1/geth/P1/summary.json",
+    "start": 1791555567.947716,
+    "end": 1791569967.9916837,
+    "duration_s": 14400,
+    "res": {
+     "cpu_s": 2171,
+     "avg_cores": 0.15,
+     "anon_peak_gb": 9.4,
+     "page_cache_peak_gb": 13.9,
+     "test_disk_read_gb": 13,
+     "test_disk_write_gb": 12
+    },
+    "thermal": {
+     "package_temp_max_c": 87.0,
+     "package_throttles": 0.0,
+     "measured_core_throttles": 0.0
+    },
+    "files": {
+     "newpayload": "r1/geth/P1/newpayload.csv",
+     "resources": "r1/geth/P1/resources-15s.csv",
+     "preflight": "r1/geth/P1/preflight.txt"
+    },
+    "follow": {
+     "blocks": [
+      26155707,
+      26156602
+     ],
+     "head_coverage": 0.998,
+     "newpayload_ms": {
+      "n": 898,
+      "p50": 51.916,
+      "p95": 96.088,
+      "p99": 126.771,
+      "max": 216.407
+     },
+     "mgas_per_s": 541.7,
+     "ms_per_mgas": 1.846,
+     "head_lag_max_blocks": 1.0,
+     "stats_window_s": 10800
+    }
+   },
+   "imports": [
+    {
+     "phase": "P2a-pr65-noC5-w1",
+     "src": "r5/geth/P2a-pr65-noC5-w1/summary.json",
+     "start": 1792206705.8647504,
+     "end": 1792211678.3538508,
+     "duration_s": 4972,
+     "res": {
+      "cpu_s": 18933,
+      "avg_cores": 3.81,
+      "anon_peak_gb": 12.1,
+      "page_cache_peak_gb": 21.2,
+      "test_disk_read_gb": 2123,
+      "test_disk_write_gb": 2910
+     },
+     "thermal": {
+      "package_temp_max_c": 89.0,
+      "package_throttles": 0.0,
+      "measured_core_throttles": 0.0
+     },
+     "files": {
+      "newpayload": "r5/geth/P2a-pr65-noC5-w1/newpayload.csv",
+      "resources": "r5/geth/P2a-pr65-noC5-w1/resources-15s.csv",
+      "preflight": "r5/geth/P2a-pr65-noC5-w1/preflight.txt"
+     },
+     "follow": {
+      "blocks": [
+       26209501,
+       26209914
+      ],
+      "head_coverage": 0.999,
+      "newpayload_ms": {
+       "n": 414,
+       "p50": 90.891,
+       "p95": 429.062,
+       "p99": 1022.187,
+       "max": 1317.774
+      },
+      "mgas_per_s": 188.7,
+      "ms_per_mgas": 5.299,
+      "head_lag_max_blocks": 1.0,
+      "stats_window_s": 4972
+     },
+     "disk_peak_gib": 909.5,
+     "stages": [
+      {
+       "label": "verify preimages",
+       "start": 1792206705.8647504,
+       "end": 1792207727.0
+      },
+      {
+       "label": "verify snapshot",
+       "start": 1792207727.0,
+       "end": 1792208944.0
+      },
+      {
+       "label": "write tree",
+       "start": 1792208944.0,
+       "end": 1792210115.0
+      },
+      {
+       "label": "verify code + MPT root",
+       "start": 1792210115.0,
+       "end": 1792211288.0
+      },
+      {
+       "label": "write + check flat state",
+       "start": 1792211288.0,
+       "end": 1792211678.3538508
+      }
+     ],
+     "root_verified": true,
+     "stages_src": "r5/geth/P2a-pr65-noC5-w1/stages.csv"
+    }
+   ],
+   "sizes": {
+    "before_gib": 1353.2,
+    "after_gib": 1648.0,
+    "pbt_gib": 294.8,
+    "pbt_parts": [
+     {
+      "label": "tree nodes",
+      "gib": 389.2
+     },
+     {
+      "label": "flat storage",
+      "gib": 121.6
+     },
+     {
+      "label": "flat accounts",
+      "gib": 19.3
+     }
+    ],
+    "attributed": true,
+    "note": "On disk: the whole database's growth during the import (du). Parts: logical size of each PBT key family (db inspect), before compression.",
+    "src": [
+     "r5/geth/sizes/P2a-pr65-noC5-w1-du-tree-before.txt",
+     "r5/geth/sizes/P2a-pr65-noC5-w1-du-tree-after.txt"
+    ]
+   },
+   "reproduce": {
+    "build": [
+     "git clone https://github.com/CPerezz/go-ethereum && cd go-ethereum",
+     "git checkout b8448145d0   # pbt-import-latency~1: PR #65 without C5",
+     "go run build/ci.go install ./cmd/geth   # Go 1.26.8",
+     "build/bin/geth dumpgenesis --mainnet | jq '.config.amsterdamTime=4000000000 | .config.binaryTrieTime=4100000000' \\",
+     "  > <out>/genesis-pbt.json   # far-future 4,000,000,000 < 4,100,000,000"
+    ],
+    "import": [
+     "geth --datadir <datadir> init <out>/genesis-pbt.json",
+     "geth --datadir <datadir> --override.genesis <out>/genesis-pbt.json --networkid 1 \\",
+     "  --state.scheme=path --history.chain=postmerge <engine flags> \\",
+     "  --pbt.import.snapshot <pair>/pbt-snapshot.bin \\",
+     "  --pbt.import.preimages <pair>/framed.bin \\",
+     "  --pbt.import.anchor {anchor_hash} --pbt.import.workers 1"
+    ],
+    "done": "Import complete"
+   }
+  },
+  {
+   "run": "r5/geth/P2a-pr65-noC2-w1",
+   "id": "geth",
+   "name": "geth",
+   "tag": "PR #65 \u2212 garbage cut",
+   "latest": false,
+   "vs": "r5/geth/P2a-pr65-full-w1",
+   "note": "PR #65 with C2 (cutting the import's garbage) dropped.",
+   "builds": [
+    {
+     "repo": "CPerezz/go-ethereum",
+     "ref": "pbt-import-latency-noC2",
+     "commit": "b63c1fb653"
+    }
+   ],
+   "runtime": "Go 1.26.8, path scheme, 1 import worker",
+   "baseline": {
+    "phase": "P1",
+    "src": "r1/geth/P1/summary.json",
+    "start": 1791555567.947716,
+    "end": 1791569967.9916837,
+    "duration_s": 14400,
+    "res": {
+     "cpu_s": 2171,
+     "avg_cores": 0.15,
+     "anon_peak_gb": 9.4,
+     "page_cache_peak_gb": 13.9,
+     "test_disk_read_gb": 13,
+     "test_disk_write_gb": 12
+    },
+    "thermal": {
+     "package_temp_max_c": 87.0,
+     "package_throttles": 0.0,
+     "measured_core_throttles": 0.0
+    },
+    "files": {
+     "newpayload": "r1/geth/P1/newpayload.csv",
+     "resources": "r1/geth/P1/resources-15s.csv",
+     "preflight": "r1/geth/P1/preflight.txt"
+    },
+    "follow": {
+     "blocks": [
+      26155707,
+      26156602
+     ],
+     "head_coverage": 0.998,
+     "newpayload_ms": {
+      "n": 898,
+      "p50": 51.916,
+      "p95": 96.088,
+      "p99": 126.771,
+      "max": 216.407
+     },
+     "mgas_per_s": 541.7,
+     "ms_per_mgas": 1.846,
+     "head_lag_max_blocks": 1.0,
+     "stats_window_s": 10800
+    }
+   },
+   "imports": [
+    {
+     "phase": "P2a-pr65-noC2-w1",
+     "src": "r5/geth/P2a-pr65-noC2-w1/summary.json",
+     "start": 1792221249.5577419,
+     "end": 1792226441.036511,
+     "duration_s": 5191,
+     "res": {
+      "cpu_s": 20374,
+      "avg_cores": 3.92,
+      "anon_peak_gb": 12.2,
+      "page_cache_peak_gb": 17.4,
+      "test_disk_read_gb": 1954,
+      "test_disk_write_gb": 2842
+     },
+     "thermal": {
+      "package_temp_max_c": 90.0,
+      "package_throttles": 0.0,
+      "measured_core_throttles": 0.0
+     },
+     "files": {
+      "newpayload": "r5/geth/P2a-pr65-noC2-w1/newpayload.csv",
+      "resources": "r5/geth/P2a-pr65-noC2-w1/resources-15s.csv",
+      "preflight": "r5/geth/P2a-pr65-noC2-w1/preflight.txt"
+     },
+     "follow": {
+      "blocks": [
+       26210710,
+       26211140
+      ],
+      "head_coverage": 0.999,
+      "newpayload_ms": {
+       "n": 432,
+       "p50": 94.316,
+       "p95": 273.831,
+       "p99": 479.748,
+       "max": 802.91
+      },
+      "mgas_per_s": 263.0,
+      "ms_per_mgas": 3.803,
+      "head_lag_max_blocks": 1.0,
+      "stats_window_s": 5191
+     },
+     "disk_peak_gib": 910.2,
+     "stages": [
+      {
+       "label": "verify preimages",
+       "start": 1792221249.5577419,
+       "end": 1792222290.0
+      },
+      {
+       "label": "verify snapshot",
+       "start": 1792222290.0,
+       "end": 1792223644.0
+      },
+      {
+       "label": "write tree",
+       "start": 1792223644.0,
+       "end": 1792224816.0
+      },
+      {
+       "label": "verify code + MPT root",
+       "start": 1792224816.0,
+       "end": 1792226042.0
+      },
+      {
+       "label": "write + check flat state",
+       "start": 1792226042.0,
+       "end": 1792226441.036511
+      }
+     ],
+     "root_verified": true,
+     "stages_src": "r5/geth/P2a-pr65-noC2-w1/stages.csv"
+    }
+   ],
+   "sizes": {
+    "before_gib": 1355.7,
+    "after_gib": 1652.0,
+    "pbt_gib": 296.3,
+    "pbt_parts": [
+     {
+      "label": "tree nodes",
+      "gib": 389.2
+     },
+     {
+      "label": "flat storage",
+      "gib": 121.6
+     },
+     {
+      "label": "flat accounts",
+      "gib": 19.3
+     }
+    ],
+    "attributed": true,
+    "note": "On disk: the whole database's growth during the import (du). Parts: logical size of each PBT key family (db inspect), before compression.",
+    "src": [
+     "r5/geth/sizes/P2a-pr65-noC2-w1-du-tree-before.txt",
+     "r5/geth/sizes/P2a-pr65-noC2-w1-du-tree-after.txt"
+    ]
+   },
+   "reproduce": {
+    "build": [
+     "git clone https://github.com/CPerezz/go-ethereum && cd go-ethereum",
+     "git checkout b63c1fb653   # pbt-import-latency-noC2: PR #65 without C2",
+     "go run build/ci.go install ./cmd/geth   # Go 1.26.8",
+     "build/bin/geth dumpgenesis --mainnet | jq '.config.amsterdamTime=4000000000 | .config.binaryTrieTime=4100000000' \\",
+     "  > <out>/genesis-pbt.json   # far-future 4,000,000,000 < 4,100,000,000"
+    ],
+    "import": [
+     "geth --datadir <datadir> init <out>/genesis-pbt.json",
+     "geth --datadir <datadir> --override.genesis <out>/genesis-pbt.json --networkid 1 \\",
+     "  --state.scheme=path --history.chain=postmerge <engine flags> \\",
+     "  --pbt.import.snapshot <pair>/pbt-snapshot.bin \\",
+     "  --pbt.import.preimages <pair>/framed.bin \\",
+     "  --pbt.import.anchor {anchor_hash} --pbt.import.workers 1"
+    ],
+    "done": "Import complete"
+   }
+  },
+  {
+   "run": "r5/geth/P2a-pr65-full2-w1",
+   "id": "geth",
+   "name": "geth",
+   "tag": "PR #65 \u00b7 rerun",
+   "latest": false,
+   "vs": "r5/geth/P2a-pr65-full-w1",
+   "note": "The first PR #65 build, run again: the gap between its two runs is how much one build varies from run to run.",
+   "builds": [
+    {
+     "repo": "CPerezz/go-ethereum",
+     "ref": "pbt-import-latency",
+     "commit": "69cd4a4491"
+    },
+    {
+     "repo": "CPerezz/go-ethereum",
+     "pr": 65
+    }
+   ],
+   "runtime": "Go 1.26.8, path scheme, 1 import worker",
+   "baseline": {
+    "phase": "P1",
+    "src": "r1/geth/P1/summary.json",
+    "start": 1791555567.947716,
+    "end": 1791569967.9916837,
+    "duration_s": 14400,
+    "res": {
+     "cpu_s": 2171,
+     "avg_cores": 0.15,
+     "anon_peak_gb": 9.4,
+     "page_cache_peak_gb": 13.9,
+     "test_disk_read_gb": 13,
+     "test_disk_write_gb": 12
+    },
+    "thermal": {
+     "package_temp_max_c": 87.0,
+     "package_throttles": 0.0,
+     "measured_core_throttles": 0.0
+    },
+    "files": {
+     "newpayload": "r1/geth/P1/newpayload.csv",
+     "resources": "r1/geth/P1/resources-15s.csv",
+     "preflight": "r1/geth/P1/preflight.txt"
+    },
+    "follow": {
+     "blocks": [
+      26155707,
+      26156602
+     ],
+     "head_coverage": 0.998,
+     "newpayload_ms": {
+      "n": 898,
+      "p50": 51.916,
+      "p95": 96.088,
+      "p99": 126.771,
+      "max": 216.407
+     },
+     "mgas_per_s": 541.7,
+     "ms_per_mgas": 1.846,
+     "head_lag_max_blocks": 1.0,
+     "stats_window_s": 10800
+    }
+   },
+   "imports": [
+    {
+     "phase": "P2a-pr65-full2-w1",
+     "src": "r5/geth/P2a-pr65-full2-w1/summary.json",
+     "start": 1792236093.740537,
+     "end": 1792241043.3399646,
+     "duration_s": 4950,
+     "res": {
+      "cpu_s": 19021,
+      "avg_cores": 3.84,
+      "anon_peak_gb": 12.0,
+      "page_cache_peak_gb": 17.2,
+      "test_disk_read_gb": 2094,
+      "test_disk_write_gb": 2859
+     },
+     "thermal": {
+      "package_temp_max_c": 89.0,
+      "package_throttles": 0.0,
+      "measured_core_throttles": 0.0
+     },
+     "files": {
+      "newpayload": "r5/geth/P2a-pr65-full2-w1/newpayload.csv",
+      "resources": "r5/geth/P2a-pr65-full2-w1/resources-15s.csv",
+      "preflight": "r5/geth/P2a-pr65-full2-w1/preflight.txt"
+     },
+     "follow": {
+      "blocks": [
+       26211941,
+       26212353
+      ],
+      "head_coverage": 1.001,
+      "newpayload_ms": {
+       "n": 413,
+       "p50": 109.941,
+       "p95": 368.012,
+       "p99": 625.035,
+       "max": 1930.877
+      },
+      "mgas_per_s": 209.6,
+      "ms_per_mgas": 4.77,
+      "head_lag_max_blocks": 1.0,
+      "stats_window_s": 4950
+     },
+     "disk_peak_gib": 910.7,
+     "stages": [
+      {
+       "label": "verify preimages",
+       "start": 1792236093.740537,
+       "end": 1792237134.0
+      },
+      {
+       "label": "verify snapshot",
+       "start": 1792237134.0,
+       "end": 1792238319.0
+      },
+      {
+       "label": "write tree",
+       "start": 1792238319.0,
+       "end": 1792239492.0
+      },
+      {
+       "label": "verify code + MPT root",
+       "start": 1792239492.0,
+       "end": 1792240654.0
+      },
+      {
+       "label": "write + check flat state",
+       "start": 1792240654.0,
+       "end": 1792241043.3399646
+      }
+     ],
+     "root_verified": true,
+     "stages_src": "r5/geth/P2a-pr65-full2-w1/stages.csv"
+    }
+   ],
+   "sizes": {
+    "before_gib": 1352.5,
+    "after_gib": 1648.0,
+    "pbt_gib": 295.5,
+    "pbt_parts": [
+     {
+      "label": "tree nodes",
+      "gib": 389.2
+     },
+     {
+      "label": "flat storage",
+      "gib": 121.6
+     },
+     {
+      "label": "flat accounts",
+      "gib": 19.3
+     }
+    ],
+    "attributed": true,
+    "note": "On disk: the whole database's growth during the import (du). Parts: logical size of each PBT key family (db inspect), before compression.",
+    "src": [
+     "r5/geth/sizes/P2a-pr65-full2-w1-du-tree-before.txt",
+     "r5/geth/sizes/P2a-pr65-full2-w1-du-tree-after.txt"
+    ]
+   },
+   "reproduce": {
+    "build": [
+     "git clone https://github.com/CPerezz/go-ethereum && cd go-ethereum",
+     "git checkout 69cd4a4491   # pbt-import-latency, PR #65 (draft)",
+     "go run build/ci.go install ./cmd/geth   # Go 1.26.8",
+     "build/bin/geth dumpgenesis --mainnet | jq '.config.amsterdamTime=4000000000 | .config.binaryTrieTime=4100000000' \\",
+     "  > <out>/genesis-pbt.json   # far-future 4,000,000,000 < 4,100,000,000"
+    ],
+    "import": [
+     "geth --datadir <datadir> init <out>/genesis-pbt.json",
+     "geth --datadir <datadir> --override.genesis <out>/genesis-pbt.json --networkid 1 \\",
+     "  --state.scheme=path --history.chain=postmerge <engine flags> \\",
+     "  --pbt.import.snapshot <pair>/pbt-snapshot.bin \\",
+     "  --pbt.import.preimages <pair>/framed.bin \\",
+     "  --pbt.import.anchor {anchor_hash} --pbt.import.workers 1"
+    ],
+    "done": "Import complete"
+   }
+  },
+  {
+   "run": "r5/geth/P2a-pr65-noC3-w1",
+   "id": "geth",
+   "name": "geth",
+   "tag": "PR #65 \u2212 hash pool",
+   "latest": false,
+   "vs": "r5/geth/P2a-pr65-full-w1",
+   "note": "PR #65 with C3 (one hashing pool sized by the workers flag) dropped.",
+   "builds": [
+    {
+     "repo": "CPerezz/go-ethereum",
+     "ref": "pbt-import-latency-noC3",
+     "commit": "b6fe6ceb48"
+    }
+   ],
+   "runtime": "Go 1.26.8, path scheme, 1 import worker",
+   "baseline": {
+    "phase": "P1",
+    "src": "r1/geth/P1/summary.json",
+    "start": 1791555567.947716,
+    "end": 1791569967.9916837,
+    "duration_s": 14400,
+    "res": {
+     "cpu_s": 2171,
+     "avg_cores": 0.15,
+     "anon_peak_gb": 9.4,
+     "page_cache_peak_gb": 13.9,
+     "test_disk_read_gb": 13,
+     "test_disk_write_gb": 12
+    },
+    "thermal": {
+     "package_temp_max_c": 87.0,
+     "package_throttles": 0.0,
+     "measured_core_throttles": 0.0
+    },
+    "files": {
+     "newpayload": "r1/geth/P1/newpayload.csv",
+     "resources": "r1/geth/P1/resources-15s.csv",
+     "preflight": "r1/geth/P1/preflight.txt"
+    },
+    "follow": {
+     "blocks": [
+      26155707,
+      26156602
+     ],
+     "head_coverage": 0.998,
+     "newpayload_ms": {
+      "n": 898,
+      "p50": 51.916,
+      "p95": 96.088,
+      "p99": 126.771,
+      "max": 216.407
+     },
+     "mgas_per_s": 541.7,
+     "ms_per_mgas": 1.846,
+     "head_lag_max_blocks": 1.0,
+     "stats_window_s": 10800
+    }
+   },
+   "imports": [
+    {
+     "phase": "P2a-pr65-noC3-w1",
+     "src": "r5/geth/P2a-pr65-noC3-w1/summary.json",
+     "start": 1792250835.4576015,
+     "end": 1792255675.542833,
+     "duration_s": 4840,
+     "res": {
+      "cpu_s": 19384,
+      "avg_cores": 4.0,
+      "anon_peak_gb": 12.1,
+      "page_cache_peak_gb": 17.6,
+      "test_disk_read_gb": 2106,
+      "test_disk_write_gb": 2875
+     },
+     "thermal": {
+      "package_temp_max_c": 90.0,
+      "package_throttles": 0.0,
+      "measured_core_throttles": 0.0
+     },
+     "files": {
+      "newpayload": "r5/geth/P2a-pr65-noC3-w1/newpayload.csv",
+      "resources": "r5/geth/P2a-pr65-noC3-w1/resources-15s.csv",
+      "preflight": "r5/geth/P2a-pr65-noC3-w1/preflight.txt"
+     },
+     "follow": {
+      "blocks": [
+       26213166,
+       26213568
+      ],
+      "head_coverage": 0.999,
+      "newpayload_ms": {
+       "n": 403,
+       "p50": 79.698,
+       "p95": 263.452,
+       "p99": 703.142,
+       "max": 1393.163
+      },
+      "mgas_per_s": 275.9,
+      "ms_per_mgas": 3.624,
+      "head_lag_max_blocks": 1.0,
+      "stats_window_s": 4840
+     },
+     "disk_peak_gib": 904.4,
+     "stages": [
+      {
+       "label": "verify preimages",
+       "start": 1792250835.4576015,
+       "end": 1792251876.0
+      },
+      {
+       "label": "verify snapshot",
+       "start": 1792251876.0,
+       "end": 1792253055.0
+      },
+      {
+       "label": "write tree",
+       "start": 1792253055.0,
+       "end": 1792254260.0
+      },
+      {
+       "label": "verify code + MPT root",
+       "start": 1792254260.0,
+       "end": 1792255428.0
+      },
+      {
+       "label": "write + check flat state",
+       "start": 1792255428.0,
+       "end": 1792255675.542833
+      }
+     ],
+     "root_verified": true,
+     "stages_src": "r5/geth/P2a-pr65-noC3-w1/stages.csv"
+    }
+   ],
+   "sizes": {
+    "before_gib": 1356.2,
+    "after_gib": 1647.2,
+    "pbt_gib": 291.1,
+    "pbt_parts": [
+     {
+      "label": "tree nodes",
+      "gib": 389.2
+     },
+     {
+      "label": "flat storage",
+      "gib": 121.6
+     },
+     {
+      "label": "flat accounts",
+      "gib": 19.3
+     }
+    ],
+    "attributed": true,
+    "note": "On disk: the whole database's growth during the import (du). Parts: logical size of each PBT key family (db inspect), before compression.",
+    "src": [
+     "r5/geth/sizes/P2a-pr65-noC3-w1-du-tree-before.txt",
+     "r5/geth/sizes/P2a-pr65-noC3-w1-du-tree-after.txt"
+    ]
+   },
+   "reproduce": {
+    "build": [
+     "git clone https://github.com/CPerezz/go-ethereum && cd go-ethereum",
+     "git checkout b6fe6ceb48   # pbt-import-latency-noC3: PR #65 without C3",
+     "go run build/ci.go install ./cmd/geth   # Go 1.26.8",
+     "build/bin/geth dumpgenesis --mainnet | jq '.config.amsterdamTime=4000000000 | .config.binaryTrieTime=4100000000' \\",
+     "  > <out>/genesis-pbt.json   # far-future 4,000,000,000 < 4,100,000,000"
+    ],
+    "import": [
+     "geth --datadir <datadir> init <out>/genesis-pbt.json",
+     "geth --datadir <datadir> --override.genesis <out>/genesis-pbt.json --networkid 1 \\",
+     "  --state.scheme=path --history.chain=postmerge <engine flags> \\",
+     "  --pbt.import.snapshot <pair>/pbt-snapshot.bin \\",
+     "  --pbt.import.preimages <pair>/framed.bin \\",
+     "  --pbt.import.anchor {anchor_hash} --pbt.import.workers 1"
+    ],
+    "done": "Import complete"
+   }
+  }
+ ]
+}

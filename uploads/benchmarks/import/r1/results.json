@@ -42,6 +42,7 @@
    "name": "geth",
    "tag": "PR #61",
    "latest": true,
+   "vs": null,
    "note": null,
    "builds": [
     {
@@ -223,6 +224,7 @@
    "name": "besu",
    "tag": null,
    "latest": true,
+   "vs": null,
    "note": null,
    "builds": [
     {
@@ -382,6 +384,7 @@
    "name": "Nethermind",
    "tag": null,
    "latest": true,
+   "vs": null,
    "note": null,
    "builds": [
     {

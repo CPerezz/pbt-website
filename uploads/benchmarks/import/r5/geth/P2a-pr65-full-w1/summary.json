@@ -1,0 +1,94 @@
+{
+ "client": "geth",
+ "phase": "R6-P2a-pr65-full-w1",
+ "start": 1792192390.4114301,
+ "end": 1792197121.6547477,
+ "seconds": 4731,
+ "rate_window_seconds": 4731,
+ "blocks": [
+  26208313,
+  26208706
+ ],
+ "head_coverage": 0.999,
+ "newPayload_ms": {
+  "n": 394,
+  "p50": 67.221,
+  "p95": 285.91,
+  "p99": 468.545,
+  "max": 688.734
+ },
+ "newPayload_plus_fcu_ms": {
+  "n": 394,
+  "p50": 71.145,
+  "p95": 295.021,
+  "p99": 470.592
+ },
+ "mgas_per_s": 304.5,
+ "ms_per_mgas": 3.285,
+ "head_lag_blocks": {
+  "max": 1.0,
+  "mean": 0.004228329809725159
+ },
+ "thermal": {
+  "package_temp_max_c": 90.0,
+  "package_throttles": 0.0,
+  "measured_core_throttles": 0.0
+ },
+ "el": {
+  "cpu_seconds": 16361.579256043811,
+  "mem_peak_bytes": 26083581952.0,
+  "anon_peak_bytes": 12737335296.0,
+  "file_peak_bytes": 17641218048.0,
+  "test_disk_read_bytes": 1602558303363.9822,
+  "test_disk_write_bytes": 2376881893428.0127
+ },
+ "cl": {
+  "cpu_seconds": 1394.1791769980857,
+  "mem_peak_bytes": 9430835200.0,
+  "anon_peak_bytes": 8830771200.0,
+  "file_peak_bytes": 658948096.0,
+  "test_disk_read_bytes": null,
+  "test_disk_write_bytes": null
+ },
+ "slice": {
+  "cpu_seconds": 17771.329109253362,
+  "mem_peak_bytes": 34359738368.0,
+  "anon_peak_bytes": 20749774848.0,
+  "file_peak_bytes": 18304319488.0,
+  "test_disk_read_bytes": 1603770864531.4236,
+  "test_disk_write_bytes": 2377067936221.217
+ },
+ "tool": {
+  "cpu_seconds": null,
+  "mem_peak_bytes": null,
+  "anon_peak_bytes": null,
+  "file_peak_bytes": null,
+  "test_disk_read_bytes": null,
+  "test_disk_write_bytes": null
+ },
+ "test_disk_used_bytes": {
+  "start": 2597774348288.0,
+  "peak": 3598535483392.0,
+  "end": 2938397564928.0
+ },
+ "dir_bytes_at_end": {
+  "<disk>": 325251633873.0,
+  "<disk>": 518172315770.0,
+  "<cl-datadir>": 20022840586.0,
+  "<datadir>": 2433701022220.0,
+  "<datadir>/geth/chaindata": 1793513866230.0,
+  "<datadir>/geth/triedb": 429550393.0,
+  "<datadir>/geth/chaindata/ancient": 984192420837.0,
+  "<datadir>/geth/pbt-import": 639517364462.0
+ },
+ "dir_bytes_peak": {
+  "<disk>": 325251633873.0,
+  "<disk>": 518172315770.0,
+  "<cl-datadir>": 20389650601.0,
+  "<datadir>": 2453667711225.0,
+  "<datadir>/geth/chaindata": 1793524563792.0,
+  "<datadir>/geth/triedb": 429550393.0,
+  "<datadir>/geth/chaindata/ancient": 984192420837.0,
+  "<datadir>/geth/pbt-import": 823442388006.0
+ }
+}

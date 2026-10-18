@@ -83,7 +83,8 @@ export default async function (root, ctx) {
   const word = (n) => ['zero', 'one', 'two', 'three', 'four', 'five', 'six'][n] ?? n;
   const ids = [...new Set(clients.map((c) => c.id))];
   const oneClient = ids.length === 1 && clients.length > 1; // a round that reran one client's builds
-  const subject = oneClient ? `${word(clients.length)} ${clients[0].name} builds` : `${word(ids.length)} client${ids.length > 1 ? 's' : ''}`;
+  const builds = new Set(clients.map((c) => c.builds[0].commit)).size; // a build may run twice
+  const subject = oneClient ? `${word(builds)} ${clients[0].name} build${builds > 1 ? 's' : ''}` : `${word(ids.length)} client${ids.length > 1 ? 's' : ''}`;
   const names = oneClient ? subject : new Intl.ListFormat('en', { type: 'conjunction' }).format(clients.map((c) => c.name));
   const lead = h('p', { class: 'lead' },
     eip(8347), " moves Ethereum's state to the Partitioned Binary Tree of ", eip(8297), ' through one verifiable snapshot. ',
