@@ -13,7 +13,7 @@ const source = (src) => `<span class="lbl">source</span><br><b>${src.replace(DAT
 export default async function (root, ctx) {
   const { res, clock } = ctx;
   root.append(secHead('Import, replayed',
-    ['In the offline migration (EIP-8347), a node imports a snapshot of the new tree, taken at the ', term('anchor', 'anchor block'),
+    ['In an EIP-8347 migration, a node imports a snapshot of the new tree, taken at the ', term('anchor', 'anchor block'),
       ` (#${fmt.n(res.pair.anchor_block)}), while it keeps processing new blocks. Here that import and its correctness checks replay on a live mainnet node (1 s = ${clock.speed / 60} min): `,
       'the long bar is the import\u2019s phases, the small bars above it count blocks validated every 5 min, the ✓ is the client\u2019s own root check, and under each name sits its worst lag behind the chain head.'],
     h('span', { class: 'cap row', style: 'gap:8px' },
@@ -79,15 +79,19 @@ export default async function (root, ctx) {
       svg.append(s('text', { x: 0, y: by + bh - 1, 'font-size': 12, 'font-weight': 600, fill: col, opacity: 0.7, text: 'run 2' }), pct);
     } else {
       svg.append(avatar(c.id, 24, { x: 0, y: by - 18 }), s('text', { x: 30, y: by + 2, 'font-size': 15, 'font-weight': 600, fill: col, text: c.name }));
+      // Under the name: the run's badge (round · build) when the view needs it, then blocks so far and worst lag.
+      const ln = (i) => by + 18 + (c.badge ? i : i - 1) * 14;
+      if (c.badge) svg.append(hover(s('text', { x: 30, y: ln(0), 'font-size': 10, fill: COL.ink2, text: c.badge }),
+        `${c.round.label} · ${fmt.day(c.round.date)}<br><b>${c.builds[0].repo}@${c.builds[0].commit}</b>${c.note ? `<br>${c.note}` : ''}`));
       if (data) {
         const src = ctx.src(w.files.newpayload);
-        counter = s('text', { x: 30, y: by + 18, 'font-size': 10.5, fill: COL.muted });
+        counter = s('text', { x: 30, y: ln(1), 'font-size': 10.5, fill: COL.muted });
         svg.append(hover(s('a', { href: src, target: '_blank' }, counter), source(src)));
       }
       if (w.follow) {
         const lag = w.follow.head_lag_max_blocks, src = ctx.src(w.src);
         svg.append(hover(s('a', { href: src, target: '_blank' },
-          s('text', { x: 30, y: by + 32, 'font-size': 10.5, fill: COL.muted, text: `max lag ${fmt.n(lag)} block${lag === 1 ? '' : 's'}` })),
+          s('text', { x: 30, y: ln(2), 'font-size': 10.5, fill: COL.muted, text: `max lag ${fmt.n(lag)} block${lag === 1 ? '' : 's'}` })),
           `Worst distance behind the chain head during the import<br>${source(src)}`));
       }
     }
@@ -192,6 +196,7 @@ export default async function (root, ctx) {
   lensLanes.forEach((l, i) => {
     const { c, w, data } = l, col = ctx.color(c.id), d = w.duration_s, top = i * LRH + 4, base = top + LBH;
     lens.append(avatar(c.id, 18, { x: 0, y: top + LBH / 2 - 9 }), s('text', { x: 24, y: top + LBH / 2 + 5, 'font-size': 13, 'font-weight': 600, fill: col, text: c.name }),
+      ...(c.badge ? [s('text', { x: 24, y: top + LBH / 2 + 19, 'font-size': 9.5, fill: COL.muted, text: c.badge })] : []),
       s('line', { x1: X0, x2: X1, y1: base - ly(1000), y2: base - ly(1000), stroke: COL.line, 'stroke-dasharray': '2 4' }),
       s('text', { x: X1 + 4, y: base - ly(1000) + 3, 'font-size': 9, fill: COL.muted, text: '1 s' }));
     const range = s('text', { x: FX, y: top + LBH / 2 + 4, 'font-size': 10.5, fill: COL.muted });

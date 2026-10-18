@@ -66,12 +66,27 @@
   "test_disk_read_bytes": null,
   "test_disk_write_bytes": null
  },
+ "test_disk_used_bytes": {
+  "start": 2067190038528.0,
+  "peak": 2774774632448.0,
+  "end": 2468286996480.0
+ },
  "dir_bytes_at_end": {
+  "<cl-datadir>": 19299728950.0,
   "<disk>": 325251633873.0,
   "<disk>": 510304923186.0,
-  "<cl-datadir>": 19299728950.0,
   "<datadir>": 2026809330795.0,
   "<datadir>/nethermind_db/mainnet/blocks": 680395831759.0,
+  "<datadir>/nethermind_db/mainnet/flat": 328350104363.0,
+  "<datadir>/nethermind_db/mainnet/pbt": 371886958443.0,
+  "<datadir>/nethermind_db/mainnet/receipts": 304043876575.0
+ },
+ "dir_bytes_peak": {
+  "<cl-datadir>": 19486567085.0,
+  "<disk>": 325251633873.0,
+  "<disk>": 510304923186.0,
+  "<datadir>": 2035563449671.0,
+  "<datadir>/nethermind_db/mainnet/blocks": 680413136893.0,
   "<datadir>/nethermind_db/mainnet/flat": 328350104363.0,
   "<datadir>/nethermind_db/mainnet/pbt": 371886958443.0,
   "<datadir>/nethermind_db/mainnet/receipts": 304043876575.0

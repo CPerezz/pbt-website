@@ -20,12 +20,16 @@ for base in (HERE, PAGE):
             m = LEAK.search(open(p, errors="ignore").read())
             if m:
                 fail.append(f"local path {m.group(0)!r} in {os.path.relpath(p, base)}")
+runs, refs = set(), []
 for r in json.load(open(f"{HERE}/import/rounds.json"))["rounds"]:
-    d = f"{HERE}/import/{r['id']}"
     res = json.loads(json.dumps(build(r["id"])))
-    if json.load(open(f"{d}/results.json")) != res:
+    runs |= {c["run"] for c in res["clients"]}
+    refs += [(c["run"], c["vs"]) for c in res["clients"] if c.get("vs")]
+    if json.load(open(f"{HERE}/import/{r['id']}/results.json")) != res:
         fail.append(f"{r['id']}/results.json is stale: run build_results.py {r['id']}")
+    # results.json paths are relative to import/ (a run may use another round's baseline)
     fail += [f"{r['id']}: missing {x}" for x in re.findall(r'"([\w./-]+\.(?:csv|json|txt))"', json.dumps(res))
-             if not os.path.exists(f"{d}/{x}")]
+             if not os.path.exists(f"{HERE}/import/{x}")]
+fail += [f"{run}: vs {vs} is not a published run" for run, vs in refs if vs not in runs]
 print("\n".join(fail) or "ok")
 sys.exit(bool(fail))

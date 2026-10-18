@@ -1,0 +1,806 @@
+utc,stage,pct
+2026-10-17T07:14:21Z,Verifying preimage file,0.0
+2026-10-17T07:14:29Z,Verifying preimage file,0.8
+2026-10-17T07:14:37Z,Verifying preimage file,1.61
+2026-10-17T07:14:45Z,Verifying preimage file,2.48
+2026-10-17T07:14:53Z,Verifying preimage file,3.31
+2026-10-17T07:15:01Z,Verifying preimage file,4.12
+2026-10-17T07:15:09Z,Verifying preimage file,4.93
+2026-10-17T07:15:17Z,Verifying preimage file,5.55
+2026-10-17T07:15:25Z,Verifying preimage file,6.34
+2026-10-17T07:15:33Z,Verifying preimage file,7.15
+2026-10-17T07:15:41Z,Verifying preimage file,7.94
+2026-10-17T07:15:49Z,Verifying preimage file,8.64
+2026-10-17T07:15:57Z,Verifying preimage file,9.31
+2026-10-17T07:16:05Z,Verifying preimage file,9.89
+2026-10-17T07:16:13Z,Verifying preimage file,10.46
+2026-10-17T07:16:21Z,Verifying preimage file,11.06
+2026-10-17T07:16:29Z,Verifying preimage file,11.69
+2026-10-17T07:16:37Z,Verifying preimage file,12.33
+2026-10-17T07:16:45Z,Verifying preimage file,12.94
+2026-10-17T07:16:53Z,Verifying preimage file,13.51
+2026-10-17T07:17:01Z,Verifying preimage file,14.08
+2026-10-17T07:17:09Z,Verifying preimage file,14.72
+2026-10-17T07:17:17Z,Verifying preimage file,15.36
+2026-10-17T07:17:25Z,Verifying preimage file,15.98
+2026-10-17T07:17:33Z,Verifying preimage file,16.56
+2026-10-17T07:17:41Z,Verifying preimage file,17.13
+2026-10-17T07:17:49Z,Verifying preimage file,17.9
+2026-10-17T07:17:57Z,Verifying preimage file,18.77
+2026-10-17T07:18:05Z,Verifying preimage file,19.52
+2026-10-17T07:18:13Z,Verifying preimage file,20.32
+2026-10-17T07:18:21Z,Verifying preimage file,21.01
+2026-10-17T07:18:29Z,Verifying preimage file,21.67
+2026-10-17T07:18:37Z,Verifying preimage file,22.49
+2026-10-17T07:18:45Z,Verifying preimage file,23.3
+2026-10-17T07:18:53Z,Verifying preimage file,24.08
+2026-10-17T07:19:01Z,Verifying preimage file,24.9
+2026-10-17T07:19:09Z,Verifying preimage file,25.77
+2026-10-17T07:19:17Z,Verifying preimage file,26.62
+2026-10-17T07:19:25Z,Verifying preimage file,27.48
+2026-10-17T07:19:33Z,Verifying preimage file,28.2
+2026-10-17T07:19:41Z,Verifying preimage file,29.05
+2026-10-17T07:19:49Z,Verifying preimage file,29.88
+2026-10-17T07:19:57Z,Verifying preimage file,30.58
+2026-10-17T07:20:05Z,Verifying preimage file,31.47
+2026-10-17T07:20:13Z,Verifying preimage file,32.27
+2026-10-17T07:20:21Z,Verifying preimage file,33.1
+2026-10-17T07:20:29Z,Verifying preimage file,33.99
+2026-10-17T07:20:37Z,Verifying preimage file,34.83
+2026-10-17T07:20:45Z,Verifying preimage file,35.65
+2026-10-17T07:20:53Z,Verifying preimage file,36.43
+2026-10-17T07:21:01Z,Verifying preimage file,37.11
+2026-10-17T07:21:09Z,Verifying preimage file,37.86
+2026-10-17T07:21:17Z,Verifying preimage file,38.68
+2026-10-17T07:21:25Z,Verifying preimage file,39.5
+2026-10-17T07:21:33Z,Verifying preimage file,40.09
+2026-10-17T07:21:41Z,Verifying preimage file,40.93
+2026-10-17T07:21:49Z,Verifying preimage file,41.81
+2026-10-17T07:21:57Z,Verifying preimage file,42.6
+2026-10-17T07:22:05Z,Verifying preimage file,43.41
+2026-10-17T07:22:13Z,Verifying preimage file,44.28
+2026-10-17T07:22:21Z,Verifying preimage file,45.12
+2026-10-17T07:22:29Z,Verifying preimage file,46.01
+2026-10-17T07:22:37Z,Verifying preimage file,46.75
+2026-10-17T07:22:45Z,Verifying preimage file,47.54
+2026-10-17T07:22:53Z,Verifying preimage file,48.36
+2026-10-17T07:23:01Z,Verifying preimage file,49.12
+2026-10-17T07:23:09Z,Verifying preimage file,49.94
+2026-10-17T07:23:17Z,Verifying preimage file,50.71
+2026-10-17T07:23:25Z,Verifying preimage file,51.44
+2026-10-17T07:23:33Z,Verifying preimage file,52.31
+2026-10-17T07:23:41Z,Verifying preimage file,53.05
+2026-10-17T07:23:49Z,Verifying preimage file,53.66
+2026-10-17T07:23:57Z,Verifying preimage file,54.55
+2026-10-17T07:24:05Z,Verifying preimage file,55.36
+2026-10-17T07:24:13Z,Verifying preimage file,56.12
+2026-10-17T07:24:21Z,Verifying preimage file,56.97
+2026-10-17T07:24:29Z,Verifying preimage file,57.72
+2026-10-17T07:24:37Z,Verifying preimage file,58.5
+2026-10-17T07:24:45Z,Verifying preimage file,59.34
+2026-10-17T07:24:53Z,Verifying preimage file,60.18
+2026-10-17T07:25:01Z,Verifying preimage file,61.05
+2026-10-17T07:25:09Z,Verifying preimage file,61.93
+2026-10-17T07:25:17Z,Verifying preimage file,62.76
+2026-10-17T07:25:25Z,Verifying preimage file,63.59
+2026-10-17T07:25:33Z,Verifying preimage file,64.35
+2026-10-17T07:25:41Z,Verifying preimage file,65.11
+2026-10-17T07:25:49Z,Verifying preimage file,65.86
+2026-10-17T07:25:57Z,Verifying preimage file,66.59
+2026-10-17T07:26:05Z,Verifying preimage file,67.41
+2026-10-17T07:26:13Z,Verifying preimage file,68.21
+2026-10-17T07:26:21Z,Verifying preimage file,68.94
+2026-10-17T07:26:29Z,Verifying preimage file,69.83
+2026-10-17T07:26:37Z,Verifying preimage file,70.46
+2026-10-17T07:26:45Z,Verifying preimage file,71.1
+2026-10-17T07:26:53Z,Verifying preimage file,71.85
+2026-10-17T07:27:01Z,Verifying preimage file,72.69
+2026-10-17T07:27:09Z,Verifying preimage file,73.49
+2026-10-17T07:27:17Z,Verifying preimage file,74.32
+2026-10-17T07:27:25Z,Verifying preimage file,75.16
+2026-10-17T07:27:33Z,Verifying preimage file,75.95
+2026-10-17T07:27:41Z,Verifying preimage file,76.8
+2026-10-17T07:27:49Z,Verifying preimage file,77.64
+2026-10-17T07:27:57Z,Verifying preimage file,78.48
+2026-10-17T07:28:05Z,Verifying preimage file,79.24
+2026-10-17T07:28:13Z,Verifying preimage file,80.09
+2026-10-17T07:28:21Z,Verifying preimage file,80.97
+2026-10-17T07:28:29Z,Verifying preimage file,81.88
+2026-10-17T07:28:37Z,Verifying preimage file,82.73
+2026-10-17T07:28:45Z,Verifying preimage file,83.42
+2026-10-17T07:28:53Z,Verifying preimage file,84.28
+2026-10-17T07:29:01Z,Verifying preimage file,85.09
+2026-10-17T07:29:09Z,Verifying preimage file,85.98
+2026-10-17T07:29:17Z,Verifying preimage file,86.78
+2026-10-17T07:29:25Z,Verifying preimage file,87.66
+2026-10-17T07:29:33Z,Verifying preimage file,88.48
+2026-10-17T07:29:41Z,Verifying preimage file,89.21
+2026-10-17T07:29:49Z,Verifying preimage file,90.06
+2026-10-17T07:29:57Z,Verifying preimage file,90.88
+2026-10-17T07:30:05Z,Verifying preimage file,91.71
+2026-10-17T07:30:13Z,Verifying preimage file,92.5
+2026-10-17T07:30:21Z,Verifying preimage file,93.3
+2026-10-17T07:30:29Z,Verifying preimage file,94.17
+2026-10-17T07:30:37Z,Verifying preimage file,95.03
+2026-10-17T07:30:45Z,Verifying preimage file,95.88
+2026-10-17T07:30:53Z,Verifying preimage file,96.73
+2026-10-17T07:31:01Z,Verifying preimage file,97.46
+2026-10-17T07:31:09Z,Verifying preimage file,98.12
+2026-10-17T07:31:17Z,Verifying preimage file,98.85
+2026-10-17T07:31:25Z,Verifying preimage file,99.48
+2026-10-17T07:31:30Z,Verifying snapshot,0.0
+2026-10-17T07:31:38Z,Verifying snapshot,0.29
+2026-10-17T07:31:46Z,Verifying snapshot,0.72
+2026-10-17T07:31:54Z,Verifying snapshot,1.15
+2026-10-17T07:32:02Z,Verifying snapshot,1.57
+2026-10-17T07:32:10Z,Verifying snapshot,2.0
+2026-10-17T07:32:18Z,Verifying snapshot,2.43
+2026-10-17T07:32:26Z,Verifying snapshot,2.85
+2026-10-17T07:32:34Z,Verifying snapshot,3.28
+2026-10-17T07:32:42Z,Verifying snapshot,3.7
+2026-10-17T07:32:50Z,Verifying snapshot,4.13
+2026-10-17T07:32:58Z,Verifying snapshot,4.56
+2026-10-17T07:33:06Z,Verifying snapshot,4.99
+2026-10-17T07:33:14Z,Verifying snapshot,5.41
+2026-10-17T07:33:22Z,Verifying snapshot,5.85
+2026-10-17T07:33:30Z,Verifying snapshot,6.27
+2026-10-17T07:33:38Z,Verifying snapshot,6.69
+2026-10-17T07:33:46Z,Verifying snapshot,7.12
+2026-10-17T07:33:54Z,Verifying snapshot,7.54
+2026-10-17T07:34:02Z,Verifying snapshot,7.97
+2026-10-17T07:34:10Z,Verifying snapshot,8.4
+2026-10-17T07:34:18Z,Verifying snapshot,8.82
+2026-10-17T07:34:26Z,Verifying snapshot,9.25
+2026-10-17T07:34:34Z,Verifying snapshot,9.68
+2026-10-17T07:34:42Z,Verifying snapshot,10.1
+2026-10-17T07:34:50Z,Verifying snapshot,10.53
+2026-10-17T07:34:58Z,Verifying snapshot,10.96
+2026-10-17T07:35:06Z,Verifying snapshot,11.38
+2026-10-17T07:35:14Z,Verifying snapshot,11.8
+2026-10-17T07:35:22Z,Verifying snapshot,12.23
+2026-10-17T07:35:30Z,Verifying snapshot,12.65
+2026-10-17T07:35:38Z,Verifying snapshot,13.07
+2026-10-17T07:35:46Z,Verifying snapshot,13.5
+2026-10-17T07:35:54Z,Verifying snapshot,13.92
+2026-10-17T07:36:02Z,Verifying snapshot,14.34
+2026-10-17T07:36:10Z,Verifying snapshot,14.77
+2026-10-17T07:36:18Z,Verifying snapshot,15.19
+2026-10-17T07:36:26Z,Verifying snapshot,15.62
+2026-10-17T07:36:34Z,Verifying snapshot,16.05
+2026-10-17T07:36:42Z,Verifying snapshot,16.48
+2026-10-17T07:36:50Z,Verifying snapshot,16.9
+2026-10-17T07:36:58Z,Verifying snapshot,17.33
+2026-10-17T07:37:06Z,Verifying snapshot,17.75
+2026-10-17T07:37:14Z,Verifying snapshot,18.17
+2026-10-17T07:37:22Z,Verifying snapshot,18.6
+2026-10-17T07:37:30Z,Verifying snapshot,19.03
+2026-10-17T07:37:38Z,Verifying snapshot,19.45
+2026-10-17T07:37:46Z,Verifying snapshot,19.88
+2026-10-17T07:37:54Z,Verifying snapshot,20.29
+2026-10-17T07:38:02Z,Verifying snapshot,20.7
+2026-10-17T07:38:10Z,Verifying snapshot,21.13
+2026-10-17T07:38:18Z,Verifying snapshot,21.63
+2026-10-17T07:38:26Z,Verifying snapshot,22.6
+2026-10-17T07:38:34Z,Verifying snapshot,23.59
+2026-10-17T07:38:42Z,Verifying snapshot,24.56
+2026-10-17T07:38:50Z,Verifying snapshot,25.54
+2026-10-17T07:38:58Z,Verifying snapshot,26.52
+2026-10-17T07:39:06Z,Verifying snapshot,27.5
+2026-10-17T07:39:14Z,Verifying snapshot,28.45
+2026-10-17T07:39:22Z,Verifying snapshot,29.43
+2026-10-17T07:39:30Z,Verifying snapshot,30.41
+2026-10-17T07:39:38Z,Verifying snapshot,31.38
+2026-10-17T07:39:46Z,Verifying snapshot,32.37
+2026-10-17T07:39:54Z,Verifying snapshot,33.32
+2026-10-17T07:40:02Z,Verifying snapshot,34.3
+2026-10-17T07:40:10Z,Verifying snapshot,35.28
+2026-10-17T07:40:18Z,Verifying snapshot,36.24
+2026-10-17T07:40:26Z,Verifying snapshot,37.21
+2026-10-17T07:40:34Z,Verifying snapshot,38.19
+2026-10-17T07:40:42Z,Verifying snapshot,38.97
+2026-10-17T07:40:50Z,Verifying snapshot,39.57
+2026-10-17T07:40:58Z,Verifying snapshot,40.18
+2026-10-17T07:41:06Z,Verifying snapshot,40.85
+2026-10-17T07:41:14Z,Verifying snapshot,41.57
+2026-10-17T07:41:22Z,Verifying snapshot,42.04
+2026-10-17T07:41:30Z,Verifying snapshot,42.76
+2026-10-17T07:41:38Z,Verifying snapshot,43.4
+2026-10-17T07:41:46Z,Verifying snapshot,44.0
+2026-10-17T07:41:54Z,Verifying snapshot,44.64
+2026-10-17T07:42:02Z,Verifying snapshot,45.31
+2026-10-17T07:42:10Z,Verifying snapshot,45.83
+2026-10-17T07:42:18Z,Verifying snapshot,46.46
+2026-10-17T07:42:26Z,Verifying snapshot,47.22
+2026-10-17T07:42:34Z,Verifying snapshot,47.85
+2026-10-17T07:42:42Z,Verifying snapshot,48.47
+2026-10-17T07:42:50Z,Verifying snapshot,49.11
+2026-10-17T07:42:58Z,Verifying snapshot,49.72
+2026-10-17T07:43:06Z,Verifying snapshot,50.17
+2026-10-17T07:43:14Z,Verifying snapshot,50.77
+2026-10-17T07:43:22Z,Verifying snapshot,51.51
+2026-10-17T07:43:30Z,Verifying snapshot,52.25
+2026-10-17T07:43:38Z,Verifying snapshot,52.95
+2026-10-17T07:43:46Z,Verifying snapshot,53.69
+2026-10-17T07:43:54Z,Verifying snapshot,54.38
+2026-10-17T07:44:02Z,Verifying snapshot,55.09
+2026-10-17T07:44:10Z,Verifying snapshot,55.79
+2026-10-17T07:44:18Z,Verifying snapshot,56.39
+2026-10-17T07:44:26Z,Verifying snapshot,56.97
+2026-10-17T07:44:34Z,Verifying snapshot,57.68
+2026-10-17T07:44:42Z,Verifying snapshot,58.36
+2026-10-17T07:44:50Z,Verifying snapshot,59.06
+2026-10-17T07:44:58Z,Verifying snapshot,59.73
+2026-10-17T07:45:06Z,Verifying snapshot,60.43
+2026-10-17T07:45:14Z,Verifying snapshot,61.12
+2026-10-17T07:45:22Z,Verifying snapshot,61.76
+2026-10-17T07:45:30Z,Verifying snapshot,62.46
+2026-10-17T07:45:38Z,Verifying snapshot,63.16
+2026-10-17T07:45:46Z,Verifying snapshot,63.86
+2026-10-17T07:45:54Z,Verifying snapshot,64.47
+2026-10-17T07:46:02Z,Verifying snapshot,65.13
+2026-10-17T07:46:10Z,Verifying snapshot,65.34
+2026-10-17T07:46:18Z,Verifying snapshot,65.56
+2026-10-17T07:46:26Z,Verifying snapshot,65.77
+2026-10-17T07:46:34Z,Verifying snapshot,65.99
+2026-10-17T07:46:42Z,Verifying snapshot,66.2
+2026-10-17T07:46:50Z,Verifying snapshot,66.42
+2026-10-17T07:46:58Z,Verifying snapshot,66.63
+2026-10-17T07:47:06Z,Verifying snapshot,66.85
+2026-10-17T07:47:14Z,Verifying snapshot,67.06
+2026-10-17T07:47:22Z,Verifying snapshot,67.28
+2026-10-17T07:47:30Z,Verifying snapshot,67.49
+2026-10-17T07:47:38Z,Verifying snapshot,67.79
+2026-10-17T07:47:46Z,Verifying snapshot,68.37
+2026-10-17T07:47:54Z,Verifying snapshot,69.03
+2026-10-17T07:48:02Z,Verifying snapshot,69.74
+2026-10-17T07:48:10Z,Verifying snapshot,70.44
+2026-10-17T07:48:18Z,Verifying snapshot,71.09
+2026-10-17T07:48:26Z,Verifying snapshot,71.85
+2026-10-17T07:48:34Z,Verifying snapshot,72.45
+2026-10-17T07:48:42Z,Verifying snapshot,73.1
+2026-10-17T07:48:50Z,Verifying snapshot,73.8
+2026-10-17T07:48:58Z,Verifying snapshot,74.47
+2026-10-17T07:49:06Z,Verifying snapshot,75.12
+2026-10-17T07:49:14Z,Verifying snapshot,75.84
+2026-10-17T07:49:22Z,Verifying snapshot,76.51
+2026-10-17T07:49:30Z,Verifying snapshot,77.14
+2026-10-17T07:49:38Z,Verifying snapshot,77.76
+2026-10-17T07:49:46Z,Verifying snapshot,78.5
+2026-10-17T07:49:54Z,Verifying snapshot,79.27
+2026-10-17T07:50:02Z,Verifying snapshot,79.91
+2026-10-17T07:50:10Z,Verifying snapshot,80.57
+2026-10-17T07:50:18Z,Verifying snapshot,81.24
+2026-10-17T07:50:26Z,Verifying snapshot,81.89
+2026-10-17T07:50:34Z,Verifying snapshot,82.6
+2026-10-17T07:50:42Z,Verifying snapshot,83.25
+2026-10-17T07:50:50Z,Verifying snapshot,83.86
+2026-10-17T07:50:58Z,Verifying snapshot,84.33
+2026-10-17T07:51:06Z,Verifying snapshot,85.02
+2026-10-17T07:51:14Z,Verifying snapshot,85.7
+2026-10-17T07:51:22Z,Verifying snapshot,86.37
+2026-10-17T07:51:30Z,Verifying snapshot,86.95
+2026-10-17T07:51:38Z,Verifying snapshot,87.61
+2026-10-17T07:51:46Z,Verifying snapshot,88.35
+2026-10-17T07:51:54Z,Verifying snapshot,89.04
+2026-10-17T07:52:02Z,Verifying snapshot,89.75
+2026-10-17T07:52:10Z,Verifying snapshot,90.47
+2026-10-17T07:52:18Z,Verifying snapshot,91.16
+2026-10-17T07:52:26Z,Verifying snapshot,91.83
+2026-10-17T07:52:34Z,Verifying snapshot,92.49
+2026-10-17T07:52:42Z,Verifying snapshot,93.13
+2026-10-17T07:52:50Z,Verifying snapshot,93.64
+2026-10-17T07:52:58Z,Verifying snapshot,94.34
+2026-10-17T07:53:06Z,Verifying snapshot,95.01
+2026-10-17T07:53:14Z,Verifying snapshot,95.71
+2026-10-17T07:53:22Z,Verifying snapshot,96.42
+2026-10-17T07:53:30Z,Verifying snapshot,97.11
+2026-10-17T07:53:38Z,Verifying snapshot,97.76
+2026-10-17T07:53:46Z,Verifying snapshot,98.48
+2026-10-17T07:53:54Z,Verifying snapshot,99.16
+2026-10-17T07:54:02Z,Verifying snapshot,99.85
+2026-10-17T07:54:04Z,Writing tree nodes,0.0
+2026-10-17T07:54:12Z,Writing tree nodes,0.5
+2026-10-17T07:54:20Z,Writing tree nodes,0.54
+2026-10-17T07:54:28Z,Writing tree nodes,0.91
+2026-10-17T07:54:36Z,Writing tree nodes,1.05
+2026-10-17T07:54:44Z,Writing tree nodes,1.53
+2026-10-17T07:54:52Z,Writing tree nodes,1.55
+2026-10-17T07:55:00Z,Writing tree nodes,2.07
+2026-10-17T07:55:08Z,Writing tree nodes,2.64
+2026-10-17T07:55:16Z,Writing tree nodes,2.81
+2026-10-17T07:55:24Z,Writing tree nodes,3.4
+2026-10-17T07:55:32Z,Writing tree nodes,4.0
+2026-10-17T07:55:40Z,Writing tree nodes,4.72
+2026-10-17T07:55:48Z,Writing tree nodes,5.56
+2026-10-17T07:55:56Z,Writing tree nodes,6.68
+2026-10-17T07:56:04Z,Writing tree nodes,7.68
+2026-10-17T07:56:12Z,Writing tree nodes,8.59
+2026-10-17T07:56:20Z,Writing tree nodes,8.96
+2026-10-17T07:56:28Z,Writing tree nodes,9.41
+2026-10-17T07:56:36Z,Writing tree nodes,9.88
+2026-10-17T07:56:44Z,Writing tree nodes,10.32
+2026-10-17T07:56:52Z,Writing tree nodes,10.77
+2026-10-17T07:57:00Z,Writing tree nodes,11.23
+2026-10-17T07:57:08Z,Writing tree nodes,11.69
+2026-10-17T07:57:16Z,Writing tree nodes,12.12
+2026-10-17T07:57:24Z,Writing tree nodes,12.6
+2026-10-17T07:57:32Z,Writing tree nodes,13.03
+2026-10-17T07:57:40Z,Writing tree nodes,13.44
+2026-10-17T07:57:48Z,Writing tree nodes,13.89
+2026-10-17T07:57:56Z,Writing tree nodes,14.42
+2026-10-17T07:58:04Z,Writing tree nodes,15.28
+2026-10-17T07:58:12Z,Writing tree nodes,16.26
+2026-10-17T07:58:20Z,Writing tree nodes,17.17
+2026-10-17T07:58:28Z,Writing tree nodes,17.77
+2026-10-17T07:58:36Z,Writing tree nodes,18.43
+2026-10-17T07:58:44Z,Writing tree nodes,19.06
+2026-10-17T07:58:52Z,Writing tree nodes,19.53
+2026-10-17T07:59:00Z,Writing tree nodes,20.1
+2026-10-17T07:59:08Z,Writing tree nodes,20.77
+2026-10-17T07:59:16Z,Writing tree nodes,21.34
+2026-10-17T07:59:24Z,Writing tree nodes,21.92
+2026-10-17T07:59:32Z,Writing tree nodes,22.55
+2026-10-17T07:59:40Z,Writing tree nodes,23.32
+2026-10-17T07:59:48Z,Writing tree nodes,24.02
+2026-10-17T07:59:56Z,Writing tree nodes,24.66
+2026-10-17T08:00:04Z,Writing tree nodes,25.27
+2026-10-17T08:00:12Z,Writing tree nodes,25.81
+2026-10-17T08:00:20Z,Writing tree nodes,26.42
+2026-10-17T08:00:28Z,Writing tree nodes,27.11
+2026-10-17T08:00:36Z,Writing tree nodes,27.85
+2026-10-17T08:00:44Z,Writing tree nodes,28.29
+2026-10-17T08:00:52Z,Writing tree nodes,29.08
+2026-10-17T08:01:00Z,Writing tree nodes,29.82
+2026-10-17T08:01:08Z,Writing tree nodes,30.69
+2026-10-17T08:01:16Z,Writing tree nodes,31.52
+2026-10-17T08:01:24Z,Writing tree nodes,32.18
+2026-10-17T08:01:32Z,Writing tree nodes,32.84
+2026-10-17T08:01:40Z,Writing tree nodes,33.56
+2026-10-17T08:01:48Z,Writing tree nodes,34.07
+2026-10-17T08:01:56Z,Writing tree nodes,34.84
+2026-10-17T08:02:04Z,Writing tree nodes,35.37
+2026-10-17T08:02:12Z,Writing tree nodes,35.89
+2026-10-17T08:02:20Z,Writing tree nodes,36.53
+2026-10-17T08:02:28Z,Writing tree nodes,37.26
+2026-10-17T08:02:36Z,Writing tree nodes,37.95
+2026-10-17T08:02:44Z,Writing tree nodes,38.77
+2026-10-17T08:02:52Z,Writing tree nodes,39.53
+2026-10-17T08:03:00Z,Writing tree nodes,40.42
+2026-10-17T08:03:08Z,Writing tree nodes,41.14
+2026-10-17T08:03:16Z,Writing tree nodes,42.05
+2026-10-17T08:03:24Z,Writing tree nodes,42.84
+2026-10-17T08:03:32Z,Writing tree nodes,43.62
+2026-10-17T08:03:40Z,Writing tree nodes,44.33
+2026-10-17T08:03:48Z,Writing tree nodes,44.91
+2026-10-17T08:03:56Z,Writing tree nodes,45.45
+2026-10-17T08:04:04Z,Writing tree nodes,46.18
+2026-10-17T08:04:12Z,Writing tree nodes,47.07
+2026-10-17T08:04:20Z,Writing tree nodes,47.6
+2026-10-17T08:04:28Z,Writing tree nodes,48.08
+2026-10-17T08:04:36Z,Writing tree nodes,48.94
+2026-10-17T08:04:44Z,Writing tree nodes,49.7
+2026-10-17T08:04:52Z,Writing tree nodes,50.54
+2026-10-17T08:05:00Z,Writing tree nodes,51.4
+2026-10-17T08:05:08Z,Writing tree nodes,52.11
+2026-10-17T08:05:16Z,Writing tree nodes,52.82
+2026-10-17T08:05:24Z,Writing tree nodes,53.63
+2026-10-17T08:05:32Z,Writing tree nodes,54.47
+2026-10-17T08:05:40Z,Writing tree nodes,55.26
+2026-10-17T08:05:48Z,Writing tree nodes,55.89
+2026-10-17T08:05:56Z,Writing tree nodes,56.64
+2026-10-17T08:06:04Z,Writing tree nodes,57.44
+2026-10-17T08:06:12Z,Writing tree nodes,58.24
+2026-10-17T08:06:20Z,Writing tree nodes,59.07
+2026-10-17T08:06:28Z,Writing tree nodes,59.9
+2026-10-17T08:06:36Z,Writing tree nodes,60.75
+2026-10-17T08:06:44Z,Writing tree nodes,61.58
+2026-10-17T08:06:52Z,Writing tree nodes,62.4
+2026-10-17T08:07:00Z,Writing tree nodes,63.17
+2026-10-17T08:07:08Z,Writing tree nodes,63.98
+2026-10-17T08:07:16Z,Writing tree nodes,64.73
+2026-10-17T08:07:24Z,Writing tree nodes,65.5
+2026-10-17T08:07:32Z,Writing tree nodes,66.3
+2026-10-17T08:07:40Z,Writing tree nodes,67.08
+2026-10-17T08:07:48Z,Writing tree nodes,67.86
+2026-10-17T08:07:56Z,Writing tree nodes,68.63
+2026-10-17T08:08:04Z,Writing tree nodes,69.36
+2026-10-17T08:08:12Z,Writing tree nodes,70.06
+2026-10-17T08:08:20Z,Writing tree nodes,70.88
+2026-10-17T08:08:28Z,Writing tree nodes,71.65
+2026-10-17T08:08:36Z,Writing tree nodes,72.44
+2026-10-17T08:08:44Z,Writing tree nodes,73.23
+2026-10-17T08:08:52Z,Writing tree nodes,73.99
+2026-10-17T08:09:00Z,Writing tree nodes,74.73
+2026-10-17T08:09:08Z,Writing tree nodes,75.52
+2026-10-17T08:09:16Z,Writing tree nodes,76.25
+2026-10-17T08:09:24Z,Writing tree nodes,77.01
+2026-10-17T08:09:32Z,Writing tree nodes,77.79
+2026-10-17T08:09:40Z,Writing tree nodes,78.53
+2026-10-17T08:09:48Z,Writing tree nodes,79.33
+2026-10-17T08:09:56Z,Writing tree nodes,80.08
+2026-10-17T08:10:04Z,Writing tree nodes,80.86
+2026-10-17T08:10:12Z,Writing tree nodes,81.61
+2026-10-17T08:10:20Z,Writing tree nodes,82.37
+2026-10-17T08:10:28Z,Writing tree nodes,83.12
+2026-10-17T08:10:36Z,Writing tree nodes,83.91
+2026-10-17T08:10:44Z,Writing tree nodes,84.55
+2026-10-17T08:10:52Z,Writing tree nodes,85.31
+2026-10-17T08:11:00Z,Writing tree nodes,85.97
+2026-10-17T08:11:08Z,Writing tree nodes,86.74
+2026-10-17T08:11:16Z,Writing tree nodes,87.5
+2026-10-17T08:11:24Z,Writing tree nodes,88.33
+2026-10-17T08:11:32Z,Writing tree nodes,89.06
+2026-10-17T08:11:40Z,Writing tree nodes,89.83
+2026-10-17T08:11:48Z,Writing tree nodes,90.59
+2026-10-17T08:11:56Z,Writing tree nodes,91.36
+2026-10-17T08:12:04Z,Writing tree nodes,92.11
+2026-10-17T08:12:12Z,Writing tree nodes,92.8
+2026-10-17T08:12:20Z,Writing tree nodes,93.58
+2026-10-17T08:12:28Z,Writing tree nodes,94.29
+2026-10-17T08:12:36Z,Writing tree nodes,95.03
+2026-10-17T08:12:44Z,Writing tree nodes,95.66
+2026-10-17T08:12:52Z,Writing tree nodes,96.46
+2026-10-17T08:13:00Z,Writing tree nodes,97.18
+2026-10-17T08:13:08Z,Writing tree nodes,97.78
+2026-10-17T08:13:16Z,Writing tree nodes,98.48
+2026-10-17T08:13:24Z,Writing tree nodes,99.17
+2026-10-17T08:13:32Z,Writing tree nodes,99.74
+2026-10-17T08:13:35Z,Reading back tree node records,0.0
+2026-10-17T08:13:36Z,Verifying code,0.0
+2026-10-17T08:13:43Z,Reading back tree node records,0.35
+2026-10-17T08:13:44Z,Verifying code,8.18
+2026-10-17T08:13:51Z,Reading back tree node records,0.53
+2026-10-17T08:13:52Z,Verifying code,16.32
+2026-10-17T08:13:59Z,Reading back tree node records,0.91
+2026-10-17T08:14:00Z,Verifying code,24.64
+2026-10-17T08:14:07Z,Reading back tree node records,1.38
+2026-10-17T08:14:08Z,Verifying code,33.1
+2026-10-17T08:14:15Z,Reading back tree node records,1.81
+2026-10-17T08:14:16Z,Verifying code,41.63
+2026-10-17T08:14:23Z,Reading back tree node records,2.66
+2026-10-17T08:14:24Z,Verifying code,50.09
+2026-10-17T08:14:31Z,Reading back tree node records,3.71
+2026-10-17T08:14:32Z,Verifying code,58.36
+2026-10-17T08:14:39Z,Reading back tree node records,4.78
+2026-10-17T08:14:40Z,Verifying code,66.33
+2026-10-17T08:14:47Z,Reading back tree node records,5.83
+2026-10-17T08:14:48Z,Verifying code,74.67
+2026-10-17T08:14:55Z,Reading back tree node records,6.64
+2026-10-17T08:14:56Z,Verifying code,82.54
+2026-10-17T08:15:03Z,Reading back tree node records,7.36
+2026-10-17T08:15:04Z,Verifying code,90.66
+2026-10-17T08:15:11Z,Reading back tree node records,8.2
+2026-10-17T08:15:12Z,Verifying code,98.83
+2026-10-17T08:15:14Z,Re-deriving merkle state,0.0
+2026-10-17T08:15:19Z,Reading back tree node records,8.87
+2026-10-17T08:15:22Z,Re-deriving merkle state,0.69
+2026-10-17T08:15:27Z,Reading back tree node records,9.56
+2026-10-17T08:15:30Z,Re-deriving merkle state,1.41
+2026-10-17T08:15:35Z,Reading back tree node records,10.38
+2026-10-17T08:15:38Z,Re-deriving merkle state,2.15
+2026-10-17T08:15:43Z,Reading back tree node records,11.2
+2026-10-17T08:15:46Z,Re-deriving merkle state,2.89
+2026-10-17T08:15:51Z,Reading back tree node records,12.01
+2026-10-17T08:15:54Z,Re-deriving merkle state,3.57
+2026-10-17T08:15:59Z,Reading back tree node records,12.84
+2026-10-17T08:16:02Z,Re-deriving merkle state,4.28
+2026-10-17T08:16:07Z,Reading back tree node records,13.64
+2026-10-17T08:16:10Z,Re-deriving merkle state,4.98
+2026-10-17T08:16:15Z,Reading back tree node records,14.33
+2026-10-17T08:16:18Z,Re-deriving merkle state,5.66
+2026-10-17T08:16:23Z,Reading back tree node records,15.07
+2026-10-17T08:16:26Z,Re-deriving merkle state,6.36
+2026-10-17T08:16:31Z,Reading back tree node records,15.76
+2026-10-17T08:16:34Z,Re-deriving merkle state,7.08
+2026-10-17T08:16:39Z,Reading back tree node records,16.49
+2026-10-17T08:16:42Z,Re-deriving merkle state,7.78
+2026-10-17T08:16:47Z,Reading back tree node records,17.2
+2026-10-17T08:16:50Z,Re-deriving merkle state,8.49
+2026-10-17T08:16:55Z,Reading back tree node records,17.94
+2026-10-17T08:16:58Z,Re-deriving merkle state,9.17
+2026-10-17T08:17:03Z,Reading back tree node records,18.66
+2026-10-17T08:17:06Z,Re-deriving merkle state,9.82
+2026-10-17T08:17:11Z,Reading back tree node records,19.34
+2026-10-17T08:17:14Z,Re-deriving merkle state,10.48
+2026-10-17T08:17:19Z,Reading back tree node records,20.02
+2026-10-17T08:17:22Z,Re-deriving merkle state,11.15
+2026-10-17T08:17:27Z,Reading back tree node records,20.69
+2026-10-17T08:17:30Z,Re-deriving merkle state,11.79
+2026-10-17T08:17:35Z,Reading back tree node records,21.39
+2026-10-17T08:17:38Z,Re-deriving merkle state,12.46
+2026-10-17T08:17:43Z,Reading back tree node records,22.08
+2026-10-17T08:17:46Z,Re-deriving merkle state,13.13
+2026-10-17T08:17:51Z,Reading back tree node records,22.74
+2026-10-17T08:17:54Z,Re-deriving merkle state,13.79
+2026-10-17T08:17:59Z,Reading back tree node records,23.41
+2026-10-17T08:18:02Z,Re-deriving merkle state,14.43
+2026-10-17T08:18:07Z,Reading back tree node records,24.05
+2026-10-17T08:18:10Z,Re-deriving merkle state,15.09
+2026-10-17T08:18:15Z,Reading back tree node records,24.71
+2026-10-17T08:18:18Z,Re-deriving merkle state,15.75
+2026-10-17T08:18:23Z,Reading back tree node records,25.36
+2026-10-17T08:18:26Z,Re-deriving merkle state,16.41
+2026-10-17T08:18:31Z,Reading back tree node records,26.01
+2026-10-17T08:18:34Z,Re-deriving merkle state,17.1
+2026-10-17T08:18:39Z,Reading back tree node records,26.63
+2026-10-17T08:18:42Z,Re-deriving merkle state,17.8
+2026-10-17T08:18:47Z,Reading back tree node records,27.36
+2026-10-17T08:18:50Z,Re-deriving merkle state,18.5
+2026-10-17T08:18:55Z,Reading back tree node records,28.11
+2026-10-17T08:18:58Z,Re-deriving merkle state,19.22
+2026-10-17T08:19:03Z,Reading back tree node records,28.78
+2026-10-17T08:19:06Z,Re-deriving merkle state,19.93
+2026-10-17T08:19:11Z,Reading back tree node records,29.52
+2026-10-17T08:19:14Z,Re-deriving merkle state,20.61
+2026-10-17T08:19:19Z,Reading back tree node records,30.24
+2026-10-17T08:19:22Z,Re-deriving merkle state,21.31
+2026-10-17T08:19:27Z,Reading back tree node records,30.99
+2026-10-17T08:19:30Z,Re-deriving merkle state,22.02
+2026-10-17T08:19:35Z,Reading back tree node records,31.77
+2026-10-17T08:19:38Z,Re-deriving merkle state,22.71
+2026-10-17T08:19:43Z,Reading back tree node records,32.54
+2026-10-17T08:19:46Z,Re-deriving merkle state,23.44
+2026-10-17T08:19:51Z,Reading back tree node records,33.31
+2026-10-17T08:19:54Z,Re-deriving merkle state,24.15
+2026-10-17T08:19:59Z,Reading back tree node records,34.1
+2026-10-17T08:20:02Z,Re-deriving merkle state,24.87
+2026-10-17T08:20:07Z,Reading back tree node records,34.86
+2026-10-17T08:20:10Z,Re-deriving merkle state,25.62
+2026-10-17T08:20:15Z,Reading back tree node records,35.61
+2026-10-17T08:20:18Z,Re-deriving merkle state,26.34
+2026-10-17T08:20:23Z,Reading back tree node records,36.39
+2026-10-17T08:20:26Z,Re-deriving merkle state,27.03
+2026-10-17T08:20:31Z,Reading back tree node records,37.1
+2026-10-17T08:20:34Z,Re-deriving merkle state,27.73
+2026-10-17T08:20:39Z,Reading back tree node records,37.89
+2026-10-17T08:20:42Z,Re-deriving merkle state,28.46
+2026-10-17T08:20:47Z,Reading back tree node records,38.67
+2026-10-17T08:20:50Z,Re-deriving merkle state,29.19
+2026-10-17T08:20:55Z,Reading back tree node records,39.43
+2026-10-17T08:20:58Z,Re-deriving merkle state,29.88
+2026-10-17T08:21:03Z,Reading back tree node records,40.16
+2026-10-17T08:21:06Z,Re-deriving merkle state,30.59
+2026-10-17T08:21:11Z,Reading back tree node records,40.96
+2026-10-17T08:21:14Z,Re-deriving merkle state,31.3
+2026-10-17T08:21:19Z,Reading back tree node records,41.71
+2026-10-17T08:21:22Z,Re-deriving merkle state,32.02
+2026-10-17T08:21:27Z,Reading back tree node records,42.46
+2026-10-17T08:21:30Z,Re-deriving merkle state,32.75
+2026-10-17T08:21:35Z,Reading back tree node records,43.24
+2026-10-17T08:21:38Z,Re-deriving merkle state,33.48
+2026-10-17T08:21:43Z,Reading back tree node records,44.01
+2026-10-17T08:21:46Z,Re-deriving merkle state,34.22
+2026-10-17T08:21:51Z,Reading back tree node records,44.74
+2026-10-17T08:21:54Z,Re-deriving merkle state,34.92
+2026-10-17T08:21:59Z,Reading back tree node records,45.51
+2026-10-17T08:22:02Z,Re-deriving merkle state,35.64
+2026-10-17T08:22:07Z,Reading back tree node records,46.27
+2026-10-17T08:22:10Z,Re-deriving merkle state,36.37
+2026-10-17T08:22:15Z,Reading back tree node records,47.01
+2026-10-17T08:22:18Z,Re-deriving merkle state,37.06
+2026-10-17T08:22:23Z,Reading back tree node records,47.78
+2026-10-17T08:22:26Z,Re-deriving merkle state,37.78
+2026-10-17T08:22:31Z,Reading back tree node records,48.48
+2026-10-17T08:22:34Z,Re-deriving merkle state,38.49
+2026-10-17T08:22:39Z,Reading back tree node records,49.22
+2026-10-17T08:22:42Z,Re-deriving merkle state,39.19
+2026-10-17T08:22:47Z,Reading back tree node records,49.95
+2026-10-17T08:22:50Z,Re-deriving merkle state,39.87
+2026-10-17T08:22:55Z,Reading back tree node records,50.65
+2026-10-17T08:22:58Z,Re-deriving merkle state,40.59
+2026-10-17T08:23:03Z,Reading back tree node records,51.38
+2026-10-17T08:23:06Z,Re-deriving merkle state,41.33
+2026-10-17T08:23:11Z,Reading back tree node records,52.15
+2026-10-17T08:23:14Z,Re-deriving merkle state,42.04
+2026-10-17T08:23:19Z,Reading back tree node records,52.9
+2026-10-17T08:23:22Z,Re-deriving merkle state,42.78
+2026-10-17T08:23:27Z,Reading back tree node records,53.62
+2026-10-17T08:23:30Z,Re-deriving merkle state,43.5
+2026-10-17T08:23:35Z,Reading back tree node records,54.37
+2026-10-17T08:23:38Z,Re-deriving merkle state,44.23
+2026-10-17T08:23:43Z,Reading back tree node records,55.12
+2026-10-17T08:23:46Z,Re-deriving merkle state,44.96
+2026-10-17T08:23:51Z,Reading back tree node records,55.85
+2026-10-17T08:23:54Z,Re-deriving merkle state,45.69
+2026-10-17T08:23:59Z,Reading back tree node records,56.61
+2026-10-17T08:24:02Z,Re-deriving merkle state,46.4
+2026-10-17T08:24:07Z,Reading back tree node records,57.32
+2026-10-17T08:24:10Z,Re-deriving merkle state,47.12
+2026-10-17T08:24:15Z,Reading back tree node records,58.04
+2026-10-17T08:24:18Z,Re-deriving merkle state,47.83
+2026-10-17T08:24:23Z,Reading back tree node records,58.76
+2026-10-17T08:24:26Z,Re-deriving merkle state,48.51
+2026-10-17T08:24:31Z,Reading back tree node records,59.47
+2026-10-17T08:24:34Z,Re-deriving merkle state,49.23
+2026-10-17T08:24:39Z,Reading back tree node records,60.17
+2026-10-17T08:24:42Z,Re-deriving merkle state,49.93
+2026-10-17T08:24:47Z,Reading back tree node records,60.86
+2026-10-17T08:24:50Z,Re-deriving merkle state,50.62
+2026-10-17T08:24:55Z,Reading back tree node records,61.58
+2026-10-17T08:24:58Z,Re-deriving merkle state,51.35
+2026-10-17T08:25:03Z,Reading back tree node records,62.3
+2026-10-17T08:25:06Z,Re-deriving merkle state,52.07
+2026-10-17T08:25:11Z,Reading back tree node records,63.02
+2026-10-17T08:25:14Z,Re-deriving merkle state,52.75
+2026-10-17T08:25:19Z,Reading back tree node records,63.7
+2026-10-17T08:25:22Z,Re-deriving merkle state,53.43
+2026-10-17T08:25:27Z,Reading back tree node records,64.41
+2026-10-17T08:25:30Z,Re-deriving merkle state,54.16
+2026-10-17T08:25:35Z,Reading back tree node records,65.15
+2026-10-17T08:25:38Z,Re-deriving merkle state,54.87
+2026-10-17T08:25:43Z,Reading back tree node records,65.85
+2026-10-17T08:25:46Z,Re-deriving merkle state,55.58
+2026-10-17T08:25:51Z,Reading back tree node records,66.55
+2026-10-17T08:25:54Z,Re-deriving merkle state,56.3
+2026-10-17T08:25:59Z,Reading back tree node records,67.26
+2026-10-17T08:26:02Z,Re-deriving merkle state,57.0
+2026-10-17T08:26:07Z,Reading back tree node records,67.93
+2026-10-17T08:26:10Z,Re-deriving merkle state,57.7
+2026-10-17T08:26:15Z,Reading back tree node records,68.64
+2026-10-17T08:26:18Z,Re-deriving merkle state,58.4
+2026-10-17T08:26:23Z,Reading back tree node records,69.36
+2026-10-17T08:26:26Z,Re-deriving merkle state,59.12
+2026-10-17T08:26:31Z,Reading back tree node records,70.08
+2026-10-17T08:26:34Z,Re-deriving merkle state,59.85
+2026-10-17T08:26:39Z,Reading back tree node records,70.8
+2026-10-17T08:26:42Z,Re-deriving merkle state,60.59
+2026-10-17T08:26:47Z,Reading back tree node records,71.56
+2026-10-17T08:26:50Z,Re-deriving merkle state,61.31
+2026-10-17T08:26:55Z,Reading back tree node records,72.26
+2026-10-17T08:26:58Z,Re-deriving merkle state,62.05
+2026-10-17T08:27:03Z,Reading back tree node records,72.97
+2026-10-17T08:27:06Z,Re-deriving merkle state,62.77
+2026-10-17T08:27:11Z,Reading back tree node records,73.69
+2026-10-17T08:27:14Z,Re-deriving merkle state,63.49
+2026-10-17T08:27:19Z,Reading back tree node records,74.38
+2026-10-17T08:27:22Z,Re-deriving merkle state,64.18
+2026-10-17T08:27:27Z,Reading back tree node records,75.09
+2026-10-17T08:27:30Z,Re-deriving merkle state,64.91
+2026-10-17T08:27:35Z,Reading back tree node records,75.83
+2026-10-17T08:27:38Z,Re-deriving merkle state,65.59
+2026-10-17T08:27:43Z,Reading back tree node records,76.51
+2026-10-17T08:27:46Z,Re-deriving merkle state,66.31
+2026-10-17T08:27:51Z,Reading back tree node records,77.22
+2026-10-17T08:27:54Z,Re-deriving merkle state,67.03
+2026-10-17T08:27:59Z,Reading back tree node records,77.96
+2026-10-17T08:28:02Z,Re-deriving merkle state,67.74
+2026-10-17T08:28:07Z,Reading back tree node records,78.68
+2026-10-17T08:28:10Z,Re-deriving merkle state,68.46
+2026-10-17T08:28:15Z,Reading back tree node records,79.36
+2026-10-17T08:28:18Z,Re-deriving merkle state,69.15
+2026-10-17T08:28:23Z,Reading back tree node records,80.06
+2026-10-17T08:28:26Z,Re-deriving merkle state,69.85
+2026-10-17T08:28:31Z,Reading back tree node records,80.7
+2026-10-17T08:28:34Z,Re-deriving merkle state,70.5
+2026-10-17T08:28:39Z,Reading back tree node records,81.32
+2026-10-17T08:28:42Z,Re-deriving merkle state,71.17
+2026-10-17T08:28:47Z,Reading back tree node records,82.06
+2026-10-17T08:28:50Z,Re-deriving merkle state,71.88
+2026-10-17T08:28:55Z,Reading back tree node records,82.76
+2026-10-17T08:28:58Z,Re-deriving merkle state,72.61
+2026-10-17T08:29:03Z,Reading back tree node records,83.49
+2026-10-17T08:29:06Z,Re-deriving merkle state,73.3
+2026-10-17T08:29:11Z,Reading back tree node records,84.22
+2026-10-17T08:29:14Z,Re-deriving merkle state,74.04
+2026-10-17T08:29:19Z,Reading back tree node records,84.92
+2026-10-17T08:29:22Z,Re-deriving merkle state,74.75
+2026-10-17T08:29:27Z,Reading back tree node records,85.62
+2026-10-17T08:29:30Z,Re-deriving merkle state,75.45
+2026-10-17T08:29:35Z,Reading back tree node records,86.37
+2026-10-17T08:29:38Z,Re-deriving merkle state,76.17
+2026-10-17T08:29:43Z,Reading back tree node records,87.07
+2026-10-17T08:29:46Z,Re-deriving merkle state,76.89
+2026-10-17T08:29:51Z,Reading back tree node records,87.77
+2026-10-17T08:29:54Z,Re-deriving merkle state,77.62
+2026-10-17T08:29:59Z,Reading back tree node records,88.49
+2026-10-17T08:30:02Z,Re-deriving merkle state,78.33
+2026-10-17T08:30:07Z,Reading back tree node records,89.16
+2026-10-17T08:30:10Z,Re-deriving merkle state,79.03
+2026-10-17T08:30:15Z,Reading back tree node records,89.92
+2026-10-17T08:30:18Z,Re-deriving merkle state,79.76
+2026-10-17T08:30:23Z,Reading back tree node records,90.66
+2026-10-17T08:30:26Z,Re-deriving merkle state,80.49
+2026-10-17T08:30:31Z,Reading back tree node records,91.35
+2026-10-17T08:30:34Z,Re-deriving merkle state,81.24
+2026-10-17T08:30:39Z,Reading back tree node records,92.06
+2026-10-17T08:30:42Z,Re-deriving merkle state,81.96
+2026-10-17T08:30:47Z,Reading back tree node records,92.68
+2026-10-17T08:30:50Z,Re-deriving merkle state,82.69
+2026-10-17T08:30:55Z,Reading back tree node records,93.37
+2026-10-17T08:30:58Z,Re-deriving merkle state,83.4
+2026-10-17T08:31:03Z,Reading back tree node records,94.07
+2026-10-17T08:31:06Z,Re-deriving merkle state,84.12
+2026-10-17T08:31:11Z,Reading back tree node records,94.76
+2026-10-17T08:31:14Z,Re-deriving merkle state,84.84
+2026-10-17T08:31:19Z,Reading back tree node records,95.29
+2026-10-17T08:31:22Z,Re-deriving merkle state,85.57
+2026-10-17T08:31:27Z,Reading back tree node records,95.94
+2026-10-17T08:31:30Z,Re-deriving merkle state,86.3
+2026-10-17T08:31:35Z,Reading back tree node records,96.64
+2026-10-17T08:31:38Z,Re-deriving merkle state,87.03
+2026-10-17T08:31:43Z,Reading back tree node records,97.22
+2026-10-17T08:31:46Z,Re-deriving merkle state,87.75
+2026-10-17T08:31:51Z,Reading back tree node records,97.77
+2026-10-17T08:31:54Z,Re-deriving merkle state,88.46
+2026-10-17T08:31:59Z,Reading back tree node records,98.43
+2026-10-17T08:32:02Z,Re-deriving merkle state,89.18
+2026-10-17T08:32:07Z,Reading back tree node records,98.96
+2026-10-17T08:32:10Z,Re-deriving merkle state,89.89
+2026-10-17T08:32:15Z,Reading back tree node records,99.52
+2026-10-17T08:32:18Z,Re-deriving merkle state,90.61
+2026-10-17T08:32:26Z,Re-deriving merkle state,91.33
+2026-10-17T08:32:34Z,Re-deriving merkle state,92.06
+2026-10-17T08:32:42Z,Re-deriving merkle state,92.77
+2026-10-17T08:32:50Z,Re-deriving merkle state,93.52
+2026-10-17T08:32:58Z,Re-deriving merkle state,94.27
+2026-10-17T08:33:06Z,Re-deriving merkle state,95.02
+2026-10-17T08:33:14Z,Re-deriving merkle state,95.77
+2026-10-17T08:33:22Z,Re-deriving merkle state,96.52
+2026-10-17T08:33:30Z,Re-deriving merkle state,97.22
+2026-10-17T08:33:38Z,Re-deriving merkle state,97.91
+2026-10-17T08:33:46Z,Re-deriving merkle state,98.64
+2026-10-17T08:33:54Z,Re-deriving merkle state,99.3
+2026-10-17T08:34:02Z,Writing flat accounts,0.0
+2026-10-17T08:34:02Z,Reading back flat storage records,0.0
+2026-10-17T08:34:10Z,Writing flat accounts,7.04
+2026-10-17T08:34:10Z,Reading back flat storage records,1.53
+2026-10-17T08:34:18Z,Writing flat accounts,14.03
+2026-10-17T08:34:18Z,Reading back flat storage records,3.11
+2026-10-17T08:34:26Z,Writing flat accounts,20.97
+2026-10-17T08:34:26Z,Reading back flat storage records,4.66
+2026-10-17T08:34:34Z,Writing flat accounts,27.97
+2026-10-17T08:34:34Z,Reading back flat storage records,6.3
+2026-10-17T08:34:42Z,Writing flat accounts,35.02
+2026-10-17T08:34:42Z,Reading back flat storage records,7.85
+2026-10-17T08:34:50Z,Writing flat accounts,41.96
+2026-10-17T08:34:50Z,Reading back flat storage records,9.54
+2026-10-17T08:34:58Z,Reading back flat storage records,11.23
+2026-10-17T08:34:58Z,Writing flat accounts,48.95
+2026-10-17T08:35:06Z,Writing flat accounts,55.74
+2026-10-17T08:35:06Z,Reading back flat storage records,12.91
+2026-10-17T08:35:14Z,Reading back flat storage records,14.56
+2026-10-17T08:35:14Z,Writing flat accounts,62.59
+2026-10-17T08:35:22Z,Writing flat accounts,69.53
+2026-10-17T08:35:22Z,Reading back flat storage records,16.26
+2026-10-17T08:35:30Z,Writing flat accounts,76.42
+2026-10-17T08:35:30Z,Reading back flat storage records,17.94
+2026-10-17T08:35:38Z,Writing flat accounts,83.36
+2026-10-17T08:35:38Z,Reading back flat storage records,19.58
+2026-10-17T08:35:46Z,Writing flat accounts,90.32
+2026-10-17T08:35:46Z,Reading back flat storage records,21.14
+2026-10-17T08:35:54Z,Reading back flat storage records,22.58
+2026-10-17T08:35:54Z,Writing flat accounts,97.28
+2026-10-17T08:36:02Z,Reading back flat storage records,24.88
+2026-10-17T08:36:10Z,Reading back flat storage records,27.81
+2026-10-17T08:36:18Z,Reading back flat storage records,30.7
+2026-10-17T08:36:26Z,Reading back flat storage records,33.58
+2026-10-17T08:36:34Z,Reading back flat storage records,36.55
+2026-10-17T08:36:42Z,Reading back flat storage records,39.54
+2026-10-17T08:36:50Z,Reading back flat storage records,42.43
+2026-10-17T08:36:58Z,Reading back flat storage records,45.39
+2026-10-17T08:37:06Z,Reading back flat storage records,48.34
+2026-10-17T08:37:14Z,Reading back flat storage records,51.24
+2026-10-17T08:37:22Z,Reading back flat storage records,54.15
+2026-10-17T08:37:30Z,Reading back flat storage records,57.05
+2026-10-17T08:37:38Z,Reading back flat storage records,59.89
+2026-10-17T08:37:46Z,Reading back flat storage records,62.8
+2026-10-17T08:37:54Z,Reading back flat storage records,65.6
+2026-10-17T08:38:02Z,Reading back flat storage records,68.65
+2026-10-17T08:38:10Z,Reading back flat storage records,71.58
+2026-10-17T08:38:18Z,Reading back flat storage records,74.42
+2026-10-17T08:38:26Z,Reading back flat storage records,77.34
+2026-10-17T08:38:34Z,Reading back flat storage records,80.23
+2026-10-17T08:38:42Z,Reading back flat storage records,83.12
+2026-10-17T08:38:50Z,Reading back flat storage records,86.02
+2026-10-17T08:38:58Z,Reading back flat storage records,88.94
+2026-10-17T08:39:06Z,Reading back flat storage records,91.83
+2026-10-17T08:39:14Z,Reading back flat storage records,94.77
+2026-10-17T08:39:22Z,Reading back flat storage records,97.71
+2026-10-17T08:39:28Z,Reading back flat account records,0.0
+2026-10-17T08:39:36Z,Reading back flat account records,12.46
+2026-10-17T08:39:44Z,Reading back flat account records,24.85
+2026-10-17T08:39:52Z,Reading back flat account records,36.96
+2026-10-17T08:40:00Z,Reading back flat account records,49.57
+2026-10-17T08:40:08Z,Reading back flat account records,62.07
+2026-10-17T08:40:16Z,Reading back flat account records,74.74
+2026-10-17T08:40:24Z,Reading back flat account records,87.48

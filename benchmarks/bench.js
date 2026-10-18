@@ -27,9 +27,10 @@ const MARKS = new URL('clients.svg', import.meta.url).href;
 export const avatar = (id, size = 18, attrs = {}) =>
   s('svg', { width: size, height: size, color: CLIENT[id], class: 'avatar', 'aria-hidden': 'true', ...attrs },
     s('use', { href: `${MARKS}#${id}`, width: '100%', height: '100%' }));
-// Avatar + name in the client's colour.
+// Avatar + name in the client's colour, plus the run's badge (round · build) when the view needs it to tell runs apart.
 export const who = (c, size = 18, style = '') =>
-  h('span', { class: 'who', style: `color:${CLIENT[c.id]};${style}` }, avatar(c.id, size), c.name);
+  h('span', { class: 'who', style: `color:${CLIENT[c.id]};${style}` }, avatar(c.id, size), c.name,
+    c.badge && h('span', { class: 'badge' }, c.badge));
 
 // Section title (+ optional legend) and a two-line "what you're looking at" under it.
 export const secHead = (title, explain, ...extra) => h('div', {},
@@ -70,6 +71,7 @@ export const fmt = {
   },
   gb: (bytes, d = 1) => `${nf(d).format(bytes / 1e9)} GB`,
   short: (hex, a = 8, b = 4) => `${hex.slice(0, a + 2)}…${hex.slice(-b)}`,
+  day: (iso) => new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' }),
 };
 
 // Cached loaders. CSV values become numbers where numeric, '' → null; rows with `utc` get `t` (unix seconds).
@@ -93,6 +95,39 @@ function parseCSV(txt) {
     if (o.utc) o.t = Date.parse(o.utc) / 1000;
     return o;
   });
+}
+
+// Every published run, and views over them. A run = one client build's import (one entry of a round's results.json);
+// every path in it is relative to import/. view('latest') = each client's newest run (unless marked latest: false);
+// view('<round id>') = that round exactly as published.
+export async function loadRuns() {
+  const base = `${DATA}import/`;
+  const { rounds } = await getJSON(`${base}rounds.json`);
+  const results = await Promise.all(rounds.map((r) => getJSON(`${base}${r.id}/results.json`)));
+  const runs = results.flatMap((res) => res.clients.map((c) => ({ ...c, round: res.round, pair: res.pair })));
+  const ids = [...new Set(runs.map((r) => r.id))];
+  const R = (round) => round.id.toUpperCase();
+  const build = (r) => r.tag ?? r.builds[0].commit.slice(0, 7);
+  const view = (key) => {
+    const round = results.find((res) => res.round.id === key)?.round;
+    const picked = round ? runs.filter((r) => r.round.id === key)
+      : ids.map((id) => runs.filter((r) => r.id === id && r.latest !== false).at(-1)).filter(Boolean);
+    const used = results.filter((res) => picked.some((r) => r.round.id === res.round.id));
+    const mixed = used.length > 1, dup = new Set(picked.map((r) => r.id).filter((id, i, a) => a.indexOf(id) !== i));
+    const clients = picked.map((r) => ({ ...r, badge: mixed ? `${R(r.round)} · ${build(r)}` : dup.has(r.id) ? build(r) : null }));
+    const byRound = used.map((res) => [res.round, clients.filter((c) => c.round.id === res.round.id).map((c) => c.name)]);
+    const list = (a) => new Intl.ListFormat('en', { type: 'conjunction' }).format(a);
+    const newest = used.at(-1);
+    return {
+      id: round ? key : 'latest', clients, rig: newest.rig, pair: newest.pair, results: used.map((res) => `${res.round.id}/results.json`),
+      // ponytail: one snapshot pair per view (all rounds share one anchor today); split Latest by pair when a new anchor ships.
+      round: round ?? {
+        id: 'latest', label: 'Latest', date: newest.round.date,
+        note: mixed ? `Each client at its latest run: ${byRound.reverse().map(([r, n]) => `${list(n)} from ${r.label.toLowerCase()} (${fmt.day(r.date)})`).join('; ')}.` : null,
+      },
+    };
+  };
+  return { base, rounds: results.map((res) => res.round), runs, view };
 }
 
 // Motion. Everything collapses to its end state under prefers-reduced-motion.

@@ -1,0 +1,16 @@
+1453027347630	<datadir>
+240	<datadir>/.fetch-geth
+1453027347150	<datadir>/geth
+167326138	<datadir>/geth/blobpool
+165653853	<datadir>/geth/blobpool/limbo
+1672285	<datadir>/geth/blobpool/queue
+1452166892277	<datadir>/geth/chaindata
+983859570538	<datadir>/geth/chaindata/ancient
+974024530821	<datadir>/geth/chaindata/ancient/chain
+9835039717	<datadir>/geth/chaindata/ancient/state
+0	<datadir>/geth/chaindata/ancient/state_pbt
+0	<datadir>/geth/chaindata/ancient/trienode
+0	<datadir>/geth/chaindata/ancient/trienode_pbt
+128509415	<datadir>/geth/nodes
+563971934	<datadir>/geth/triedb
+0	<datadir>/keystore

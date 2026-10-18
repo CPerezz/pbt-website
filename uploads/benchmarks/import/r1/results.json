@@ -2,7 +2,8 @@
  "round": {
   "id": "r1",
   "label": "Round 1",
-  "date": "2026-10"
+  "date": "2026-10-15",
+  "note": "Every client imports the same snapshot on the same machine."
  },
  "rig": {
   "cpu": "Intel Core Ultra 7 265",
@@ -36,8 +37,13 @@
  },
  "clients": [
   {
+   "run": "r1/geth/P2a",
    "id": "geth",
    "name": "geth",
+   "tag": "PR #61",
+   "latest": true,
+   "vs": null,
+   "note": null,
    "builds": [
     {
      "repo": "CPerezz/go-ethereum",
@@ -52,7 +58,7 @@
    "runtime": "Go 1.26.8, path scheme, 4 import workers",
    "baseline": {
     "phase": "P1",
-    "src": "geth/P1/summary.json",
+    "src": "r1/geth/P1/summary.json",
     "start": 1791555567.947716,
     "end": 1791569967.9916837,
     "duration_s": 14400,
@@ -70,8 +76,9 @@
      "measured_core_throttles": 0.0
     },
     "files": {
-     "newpayload": "geth/P1/newpayload.csv",
-     "resources": "geth/P1/resources-15s.csv"
+     "newpayload": "r1/geth/P1/newpayload.csv",
+     "resources": "r1/geth/P1/resources-15s.csv",
+     "preflight": "r1/geth/P1/preflight.txt"
     },
     "follow": {
      "blocks": [
@@ -95,7 +102,7 @@
    "imports": [
     {
      "phase": "P2a",
-     "src": "geth/P2a/summary.json",
+     "src": "r1/geth/P2a/summary.json",
      "start": 1792057657.0328038,
      "end": 1792062680.9559724,
      "duration_s": 5024,
@@ -113,8 +120,9 @@
       "measured_core_throttles": 0.0
      },
      "files": {
-      "newpayload": "geth/P2a/newpayload.csv",
-      "resources": "geth/P2a/resources-15s.csv"
+      "newpayload": "r1/geth/P2a/newpayload.csv",
+      "resources": "r1/geth/P2a/resources-15s.csv",
+      "preflight": "r1/geth/P2a/preflight.txt"
      },
      "follow": {
       "blocks": [
@@ -134,6 +142,7 @@
       "head_lag_max_blocks": 1.0,
       "stats_window_s": 5024
      },
+     "disk_peak_gib": 925.0,
      "stages": [
       {
        "label": "verify preimages",
@@ -162,7 +171,7 @@
       }
      ],
      "root_verified": true,
-     "stages_src": "geth/P2a/stages.csv"
+     "stages_src": "r1/geth/P2a/stages.csv"
     }
    ],
    "sizes": {
@@ -186,8 +195,8 @@
     "attributed": true,
     "note": "On disk: the whole database's growth during the import (du). Parts: logical size of each PBT key family (db inspect), before compression.",
     "src": [
-     "geth/sizes/P2a-du-tree-before.txt",
-     "geth/sizes/P2a-du-tree-after.txt"
+     "r1/geth/sizes/P2a-du-tree-before.txt",
+     "r1/geth/sizes/P2a-du-tree-after.txt"
     ]
    },
    "reproduce": {
@@ -210,8 +219,13 @@
    }
   },
   {
+   "run": "r1/besu/P2a",
    "id": "besu",
    "name": "besu",
+   "tag": null,
+   "latest": true,
+   "vs": null,
+   "note": null,
    "builds": [
     {
      "repo": "matkt/besu",
@@ -227,7 +241,7 @@
    "runtime": "Temurin JDK 25, -Xmx8g, Bonsai",
    "baseline": {
     "phase": "P1",
-    "src": "besu/P1/summary.json",
+    "src": "r1/besu/P1/summary.json",
     "start": 1791811858.600736,
     "end": 1791826258.625798,
     "duration_s": 14400,
@@ -245,8 +259,9 @@
      "measured_core_throttles": 0.0
     },
     "files": {
-     "newpayload": "besu/P1/newpayload.csv",
-     "resources": "besu/P1/resources-15s.csv"
+     "newpayload": "r1/besu/P1/newpayload.csv",
+     "resources": "r1/besu/P1/resources-15s.csv",
+     "preflight": "r1/besu/P1/preflight.txt"
     },
     "follow": {
      "blocks": [
@@ -270,7 +285,7 @@
    "imports": [
     {
      "phase": "P2a",
-     "src": "besu/P2a/summary.json",
+     "src": "r1/besu/P2a/summary.json",
      "start": 1791990112.809512,
      "end": 1792007477.11884,
      "duration_s": 17364,
@@ -288,8 +303,9 @@
       "measured_core_throttles": 0.0
      },
      "files": {
-      "newpayload": "besu/P2a/newpayload.csv",
-      "resources": "besu/P2a/resources-15s.csv"
+      "newpayload": "r1/besu/P2a/newpayload.csv",
+      "resources": "r1/besu/P2a/resources-15s.csv",
+      "preflight": "r1/besu/P2a/preflight.txt"
      },
      "follow": {
       "blocks": [
@@ -309,6 +325,7 @@
       "head_lag_max_blocks": 1.0,
       "stats_window_s": 17364
      },
+     "disk_peak_gib": 343.9,
      "stages": [
       {
        "label": "load + consistency check",
@@ -322,7 +339,7 @@
       }
      ],
      "root_verified": true,
-     "stages_src": "besu/P2a/stages.csv"
+     "stages_src": "r1/besu/P2a/stages.csv"
     }
    ],
    "sizes": {
@@ -338,8 +355,8 @@
     "attributed": false,
     "note": null,
     "src": [
-     "besu/sizes/P2a-rocksdb-usage-before.txt",
-     "besu/sizes/P2a-rocksdb-usage-after.txt"
+     "r1/besu/sizes/P2a-rocksdb-usage-before.txt",
+     "r1/besu/sizes/P2a-rocksdb-usage-after.txt"
     ]
    },
    "reproduce": {
@@ -362,8 +379,13 @@
    }
   },
   {
+   "run": "r1/nethermind/P2a",
    "id": "nethermind",
    "name": "Nethermind",
+   "tag": null,
+   "latest": true,
+   "vs": null,
+   "note": null,
    "builds": [
     {
      "repo": "NethermindEth/nethermind",
@@ -378,7 +400,7 @@
    "runtime": ".NET 10, flat state",
    "baseline": {
     "phase": "P1",
-    "src": "nethermind/P1/summary.json",
+    "src": "r1/nethermind/P1/summary.json",
     "start": 1791891470.6412296,
     "end": 1791905870.66654,
     "duration_s": 14400,
@@ -396,8 +418,9 @@
      "measured_core_throttles": 0.0
     },
     "files": {
-     "newpayload": "nethermind/P1/newpayload.csv",
-     "resources": "nethermind/P1/resources-15s.csv"
+     "newpayload": "r1/nethermind/P1/newpayload.csv",
+     "resources": "r1/nethermind/P1/resources-15s.csv",
+     "preflight": "r1/nethermind/P1/preflight.txt"
     },
     "follow": {
      "blocks": [
@@ -421,7 +444,7 @@
    "imports": [
     {
      "phase": "P2a",
-     "src": "nethermind/P2a/summary.json",
+     "src": "r1/nethermind/P2a/summary.json",
      "start": 1791971631.7163093,
      "end": 1791977155.7910793,
      "duration_s": 5524,
@@ -439,8 +462,9 @@
       "measured_core_throttles": 0.0
      },
      "files": {
-      "newpayload": "nethermind/P2a/newpayload.csv",
-      "resources": "nethermind/P2a/resources-15s.csv"
+      "newpayload": "r1/nethermind/P2a/newpayload.csv",
+      "resources": "r1/nethermind/P2a/resources-15s.csv",
+      "preflight": "r1/nethermind/P2a/preflight.txt"
      },
      "follow": {
       "blocks": [
@@ -460,6 +484,7 @@
       "head_lag_max_blocks": 1.0,
       "stats_window_s": 5524
      },
+     "disk_peak_gib": 659.0,
      "stages": [
       {
        "label": "verify preimages",
@@ -478,7 +503,7 @@
       }
      ],
      "root_verified": true,
-     "stages_src": "nethermind/P2a/stages.csv"
+     "stages_src": "r1/nethermind/P2a/stages.csv"
     }
    ],
    "sizes": {
@@ -494,8 +519,8 @@
     "attributed": false,
     "note": null,
     "src": [
-     "nethermind/sizes/P2a-du-tree-before.txt",
-     "nethermind/sizes/P2a-du-tree-after.txt"
+     "r1/nethermind/sizes/P2a-du-tree-before.txt",
+     "r1/nethermind/sizes/P2a-du-tree-after.txt"
     ]
    },
    "reproduce": {

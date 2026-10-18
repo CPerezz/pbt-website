@@ -62,12 +62,12 @@ export default async function (root, ctx) {
   const pipeline = h('div', { class: 'row', style: 'align-items:center;flex-wrap:wrap;gap:6px' },
     ...steps.flatMap((st, i) => [h('span', { class: 'chip' }, st), i < steps.length - 1 ? arrow() : null]));
 
-  // Preflight pips, per client, fetched live.
+  // Preflight pips per run: the checklist that ran right before its import window, fetched live.
   const preflightRows = clients.map((c) => {
     const row = h('div', { class: 'row', style: 'gap:3px' });
     const line = h('div', { style: 'display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:center' },
       who(c, 16, 'font-weight:400'), row);
-    fetch(ctx.src(`${c.id}/${c.baseline.phase}/preflight.txt`)).then((r) => r.text()).then((txt) => {
+    fetch(ctx.src(c.imports[0].files.preflight ?? c.baseline.files.preflight)).then((r) => r.text()).then((txt) => {
       const lines = txt.trim().split('\n');
       for (const l of lines) {
         const pass = l.startsWith('PASS');
@@ -88,13 +88,13 @@ export default async function (root, ctx) {
   // --- Builds ----------------------------------------------------------------
   const buildChip = (b) => {
     if (b.pr != null) {
-      const c = h('a', { class: 'chip', href: `https://github.com/${b.repo}/pull/${b.pr}`, target: '_blank', rel: 'noopener' }, `${b.repo}#${b.pr}`);
+      const c = h('a', { class: 'chip', style: 'white-space:normal;overflow-wrap:anywhere', href: `https://github.com/${b.repo}/pull/${b.pr}`, target: '_blank', rel: 'noopener' }, `${b.repo}#${b.pr}`);
       return b.repo === 'NethermindEth/nethermind' && b.pr === 14642
         ? hover(c, 'our fix: out-of-memory during the import on mainnet') : c;
     }
-    return h('a', { class: 'chip', href: `https://github.com/${b.repo}/commit/${b.commit}`, target: '_blank', rel: 'noopener' }, `${b.repo}@${b.commit}`);
+    return h('a', { class: 'chip', style: 'white-space:normal;overflow-wrap:anywhere', href: `https://github.com/${b.repo}/commit/${b.commit}`, target: '_blank', rel: 'noopener' }, `${b.repo}@${b.commit}`);
   };
-  const buildRows = clients.map((c) => h('div', { style: 'display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:center;padding:5px 0;border-bottom:1px solid rgba(226,230,226,.06)' },
+  const buildRows = clients.map((c) => h('div', { style: 'display:grid;grid-template-columns:130px minmax(0,1fr);gap:10px;align-items:center;padding:5px 0;border-bottom:1px solid rgba(226,230,226,.06)' },
     who(c, 16, 'font-weight:400'),
     h('div', { class: 'row', style: 'gap:6px;align-items:center' },
       ...c.builds.map(buildChip), h('span', { class: 'muted', style: 'font-size:11px' }, c.runtime))));

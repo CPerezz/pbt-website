@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Builds <round>/results.json, everything the import page reads for one round, from the round's raw files and its
-entry in rounds.json. Usage, from this folder: python3 build_results.py r1"""
+"""Builds <round>/results.json, everything the benchmarks page reads for one round, from the raw files and the round's
+entry in rounds.json. Every path in it is relative to this folder (e.g. r1/geth/P1/summary.json), so a page view can
+mix runs from several rounds. Usage, from this folder: python3 build_results.py [round ...]  (no argument: every round)"""
 import csv, json, os, re, sys
 from datetime import datetime, timezone
 
@@ -18,30 +19,33 @@ def unit(u, seconds):
             "test_disk_read_gb": round(u["test_disk_read_bytes"] / 1e9), "test_disk_write_gb": round(u["test_disk_write_bytes"] / 1e9)}
 
 
-def window(d, client, phase):
-    rel = f"{client}/{phase}"
-    s = json.load(open(f"{d}/{rel}/summary.json"))
+def window(rel):
+    """One measured window, `rel` = <round>/<client>/<phase> below this folder."""
+    s = json.load(open(f"{HERE}/{rel}/summary.json"))
     # The EL service's counters, or `tool` when the step ran as a separate process (summary.json leaves `el` empty).
     u = s["el"] if s["el"]["cpu_seconds"] is not None else s["tool"]
-    w = {"phase": phase, "src": f"{rel}/summary.json", "start": s["start"], "end": s["end"], "duration_s": s["seconds"],
-         "res": unit(u, s["seconds"]), "thermal": s["thermal"],
-         "files": {f[:-4].split("-")[0]: f"{rel}/{f}" for f in ("newpayload.csv", "resources-15s.csv")
-                   if os.path.exists(f"{d}/{rel}/{f}")}}
+    w = {"phase": rel.rsplit("/", 1)[1], "src": f"{rel}/summary.json", "start": s["start"], "end": s["end"],
+         "duration_s": s["seconds"], "res": unit(u, s["seconds"]), "thermal": s["thermal"],
+         "files": {f.split(".")[0].split("-")[0]: f"{rel}/{f}" for f in ("newpayload.csv", "resources-15s.csv", "preflight.txt")
+                   if os.path.exists(f"{HERE}/{rel}/{f}")}}
     if s["newPayload_ms"]["n"]:
         w["follow"] = {"blocks": s["blocks"], "head_coverage": s["head_coverage"], "newpayload_ms": s["newPayload_ms"],
                        "mgas_per_s": s["mgas_per_s"], "ms_per_mgas": s["ms_per_mgas"],
                        "head_lag_max_blocks": s["head_lag_blocks"]["max"], "stats_window_s": s["rate_window_seconds"]}
+    disk = s.get("test_disk_used_bytes")  # test filesystem, 5 s samples; absent in exports before 2026-10-16
+    if disk:
+        w["disk_peak_gib"] = round((disk["peak"] - disk["start"]) / GIB, 1)
     return w
 
 
-def stages(d, client, phase, marks, w, root_check):
-    rows = list(csv.DictReader(open(f"{d}/{client}/{phase}/stages.csv")))
+def stages(rel, marks, w, root_check):
+    rows = list(csv.DictReader(open(f"{HERE}/{rel}/stages.csv")))
     first = lambda prefix: next(iso(r["first_utc"]) for r in rows if r["stage"].startswith(prefix))
     starts = [w["start"]] + [first(p) for _, p in marks[1:]]
     w["stages"] = [{"label": l, "start": t, "end": starts[i + 1] if i + 1 < len(starts) else w["end"]}
                    for i, ((l, _), t) in enumerate(zip(marks, starts))]
     w["root_verified"] = any(r["stage"].startswith(root_check) for r in rows)
-    w["stages_src"] = f"{client}/{phase}/stages.csv"
+    w["stages_src"] = f"{rel}/stages.csv"
 
 
 def inspect_logical(path):
@@ -77,9 +81,10 @@ def du(path):
     return out
 
 
-def sizes(d, cfg):
+def sizes(rid, cfg):
     read = {"besu-rocksdb": besu_rocksdb, "du": du}[cfg["kind"]]
-    before, after = read(f"{d}/{cfg['before']}"), read(f"{d}/{cfg['after']}")
+    src = [f"{rid}/{cfg['before']}", f"{rid}/{cfg['after']}"]
+    before, after = read(f"{HERE}/{src[0]}"), read(f"{HERE}/{src[1]}")
     root = cfg.get("root")  # du: the database directory; rocksdb: the estimated total
     key = lambda k: f"{root}/{k}" if root else k
     tot = lambda s: s[root] if root else s["total"]
@@ -87,31 +92,35 @@ def sizes(d, cfg):
         parts = [{"label": k, "gib": round(after.get(key(k), 0) - before.get(key(k), 0), 1)} for k in cfg["pbt"]]
         pbt = sum(p["gib"] for p in parts)
     else:  # no separate store: the whole database's growth, attributed to the PBT
-        parts = [{"label": l, "gib": round(inspect_logical(f"{d}/{f}"), 1)} for l, f in cfg.get("parts", [])]
+        parts = [{"label": l, "gib": round(inspect_logical(f"{HERE}/{rid}/{f}"), 1)} for l, f in cfg.get("parts", [])]
         pbt = tot(after) - tot(before)
     return {"before_gib": round(tot(before), 1), "after_gib": round(tot(after), 1), "pbt_gib": round(pbt, 1),
-            "pbt_parts": parts, "attributed": cfg["attributed"], "note": cfg.get("note"), "src": [cfg["before"], cfg["after"]]}
+            "pbt_parts": parts, "attributed": cfg["attributed"], "note": cfg.get("note"), "src": src}
 
 
 def build(rid):
     manifest = json.load(open(f"{HERE}/rounds.json"))
-    rnd = next(r for r in manifest["rounds"] if r["id"] == rid)
-    d = f"{HERE}/{rid}"
+    by_id = {r["id"]: r for r in manifest["rounds"]}
+    rnd = by_id[rid]
+    pair = rnd["pair"] if isinstance(rnd["pair"], dict) else by_id[rnd["pair"]]["pair"]  # "r1" = same pair as r1
     clients = []
     for c in rnd["clients"]:
         imports = []
         for ph in c["imports"]:
-            w = window(d, c["id"], ph)
-            stages(d, c["id"], ph, c["stages"], w, c["root_check"])
+            rel = f"{rid}/{c['id']}/{ph}"
+            w = window(rel)
+            stages(rel, c["stages"], w, c["root_check"])
             imports.append(w)
-        clients.append({"id": c["id"], "name": c["name"], "builds": c["builds"], "runtime": c["runtime"],
-                        "baseline": window(d, c["id"], c["baseline"]), "imports": imports,
-                        "sizes": sizes(d, c["sizes"]), "reproduce": c.get("reproduce")})
-    return {"round": {k: rnd[k] for k in ("id", "label", "date")}, "rig": manifest["rig"], "pair": rnd["pair"],
+        base = c["baseline"] if "/" in c["baseline"] else f"{rid}/{c['id']}/{c['baseline']}"  # another round's, or own
+        clients.append({"run": f"{rid}/{c['id']}/{c['imports'][0]}", "id": c["id"], "name": c["name"], "tag": c.get("tag"),
+                        "latest": c.get("latest", True), "vs": c.get("vs"), "note": c.get("note"), "builds": c["builds"], "runtime": c["runtime"],
+                        "baseline": window(base), "imports": imports, "sizes": sizes(rid, c["sizes"]),
+                        "reproduce": c.get("reproduce")})
+    return {"round": {k: rnd.get(k) for k in ("id", "label", "date", "note")}, "rig": manifest["rig"], "pair": pair,
             "clients": clients}
 
 
 if __name__ == "__main__":
-    rid = sys.argv[1]
-    json.dump(build(rid), open(f"{HERE}/{rid}/results.json", "w"), indent=1)
-    print(f"wrote {rid}/results.json")
+    for rid in sys.argv[1:] or [r["id"] for r in json.load(open(f"{HERE}/rounds.json"))["rounds"]]:
+        json.dump(build(rid), open(f"{HERE}/{rid}/results.json", "w"), indent=1)
+        print(f"wrote {rid}/results.json")

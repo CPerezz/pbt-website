@@ -1,0 +1,129 @@
+INFO [10-16|14:04:17.191] Maximum peer count                       ETH=50 total=50
+INFO [10-16|14:04:17.191] Smartcard socket not found, disabling    err="stat /run/pcscd/pcscd.comm: no such file or directory"
+INFO [10-16|14:04:17.193] Set global gas cap                       cap=50,000,000
+INFO [10-16|14:04:17.193] Engine API maximum reorg depth           depth=32
+INFO [10-16|14:04:17.193] Initializing the KZG library             backend=gokzg
+INFO [10-16|14:04:17.266] Using pebble as the backing database
+WARN [10-16|14:04:17.326] Pebble database uses legacy v1 format; upgrade offline with 'geth db pebble-upgrade'
+INFO [10-16|14:04:17.326] Allocated cache and file handles         database=<datadir>/geth/chaindata cache=2.00GiB handles=262,144 version=v1
+INFO [10-16|14:04:19.283] Opened ancient database                  database=<datadir>/geth/chaindata/ancient/chain readonly=true
+INFO [10-16|14:04:19.283] Opened Era store                         datadir=<datadir>/geth/chaindata/ancient/chain/era
+INFO [10-16|14:04:27.286] Inspecting database                      count=45,204,158 size=7.80GiB elapsed=8.001s
+INFO [10-16|14:04:35.285] Inspecting database                      count=88,759,927 size=16.42GiB elapsed=16.000s
+INFO [10-16|14:04:43.285] Inspecting database                      count=138,813,746 size=23.92GiB elapsed=24.000s
+INFO [10-16|14:04:51.286] Inspecting database                      count=195,856,916 size=30.83GiB elapsed=32.001s
+INFO [10-16|14:04:59.285] Inspecting database                      count=253,803,175 size=37.66GiB elapsed=40.000s
+INFO [10-16|14:05:07.285] Inspecting database                      count=319,812,718 size=43.58GiB elapsed=48.000s
+INFO [10-16|14:05:15.286] Inspecting database                      count=381,053,336 size=50.12GiB elapsed=56.001s
+INFO [10-16|14:05:23.285] Inspecting database                      count=443,390,412 size=56.07GiB elapsed=1m4.000s
+INFO [10-16|14:05:31.285] Inspecting database                      count=506,489,406 size=62.10GiB elapsed=1m12.000s
+INFO [10-16|14:05:39.286] Inspecting database                      count=569,016,222 size=68.06GiB elapsed=1m20.001s
+INFO [10-16|14:05:47.286] Inspecting database                      count=628,890,935 size=74.60GiB elapsed=1m28.001s
+INFO [10-16|14:05:55.285] Inspecting database                      count=689,834,808 size=81.03GiB elapsed=1m36.000s
+INFO [10-16|14:06:03.286] Inspecting database                      count=749,470,284 size=87.30GiB elapsed=1m44.001s
+INFO [10-16|14:06:11.286] Inspecting database                      count=809,849,542 size=93.67GiB elapsed=1m52.001s
+INFO [10-16|14:06:19.285] Inspecting database                      count=871,051,957 size=100.16GiB elapsed=2m0.000s
+INFO [10-16|14:06:27.286] Inspecting database                      count=931,147,546 size=106.53GiB elapsed=2m8.001s
+INFO [10-16|14:06:35.285] Inspecting database                      count=989,316,919 size=113.33GiB elapsed=2m16.000s
+INFO [10-16|14:06:43.286] Inspecting database                      count=1,048,374,954 size=120.06GiB elapsed=2m24.001s
+INFO [10-16|14:06:51.285] Inspecting database                      count=1,106,845,527 size=126.79GiB elapsed=2m32.000s
+INFO [10-16|14:06:59.285] Inspecting database                      count=1,164,254,021 size=133.37GiB elapsed=2m40.000s
+INFO [10-16|14:07:07.286] Inspecting database                      count=1,221,156,878 size=139.88GiB elapsed=2m48.001s
+INFO [10-16|14:07:15.285] Inspecting database                      count=1,277,545,519 size=146.50GiB elapsed=2m56.000s
+INFO [10-16|14:07:23.285] Inspecting database                      count=1,335,423,822 size=153.49GiB elapsed=3m4.000s
+INFO [10-16|14:07:31.286] Inspecting database                      count=1,393,954,494 size=160.54GiB elapsed=3m12.001s
+INFO [10-16|14:07:39.285] Inspecting database                      count=1,452,945,141 size=167.65GiB elapsed=3m20.000s
+INFO [10-16|14:07:47.285] Inspecting database                      count=1,511,552,498 size=174.78GiB elapsed=3m28.000s
+INFO [10-16|14:07:55.285] Inspecting database                      count=1,569,653,421 size=181.95GiB elapsed=3m36.000s
+INFO [10-16|14:08:03.286] Inspecting database                      count=1,626,477,252 size=189.02GiB elapsed=3m44.001s
+INFO [10-16|14:08:11.285] Inspecting database                      count=1,684,416,232 size=196.30GiB elapsed=3m52.000s
+INFO [10-16|14:08:19.285] Inspecting database                      count=1,741,862,258 size=203.55GiB elapsed=4m0.000s
+INFO [10-16|14:08:27.286] Inspecting database                      count=1,799,841,197 size=210.95GiB elapsed=4m8.000s
+INFO [10-16|14:08:35.286] Inspecting database                      count=1,841,112,891 size=215.96GiB elapsed=4m16.001s
+INFO [10-16|14:08:43.285] Inspecting database                      count=1,877,064,080 size=220.27GiB elapsed=4m24.000s
+INFO [10-16|14:08:51.286] Inspecting database                      count=1,913,106,328 size=224.60GiB elapsed=4m32.001s
+INFO [10-16|14:08:59.285] Inspecting database                      count=1,950,205,758 size=229.06GiB elapsed=4m40.000s
+INFO [10-16|14:09:07.286] Inspecting database                      count=1,986,452,800 size=233.41GiB elapsed=4m48.001s
+INFO [10-16|14:09:15.286] Inspecting database                      count=2,022,734,474 size=237.79GiB elapsed=4m56.001s
+INFO [10-16|14:09:23.286] Inspecting database                      count=2,058,918,405 size=242.18GiB elapsed=5m4.001s
+INFO [10-16|14:09:31.285] Inspecting database                      count=2,094,787,258 size=246.53GiB elapsed=5m12.000s
+INFO [10-16|14:09:39.286] Inspecting database                      count=2,130,364,860 size=250.86GiB elapsed=5m20.001s
+INFO [10-16|14:09:47.286] Inspecting database                      count=2,166,035,412 size=255.16GiB elapsed=5m28.001s
+INFO [10-16|14:09:55.285] Inspecting database                      count=2,201,956,954 size=259.55GiB elapsed=5m36.000s
+INFO [10-16|14:10:03.285] Inspecting database                      count=2,237,627,148 size=263.86GiB elapsed=5m44.000s
+INFO [10-16|14:10:11.285] Inspecting database                      count=2,275,646,197 size=268.48GiB elapsed=5m52.000s
+INFO [10-16|14:10:19.285] Inspecting database                      count=2,311,569,659 size=272.80GiB elapsed=6m0.000s
+INFO [10-16|14:10:27.286] Inspecting database                      count=2,346,570,962 size=277.11GiB elapsed=6m8.001s
+INFO [10-16|14:10:35.286] Inspecting database                      count=2,381,802,636 size=281.35GiB elapsed=6m16.001s
+INFO [10-16|14:10:43.285] Inspecting database                      count=2,417,589,631 size=285.67GiB elapsed=6m24.000s
+INFO [10-16|14:10:51.285] Inspecting database                      count=2,453,261,323 size=290.00GiB elapsed=6m32.000s
+INFO [10-16|14:10:59.285] Inspecting database                      count=2,488,349,971 size=294.37GiB elapsed=6m40.000s
+INFO [10-16|14:11:07.285] Inspecting database                      count=2,523,935,252 size=298.65GiB elapsed=6m48.000s
+INFO [10-16|14:11:15.285] Inspecting database                      count=2,560,755,631 size=302.94GiB elapsed=6m56.000s
+INFO [10-16|14:11:23.286] Inspecting database                      count=2,597,770,326 size=307.53GiB elapsed=7m4.001s
+INFO [10-16|14:11:31.286] Inspecting database                      count=2,635,440,164 size=312.17GiB elapsed=7m12.001s
+INFO [10-16|14:11:39.285] Inspecting database                      count=2,672,638,264 size=316.56GiB elapsed=7m20.000s
+INFO [10-16|14:11:47.286] Inspecting database                      count=2,709,285,196 size=320.92GiB elapsed=7m28.001s
+INFO [10-16|14:11:55.286] Inspecting database                      count=2,746,753,483 size=325.59GiB elapsed=7m36.001s
+INFO [10-16|14:12:03.286] Inspecting database                      count=2,785,720,346 size=330.21GiB elapsed=7m44.001s
+INFO [10-16|14:12:11.286] Inspecting database                      count=2,822,735,859 size=334.69GiB elapsed=7m52.001s
+INFO [10-16|14:12:19.286] Inspecting database                      count=2,858,871,390 size=339.11GiB elapsed=8m0.001s
+INFO [10-16|14:12:27.285] Inspecting database                      count=2,895,744,988 size=343.54GiB elapsed=8m8.000s
+INFO [10-16|14:12:35.285] Inspecting database                      count=2,934,346,647 size=348.28GiB elapsed=8m16.000s
+INFO [10-16|14:12:43.286] Inspecting database                      count=2,969,912,286 size=353.01GiB elapsed=8m24.001s
+INFO [10-16|14:12:51.285] Inspecting database                      count=3,008,370,397 size=357.90GiB elapsed=8m32.000s
+INFO [10-16|14:12:59.286] Inspecting database                      count=3,056,211,170 size=364.11GiB elapsed=8m40.001s
+INFO [10-16|14:13:07.286] Inspecting database                      count=3,103,365,532 size=371.07GiB elapsed=8m48.001s
+INFO [10-16|14:13:15.285] Inspecting database                      count=3,149,160,986 size=378.20GiB elapsed=8m56.000s
+INFO [10-16|14:13:23.285] Inspecting database                      count=3,193,974,864 size=385.41GiB elapsed=9m4.000s
+INFO [10-16|14:13:27.466] Opened ancient database                  database=<datadir>/geth/chaindata/ancient/state readonly=true
+INFO [10-16|14:13:27.467] Opened ancient database                  database=<datadir>/geth/chaindata/ancient/state_pbt readonly=true
++---------------------------+-----------------------------+------------+------------+
+|         Database          |          Category           |    Size    |   Items    |
++---------------------------+-----------------------------+------------+------------+
+|      Key-Value store      |           Headers           |   0.00 B   |     0      |
+|      Key-Value store      |           Bodies            | 29.22 GiB  | 193039158  |
+|      Key-Value store      |        Receipt lists        |   0.00 B   |     0      |
+|      Key-Value store      |  Difficulties (deprecated)  |   0.00 B   |     0      |
+|      Key-Value store      |     Block number->hash      |   0.00 B   |     0      |
+|      Key-Value store      |     Block hash->number      |   0.00 B   |     0      |
+|      Key-Value store      |      Block accessList       |   0.00 B   |     0      |
+|      Key-Value store      |     Shadow state roots      |   0.00 B   |     0      |
+|      Key-Value store      |      Transaction index      |   0.00 B   |     0      |
+|      Key-Value store      |  Log index filter-map rows  |   0.00 B   |     0      |
+|      Key-Value store      | Log index last-block-of-map |   0.00 B   |     0      |
+|      Key-Value store      |     Log index block-lv      |   0.00 B   |     0      |
+|      Key-Value store      | Log bloombits (deprecated)  |   0.00 B   |     0      |
+|      Key-Value store      |       Contract codes        |   0.00 B   |     0      |
+|      Key-Value store      |       Hash trie nodes       |   0.00 B   |     0      |
+|      Key-Value store      |   Path trie state lookups   |   0.00 B   |     0      |
+|      Key-Value store      |   Path trie account nodes   |   0.00 B   |     0      |
+|      Key-Value store      |   Path trie storage nodes   |   0.00 B   |     0      |
+|      Key-Value store      |      Verkle trie nodes      | 359.97 GiB | 3024549118 |
+|      Key-Value store      |  Verkle trie state lookups  |   0.00 B   |     0      |
+|      Key-Value store      |       Trie preimages        |   0.00 B   |     0      |
+|      Key-Value store      |      Account snapshot       |   0.00 B   |     0      |
+|      Key-Value store      |      Storage snapshot       |   0.00 B   |     0      |
+|      Key-Value store      |   Historical state index    |   0.00 B   |     0      |
+|      Key-Value store      |    Historical trie index    |   0.00 B   |     0      |
+|      Key-Value store      |     Beacon sync headers     |   0.00 B   |     0      |
+|      Key-Value store      |      Clique snapshots       |   0.00 B   |     0      |
+|      Key-Value store      |     Singleton metadata      |   0.00 B   |     0      |
+|   Ancient store (Chain)   |           Bodies            | 628.16 GiB |  10667403  |
+|   Ancient store (Chain)   |          Receipts           | 264.72 GiB |  10667403  |
+|   Ancient store (Chain)   |            Bals             |  2.72 MiB  |   408031   |
+|   Ancient store (Chain)   |           Headers           | 13.03 GiB  |  26204796  |
+|   Ancient store (Chain)   |           Hashes            | 949.65 MiB |  26204796  |
+|   Ancient store (State)   |        Account.Data         |  1.29 GiB  |   90000    |
+|   Ancient store (State)   |        Storage.Data         | 592.19 MiB |   90000    |
+|   Ancient store (State)   |        History.Meta         | 25.28 MiB  |   90000    |
+|   Ancient store (State)   |        Account.Index        |  1.18 GiB  |   90000    |
+|   Ancient store (State)   |        Storage.Index        |  1.99 GiB  |   90000    |
+| Ancient store (State_pbt) |        History.Meta         |   6.00 B   |     0      |
+| Ancient store (State_pbt) |        Account.Index        |   6.00 B   |     0      |
+| Ancient store (State_pbt) |        Storage.Index        |   6.00 B   |     0      |
+| Ancient store (State_pbt) |        Account.Data         |   6.00 B   |     0      |
+| Ancient store (State_pbt) |        Storage.Data         |   6.00 B   |     0      |
++---------------------------+-----------------------------+------------+------------+
+|                           |            Total            |  1.27 TiB  | 3217588276 |
++---------------------------+-----------------------------+------------+------------+

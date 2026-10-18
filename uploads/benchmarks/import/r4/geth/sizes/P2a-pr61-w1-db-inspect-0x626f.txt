@@ -1,0 +1,71 @@
+INFO [10-16|21:43:39.633] Maximum peer count                       ETH=50 total=50
+INFO [10-16|21:43:39.634] Smartcard socket not found, disabling    err="stat /run/pcscd/pcscd.comm: no such file or directory"
+INFO [10-16|21:43:39.637] Set global gas cap                       cap=50,000,000
+INFO [10-16|21:43:39.637] Engine API maximum reorg depth           depth=32
+INFO [10-16|21:43:39.637] Initializing the KZG library             backend=gokzg
+INFO [10-16|21:43:39.679] Using pebble as the backing database
+WARN [10-16|21:43:39.707] Pebble database uses legacy v1 format; upgrade offline with 'geth db pebble-upgrade'
+INFO [10-16|21:43:39.707] Allocated cache and file handles         database=<datadir>/geth/chaindata cache=2.00GiB handles=262,144 version=v1
+INFO [10-16|21:43:41.579] Opened ancient database                  database=<datadir>/geth/chaindata/ancient/chain readonly=true
+INFO [10-16|21:43:41.579] Opened Era store                         datadir=<datadir>/geth/chaindata/ancient/chain/era
+INFO [10-16|21:43:49.581] Inspecting database                      count=196,909,996 size=14.53GiB elapsed=8.000s
+INFO [10-16|21:43:57.581] Inspecting database                      count=393,234,724 size=29.05GiB elapsed=16.000s
+INFO [10-16|21:44:05.581] Inspecting database                      count=589,775,562 size=43.32GiB elapsed=24.000s
+INFO [10-16|21:44:13.581] Inspecting database                      count=782,725,199 size=57.28GiB elapsed=32.000s
+INFO [10-16|21:44:21.581] Inspecting database                      count=974,786,200 size=71.39GiB elapsed=40.000s
+INFO [10-16|21:44:29.581] Inspecting database                      count=1,154,349,422 size=84.38GiB elapsed=48.000s
+INFO [10-16|21:44:37.582] Inspecting database                      count=1,346,111,156 size=98.47GiB elapsed=56.001s
+INFO [10-16|21:44:45.582] Inspecting database                      count=1,538,554,419 size=112.45GiB elapsed=1m4.001s
+INFO [10-16|21:44:53.582] Inspecting database                      count=1,646,945,272 size=120.28GiB elapsed=1m12.000s
+INFO [10-16|21:44:56.889] Opened ancient database                  database=<datadir>/geth/chaindata/ancient/state readonly=true
+INFO [10-16|21:44:56.890] Opened ancient database                  database=<datadir>/geth/chaindata/ancient/state_pbt readonly=true
++---------------------------+-----------------------------+------------+------------+
+|         Database          |          Category           |    Size    |   Items    |
++---------------------------+-----------------------------+------------+------------+
+|      Key-Value store      |           Headers           |   0.00 B   |     0      |
+|      Key-Value store      |           Bodies            |   0.00 B   |     0      |
+|      Key-Value store      |        Receipt lists        |   0.00 B   |     0      |
+|      Key-Value store      |  Difficulties (deprecated)  |   0.00 B   |     0      |
+|      Key-Value store      |     Block number->hash      |   0.00 B   |     0      |
+|      Key-Value store      |     Block hash->number      |   0.00 B   |     0      |
+|      Key-Value store      |      Block accessList       |   0.00 B   |     0      |
+|      Key-Value store      |     Shadow state roots      |   0.00 B   |     0      |
+|      Key-Value store      |      Transaction index      |   0.00 B   |     0      |
+|      Key-Value store      |  Log index filter-map rows  |   0.00 B   |     0      |
+|      Key-Value store      | Log index last-block-of-map |   0.00 B   |     0      |
+|      Key-Value store      |     Log index block-lv      |   0.00 B   |     0      |
+|      Key-Value store      | Log bloombits (deprecated)  |   0.00 B   |     0      |
+|      Key-Value store      |       Contract codes        |   0.00 B   |     0      |
+|      Key-Value store      |       Hash trie nodes       |   0.00 B   |     0      |
+|      Key-Value store      |   Path trie state lookups   |   0.00 B   |     0      |
+|      Key-Value store      |   Path trie account nodes   |   0.00 B   |     0      |
+|      Key-Value store      |   Path trie storage nodes   |   0.00 B   |     0      |
+|      Key-Value store      |      Verkle trie nodes      |   0.00 B   |     0      |
+|      Key-Value store      |  Verkle trie state lookups  |   0.00 B   |     0      |
+|      Key-Value store      |       Trie preimages        |   0.00 B   |     0      |
+|      Key-Value store      |      Account snapshot       |   0.00 B   |     0      |
+|      Key-Value store      |      Storage snapshot       |   0.00 B   |     0      |
+|      Key-Value store      |   Historical state index    |   0.00 B   |     0      |
+|      Key-Value store      |    Historical trie index    |   0.00 B   |     0      |
+|      Key-Value store      |     Beacon sync headers     |   0.00 B   |     0      |
+|      Key-Value store      |      Clique snapshots       |   0.00 B   |     0      |
+|      Key-Value store      |     Singleton metadata      |   0.00 B   |     0      |
+|   Ancient store (Chain)   |           Headers           | 13.03 GiB  |  26207034  |
+|   Ancient store (Chain)   |           Hashes            | 949.73 MiB |  26207034  |
+|   Ancient store (Chain)   |           Bodies            | 628.35 GiB |  10669641  |
+|   Ancient store (Chain)   |          Receipts           | 264.86 GiB |  10669641  |
+|   Ancient store (Chain)   |            Bals             |  2.74 MiB  |   410269   |
+|   Ancient store (State)   |        Storage.Index        |  1.99 GiB  |   90000    |
+|   Ancient store (State)   |        Account.Data         |  1.30 GiB  |   90000    |
+|   Ancient store (State)   |        Storage.Data         | 595.87 MiB |   90000    |
+|   Ancient store (State)   |        History.Meta         | 25.29 MiB  |   90000    |
+|   Ancient store (State)   |        Account.Index        |  1.19 GiB  |   90000    |
+| Ancient store (State_pbt) |        History.Meta         |   6.00 B   |     0      |
+| Ancient store (State_pbt) |        Account.Index        |   6.00 B   |     0      |
+| Ancient store (State_pbt) |        Storage.Index        |   6.00 B   |     0      |
+| Ancient store (State_pbt) |        Account.Data         |   6.00 B   |     0      |
+| Ancient store (State_pbt) |        Storage.Data         |   6.00 B   |     0      |
++---------------------------+-----------------------------+------------+------------+
+|                           |            Total            |  1.01 TiB  | 1666326442 |
++---------------------------+-----------------------------+------------+------------+
+ERROR[10-16|21:44:56.890] Database contains unaccounted data       size="121.61 GiB" count=1666326442

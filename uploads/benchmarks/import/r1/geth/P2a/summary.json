@@ -66,13 +66,27 @@
   "test_disk_read_bytes": null,
   "test_disk_write_bytes": null
  },
+ "test_disk_used_bytes": {
+  "start": 1804978491392.0,
+  "peak": 2798168113152.0,
+  "end": 2121989562368.0
+ },
  "dir_bytes_at_end": {
+  "<cl-datadir>": 19711186505.0,
   "<disk>": 325251633873.0,
   "<disk>": 510843816475.0,
-  "<cl-datadir>": 19711186505.0,
   "<datadir>": 2406642580973.0,
   "<datadir>/geth/chaindata": 1766279244681.0,
-  "<datadir>/geth/triedb": 608549878.0,
-  "<datadir>/geth/chaindata/ancient": 982167956112.0
+  "<datadir>/geth/chaindata/ancient": 982167956112.0,
+  "<datadir>/geth/triedb": 608549878.0
+ },
+ "dir_bytes_peak": {
+  "<cl-datadir>": 19743384536.0,
+  "<disk>": 325251633873.0,
+  "<disk>": 510843816475.0,
+  "<datadir>": 2431224092005.0,
+  "<datadir>/geth/chaindata": 1783877145734.0,
+  "<datadir>/geth/chaindata/ancient": 982167956112.0,
+  "<datadir>/geth/triedb": 608549878.0
  }
 }

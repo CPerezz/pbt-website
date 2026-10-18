@@ -66,11 +66,23 @@
   "test_disk_read_bytes": null,
   "test_disk_write_bytes": null
  },
+ "test_disk_used_bytes": {
+  "start": 1767891005440.0,
+  "peak": 2137181450240.0,
+  "end": 1991066066944.0
+ },
  "dir_bytes_at_end": {
+  "<cl-datadir>": 19536844525.0,
   "<disk>": 325251633873.0,
   "<disk>": 507025316149.0,
-  "<cl-datadir>": 19536844525.0,
   "<datadir>": 1702863206873.0,
   "<datadir>/database": 1629667082557.0
+ },
+ "dir_bytes_peak": {
+  "<cl-datadir>": 19564756705.0,
+  "<disk>": 325251633873.0,
+  "<disk>": 507025316149.0,
+  "<datadir>": 1782385586633.0,
+  "<datadir>/database": 1634170869641.0
  }
 }

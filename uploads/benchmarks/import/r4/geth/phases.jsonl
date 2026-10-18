@@ -1,0 +1,6 @@
+{"ts": "2026-10-16T15:57:54Z", "unix": 1792166274.5121715, "client": "geth", "phase": "P2a-pr61-w1-sync-catchup", "edge": "start", "note": "EL head 26204870"}
+{"ts": "2026-10-16T16:45:47Z", "unix": 1792169147.3202324, "client": "geth", "phase": "P2a-pr61-w1-sync-catchup", "edge": "end", "note": "EL head 26206380, lag 0"}
+{"ts": "2026-10-16T17:51:19Z", "unix": 1792173079.5885594, "client": "geth", "phase": "P2a-pr61-w1", "edge": "start", "note": "round 5: consumption pair, online, PR #61 @ 4453c54e64, workers 1"}
+{"ts": "2026-10-16T17:51:23Z", "unix": 1792173083.9152951, "client": "geth", "phase": "P2a-pr61-w1-init", "edge": "start", "note": "<bin>/geth --datadir <datadir> init <host-path> "}
+{"ts": "2026-10-16T17:51:27Z", "unix": 1792173087.2925053, "client": "geth", "phase": "P2a-pr61-w1-init", "edge": "end", "note": "exit 0"}
+{"ts": "2026-10-16T19:14:10Z", "unix": 1792178050.2951977, "client": "geth", "phase": "P2a-pr61-w1", "edge": "end"}
