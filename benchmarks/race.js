@@ -13,7 +13,7 @@ const source = (src) => `<span class="lbl">source</span><br><b>${src.replace(DAT
 export default async function (root, ctx) {
   const { res, clock } = ctx;
   root.append(secHead('Import, replayed',
-    ['In the offline migration (EIP-8347), a node imports a snapshot of the new tree, taken at the ', term('anchor', 'anchor block'),
+    ['In an EIP-8347 migration, a node imports a snapshot of the new tree, taken at the ', term('anchor', 'anchor block'),
       ` (#${fmt.n(res.pair.anchor_block)}), while it keeps processing new blocks. Here that import and its correctness checks replay on a live mainnet node (1 s = ${clock.speed / 60} min): `,
       'the long bar is the import\u2019s phases, the small bars above it count blocks validated every 5 min, the ✓ is the client\u2019s own root check, and under each name sits its worst lag behind the chain head.'],
     h('span', { class: 'cap row', style: 'gap:8px' },
