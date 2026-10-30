@@ -1,0 +1,3977 @@
+{
+ "meta": {
+  "chunks": {
+   "v": 161,
+   "src": [
+    "raw/gates.jsonl"
+   ]
+  },
+  "blocks": {
+   "v": 161000,
+   "src": [
+    "raw/gates.jsonl"
+   ]
+  },
+  "from_block": {
+   "v": 24700000,
+   "src": [
+    "raw/gates.jsonl"
+   ]
+  },
+  "to_block": {
+   "v": 26300999,
+   "src": [
+    "raw/gates.jsonl"
+   ]
+  },
+  "from_date": {
+   "v": "2026-03-20",
+   "src": [
+    "raw/blocks_meta.jsonl"
+   ]
+  },
+  "to_date": {
+   "v": "2026-10-29",
+   "src": [
+    "raw/blocks_meta.jsonl"
+   ]
+  },
+  "txs": {
+   "v": 48893811,
+   "src": [
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "reads": {
+   "v": 411539380,
+   "src": [
+    "raw/access_totals.jsonl"
+   ]
+  },
+  "gate_diffs_missing": {
+   "v": 0,
+   "src": [
+    "raw/gates.jsonl"
+   ]
+  },
+  "gate_txs_missing": {
+   "v": 0,
+   "src": [
+    "raw/gates.jsonl"
+   ]
+  },
+  "accounts": {
+   "v": 423196419,
+   "src": [
+    "snapshot-pair-meta.json"
+   ]
+  },
+  "buckets": {
+   "v": 6927322,
+   "src": [
+    "snapshot-pair-meta.json"
+   ]
+  },
+  "snapshot_block": {
+   "v": 26142444,
+   "src": [
+    "snapshot-pair-meta.json"
+   ]
+  }
+ },
+ "a1": {
+  "charges": {
+   "v": 411539380,
+   "src": [
+    "raw/access_totals.jsonl"
+   ]
+  },
+  "hdr": {
+   "v": 124070870,
+   "src": [
+    "raw/access_totals.jsonl"
+   ]
+  },
+  "hdr_share": {
+   "v": 0.3015,
+   "src": [
+    "raw/access_totals.jsonl"
+   ]
+  },
+  "usdt_share": {
+   "v": 0.2881,
+   "src": [
+    "raw/access_totals.jsonl"
+   ]
+  },
+  "gas": {
+   "v": 4891294071080.0,
+   "src": [
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "gas_per_block": {
+   "v": 30380709.0,
+   "src": [
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "txs_per_block": {
+   "v": 303.7,
+   "src": [
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "txs_hdr_share": {
+   "v": 0.4368,
+   "src": [
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "saved_r0": {
+   "v": 0.0533,
+   "src": [
+    "raw/access_totals.jsonl",
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "saved_r100": {
+   "v": 0.0507,
+   "src": [
+    "raw/access_totals.jsonl",
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "saved_r200": {
+   "v": 0.0482,
+   "src": [
+    "raw/access_totals.jsonl",
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "saved_r100_nousdt": {
+   "v": 0.0361,
+   "src": [
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "warm8": {
+   "v": 0.7477,
+   "src": [
+    "raw/warm8289.jsonl"
+   ]
+  },
+  "warm32": {
+   "v": 0.8418,
+   "src": [
+    "raw/warm8289.jsonl"
+   ]
+  },
+  "warm128": {
+   "v": 0.9057,
+   "src": [
+    "raw/warm8289.jsonl"
+   ]
+  },
+  "saved_r100_after_8289": {
+   "v": 0.008,
+   "src": [
+    "raw/access_totals.jsonl",
+    "raw/tx_savings.jsonl",
+    "raw/warm8289.jsonl"
+   ]
+  },
+  "header_stems_pb": {
+   "v": 840.9,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "storage_accounts_pb": {
+   "v": 201.8,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "slots_pb": {
+   "v": 1883.9,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "hdr_slots_pb": {
+   "v": 395.9,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "paths_saved_pb": {
+   "v": 115.1,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "paths_saved_alone_pb": {
+   "v": 38.9,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "zone_paths_pb": {
+   "v": 1233.1,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "zone_paths_no_header_pb": {
+   "v": 1348.2,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "zone_paths_cut": {
+   "v": 0.0854,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "buckets_pb": {
+   "v": 162.9,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "paths_saved_p50_range": {
+   "v": [
+    65,
+    111,
+    159
+   ],
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  }
+ },
+ "model": {
+  "header_path": {
+   "v": 30.7,
+   "src": []
+  },
+  "bucket_path": {
+   "v": 23.7,
+   "src": []
+  },
+  "a1_kb_pb": {
+   "v": [
+    51.8,
+    56.7
+   ],
+   "src": [
+    "raw/model_paths.jsonl",
+    "raw/active_slots.jsonl"
+   ]
+  },
+  "a1_bytes_per_path": {
+   "v": [
+    391.0,
+    428.0
+   ],
+   "src": [
+    "raw/model_paths.jsonl",
+    "raw/active_slots.jsonl"
+   ]
+  },
+  "c2_kb_pb": {
+   "v": [
+    18.3,
+    19.7
+   ],
+   "src": [
+    "raw/model_paths.jsonl",
+    "raw/active_slots.jsonl"
+   ]
+  },
+  "c2_bytes_per_slot": {
+   "v": [
+    322.0,
+    346.0
+   ],
+   "src": [
+    "raw/model_paths.jsonl",
+    "raw/active_slots.jsonl"
+   ]
+  }
+ },
+ "a2": {
+  "hdr_writes": {
+   "v": 24880247,
+   "src": [
+    "raw/write_totals.jsonl"
+   ]
+  },
+  "hdr_changes_share": {
+   "v": 0.2073,
+   "src": [
+    "raw/write_totals.jsonl"
+   ]
+  },
+  "creates_share": {
+   "v": 0.0233,
+   "src": [
+    "raw/write_totals.jsonl"
+   ]
+  },
+  "pairs": {
+   "v": 9944632,
+   "src": [
+    "raw/write_totals.jsonl"
+   ]
+  },
+  "pairs_2plus": {
+   "v": 0.6255,
+   "src": [
+    "raw/write_totals.jsonl"
+   ]
+  },
+  "pairs_dirty": {
+   "v": 0.0705,
+   "src": [
+    "raw/write_totals.jsonl"
+   ]
+  },
+  "disc": {
+   "v": 15100940,
+   "src": [
+    "raw/write_totals.jsonl"
+   ]
+  },
+  "disc_share": {
+   "v": 0.6214,
+   "src": [
+    "raw/write_totals.jsonl"
+   ]
+  },
+  "saved_w0": {
+   "v": 0.009,
+   "src": [
+    "raw/write_totals.jsonl",
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "saved_w100": {
+   "v": 0.0086,
+   "src": [
+    "raw/write_totals.jsonl",
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "saved_w500": {
+   "v": 0.0074,
+   "src": [
+    "raw/write_totals.jsonl",
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "saved_w1000": {
+   "v": 0.0059,
+   "src": [
+    "raw/write_totals.jsonl",
+    "raw/tx_savings.jsonl"
+   ]
+  }
+ },
+ "a3": {
+  "grid": {
+   "v": [
+    {
+     "p_read": 0,
+     "p_write": 0,
+     "share": 0.0622
+    },
+    {
+     "p_read": 0,
+     "p_write": 100,
+     "share": 0.0619
+    },
+    {
+     "p_read": 0,
+     "p_write": 500,
+     "share": 0.0607
+    },
+    {
+     "p_read": 0,
+     "p_write": 1000,
+     "share": 0.0591
+    },
+    {
+     "p_read": 100,
+     "p_write": 0,
+     "share": 0.0597
+    },
+    {
+     "p_read": 100,
+     "p_write": 100,
+     "share": 0.0594
+    },
+    {
+     "p_read": 100,
+     "p_write": 500,
+     "share": 0.0581
+    },
+    {
+     "p_read": 100,
+     "p_write": 1000,
+     "share": 0.0566
+    },
+    {
+     "p_read": 200,
+     "p_write": 0,
+     "share": 0.0571
+    },
+    {
+     "p_read": 200,
+     "p_write": 100,
+     "share": 0.0568
+    },
+    {
+     "p_read": 200,
+     "p_write": 500,
+     "share": 0.0556
+    },
+    {
+     "p_read": 200,
+     "p_write": 1000,
+     "share": 0.0541
+    }
+   ],
+   "src": [
+    "raw/access_totals.jsonl",
+    "raw/write_totals.jsonl",
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "default": {
+   "v": 0.0594,
+   "src": [
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "default_nousdt": {
+   "v": 0.0448,
+   "src": [
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "more_txs": {
+   "v": 0.0631,
+   "src": [
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "txs_gain": {
+   "v": 0.4368,
+   "src": [
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "bins": {
+   "v": {
+    "b0": 27538503,
+    "b1": 502235,
+    "b2": 892772,
+    "b5": 5986134,
+    "b10": 3281891,
+    "b20": 9691368,
+    "b100": 1000908
+   },
+   "src": [
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "per_chunk": {
+   "v": [
+    {
+     "block": 24700000,
+     "date": "2026-03-20",
+     "share": 0.0697
+    },
+    {
+     "block": 24710000,
+     "date": "2026-03-22",
+     "share": 0.1022
+    },
+    {
+     "block": 24720000,
+     "date": "2026-03-23",
+     "share": 0.077
+    },
+    {
+     "block": 24730000,
+     "date": "2026-03-24",
+     "share": 0.0597
+    },
+    {
+     "block": 24740000,
+     "date": "2026-03-26",
+     "share": 0.0619
+    },
+    {
+     "block": 24750000,
+     "date": "2026-03-27",
+     "share": 0.0648
+    },
+    {
+     "block": 24760000,
+     "date": "2026-03-29",
+     "share": 0.0511
+    },
+    {
+     "block": 24770000,
+     "date": "2026-03-30",
+     "share": 0.0624
+    },
+    {
+     "block": 24780000,
+     "date": "2026-03-31",
+     "share": 0.0519
+    },
+    {
+     "block": 24790000,
+     "date": "2026-04-02",
+     "share": 0.0506
+    },
+    {
+     "block": 24800000,
+     "date": "2026-04-03",
+     "share": 0.0522
+    },
+    {
+     "block": 24810000,
+     "date": "2026-04-05",
+     "share": 0.0312
+    },
+    {
+     "block": 24820000,
+     "date": "2026-04-06",
+     "share": 0.0571
+    },
+    {
+     "block": 24830000,
+     "date": "2026-04-07",
+     "share": 0.072
+    },
+    {
+     "block": 24840000,
+     "date": "2026-04-09",
+     "share": 0.0427
+    },
+    {
+     "block": 24850000,
+     "date": "2026-04-10",
+     "share": 0.0608
+    },
+    {
+     "block": 24860000,
+     "date": "2026-04-12",
+     "share": 0.0411
+    },
+    {
+     "block": 24870000,
+     "date": "2026-04-13",
+     "share": 0.0496
+    },
+    {
+     "block": 24880000,
+     "date": "2026-04-14",
+     "share": 0.0479
+    },
+    {
+     "block": 24890000,
+     "date": "2026-04-16",
+     "share": 0.0508
+    },
+    {
+     "block": 24900000,
+     "date": "2026-04-17",
+     "share": 0.0827
+    },
+    {
+     "block": 24910000,
+     "date": "2026-04-18",
+     "share": 0.075
+    },
+    {
+     "block": 24920000,
+     "date": "2026-04-20",
+     "share": 0.0936
+    },
+    {
+     "block": 24930000,
+     "date": "2026-04-21",
+     "share": 0.0828
+    },
+    {
+     "block": 24940000,
+     "date": "2026-04-23",
+     "share": 0.0815
+    },
+    {
+     "block": 24950000,
+     "date": "2026-04-24",
+     "share": 0.0896
+    },
+    {
+     "block": 24960000,
+     "date": "2026-04-25",
+     "share": 0.0704
+    },
+    {
+     "block": 24970000,
+     "date": "2026-04-27",
+     "share": 0.061
+    },
+    {
+     "block": 24980000,
+     "date": "2026-04-28",
+     "share": 0.0606
+    },
+    {
+     "block": 24990000,
+     "date": "2026-04-30",
+     "share": 0.0526
+    },
+    {
+     "block": 25000000,
+     "date": "2026-05-01",
+     "share": 0.0687
+    },
+    {
+     "block": 25010000,
+     "date": "2026-05-02",
+     "share": 0.05
+    },
+    {
+     "block": 25020000,
+     "date": "2026-05-04",
+     "share": 0.0608
+    },
+    {
+     "block": 25030000,
+     "date": "2026-05-05",
+     "share": 0.0705
+    },
+    {
+     "block": 25040000,
+     "date": "2026-05-07",
+     "share": 0.0693
+    },
+    {
+     "block": 25050000,
+     "date": "2026-05-08",
+     "share": 0.066
+    },
+    {
+     "block": 25060000,
+     "date": "2026-05-09",
+     "share": 0.0471
+    },
+    {
+     "block": 25070000,
+     "date": "2026-05-11",
+     "share": 0.0614
+    },
+    {
+     "block": 25080000,
+     "date": "2026-05-12",
+     "share": 0.0711
+    },
+    {
+     "block": 25090000,
+     "date": "2026-05-14",
+     "share": 0.0552
+    },
+    {
+     "block": 25100000,
+     "date": "2026-05-15",
+     "share": 0.063
+    },
+    {
+     "block": 25110000,
+     "date": "2026-05-16",
+     "share": 0.0474
+    },
+    {
+     "block": 25120000,
+     "date": "2026-05-18",
+     "share": 0.0614
+    },
+    {
+     "block": 25130000,
+     "date": "2026-05-19",
+     "share": 0.0675
+    },
+    {
+     "block": 25140000,
+     "date": "2026-05-21",
+     "share": 0.067
+    },
+    {
+     "block": 25150000,
+     "date": "2026-05-22",
+     "share": 0.06
+    },
+    {
+     "block": 25160000,
+     "date": "2026-05-23",
+     "share": 0.0619
+    },
+    {
+     "block": 25170000,
+     "date": "2026-05-25",
+     "share": 0.0509
+    },
+    {
+     "block": 25180000,
+     "date": "2026-05-26",
+     "share": 0.0739
+    },
+    {
+     "block": 25190000,
+     "date": "2026-05-27",
+     "share": 0.0543
+    },
+    {
+     "block": 25200000,
+     "date": "2026-05-29",
+     "share": 0.0589
+    },
+    {
+     "block": 25210000,
+     "date": "2026-05-30",
+     "share": 0.0411
+    },
+    {
+     "block": 25220000,
+     "date": "2026-06-01",
+     "share": 0.0578
+    },
+    {
+     "block": 25230000,
+     "date": "2026-06-02",
+     "share": 0.0761
+    },
+    {
+     "block": 25240000,
+     "date": "2026-06-03",
+     "share": 0.081
+    },
+    {
+     "block": 25250000,
+     "date": "2026-06-05",
+     "share": 0.0746
+    },
+    {
+     "block": 25260000,
+     "date": "2026-06-06",
+     "share": 0.0616
+    },
+    {
+     "block": 25270000,
+     "date": "2026-06-08",
+     "share": 0.0592
+    },
+    {
+     "block": 25280000,
+     "date": "2026-06-09",
+     "share": 0.0734
+    },
+    {
+     "block": 25290000,
+     "date": "2026-06-10",
+     "share": 0.0557
+    },
+    {
+     "block": 25300000,
+     "date": "2026-06-12",
+     "share": 0.0557
+    },
+    {
+     "block": 25310000,
+     "date": "2026-06-13",
+     "share": 0.0444
+    },
+    {
+     "block": 25320000,
+     "date": "2026-06-15",
+     "share": 0.0698
+    },
+    {
+     "block": 25330000,
+     "date": "2026-06-16",
+     "share": 0.0714
+    },
+    {
+     "block": 25340000,
+     "date": "2026-06-17",
+     "share": 0.0503
+    },
+    {
+     "block": 25350000,
+     "date": "2026-06-19",
+     "share": 0.0563
+    },
+    {
+     "block": 25360000,
+     "date": "2026-06-20",
+     "share": 0.0516
+    },
+    {
+     "block": 25370000,
+     "date": "2026-06-22",
+     "share": 0.0477
+    },
+    {
+     "block": 25380000,
+     "date": "2026-06-23",
+     "share": 0.0681
+    },
+    {
+     "block": 25390000,
+     "date": "2026-06-24",
+     "share": 0.0557
+    },
+    {
+     "block": 25400000,
+     "date": "2026-06-26",
+     "share": 0.0611
+    },
+    {
+     "block": 25410000,
+     "date": "2026-06-27",
+     "share": 0.0495
+    },
+    {
+     "block": 25420000,
+     "date": "2026-06-29",
+     "share": 0.0513
+    },
+    {
+     "block": 25430000,
+     "date": "2026-06-30",
+     "share": 0.0686
+    },
+    {
+     "block": 25440000,
+     "date": "2026-07-01",
+     "share": 0.0639
+    },
+    {
+     "block": 25450000,
+     "date": "2026-07-03",
+     "share": 0.0612
+    },
+    {
+     "block": 25460000,
+     "date": "2026-07-04",
+     "share": 0.0625
+    },
+    {
+     "block": 25470000,
+     "date": "2026-07-06",
+     "share": 0.0449
+    },
+    {
+     "block": 25480000,
+     "date": "2026-07-07",
+     "share": 0.0525
+    },
+    {
+     "block": 25490000,
+     "date": "2026-07-08",
+     "share": 0.0457
+    },
+    {
+     "block": 25500000,
+     "date": "2026-07-10",
+     "share": 0.045
+    },
+    {
+     "block": 25510000,
+     "date": "2026-07-11",
+     "share": 0.0513
+    },
+    {
+     "block": 25520000,
+     "date": "2026-07-13",
+     "share": 0.0714
+    },
+    {
+     "block": 25530000,
+     "date": "2026-07-14",
+     "share": 0.0545
+    },
+    {
+     "block": 25540000,
+     "date": "2026-07-15",
+     "share": 0.0468
+    },
+    {
+     "block": 25550000,
+     "date": "2026-07-17",
+     "share": 0.0499
+    },
+    {
+     "block": 25560000,
+     "date": "2026-07-18",
+     "share": 0.044
+    },
+    {
+     "block": 25570000,
+     "date": "2026-07-19",
+     "share": 0.0482
+    },
+    {
+     "block": 25580000,
+     "date": "2026-07-21",
+     "share": 0.0514
+    },
+    {
+     "block": 25590000,
+     "date": "2026-07-22",
+     "share": 0.0576
+    },
+    {
+     "block": 25600000,
+     "date": "2026-07-24",
+     "share": 0.0408
+    },
+    {
+     "block": 25610000,
+     "date": "2026-07-25",
+     "share": 0.0626
+    },
+    {
+     "block": 25620000,
+     "date": "2026-07-26",
+     "share": 0.0692
+    },
+    {
+     "block": 25630000,
+     "date": "2026-07-28",
+     "share": 0.0643
+    },
+    {
+     "block": 25640000,
+     "date": "2026-07-29",
+     "share": 0.0631
+    },
+    {
+     "block": 25650000,
+     "date": "2026-07-31",
+     "share": 0.0516
+    },
+    {
+     "block": 25660000,
+     "date": "2026-08-01",
+     "share": 0.0565
+    },
+    {
+     "block": 25670000,
+     "date": "2026-08-02",
+     "share": 0.0469
+    },
+    {
+     "block": 25680000,
+     "date": "2026-08-04",
+     "share": 0.0471
+    },
+    {
+     "block": 25690000,
+     "date": "2026-08-05",
+     "share": 0.0576
+    },
+    {
+     "block": 25700000,
+     "date": "2026-08-07",
+     "share": 0.0438
+    },
+    {
+     "block": 25710000,
+     "date": "2026-08-08",
+     "share": 0.0522
+    },
+    {
+     "block": 25720000,
+     "date": "2026-08-09",
+     "share": 0.0438
+    },
+    {
+     "block": 25730000,
+     "date": "2026-08-11",
+     "share": 0.0502
+    },
+    {
+     "block": 25740000,
+     "date": "2026-08-12",
+     "share": 0.0532
+    },
+    {
+     "block": 25750000,
+     "date": "2026-08-14",
+     "share": 0.0407
+    },
+    {
+     "block": 25760000,
+     "date": "2026-08-15",
+     "share": 0.0495
+    },
+    {
+     "block": 25770000,
+     "date": "2026-08-16",
+     "share": 0.0449
+    },
+    {
+     "block": 25780000,
+     "date": "2026-08-18",
+     "share": 0.0464
+    },
+    {
+     "block": 25790000,
+     "date": "2026-08-19",
+     "share": 0.0721
+    },
+    {
+     "block": 25800000,
+     "date": "2026-08-21",
+     "share": 0.0703
+    },
+    {
+     "block": 25810000,
+     "date": "2026-08-22",
+     "share": 0.0694
+    },
+    {
+     "block": 25820000,
+     "date": "2026-08-23",
+     "share": 0.065
+    },
+    {
+     "block": 25830000,
+     "date": "2026-08-25",
+     "share": 0.0763
+    },
+    {
+     "block": 25840000,
+     "date": "2026-08-26",
+     "share": 0.0697
+    },
+    {
+     "block": 25850000,
+     "date": "2026-08-27",
+     "share": 0.066
+    },
+    {
+     "block": 25860000,
+     "date": "2026-08-29",
+     "share": 0.0491
+    },
+    {
+     "block": 25870000,
+     "date": "2026-08-30",
+     "share": 0.0703
+    },
+    {
+     "block": 25880000,
+     "date": "2026-09-01",
+     "share": 0.0592
+    },
+    {
+     "block": 25890000,
+     "date": "2026-09-02",
+     "share": 0.068
+    },
+    {
+     "block": 25900000,
+     "date": "2026-09-03",
+     "share": 0.061
+    },
+    {
+     "block": 25910000,
+     "date": "2026-09-05",
+     "share": 0.0529
+    },
+    {
+     "block": 25920000,
+     "date": "2026-09-06",
+     "share": 0.0643
+    },
+    {
+     "block": 25930000,
+     "date": "2026-09-08",
+     "share": 0.0558
+    },
+    {
+     "block": 25940000,
+     "date": "2026-09-09",
+     "share": 0.0712
+    },
+    {
+     "block": 25950000,
+     "date": "2026-09-10",
+     "share": 0.0639
+    },
+    {
+     "block": 25960000,
+     "date": "2026-09-12",
+     "share": 0.0524
+    },
+    {
+     "block": 25970000,
+     "date": "2026-09-13",
+     "share": 0.05
+    },
+    {
+     "block": 25980000,
+     "date": "2026-09-15",
+     "share": 0.0577
+    },
+    {
+     "block": 25990000,
+     "date": "2026-09-16",
+     "share": 0.0692
+    },
+    {
+     "block": 26000000,
+     "date": "2026-09-17",
+     "share": 0.0587
+    },
+    {
+     "block": 26010000,
+     "date": "2026-09-19",
+     "share": 0.0676
+    },
+    {
+     "block": 26020000,
+     "date": "2026-09-20",
+     "share": 0.0641
+    },
+    {
+     "block": 26030000,
+     "date": "2026-09-22",
+     "share": 0.0677
+    },
+    {
+     "block": 26040000,
+     "date": "2026-09-23",
+     "share": 0.063
+    },
+    {
+     "block": 26050000,
+     "date": "2026-09-24",
+     "share": 0.0611
+    },
+    {
+     "block": 26060000,
+     "date": "2026-09-26",
+     "share": 0.0547
+    },
+    {
+     "block": 26070000,
+     "date": "2026-09-27",
+     "share": 0.0604
+    },
+    {
+     "block": 26080000,
+     "date": "2026-09-29",
+     "share": 0.0629
+    },
+    {
+     "block": 26090000,
+     "date": "2026-09-30",
+     "share": 0.0672
+    },
+    {
+     "block": 26100000,
+     "date": "2026-10-01",
+     "share": 0.0563
+    },
+    {
+     "block": 26110000,
+     "date": "2026-10-03",
+     "share": 0.0457
+    },
+    {
+     "block": 26120000,
+     "date": "2026-10-04",
+     "share": 0.059
+    },
+    {
+     "block": 26130000,
+     "date": "2026-10-06",
+     "share": 0.0519
+    },
+    {
+     "block": 26140000,
+     "date": "2026-10-07",
+     "share": 0.0657
+    },
+    {
+     "block": 26150000,
+     "date": "2026-10-08",
+     "share": 0.0548
+    },
+    {
+     "block": 26160000,
+     "date": "2026-10-10",
+     "share": 0.0518
+    },
+    {
+     "block": 26170000,
+     "date": "2026-10-11",
+     "share": 0.0648
+    },
+    {
+     "block": 26180000,
+     "date": "2026-10-13",
+     "share": 0.066
+    },
+    {
+     "block": 26190000,
+     "date": "2026-10-14",
+     "share": 0.0633
+    },
+    {
+     "block": 26200000,
+     "date": "2026-10-15",
+     "share": 0.0567
+    },
+    {
+     "block": 26210000,
+     "date": "2026-10-17",
+     "share": 0.043
+    },
+    {
+     "block": 26220000,
+     "date": "2026-10-18",
+     "share": 0.0637
+    },
+    {
+     "block": 26230000,
+     "date": "2026-10-19",
+     "share": 0.044
+    },
+    {
+     "block": 26240000,
+     "date": "2026-10-21",
+     "share": 0.0625
+    },
+    {
+     "block": 26250000,
+     "date": "2026-10-22",
+     "share": 0.0544
+    },
+    {
+     "block": 26260000,
+     "date": "2026-10-24",
+     "share": 0.0462
+    },
+    {
+     "block": 26270000,
+     "date": "2026-10-25",
+     "share": 0.0604
+    },
+    {
+     "block": 26280000,
+     "date": "2026-10-26",
+     "share": 0.0587
+    },
+    {
+     "block": 26290000,
+     "date": "2026-10-28",
+     "share": 0.0536
+    },
+    {
+     "block": 26300000,
+     "date": "2026-10-29",
+     "share": 0.0657
+    }
+   ],
+   "src": [
+    "raw/tx_savings.jsonl",
+    "raw/blocks_meta.jsonl"
+   ]
+  },
+  "chunk_range": {
+   "v": [
+    0.0312,
+    0.0592,
+    0.1022
+   ],
+   "src": [
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "top_contracts": {
+   "v": [
+    {
+     "a": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "share": 0.2881,
+     "slots_used": 8,
+     "top_slots": "10 0 3 4 9 7"
+    },
+    {
+     "a": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+     "share": 0.0523,
+     "slots_used": 7,
+     "top_slots": "1 11 4 6 5"
+    },
+    {
+     "a": "0xe0554a476a092703abdb3ef35c80e0d76d32939f",
+     "share": 0.0144,
+     "slots_used": 61,
+     "top_slots": "0 4 3 2 1 57"
+    },
+    {
+     "a": "0xc7bbec68d12a0d1830360f8ec58fa599ba1b0e9b",
+     "share": 0.0115,
+     "slots_used": 56,
+     "top_slots": "0 4 3 1 2 47"
+    },
+    {
+     "a": "0xf280b16ef293d8e534e370794ef26bf312694126",
+     "share": 0.0057,
+     "slots_used": 12,
+     "top_slots": "12 26 15 0 10 7"
+    },
+    {
+     "a": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+     "share": 0.0051,
+     "slots_used": 61,
+     "top_slots": "0 4 3 1 2 12"
+    },
+    {
+     "a": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "share": 0.0048,
+     "slots_used": 43,
+     "top_slots": "49 11 8 39 40 42"
+    },
+    {
+     "a": "0x4313c378cc91ea583c91387b9216e2c03096b27f",
+     "share": 0.0045,
+     "slots_used": 4,
+     "top_slots": "1 2 3 4"
+    },
+    {
+     "a": "0x4ebdf703948ddcea3b11f675b4d1fba9d2414a14",
+     "share": 0.0043,
+     "slots_used": 19,
+     "top_slots": "3 4 0 6 18 5"
+    },
+    {
+     "a": "0x1445f32d1a74872ba41f3d8cf4022e9996120b31",
+     "share": 0.0041,
+     "slots_used": 7,
+     "top_slots": "5 1 0 4 9 3"
+    },
+    {
+     "a": "0x447654338fba13ce25988cc576b2903ac7cdcec3",
+     "share": 0.0039,
+     "slots_used": 8,
+     "top_slots": "11 10 4 8 9 5"
+    },
+    {
+     "a": "0x04571c32a4e1c5f39bc3a238cb95b215058c432c",
+     "share": 0.0035,
+     "slots_used": 13,
+     "top_slots": "7 19 18 17 16 5"
+    },
+    {
+     "a": "0x7f86bf177dd4f3494b841a37e810a34dd56c829b",
+     "share": 0.0034,
+     "slots_used": 20,
+     "top_slots": "25 3 13 14 12 17"
+    },
+    {
+     "a": "0x958c41181182e76f221331b2755b77d9e1426a98",
+     "share": 0.0033,
+     "slots_used": 42,
+     "top_slots": "11 53 8 47 3 0"
+    },
+    {
+     "a": "0x556b9306565093c855aea9ae92a594704c2cd59e",
+     "share": 0.0033,
+     "slots_used": 12,
+     "top_slots": "13 16 17"
+    }
+   ],
+   "src": [
+    "raw/top_contracts.jsonl"
+   ]
+  },
+  "top_targets": {
+   "v": [
+    {
+     "a": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "share_of_saving": 0.1779,
+     "txs": 6623102,
+     "their_gas_saved": 0.1572
+    },
+    {
+     "a": "0xbdb3ba9ffe392549e1f8658dd2630c141fdf47b6",
+     "share_of_saving": 0.0337,
+     "txs": 162852,
+     "their_gas_saved": 0.1648
+    },
+    {
+     "a": "0x278d858f05b94576c1e6f73285886876ff6ef8d2",
+     "share_of_saving": 0.0253,
+     "txs": 482746,
+     "their_gas_saved": 0.1162
+    },
+    {
+     "a": "0x51c72848c68a965f66fa7a88855f9f7784502a7f",
+     "share_of_saving": 0.0252,
+     "txs": 282597,
+     "their_gas_saved": 0.1823
+    },
+    {
+     "a": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+     "share_of_saving": 0.023,
+     "txs": 283899,
+     "their_gas_saved": 0.157
+    },
+    {
+     "a": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+     "share_of_saving": 0.0213,
+     "txs": 3063382,
+     "their_gas_saved": 0.0405
+    },
+    {
+     "a": "0x4313c378cc91ea583c91387b9216e2c03096b27f",
+     "share_of_saving": 0.0183,
+     "txs": 202247,
+     "their_gas_saved": 0.1051
+    },
+    {
+     "a": "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183",
+     "share_of_saving": 0.0171,
+     "txs": 157786,
+     "their_gas_saved": 0.0855
+    },
+    {
+     "a": "0x0000000071727de22e5e9d8baf0edac6f37da032",
+     "share_of_saving": 0.014,
+     "txs": 290341,
+     "their_gas_saved": 0.0495
+    },
+    {
+     "a": "0xb300000b72deaeb607a12d5f54773d1c19c7028d",
+     "share_of_saving": 0.0137,
+     "txs": 105258,
+     "their_gas_saved": 0.0856
+    },
+    {
+     "a": "0xccc88a9d1b4ed6b0eaba998850414b24f1c315be",
+     "share_of_saving": 0.0127,
+     "txs": 143174,
+     "their_gas_saved": 0.0508
+    },
+    {
+     "a": "0x0000000000001ff3684f28c67538d4d072c22734",
+     "share_of_saving": 0.0121,
+     "txs": 131104,
+     "their_gas_saved": 0.1051
+    },
+    {
+     "a": "0x1f2f10d1c40777ae1da742455c65828ff36df387",
+     "share_of_saving": 0.0114,
+     "txs": 63344,
+     "their_gas_saved": 0.1637
+    },
+    {
+     "a": "0x4c82d1fbfe28c977cbb58d8c7ff8fcf9f70a2cca",
+     "share_of_saving": 0.0108,
+     "txs": 112878,
+     "their_gas_saved": 0.1203
+    },
+    {
+     "a": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+     "share_of_saving": 0.0103,
+     "txs": 147876,
+     "their_gas_saved": 0.1453
+    }
+   ],
+   "src": [
+    "raw/top_targets.jsonl"
+   ]
+  }
+ },
+ "b1": {
+  "shared_pb": {
+   "v": 3.58,
+   "src": [
+    "raw/paths_writes.jsonl"
+   ]
+  },
+  "split_pb": {
+   "v": 1.51,
+   "src": [
+    "raw/paths_writes.jsonl"
+   ]
+  },
+  "net_pb": {
+   "v": 2.06,
+   "src": [
+    "raw/paths_writes.jsonl"
+   ]
+  },
+  "dirty_pb": {
+   "v": 1105.0,
+   "src": [
+    "raw/paths_writes.jsonl"
+   ]
+  },
+  "net_share": {
+   "v": 0.00187,
+   "src": [
+    "raw/paths_writes.jsonl"
+   ]
+  },
+  "header_changed_pb": {
+   "v": 496.0,
+   "src": [
+    "raw/paths_writes.jsonl"
+   ]
+  },
+  "hdr_only_pb": {
+   "v": 43.8,
+   "src": [
+    "raw/paths_writes.jsonl"
+   ]
+  },
+  "hashes_saved_path": {
+   "v": 19.9,
+   "src": [
+    "raw/model_writes.jsonl",
+    "raw/active_slots.jsonl",
+    "raw/paths_writes.jsonl"
+   ]
+  },
+  "hashes_added_path": {
+   "v": 21.6,
+   "src": [
+    "raw/paths_writes.jsonl"
+   ]
+  },
+  "hashes_pb": {
+   "v": 38.7,
+   "src": [
+    "raw/paths_writes.jsonl",
+    "raw/model_writes.jsonl",
+    "raw/active_slots.jsonl"
+   ]
+  },
+  "hashes_total_pb": {
+   "v": 22934.0,
+   "src": [
+    "raw/paths_writes.jsonl"
+   ]
+  },
+  "split_top": {
+   "v": [
+    {
+     "a": "0x11b815efb8f581194ae79006d24e0d814b7697f6",
+     "split": 276
+    },
+    {
+     "a": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+     "split": 154
+    },
+    {
+     "a": "0x60594a405d53811d3bc4766596efd80fd545a270",
+     "split": 146
+    },
+    {
+     "a": "0x4585fe77225b41b697c938b018e2ac67ac5a20c0",
+     "split": 146
+    },
+    {
+     "a": "0x6ca298d2983ab03aa1da7679389d955a4efee15c",
+     "split": 142
+    }
+   ],
+   "src": [
+    "raw/model_writes.jsonl"
+   ]
+  }
+ },
+ "b2": {
+  "creations": {
+   "v": 878414,
+   "src": [
+    "raw/creations.jsonl"
+   ]
+  },
+  "no_storage": {
+   "v": 0.7443,
+   "src": [
+    "raw/creations.jsonl"
+   ]
+  },
+  "header_only": {
+   "v": 0.4061,
+   "src": [
+    "raw/creations.jsonl"
+   ]
+  },
+  "zone_only": {
+   "v": 0.198,
+   "src": [
+    "raw/creations.jsonl"
+   ]
+  },
+  "both": {
+   "v": 0.3959,
+   "src": [
+    "raw/creations.jsonl"
+   ]
+  },
+  "eras": {
+   "v": [
+    {
+     "mblock": 1,
+     "header_only": 0.8684,
+     "n": 76
+    },
+    {
+     "mblock": 2,
+     "header_only": 0.9789,
+     "n": 190
+    },
+    {
+     "mblock": 3,
+     "header_only": 0.9848,
+     "n": 461
+    },
+    {
+     "mblock": 4,
+     "header_only": 0.8272,
+     "n": 1487
+    },
+    {
+     "mblock": 5,
+     "header_only": 0.9224,
+     "n": 1443
+    },
+    {
+     "mblock": 6,
+     "header_only": 0.9399,
+     "n": 2197
+    },
+    {
+     "mblock": 7,
+     "header_only": 0.875,
+     "n": 440
+    },
+    {
+     "mblock": 8,
+     "header_only": 0.7971,
+     "n": 626
+    },
+    {
+     "mblock": 9,
+     "header_only": 0.6528,
+     "n": 1469
+    },
+    {
+     "mblock": 10,
+     "header_only": 0.9181,
+     "n": 1001
+    },
+    {
+     "mblock": 11,
+     "header_only": 0.8575,
+     "n": 751
+    },
+    {
+     "mblock": 12,
+     "header_only": 0.8234,
+     "n": 1002
+    },
+    {
+     "mblock": 13,
+     "header_only": 0.9591,
+     "n": 1541
+    },
+    {
+     "mblock": 14,
+     "header_only": 0.904,
+     "n": 1135
+    },
+    {
+     "mblock": 15,
+     "header_only": 0.663,
+     "n": 549
+    },
+    {
+     "mblock": 16,
+     "header_only": 0.4871,
+     "n": 349
+    },
+    {
+     "mblock": 17,
+     "header_only": 0.672,
+     "n": 869
+    },
+    {
+     "mblock": 18,
+     "header_only": 0.4749,
+     "n": 339
+    },
+    {
+     "mblock": 19,
+     "header_only": 0.7283,
+     "n": 519
+    },
+    {
+     "mblock": 20,
+     "header_only": 0.4648,
+     "n": 284
+    },
+    {
+     "mblock": 21,
+     "header_only": 0.7124,
+     "n": 452
+    },
+    {
+     "mblock": 22,
+     "header_only": 0.3673,
+     "n": 324
+    },
+    {
+     "mblock": 23,
+     "header_only": 0.3055,
+     "n": 455
+    },
+    {
+     "mblock": 24,
+     "header_only": 0.4214,
+     "n": 1215
+    },
+    {
+     "mblock": 25,
+     "header_only": 0.3681,
+     "n": 777
+    },
+    {
+     "mblock": 26,
+     "header_only": 0.3865,
+     "n": 489
+    }
+   ],
+   "src": [
+    "raw/creations_eras.jsonl"
+   ]
+  },
+  "contracts": {
+   "v": 28859584,
+   "src": [
+    "raw/state_prefix.jsonl"
+   ]
+  },
+  "no_bucket": {
+   "v": 0.752,
+   "src": [
+    "raw/state_prefix.jsonl"
+   ]
+  },
+  "with_bucket": {
+   "v": 7156284,
+   "src": [
+    "raw/state_prefix.jsonl"
+   ]
+  },
+  "hdr_slots": {
+   "v": 65714314,
+   "src": [
+    "raw/state_prefix.jsonl"
+   ]
+  },
+  "zone_slots": {
+   "v": 1624264811,
+   "src": [
+    "raw/state_prefix.jsonl"
+   ]
+  },
+  "hdr_slots_share": {
+   "v": 0.0389,
+   "src": [
+    "raw/state_prefix.jsonl"
+   ]
+  },
+  "zone_groups": {
+   "v": 1195131490,
+   "src": [
+    "raw/state_prefix.jsonl"
+   ]
+  },
+  "hist_h": {
+   "v": [
+    [
+     1,
+     15443686
+    ],
+    [
+     2,
+     4943017
+    ],
+    [
+     3,
+     1187741
+    ],
+    [
+     4,
+     2734828
+    ],
+    [
+     5,
+     841232
+    ],
+    [
+     6,
+     410938
+    ],
+    [
+     7,
+     253637
+    ],
+    [
+     8,
+     138594
+    ],
+    [
+     9,
+     535024
+    ],
+    [
+     10,
+     218920
+    ],
+    [
+     11,
+     72724
+    ],
+    [
+     12,
+     66774
+    ],
+    [
+     13,
+     102909
+    ],
+    [
+     14,
+     57606
+    ],
+    [
+     15,
+     61353
+    ],
+    [
+     16,
+     44777
+    ],
+    [
+     17,
+     28140
+    ],
+    [
+     18,
+     68946
+    ],
+    [
+     19,
+     25348
+    ],
+    [
+     20,
+     9929
+    ],
+    [
+     21,
+     10779
+    ],
+    [
+     22,
+     8833
+    ],
+    [
+     23,
+     10091
+    ],
+    [
+     24,
+     7045
+    ],
+    [
+     25,
+     2925
+    ],
+    [
+     26,
+     2418
+    ],
+    [
+     27,
+     1888
+    ],
+    [
+     28,
+     1295
+    ],
+    [
+     29,
+     999
+    ],
+    [
+     30,
+     782
+    ],
+    [
+     31,
+     634
+    ],
+    [
+     32,
+     609
+    ],
+    [
+     33,
+     533
+    ],
+    [
+     34,
+     421
+    ],
+    [
+     35,
+     399
+    ],
+    [
+     36,
+     294
+    ],
+    [
+     37,
+     203
+    ],
+    [
+     38,
+     174
+    ],
+    [
+     39,
+     190
+    ],
+    [
+     40,
+     333
+    ],
+    [
+     41,
+     370
+    ],
+    [
+     42,
+     325
+    ],
+    [
+     43,
+     649
+    ],
+    [
+     44,
+     757
+    ],
+    [
+     45,
+     180
+    ],
+    [
+     46,
+     84
+    ],
+    [
+     47,
+     113
+    ],
+    [
+     48,
+     75
+    ],
+    [
+     49,
+     65
+    ],
+    [
+     50,
+     83
+    ],
+    [
+     51,
+     91
+    ],
+    [
+     52,
+     95
+    ],
+    [
+     53,
+     172
+    ],
+    [
+     54,
+     81
+    ],
+    [
+     55,
+     93
+    ],
+    [
+     56,
+     195
+    ],
+    [
+     57,
+     130
+    ],
+    [
+     58,
+     97
+    ],
+    [
+     59,
+     492
+    ],
+    [
+     60,
+     268
+    ],
+    [
+     61,
+     648
+    ],
+    [
+     62,
+     192
+    ],
+    [
+     63,
+     184
+    ],
+    [
+     64,
+     520
+    ]
+   ],
+   "src": [
+    "raw/state_prefix.jsonl"
+   ]
+  },
+  "h_eq1": {
+   "v": 15443686,
+   "src": [
+    "raw/state_prefix.jsonl"
+   ]
+  },
+  "h_le4_share": {
+   "v": 0.8904,
+   "src": [
+    "raw/state_prefix.jsonl"
+   ]
+  },
+  "create_early": {
+   "v": 0.8732,
+   "src": [
+    "raw/creations_eras.jsonl"
+   ]
+  },
+  "create_late": {
+   "v": 0.3819,
+   "src": [
+    "raw/creations_eras.jsonl"
+   ]
+  }
+ },
+ "c1": {
+  "sweep": {
+   "v": [
+    {
+     "n": 2,
+     "paths_pb": 24.0,
+     "write_net_pb": -13.33,
+     "a1": 0.0132,
+     "a2": null
+    },
+    {
+     "n": 4,
+     "paths_pb": 41.1,
+     "write_net_pb": -11.85,
+     "a1": 0.0224,
+     "a2": 0.0036
+    },
+    {
+     "n": 16,
+     "paths_pb": 97.9,
+     "write_net_pb": -2.86,
+     "a1": 0.0461,
+     "a2": 0.0075
+    },
+    {
+     "n": 32,
+     "paths_pb": 108.4,
+     "write_net_pb": -0.49,
+     "a1": 0.0493,
+     "a2": 0.0082
+    },
+    {
+     "n": 64,
+     "paths_pb": 115.1,
+     "write_net_pb": 2.06,
+     "a1": 0.0507,
+     "a2": 0.0086
+    },
+    {
+     "n": 128,
+     "paths_pb": 121.3,
+     "write_net_pb": 3.07,
+     "a1": 0.0519,
+     "a2": 0.0088
+    },
+    {
+     "n": 192,
+     "paths_pb": 124.1,
+     "write_net_pb": 3.56,
+     "a1": 0.0524,
+     "a2": 0.0089
+    },
+    {
+     "n": 256,
+     "paths_pb": 127.1,
+     "write_net_pb": 3.84,
+     "a1": 0.0528,
+     "a2": null
+    }
+   ],
+   "src": [
+    "raw/paths_reads.jsonl",
+    "raw/paths_writes.jsonl",
+    "raw/access_totals.jsonl",
+    "raw/write_totals.jsonl",
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "hist": {
+   "v": {
+    "read": [
+     19674014,
+     12567161,
+     6661678,
+     15790648,
+     14888845,
+     3633030,
+     4395211,
+     4203820,
+     4627302,
+     3836341,
+     12509347,
+     2173382,
+     3573176,
+     1745681,
+     1180342,
+     1245238,
+     1016802,
+     1135235,
+     917921,
+     694163,
+     683770,
+     428760,
+     426591,
+     347685,
+     216207,
+     590954,
+     563641,
+     208852,
+     225750,
+     217124,
+     110370,
+     100364,
+     112854,
+     96735,
+     246226,
+     297368,
+     223718,
+     227382,
+     54865,
+     62441,
+     120049,
+     72222,
+     81903,
+     57602,
+     77593,
+     56967,
+     50238,
+     69767,
+     51129,
+     66689,
+     144825,
+     165559,
+     57118,
+     153767,
+     195120,
+     90734,
+     47645,
+     53781,
+     208503,
+     55233,
+     62683,
+     140726,
+     38681,
+     41342,
+     26760,
+     47828,
+     28638,
+     15367,
+     18288,
+     12864,
+     11170,
+     15815,
+     11003,
+     11130,
+     14568,
+     10844,
+     10378,
+     10112,
+     10630,
+     10636,
+     10486,
+     11107,
+     10561,
+     15204,
+     9681,
+     10629,
+     11656,
+     9067,
+     9082,
+     7652,
+     7660,
+     6623,
+     8217,
+     7728,
+     8340,
+     7388,
+     7517,
+     7607,
+     7778,
+     6837,
+     15331,
+     958434,
+     385963,
+     98216,
+     115611,
+     145378,
+     53548,
+     74052,
+     288533,
+     34533,
+     40667,
+     22760,
+     13088,
+     32598,
+     10153,
+     14964,
+     16093,
+     18117,
+     12070,
+     12877,
+     12254,
+     12066,
+     13541,
+     12926,
+     12301,
+     14284,
+     13034,
+     11942,
+     12589,
+     10707,
+     10642,
+     10593,
+     12841,
+     10797,
+     11406,
+     21306,
+     10007,
+     9987,
+     3682,
+     3717,
+     3784,
+     3635,
+     3715,
+     3623,
+     3437,
+     3584,
+     3538,
+     3675,
+     3769,
+     4923,
+     8897,
+     321840,
+     46138,
+     46015,
+     118804,
+     28449,
+     20434,
+     27834,
+     253401,
+     31243,
+     30690,
+     22448,
+     13135,
+     6730,
+     6457,
+     24536,
+     29003,
+     3765,
+     7126,
+     4671,
+     7954,
+     3419,
+     4515,
+     4259,
+     3457,
+     4457,
+     4073,
+     2921,
+     2872,
+     2999,
+     2939,
+     2793,
+     2998,
+     3314,
+     2700,
+     2766,
+     2646,
+     2609,
+     1875,
+     1911,
+     1861,
+     1887,
+     1838,
+     1848,
+     1848,
+     2309,
+     2486,
+     4593,
+     3986,
+     1851,
+     7996,
+     145440,
+     94751,
+     99161,
+     21751,
+     41115,
+     30839,
+     63581,
+     11696,
+     12845,
+     8280,
+     15295,
+     5799,
+     11547,
+     11647,
+     7558,
+     5843,
+     9628,
+     7415,
+     4908,
+     7686,
+     3801,
+     2382,
+     9514,
+     1728,
+     1841,
+     1891,
+     1875,
+     2820,
+     3301,
+     3129,
+     3423,
+     3070,
+     1597,
+     1581,
+     1549,
+     1833,
+     1786,
+     1795,
+     5191,
+     4980,
+     1581,
+     1555,
+     1611,
+     1599,
+     1540,
+     1506,
+     1508,
+     1606,
+     8466,
+     7132,
+     115526,
+     64245,
+     32727,
+     26125,
+     7308
+    ],
+    "write": [
+     3836978,
+     1974844,
+     2407541,
+     3611311,
+     914475,
+     624813,
+     402613,
+     436659,
+     2923496,
+     1871602,
+     1763731,
+     462185,
+     369502,
+     329412,
+     288203,
+     239201,
+     70879,
+     214341,
+     134266,
+     47549,
+     49955,
+     52284,
+     76130,
+     77066,
+     34730,
+     82910,
+     220622,
+     74445,
+     84199,
+     48182,
+     40519,
+     32266,
+     59611,
+     23610,
+     163263,
+     20365,
+     22522,
+     129946,
+     23477,
+     27838,
+     34152,
+     28880,
+     30239,
+     26963,
+     49962,
+     20109,
+     12894,
+     34317,
+     9428,
+     8716,
+     10441,
+     18962,
+     12990,
+     69473,
+     108543,
+     9039,
+     10566,
+     10484,
+     56801,
+     5967,
+     6525,
+     20579,
+     11465,
+     5211,
+     4328,
+     24449,
+     15396,
+     5474,
+     4952,
+     3817,
+     3620,
+     4240,
+     3500,
+     3575,
+     3451,
+     3471,
+     3360,
+     3463,
+     3609,
+     3505,
+     3376,
+     3604,
+     3691,
+     4861,
+     2559,
+     3156,
+     3280,
+     2472,
+     2543,
+     2160,
+     2165,
+     2522,
+     2107,
+     2235,
+     2169,
+     2010,
+     1945,
+     3555,
+     3574,
+     2781,
+     5011,
+     16186,
+     20856,
+     25586,
+     47113,
+     23477,
+     21206,
+     4245,
+     4638,
+     3637,
+     4260,
+     1877,
+     1978,
+     2445,
+     2029,
+     1832,
+     7072,
+     7488,
+     1982,
+     2171,
+     2078,
+     1698,
+     6285,
+     5722,
+     5349,
+     5187,
+     4901,
+     4944,
+     4789,
+     4464,
+     4613,
+     4518,
+     6820,
+     4635,
+     4625,
+     15247,
+     4317,
+     5243,
+     1194,
+     1175,
+     1128,
+     1186,
+     1380,
+     1190,
+     1095,
+     1152,
+     1155,
+     1159,
+     1195,
+     1706,
+     1161,
+     2992,
+     6202,
+     8148,
+     5570,
+     2407,
+     1620,
+     3451,
+     7553,
+     3461,
+     7992,
+     3826,
+     1360,
+     2384,
+     2256,
+     1357,
+     1060,
+     1002,
+     980,
+     936,
+     4277,
+     962,
+     958,
+     1791,
+     1000,
+     1027,
+     973,
+     953,
+     952,
+     957,
+     896,
+     944,
+     933,
+     1331,
+     902,
+     937,
+     944,
+     929,
+     573,
+     664,
+     641,
+     628,
+     584,
+     636,
+     640,
+     1079,
+     583,
+     1086,
+     628,
+     625,
+     604,
+     3746,
+     4411,
+     29166,
+     1667,
+     24928,
+     7132,
+     5714,
+     1254,
+     3539,
+     3386,
+     1070,
+     1928,
+     1756,
+     1555,
+     1368,
+     572,
+     718,
+     853,
+     781,
+     1083,
+     643,
+     710,
+     572,
+     521,
+     587,
+     524,
+     528,
+     1641,
+     533,
+     565,
+     543,
+     537,
+     556,
+     538,
+     535,
+     488,
+     754,
+     537,
+     3923,
+     470,
+     543,
+     528,
+     531,
+     494,
+     532,
+     528,
+     518,
+     473,
+     540,
+     548,
+     1621,
+     8321,
+     2166,
+     10486,
+     918
+    ]
+   },
+   "src": [
+    "raw/hist.jsonl"
+   ]
+  },
+  "below4": {
+   "v": 0.4232,
+   "src": [
+    "raw/hist.jsonl"
+   ]
+  },
+  "below16": {
+   "v": 0.872,
+   "src": [
+    "raw/hist.jsonl"
+   ]
+  },
+  "below64": {
+   "v": 0.9599,
+   "src": [
+    "raw/hist.jsonl"
+   ]
+  },
+  "n4_vs_64": {
+   "v": 0.4408,
+   "src": [
+    "raw/access_totals.jsonl"
+   ]
+  },
+  "n64_vs_256": {
+   "v": 0.9599,
+   "src": [
+    "raw/access_totals.jsonl"
+   ]
+  },
+  "paths_n64_vs_256": {
+   "v": 0.9058,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  }
+ },
+ "c2": {
+  "charges": {
+   "v": 22644165,
+   "src": [
+    "raw/access_totals.jsonl"
+   ]
+  },
+  "share": {
+   "v": 0.055,
+   "src": [
+    "raw/access_totals.jsonl"
+   ]
+  },
+  "paths_pb": {
+   "v": 49.4,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "contracts_pb": {
+   "v": 37.2,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "whole_bucket_pb": {
+   "v": 4.3,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "gas": {
+   "v": 0.0093,
+   "src": [
+    "raw/access_totals.jsonl",
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "top": {
+   "v": [
+    {
+     "a": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+     "share": 0.5549
+    },
+    {
+     "a": "0x4313c378cc91ea583c91387b9216e2c03096b27f",
+     "share": 0.0179
+    },
+    {
+     "a": "0x6c3ea9036406852006290770bedfcaba0e23a0e8",
+     "share": 0.0108
+    },
+    {
+     "a": "0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5",
+     "share": 0.0107
+    },
+    {
+     "a": "0x3d90f66b534dd8482b181e24655a9e8265316be9",
+     "share": 0.01
+    },
+    {
+     "a": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+     "share": 0.0099
+    },
+    {
+     "a": "0x68749665ff8d2d112fa859aa293f07a622782f38",
+     "share": 0.0094
+    },
+    {
+     "a": "0xbee3211ab312a8d065c4fef0247448e17a8da000",
+     "share": 0.0089
+    },
+    {
+     "a": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+     "share": 0.0073
+    },
+    {
+     "a": "0x3328f7f4a1d1c57c35df56bbf0c9dcafca309c49",
+     "share": 0.0065
+    }
+   ],
+   "src": [
+    "raw/top_proxies.jsonl"
+   ]
+  }
+ },
+ "c3": {
+  "lookups_saved_pb": {
+   "v": 395.9,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "lookups_share": {
+   "v": 0.2101,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "account_reads_pb": {
+   "v": 841.0,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "sample_reads_pb": {
+   "v": 588.0,
+   "src": [
+    "raw/c3_accessed.jsonl"
+   ]
+  },
+  "reads_with_slots": {
+   "v": 0.2648,
+   "src": [
+    "raw/c3_accessed.jsonl",
+    "raw/c3_live_header.jsonl"
+   ]
+  },
+  "bytes_per_read": {
+   "v": 88.4,
+   "src": [
+    "raw/c3_accessed.jsonl",
+    "raw/c3_live_header.jsonl"
+   ]
+  },
+  "kb_pb": {
+   "v": 50.8,
+   "src": [
+    "raw/c3_accessed.jsonl",
+    "raw/c3_live_header.jsonl"
+   ]
+  },
+  "kb_pb_actual": {
+   "v": 72.6,
+   "src": [
+    "raw/c3_accessed.jsonl",
+    "raw/c3_live_header.jsonl",
+    "raw/paths_reads.jsonl"
+   ]
+  }
+ },
+ "d1": {
+  "eras": {
+   "v": [
+    {
+     "mblock": 1,
+     "share": 0.2715,
+     "writes": 1775
+    },
+    {
+     "mblock": 2,
+     "share": 0.2343,
+     "writes": 1353
+    },
+    {
+     "mblock": 3,
+     "share": 0.2347,
+     "writes": 9678
+    },
+    {
+     "mblock": 4,
+     "share": 0.0856,
+     "writes": 96341
+    },
+    {
+     "mblock": 5,
+     "share": 0.1397,
+     "writes": 166223
+    },
+    {
+     "mblock": 6,
+     "share": 0.1279,
+     "writes": 168970
+    },
+    {
+     "mblock": 7,
+     "share": 0.0855,
+     "writes": 204077
+    },
+    {
+     "mblock": 8,
+     "share": 0.0716,
+     "writes": 191653
+    },
+    {
+     "mblock": 9,
+     "share": 0.099,
+     "writes": 200912
+    },
+    {
+     "mblock": 10,
+     "share": 0.1264,
+     "writes": 288151
+    },
+    {
+     "mblock": 11,
+     "share": 0.2138,
+     "writes": 387536
+    },
+    {
+     "mblock": 12,
+     "share": 0.2563,
+     "writes": 393733
+    },
+    {
+     "mblock": 13,
+     "share": 0.1802,
+     "writes": 425810
+    },
+    {
+     "mblock": 14,
+     "share": 0.1761,
+     "writes": 362688
+    },
+    {
+     "mblock": 15,
+     "share": 0.2054,
+     "writes": 412290
+    },
+    {
+     "mblock": 16,
+     "share": 0.1881,
+     "writes": 381351
+    },
+    {
+     "mblock": 17,
+     "share": 0.2191,
+     "writes": 369782
+    },
+    {
+     "mblock": 18,
+     "share": 0.2585,
+     "writes": 357860
+    },
+    {
+     "mblock": 19,
+     "share": 0.234,
+     "writes": 393617
+    },
+    {
+     "mblock": 20,
+     "share": 0.267,
+     "writes": 408889
+    },
+    {
+     "mblock": 21,
+     "share": 0.2294,
+     "writes": 426418
+    },
+    {
+     "mblock": 22,
+     "share": 0.193,
+     "writes": 459874
+    },
+    {
+     "mblock": 23,
+     "share": 0.1855,
+     "writes": 571535
+    },
+    {
+     "mblock": 24,
+     "share": 0.1896,
+     "writes": 646019
+    },
+    {
+     "mblock": 25,
+     "share": 0.1796,
+     "writes": 677660
+    },
+    {
+     "mblock": 26,
+     "share": 0.1727,
+     "writes": 369177
+    }
+   ],
+   "src": [
+    "raw/trend_writes.jsonl"
+   ]
+  },
+  "reads_by_chunk": {
+   "v": [
+    {
+     "block": 24700000,
+     "date": "2026-03-20",
+     "share": 0.3472
+    },
+    {
+     "block": 24710000,
+     "date": "2026-03-22",
+     "share": 0.4389
+    },
+    {
+     "block": 24720000,
+     "date": "2026-03-23",
+     "share": 0.3373
+    },
+    {
+     "block": 24730000,
+     "date": "2026-03-24",
+     "share": 0.3192
+    },
+    {
+     "block": 24740000,
+     "date": "2026-03-26",
+     "share": 0.3251
+    },
+    {
+     "block": 24750000,
+     "date": "2026-03-27",
+     "share": 0.292
+    },
+    {
+     "block": 24760000,
+     "date": "2026-03-29",
+     "share": 0.3008
+    },
+    {
+     "block": 24770000,
+     "date": "2026-03-30",
+     "share": 0.3088
+    },
+    {
+     "block": 24780000,
+     "date": "2026-03-31",
+     "share": 0.3004
+    },
+    {
+     "block": 24790000,
+     "date": "2026-04-02",
+     "share": 0.2914
+    },
+    {
+     "block": 24800000,
+     "date": "2026-04-03",
+     "share": 0.3072
+    },
+    {
+     "block": 24810000,
+     "date": "2026-04-05",
+     "share": 0.2509
+    },
+    {
+     "block": 24820000,
+     "date": "2026-04-06",
+     "share": 0.3268
+    },
+    {
+     "block": 24830000,
+     "date": "2026-04-07",
+     "share": 0.3209
+    },
+    {
+     "block": 24840000,
+     "date": "2026-04-09",
+     "share": 0.2835
+    },
+    {
+     "block": 24850000,
+     "date": "2026-04-10",
+     "share": 0.3187
+    },
+    {
+     "block": 24860000,
+     "date": "2026-04-12",
+     "share": 0.3086
+    },
+    {
+     "block": 24870000,
+     "date": "2026-04-13",
+     "share": 0.2821
+    },
+    {
+     "block": 24880000,
+     "date": "2026-04-14",
+     "share": 0.3172
+    },
+    {
+     "block": 24890000,
+     "date": "2026-04-16",
+     "share": 0.2606
+    },
+    {
+     "block": 24900000,
+     "date": "2026-04-17",
+     "share": 0.3526
+    },
+    {
+     "block": 24910000,
+     "date": "2026-04-18",
+     "share": 0.3166
+    },
+    {
+     "block": 24920000,
+     "date": "2026-04-20",
+     "share": 0.3916
+    },
+    {
+     "block": 24930000,
+     "date": "2026-04-21",
+     "share": 0.3777
+    },
+    {
+     "block": 24940000,
+     "date": "2026-04-23",
+     "share": 0.3636
+    },
+    {
+     "block": 24950000,
+     "date": "2026-04-24",
+     "share": 0.3944
+    },
+    {
+     "block": 24960000,
+     "date": "2026-04-25",
+     "share": 0.3567
+    },
+    {
+     "block": 24970000,
+     "date": "2026-04-27",
+     "share": 0.3597
+    },
+    {
+     "block": 24980000,
+     "date": "2026-04-28",
+     "share": 0.3627
+    },
+    {
+     "block": 24990000,
+     "date": "2026-04-30",
+     "share": 0.3215
+    },
+    {
+     "block": 25000000,
+     "date": "2026-05-01",
+     "share": 0.3284
+    },
+    {
+     "block": 25010000,
+     "date": "2026-05-02",
+     "share": 0.2877
+    },
+    {
+     "block": 25020000,
+     "date": "2026-05-04",
+     "share": 0.3161
+    },
+    {
+     "block": 25030000,
+     "date": "2026-05-05",
+     "share": 0.3347
+    },
+    {
+     "block": 25040000,
+     "date": "2026-05-07",
+     "share": 0.3155
+    },
+    {
+     "block": 25050000,
+     "date": "2026-05-08",
+     "share": 0.3142
+    },
+    {
+     "block": 25060000,
+     "date": "2026-05-09",
+     "share": 0.2875
+    },
+    {
+     "block": 25070000,
+     "date": "2026-05-11",
+     "share": 0.3104
+    },
+    {
+     "block": 25080000,
+     "date": "2026-05-12",
+     "share": 0.3267
+    },
+    {
+     "block": 25090000,
+     "date": "2026-05-14",
+     "share": 0.2991
+    },
+    {
+     "block": 25100000,
+     "date": "2026-05-15",
+     "share": 0.3103
+    },
+    {
+     "block": 25110000,
+     "date": "2026-05-16",
+     "share": 0.2971
+    },
+    {
+     "block": 25120000,
+     "date": "2026-05-18",
+     "share": 0.2998
+    },
+    {
+     "block": 25130000,
+     "date": "2026-05-19",
+     "share": 0.3205
+    },
+    {
+     "block": 25140000,
+     "date": "2026-05-21",
+     "share": 0.3153
+    },
+    {
+     "block": 25150000,
+     "date": "2026-05-22",
+     "share": 0.3117
+    },
+    {
+     "block": 25160000,
+     "date": "2026-05-23",
+     "share": 0.331
+    },
+    {
+     "block": 25170000,
+     "date": "2026-05-25",
+     "share": 0.2947
+    },
+    {
+     "block": 25180000,
+     "date": "2026-05-26",
+     "share": 0.331
+    },
+    {
+     "block": 25190000,
+     "date": "2026-05-27",
+     "share": 0.2685
+    },
+    {
+     "block": 25200000,
+     "date": "2026-05-29",
+     "share": 0.3084
+    },
+    {
+     "block": 25210000,
+     "date": "2026-05-30",
+     "share": 0.2662
+    },
+    {
+     "block": 25220000,
+     "date": "2026-06-01",
+     "share": 0.2972
+    },
+    {
+     "block": 25230000,
+     "date": "2026-06-02",
+     "share": 0.3375
+    },
+    {
+     "block": 25240000,
+     "date": "2026-06-03",
+     "share": 0.3348
+    },
+    {
+     "block": 25250000,
+     "date": "2026-06-05",
+     "share": 0.3357
+    },
+    {
+     "block": 25260000,
+     "date": "2026-06-06",
+     "share": 0.3427
+    },
+    {
+     "block": 25270000,
+     "date": "2026-06-08",
+     "share": 0.304
+    },
+    {
+     "block": 25280000,
+     "date": "2026-06-09",
+     "share": 0.336
+    },
+    {
+     "block": 25290000,
+     "date": "2026-06-10",
+     "share": 0.249
+    },
+    {
+     "block": 25300000,
+     "date": "2026-06-12",
+     "share": 0.2983
+    },
+    {
+     "block": 25310000,
+     "date": "2026-06-13",
+     "share": 0.2806
+    },
+    {
+     "block": 25320000,
+     "date": "2026-06-15",
+     "share": 0.3256
+    },
+    {
+     "block": 25330000,
+     "date": "2026-06-16",
+     "share": 0.3285
+    },
+    {
+     "block": 25340000,
+     "date": "2026-06-17",
+     "share": 0.2872
+    },
+    {
+     "block": 25350000,
+     "date": "2026-06-19",
+     "share": 0.2899
+    },
+    {
+     "block": 25360000,
+     "date": "2026-06-20",
+     "share": 0.275
+    },
+    {
+     "block": 25370000,
+     "date": "2026-06-22",
+     "share": 0.2746
+    },
+    {
+     "block": 25380000,
+     "date": "2026-06-23",
+     "share": 0.3494
+    },
+    {
+     "block": 25390000,
+     "date": "2026-06-24",
+     "share": 0.3277
+    },
+    {
+     "block": 25400000,
+     "date": "2026-06-26",
+     "share": 0.3091
+    },
+    {
+     "block": 25410000,
+     "date": "2026-06-27",
+     "share": 0.2488
+    },
+    {
+     "block": 25420000,
+     "date": "2026-06-29",
+     "share": 0.2692
+    },
+    {
+     "block": 25430000,
+     "date": "2026-06-30",
+     "share": 0.324
+    },
+    {
+     "block": 25440000,
+     "date": "2026-07-01",
+     "share": 0.3142
+    },
+    {
+     "block": 25450000,
+     "date": "2026-07-03",
+     "share": 0.2876
+    },
+    {
+     "block": 25460000,
+     "date": "2026-07-04",
+     "share": 0.294
+    },
+    {
+     "block": 25470000,
+     "date": "2026-07-06",
+     "share": 0.2686
+    },
+    {
+     "block": 25480000,
+     "date": "2026-07-07",
+     "share": 0.3073
+    },
+    {
+     "block": 25490000,
+     "date": "2026-07-08",
+     "share": 0.2888
+    },
+    {
+     "block": 25500000,
+     "date": "2026-07-10",
+     "share": 0.2696
+    },
+    {
+     "block": 25510000,
+     "date": "2026-07-11",
+     "share": 0.2995
+    },
+    {
+     "block": 25520000,
+     "date": "2026-07-13",
+     "share": 0.3253
+    },
+    {
+     "block": 25530000,
+     "date": "2026-07-14",
+     "share": 0.3007
+    },
+    {
+     "block": 25540000,
+     "date": "2026-07-15",
+     "share": 0.2875
+    },
+    {
+     "block": 25550000,
+     "date": "2026-07-17",
+     "share": 0.2823
+    },
+    {
+     "block": 25560000,
+     "date": "2026-07-18",
+     "share": 0.2628
+    },
+    {
+     "block": 25570000,
+     "date": "2026-07-19",
+     "share": 0.2778
+    },
+    {
+     "block": 25580000,
+     "date": "2026-07-21",
+     "share": 0.2923
+    },
+    {
+     "block": 25590000,
+     "date": "2026-07-22",
+     "share": 0.2832
+    },
+    {
+     "block": 25600000,
+     "date": "2026-07-24",
+     "share": 0.2378
+    },
+    {
+     "block": 25610000,
+     "date": "2026-07-25",
+     "share": 0.2732
+    },
+    {
+     "block": 25620000,
+     "date": "2026-07-26",
+     "share": 0.296
+    },
+    {
+     "block": 25630000,
+     "date": "2026-07-28",
+     "share": 0.269
+    },
+    {
+     "block": 25640000,
+     "date": "2026-07-29",
+     "share": 0.2591
+    },
+    {
+     "block": 25650000,
+     "date": "2026-07-31",
+     "share": 0.2463
+    },
+    {
+     "block": 25660000,
+     "date": "2026-08-01",
+     "share": 0.2683
+    },
+    {
+     "block": 25670000,
+     "date": "2026-08-02",
+     "share": 0.2772
+    },
+    {
+     "block": 25680000,
+     "date": "2026-08-04",
+     "share": 0.2974
+    },
+    {
+     "block": 25690000,
+     "date": "2026-08-05",
+     "share": 0.3047
+    },
+    {
+     "block": 25700000,
+     "date": "2026-08-07",
+     "share": 0.2868
+    },
+    {
+     "block": 25710000,
+     "date": "2026-08-08",
+     "share": 0.2428
+    },
+    {
+     "block": 25720000,
+     "date": "2026-08-09",
+     "share": 0.2696
+    },
+    {
+     "block": 25730000,
+     "date": "2026-08-11",
+     "share": 0.2726
+    },
+    {
+     "block": 25740000,
+     "date": "2026-08-12",
+     "share": 0.3063
+    },
+    {
+     "block": 25750000,
+     "date": "2026-08-14",
+     "share": 0.269
+    },
+    {
+     "block": 25760000,
+     "date": "2026-08-15",
+     "share": 0.2862
+    },
+    {
+     "block": 25770000,
+     "date": "2026-08-16",
+     "share": 0.255
+    },
+    {
+     "block": 25780000,
+     "date": "2026-08-18",
+     "share": 0.2849
+    },
+    {
+     "block": 25790000,
+     "date": "2026-08-19",
+     "share": 0.3201
+    },
+    {
+     "block": 25800000,
+     "date": "2026-08-21",
+     "share": 0.2932
+    },
+    {
+     "block": 25810000,
+     "date": "2026-08-22",
+     "share": 0.2932
+    },
+    {
+     "block": 25820000,
+     "date": "2026-08-23",
+     "share": 0.2926
+    },
+    {
+     "block": 25830000,
+     "date": "2026-08-25",
+     "share": 0.3273
+    },
+    {
+     "block": 25840000,
+     "date": "2026-08-26",
+     "share": 0.3165
+    },
+    {
+     "block": 25850000,
+     "date": "2026-08-27",
+     "share": 0.2971
+    },
+    {
+     "block": 25860000,
+     "date": "2026-08-29",
+     "share": 0.2781
+    },
+    {
+     "block": 25870000,
+     "date": "2026-08-30",
+     "share": 0.3219
+    },
+    {
+     "block": 25880000,
+     "date": "2026-09-01",
+     "share": 0.2942
+    },
+    {
+     "block": 25890000,
+     "date": "2026-09-02",
+     "share": 0.3252
+    },
+    {
+     "block": 25900000,
+     "date": "2026-09-03",
+     "share": 0.2985
+    },
+    {
+     "block": 25910000,
+     "date": "2026-09-05",
+     "share": 0.292
+    },
+    {
+     "block": 25920000,
+     "date": "2026-09-06",
+     "share": 0.3158
+    },
+    {
+     "block": 25930000,
+     "date": "2026-09-08",
+     "share": 0.2932
+    },
+    {
+     "block": 25940000,
+     "date": "2026-09-09",
+     "share": 0.3226
+    },
+    {
+     "block": 25950000,
+     "date": "2026-09-10",
+     "share": 0.3199
+    },
+    {
+     "block": 25960000,
+     "date": "2026-09-12",
+     "share": 0.2801
+    },
+    {
+     "block": 25970000,
+     "date": "2026-09-13",
+     "share": 0.2904
+    },
+    {
+     "block": 25980000,
+     "date": "2026-09-15",
+     "share": 0.2921
+    },
+    {
+     "block": 25990000,
+     "date": "2026-09-16",
+     "share": 0.3213
+    },
+    {
+     "block": 26000000,
+     "date": "2026-09-17",
+     "share": 0.2892
+    },
+    {
+     "block": 26010000,
+     "date": "2026-09-19",
+     "share": 0.3021
+    },
+    {
+     "block": 26020000,
+     "date": "2026-09-20",
+     "share": 0.3123
+    },
+    {
+     "block": 26030000,
+     "date": "2026-09-22",
+     "share": 0.3035
+    },
+    {
+     "block": 26040000,
+     "date": "2026-09-23",
+     "share": 0.2922
+    },
+    {
+     "block": 26050000,
+     "date": "2026-09-24",
+     "share": 0.2875
+    },
+    {
+     "block": 26060000,
+     "date": "2026-09-26",
+     "share": 0.2662
+    },
+    {
+     "block": 26070000,
+     "date": "2026-09-27",
+     "share": 0.2854
+    },
+    {
+     "block": 26080000,
+     "date": "2026-09-29",
+     "share": 0.2904
+    },
+    {
+     "block": 26090000,
+     "date": "2026-09-30",
+     "share": 0.3054
+    },
+    {
+     "block": 26100000,
+     "date": "2026-10-01",
+     "share": 0.2623
+    },
+    {
+     "block": 26110000,
+     "date": "2026-10-03",
+     "share": 0.2252
+    },
+    {
+     "block": 26120000,
+     "date": "2026-10-04",
+     "share": 0.2813
+    },
+    {
+     "block": 26130000,
+     "date": "2026-10-06",
+     "share": 0.2743
+    },
+    {
+     "block": 26140000,
+     "date": "2026-10-07",
+     "share": 0.3022
+    },
+    {
+     "block": 26150000,
+     "date": "2026-10-08",
+     "share": 0.2808
+    },
+    {
+     "block": 26160000,
+     "date": "2026-10-10",
+     "share": 0.2521
+    },
+    {
+     "block": 26170000,
+     "date": "2026-10-11",
+     "share": 0.2991
+    },
+    {
+     "block": 26180000,
+     "date": "2026-10-13",
+     "share": 0.2981
+    },
+    {
+     "block": 26190000,
+     "date": "2026-10-14",
+     "share": 0.295
+    },
+    {
+     "block": 26200000,
+     "date": "2026-10-15",
+     "share": 0.2692
+    },
+    {
+     "block": 26210000,
+     "date": "2026-10-17",
+     "share": 0.2567
+    },
+    {
+     "block": 26220000,
+     "date": "2026-10-18",
+     "share": 0.3008
+    },
+    {
+     "block": 26230000,
+     "date": "2026-10-19",
+     "share": 0.3077
+    },
+    {
+     "block": 26240000,
+     "date": "2026-10-21",
+     "share": 0.3056
+    },
+    {
+     "block": 26250000,
+     "date": "2026-10-22",
+     "share": 0.263
+    },
+    {
+     "block": 26260000,
+     "date": "2026-10-24",
+     "share": 0.2315
+    },
+    {
+     "block": 26270000,
+     "date": "2026-10-25",
+     "share": 0.2869
+    },
+    {
+     "block": 26280000,
+     "date": "2026-10-26",
+     "share": 0.288
+    },
+    {
+     "block": 26290000,
+     "date": "2026-10-28",
+     "share": 0.2875
+    },
+    {
+     "block": 26300000,
+     "date": "2026-10-29",
+     "share": 0.2873
+    }
+   ],
+   "src": [
+    "raw/access_totals.jsonl",
+    "raw/blocks_meta.jsonl"
+   ]
+  },
+  "reads_range": {
+   "v": [
+    0.2252,
+    0.2974,
+    0.4389
+   ],
+   "src": [
+    "raw/access_totals.jsonl"
+   ]
+  },
+  "writes_2017_2020": {
+   "v": 0.1068,
+   "src": [
+    "raw/trend_writes.jsonl"
+   ]
+  },
+  "writes_since_2021": {
+   "v": 0.2067,
+   "src": [
+    "raw/trend_writes.jsonl"
+   ]
+  },
+  "writes_recent": {
+   "v": 0.1819,
+   "src": [
+    "raw/trend_writes.jsonl"
+   ]
+  }
+ },
+ "d2": {
+  "delegated": {
+   "v": 293768,
+   "src": [
+    "raw/delegates.jsonl"
+   ]
+  },
+  "slot_writes": {
+   "v": 28348,
+   "src": [
+    "raw/delegates.jsonl"
+   ]
+  },
+  "hdr_share": {
+   "v": 0.2226,
+   "src": [
+    "raw/delegates.jsonl"
+   ]
+  },
+  "nonce_share": {
+   "v": 0.8216,
+   "src": [
+    "raw/delegates.jsonl"
+   ]
+  },
+  "targets": {
+   "v": 71,
+   "src": [
+    "raw/delegates.jsonl"
+   ]
+  },
+  "top": {
+   "v": [
+    {
+     "a": "0x7702cb554e6bfb442cb743a7df23154544a7176c",
+     "accounts": 1268,
+     "writes": 10144,
+     "hdr_share": 0.0
+    },
+    {
+     "a": "0x0000fb7702036ff9f76044a501ac1aa74cbab16b",
+     "accounts": 3027,
+     "writes": 4305,
+     "hdr_share": 0.0
+    },
+    {
+     "a": "0x34fff33dc9c0ead473a1878923b3858d8ed04dfb",
+     "accounts": 1913,
+     "writes": 2981,
+     "hdr_share": 1.0
+    },
+    {
+     "a": "0xb94b392b61c16ddb7118849d4970570c07f75dd1",
+     "accounts": 826,
+     "writes": 1764,
+     "hdr_share": 0.0
+    },
+    {
+     "a": "0x8332a5c2f00ab7e20c53210be2192aea7bdc77f0",
+     "accounts": 1144,
+     "writes": 1750,
+     "hdr_share": 1.0
+    },
+    {
+     "a": "0x000000009b1d0af20d8c6d0a44e162d11f9b8f00",
+     "accounts": 949,
+     "writes": 1235,
+     "hdr_share": 0.0
+    },
+    {
+     "a": "0x3e515544f8d8293b0a353e10ff3b7ca03b52f35b",
+     "accounts": 12,
+     "writes": 899,
+     "hdr_share": 0.0
+    },
+    {
+     "a": "0x08bf3aa11cf3063ae49c9383e74eb72b3329aa24",
+     "accounts": 8,
+     "writes": 816,
+     "hdr_share": 0.0
+    },
+    {
+     "a": "0x5ac4c3f3d60d9186baf971aa1bda7c3924adec4c",
+     "accounts": 380,
+     "writes": 774,
+     "hdr_share": 0.0
+    },
+    {
+     "a": "0x000000005c84f8fd50b21cac312528a64437030e",
+     "accounts": 590,
+     "writes": 596,
+     "hdr_share": 0.0
+    }
+   ],
+   "src": [
+    "raw/delegates.jsonl"
+   ]
+  }
+ },
+ "labels": {
+  "0x0000000071727de22e5e9d8baf0edac6f37da032": "ERC-4337 EntryPoint v0.7",
+  "0x04571c32a4e1c5f39bc3a238cb95b215058c432c": "GLP",
+  "0x11b815efb8f581194ae79006d24e0d814b7697f6": "Uniswap V3 WETH/USDT 0.05%",
+  "0x1445f32d1a74872ba41f3d8cf4022e9996120b31": "V3-style pool USDC/WETH 0.01%",
+  "0x45804880de22913dafe09f4980848ece6ecbaf78": "PAXG",
+  "0x4585fe77225b41b697c938b018e2ac67ac5a20c0": "Uniswap V3 WBTC/WETH 0.05%",
+  "0x4ebdf703948ddcea3b11f675b4d1fba9d2414a14": "crvUSDETHCRV",
+  "0x60594a405d53811d3bc4766596efd80fd545a270": "Uniswap V3 DAI/WETH 0.05%",
+  "0x68749665ff8d2d112fa859aa293f07a622782f38": "XAUt",
+  "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45": "Uniswap V3 router",
+  "0x6c3ea9036406852006290770bedfcaba0e23a0e8": "PYUSD",
+  "0x6ca298d2983ab03aa1da7679389d955a4efee15c": "V3-style pool WETH/USDT 0.05%",
+  "0x7a250d5630b4cf539739df2c5dacb4c659f2488d": "Uniswap V2 router",
+  "0x7f86bf177dd4f3494b841a37e810a34dd56c829b": "crvUSDCWBTCWETH",
+  "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9": "AAVE",
+  "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640": "Uniswap V3 USDC/WETH 0.05%",
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": "USDC",
+  "0xc7bbec68d12a0d1830360f8ec58fa599ba1b0e9b": "Uniswap V3 WETH/USDT 0.01%",
+  "0xdac17f958d2ee523a2206206994597c13d831ec7": "USDT",
+  "0xe0554a476a092703abdb3ef35c80e0d76d32939f": "Uniswap V3 USDC/WETH 0.01%",
+  "0xf280b16ef293d8e534e370794ef26bf312694126": "ASTEROID"
+ }
+}

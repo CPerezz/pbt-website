@@ -1,0 +1,15 @@
+{
+  "chainId": "1",
+  "block": 26142444,
+  "blockHash": "0xcd80780cdaaad337bf3e4ea51f2e61a3040d1ed13ca40c1720cab2e2e5645f70",
+  "txNum": 3831789388,
+  "hashSuite": "blake3",
+  "stateRoot": "0xa668cad6ace2eb4397c507412c2f7ffd252d2c852ffec00a55914224dcbe5027",
+  "pbtRoot": "0x773d19dfb7757f6c5ac470934dce60d4e0f42051bdbb2b7da61bbef6cecf4338",
+  "headerCount": 423196419,
+  "codeGroupCount": 3837012,
+  "storageCount": 6927322,
+  "snapshotDigest": "0xb1462d2915146f13127b2fa633ac14f617a16c584d87bc069e3127acd4258d5c",
+  "preimageDigest": "0xc1683ff32f16d3c5b6105db023c18659d178be866ad3f3f1ceaf38de1705211f",
+  "finalized": false
+}
