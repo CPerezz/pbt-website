@@ -2,6 +2,11 @@
 // in here is a link of its own (provenance links live on the benchmarks page).
 import { CLIENT, DATA, fmt, getJSON, h, onVisible, reveal, scale, who } from './benchmarks/bench.js';
 
+// "Design notes" card: the 256 sub-indices of an account header stem; mint = storage slots 0–63.
+const stem = document.getElementById('stem-mini');
+if (stem) for (let i = 0; i < 256; i++)
+  stem.append(h('i', { class: i === 0 ? 'b' : i === 1 ? 'c' : i === 2 ? 'd' : i >= 64 && i < 128 ? 's' : null }));
+
 const root = document.getElementById('race');
 if (root) {
   try {
