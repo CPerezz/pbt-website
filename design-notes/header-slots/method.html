@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method and data — Design notes — PBT Lab</title>
+<meta name="description" content="How the header-slot design notes were measured on mainnet, their caveats, and how to rerun every query.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../../benchmarks/bench.css">
+<link rel="stylesheet" href="../notes.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="../../" aria-label="PBT Lab home">PBT·LAB</a>
+  <span class="crumb"><a href="../" style="color:inherit;text-decoration:none">Design notes</a> · <a href="./" style="color:inherit;text-decoration:none">The first 64 slots</a> · method</span>
+</div></header>
+
+<main>
+<section class="wrap" style="padding:56px 28px 18px">
+  <h1 class="h1">Method and <span class="glow">data.</span></h1>
+  <p class="lead">Every note on the account header uses the data below. Every measured number in a note links to the raw query output behind it; hover a number to see its files.</p>
+</section>
+
+<section class="sec" style="padding-top:10px"><div class="wrap prose">
+  <ul style="max-width:860px">
+    <li><b>Data.</b> xatu's canonical execution tables in ethPandaOps' ClickHouse, queried through the <code>panda</code> CLI. A storage-read row is one (transaction, contract, slot) the transaction touched, written slots included, so one row is one cold charge. Those reads are complete only from block 24,700,000, so every read-based number covers blocks <span data-n="meta.from_block" data-f="n"></span>–<span data-n="meta.to_block" data-f="n"></span>: <span data-n="meta.chunks" data-f="n"></span> ranges of 1,000 blocks, one every 10,000 (<span data-n="meta.blocks" data-f="n"></span> blocks, <span data-n="meta.txs" data-f="m"></span> transactions).</li>
+    <li><b>Checks.</b> In every range, every written slot appears among the touched slots (<span data-n="meta.gate_diffs_missing" data-f="n"></span> missing), and every transaction has its touched-account rows (<span data-n="meta.gate_txs_missing" data-f="n"></span> missing). Some ranges hold exact duplicate rows, so every count reads its source through <code>DISTINCT</code>.</li>
+    <li><b>Writes</b> are net per transaction, so a slot set and reset within one transaction is invisible: write savings are a lower bound. <b>Access lists</b> aren't in the data, so a few slots counted as cold were pre-warmed.</li>
+    <li><b>State</b> is rebuilt by xatu's CBT tables at block 26,300,000, over all 256 address prefixes. Their total, 1.69 B live slots, matches our mainnet snapshot: <span data-n="meta.accounts" data-f="n"></span> accounts and <span data-n="meta.buckets" data-f="n"></span> buckets at block <span data-n="meta.snapshot_block" data-f="n"></span>.</li>
+    <li><b>Paths and witness</b> come from a model. A header path is about 2 + log₂(accounts) levels. A storage path is 1 + log₂(buckets) levels plus log₂ of the contract's groups. Paths opened in the same block share their top log₂(paths) levels. Bucket sizes come from CBT live-slot counts; ranges are shown with and without 64 header slots subtracted.</li>
+    <li><b>Gas rules are hypothetical.</b> EIP-8297 changes no gas, and no PBT gas schedule exists yet.</li>
+    <li><b>Expectations</b> in each note's first part are the hypotheses we started from, not measurements.</li>
+  </ul>
+  <p style="max-width:860px">To rerun everything from scratch (about 30 minutes):</p>
+<pre class="cmd" style="max-width:860px">panda auth login
+cd design-notes/header-slots/queries
+python3 run.py        # every query through `panda clickhouse query-raw`, resumable → ../data/raw/*.jsonl
+python3 analyze.py    # → ../data/summary.json
+python3 labels.py && python3 analyze.py   # names from the contracts themselves (cast + public RPC)</pre>
+  <p style="max-width:860px">The SQL is one file per question, linked from each note's data part. All of it is in <a href="https://github.com/CPerezz/pbt-website/tree/main/design-notes/header-slots/queries" target="_blank" rel="noopener">queries/ on GitHub</a>.</p>
+  <nav class="next" aria-label="More notes"><a href="./"><span>all notes</span>The first 64 slots</a></nav>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <a href="./">The first 64 slots</a> · <a href="../">Design notes</a>
+  · <a href="https://eips.ethereum.org/EIPS/eip-8297" target="_blank" rel="noopener">EIP-8297</a>
+  · <a href="https://github.com/CPerezz/pbt-website" target="_blank" rel="noopener">GitHub</a>
+</div></footer>
+<script type="module" src="notes.js"></script>
+</body>
+</html>

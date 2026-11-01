@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slots 0–63 belong in the header — Design notes — PBT Lab</title>
+<meta name="description" content="EIP-8297 keeps every account's storage slots 0–63 in its header. Seven months of mainnet data on whether that pays off.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Slots 0–63 belong in the header — PBT Lab design notes">
+<meta property="og:description" content="Claim: keeping storage slots 0–63 in the account header pays off. Tested on seven months of mainnet.">
+<meta property="og:url" content="https://cperezz.github.io/pbt-website/design-notes/header-slots/">
+<meta property="og:image" content="https://cperezz.github.io/pbt-website/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../../../benchmarks/bench.css">
+<link rel="stylesheet" href="../../notes.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="../../../" aria-label="PBT Lab home">PBT·LAB</a>
+  <span class="crumb"><a href="../../" style="color:inherit;text-decoration:none">Design notes</a> · <a href="../" style="color:inherit;text-decoration:none">The first 64 slots</a> · claim</span>
+  <span class="grow"></span>
+  <nav class="row" aria-label="Parts" style="gap:16px;font-size:12px"><a href="#a">A · claim</a><a href="#b">B · data</a><a href="#c">C · conclusion</a></nav>
+</div></header>
+
+<main>
+<section class="wrap" style="padding:56px 28px 18px">
+  <div class="kicker"><span class="kind k-claim">claim</span><span class="chip v-yes">justified</span><span>EIP-8297 storage layout · mainnet <span data-n="meta.from_date" data-f="s"></span> → <span data-n="meta.to_date" data-f="s"></span></span></div>
+  <h1 class="h1">Slots 0–63 belong in the <span class="glow">header.</span></h1>
+  <p class="lead"><b>TL;DR</b> Running a contract always opens its header, so storage slots kept there ride along. <b data-n="a1.hdr_share" data-f="pct0"></b> of cold storage charges hit slots 0–63, each block skips <b data-n="a1.paths_saved_pb" data-f="n"></b> storage paths, and <b data-n="b2.no_bucket" data-f="pct0"></b> of contracts with storage never need a storage bucket.</p>
+</section>
+
+<section class="sec" style="padding-top:10px"><div class="wrap prose">
+  <div class="part" id="a"><div class="part-k"><b>A</b>claim &amp; expectation</div><div class="part-b">
+    <p>EIP-8297 keeps every account's storage slots 0–63 in its header stem, next to its basic data and code hash. Running a contract always reads its code hash and code size, so the header stem is already open by the time the contract touches its storage.</p>
+    <p>The claim: slots kept there come almost for free. Reading one adds a leaf to a stem the block already opened, instead of a separate path into the storage zone. And a contract whose storage fits in slots 0–63 never needs a storage bucket at all.</p>
+    <p>We expected it to hold for two reasons. Older contracts keep their hot flags, counters and prices in their first slots: USDT's pause flag and fee settings, a Uniswap pool's price word, a Safe's threshold and nonce. And most contracts are small: clones, simple vaults, per-user contracts from factories.</p>
+    <p class="how">New to the header stem? See the <a href="../#background">background</a>.</p>
+  </div></div>
+
+  <div class="part" id="b"><div class="part-k"><b>B</b>data</div><div class="part-b">
+    <h3>Reads</h3>
+    <ul class="facts">
+      <li><b data-n="a1.hdr_share" data-f="pct"></b> of all cold storage charges hit slots 0–63 (<span data-n="a1.hdr" data-f="m"></span> of <span data-n="a1.charges" data-f="m"></span>), and <b data-n="a1.txs_hdr_share" data-f="pct0"></b> of transactions make at least one. USDT alone is <b data-n="a1.usdt_share" data-f="pct0"></b> of these charges.</li>
+      <li>Each block skips <b data-n="a1.paths_saved_pb" data-f="n1"></b> storage paths, <b data-n="a1.zone_paths_cut" data-f="pct"></b> of its storage-zone paths. The path model puts that at about <b data-n="model.a1_kb_pb" data-f="kb"></b> of witness per block, <b data-n="model.a1_bytes_per_path" data-f="b"></b> per path.</li>
+    </ul>
+    <figure><div id="tbl-top-contracts"></div><figcaption>Contracts whose slots 0–63 take the most cold charges.</figcaption></figure>
+    <h3>Contracts</h3>
+    <ul class="facts">
+      <li>Of <b data-n="b2.contracts" data-f="m"></b> contracts holding storage, <b data-n="b2.no_bucket" data-f="pct"></b> keep all of it in slots 0–63. <span data-n="b2.with_bucket" data-f="m"></span> have a bucket; our snapshot counted <span data-n="meta.buckets" data-f="m"></span> at block <span data-n="meta.snapshot_block" data-f="n"></span>.</li>
+      <li>Most need very little: <b data-n="b2.h_le4_share" data-f="pct0"></b> hold four header slots or fewer, and <b data-n="b2.h_eq1" data-f="m"></b> hold exactly one. Header slots are <b data-n="b2.hdr_slots_share" data-f="pct"></b> of all live slots (<span data-n="b2.hdr_slots" data-f="m"></span>).</li>
+    </ul>
+    <figure><div id="fig-h"></div><figcaption>Contracts by number of live slots in 0–63 (log scale).</figcaption></figure>
+    <h3>Over time</h3>
+    <ul class="facts">
+      <li>New contracts use low slots less: of storage-writing deployments, <b data-n="b2.create_early" data-f="pct0"></b> wrote only header slots before block 15 M, against <b data-n="b2.create_late" data-f="pct0"></b> since block 22 M.</li>
+      <li>Traffic doesn't: slots 0–63 took <b data-n="d1.writes_2017_2020" data-f="pct0"></b> of slot writes in blocks 4–11 M (2017–2020), <b data-n="d1.writes_since_2021" data-f="pct0"></b> since block 11 M and <b data-n="d1.writes_recent" data-f="pct0"></b> since block 24 M. In 2026 they took <b data-n="d1.reads_range" data-f="pct0"></b> of cold charges per sampled range (low · median · high).</li>
+    </ul>
+    <div class="two">
+      <figure><div id="fig-eras"></div><figcaption>Share of slot writes that hit slots 0–63, by million-block era.</figcaption></figure>
+      <figure><div id="fig-eras-create"></div><figcaption>Share of new storage-writing contracts that wrote only slots 0–63.</figcaption></figure>
+    </div>
+    <p class="how">How we measured it: over the full sample, <span data-n="meta.blocks" data-f="n"></span> blocks in <span data-n="meta.chunks" data-f="n"></span> ranges of 1,000, one every 10,000 (<span data-n="meta.txs" data-f="m"></span> transactions). One row of <code>storage_reads</code> is one (transaction, contract, slot) the transaction touched, so one row is one cold charge (<a href="../queries/access_totals.sql">access_totals</a>, <a href="../queries/top_contracts.sql">top_contracts</a>). Paths per block: <a href="../queries/paths_reads.sql">paths_reads</a>; witness bytes from the path model, run on 1,000 of those blocks. Live storage at block 26,300,000, all accounts: <a href="../queries/state_prefix.sql">state_prefix</a>. Deployments and eras: <a href="../queries/creations.sql">creations</a>, <a href="../queries/trend_writes.sql">trend_writes</a>, the eras on 200 blocks every 250,000 from block 1,000,000. Windows and checks: <a href="../method.html">method</a>.</p>
+  </div></div>
+
+  <div class="part" id="c"><div class="part-k"><b>C</b>conclusion</div><div class="part-b">
+    <p><b>Justified.</b> Slots 0–63 carry <b data-n="a1.hdr_share" data-f="pct0"></b> of cold storage charges and spare each block <b data-n="a1.paths_saved_pb" data-f="n"></b> storage paths, and three in four contracts with storage live entirely in their header. The layout doesn't make the state smaller, since a binary tree always has one branch fewer than it has leaves. It gives the hottest slots paths that their header already pays for.</p>
+    <p>New contracts lean less on low slots, but traffic still does, because old hot contracts carry it. Two things stand between this and the full benefit: gas still charges a header slot like any other slot, and clients still read it from disk on its own. The proposals <a href="../gas-rule/">Charge slots 0–63 with the header</a> and <a href="../flat-record/">Store the header as one record</a> take those on.</p>
+  </div></div>
+
+  <nav class="next" aria-label="More notes">
+    <a href="../"><span>all notes</span>The first 64 slots</a>
+    <a href="../how-many/"><span>next · question</span>How many slots should the header hold? →</a>
+  </nav>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <a href="../">The first 64 slots</a> · <a href="../method.html">Method &amp; data</a>
+  · <a href="https://eips.ethereum.org/EIPS/eip-8297" target="_blank" rel="noopener">EIP-8297</a>
+  · <a href="https://github.com/CPerezz/pbt-website" target="_blank" rel="noopener">GitHub</a>
+</div></footer>
+<script type="module" src="../notes.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The first 64 slots — Design notes — PBT Lab</title>
+<meta name="description" content="EIP-8297 keeps every account's storage slots 0–63 in its header. One claim, one open question and three proposals, each tested on seven months of mainnet.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The first 64 slots — PBT Lab design notes">
+<meta property="og:description" content="Claims, questions and proposals about EIP-8297's header storage slots, tested on mainnet data.">
+<meta property="og:url" content="https://cperezz.github.io/pbt-website/design-notes/header-slots/">
+<meta property="og:image" content="https://cperezz.github.io/pbt-website/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../../benchmarks/bench.css">
+<link rel="stylesheet" href="../notes.css">
+<style>
+  .legend { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 28px; max-width: 1040px }
+  .legend div { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; font-size: 12px; line-height: 1.55; color: var(--ink2) }
+  .legend .kind { margin-bottom: 8px }
+  .sample { max-width: 860px; margin: 16px 0 0; padding: 2px 0 2px 12px; border-left: 2px solid var(--green); font-size: 12.5px; line-height: 1.65; color: var(--ink2) }
+  .sample b { color: var(--ink) }
+  @media (max-width: 760px) { .legend { grid-template-columns: 1fr } }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="../../" aria-label="PBT Lab home">PBT·LAB</a>
+  <span class="crumb"><a href="../" style="color:inherit;text-decoration:none">Design notes</a> · The first 64 slots</span>
+  <span class="grow"></span>
+  <nav class="row" aria-label="Page" style="gap:16px;font-size:12px"><a href="#background">background</a><a href="method.html">method</a></nav>
+</div></header>
+<main>
+<section class="wrap" style="padding:60px 28px 24px">
+  <div class="kicker"><span>EIP-8297 · account header · mainnet <span data-n="meta.from_date" data-f="s"></span> → <span data-n="meta.to_date" data-f="s"></span></span></div>
+  <h1 class="h1">The first <span class="glow">64 slots.</span></h1>
+  <p class="lead">EIP-8297 keeps every account's storage slots 0–63 in its header. These notes test that choice, and the changes it invites, on seven months of mainnet. Each has the same three parts: <b>A</b> what it says and what we expected, <b>B</b> the data, <b>C</b> the conclusion.</p>
+  <p class="sample"><b>Sample:</b> <b data-n="meta.blocks" data-f="n"></b> mainnet blocks in <span data-n="meta.chunks" data-f="n"></span> ranges of 1,000, one every 10,000, from <span data-n="meta.from_date" data-f="s"></span> to <span data-n="meta.to_date" data-f="s"></span>: <b data-n="meta.txs" data-f="m"></b> transactions. Plus the live storage of every account at block 26,300,000. A few measurements use smaller windows; each note's data part says which.</p>
+  <div class="legend">
+    <div><span class="kind k-claim">claim</span><br>A choice EIP-8297 already makes. The data justifies it or challenges it.</div>
+    <div><span class="kind k-question">question</span><br>A choice that is still open. The data narrows the options.</div>
+    <div><span class="kind k-proposal">proposal</span><br>A change we could make to the spec, a gas schedule or clients. The data says whether it is worth it.</div>
+  </div>
+</section>
+
+<section class="wrap prose" style="padding-bottom:40px">
+  <div class="toc">
+    <nav class="toc-list" aria-label="Notes">
+      <div class="toc-group"><span class="lbl">claims about EIP-8297</span>
+        <a class="toc-item k-claim" href="in-the-header/"><span class="toc-title">Slots 0–63 belong in the header</span><span class="chip v-yes">justified</span>
+          <span class="affects">EIP-8297 storage layout</span>
+          <span class="tldr">Running a contract always opens its header, so slots kept there ride along. <b data-n="a1.hdr_share" data-f="pct0"></b> of cold storage charges hit slots 0–63, and <b data-n="b2.no_bucket" data-f="pct0"></b> of contracts with storage never need a storage bucket.</span></a>
+      </div>
+      <div class="toc-group"><span class="lbl">open questions</span>
+        <a class="toc-item k-question" href="how-many/"><span class="toc-title">How many slots should the header hold?</span><span class="chip v-open">open: 32 or 64</span>
+          <span class="affects">EIP-8297 parameter · EIP-7864 uses 4</span>
+          <span class="tldr">4 slots catch only <b data-n="c1.n4_vs_64" data-f="pct0"></b> of the cold charges 64 do. 32 and 64 are a few percent apart: 32 keep <b data-n="c1.n32_vs_64" data-f="pct0"></b> of the charges, and live headers would shrink by just <b data-n="c1.hs_cut_32" data-f="pct"></b>, because almost no contract uses slots 32–63. What 32 does halve is the most one header can hold.</span></a>
+      </div>
+      <div class="toc-group"><span class="lbl">proposals</span>
+        <a class="toc-item k-proposal" href="gas-rule/"><span class="toc-title">Charge slots 0–63 with the header</span><span class="chip v-yes">supported</span>
+          <span class="affects">a PBT gas schedule · overlaps EIP-8289</span>
+          <span class="tldr">Warm-priced header-slot reads once the account is open, and cheap header writes after the first: <b data-n="a3.default" data-f="pct"></b> less gas, room for <b data-n="a3.more_txs" data-f="pct"></b> more transactions. If EIP-8289's multi-block warming ships first, the read half adds only <b data-n="a1.saved_r100_after_8289" data-f="pct"></b>.</span></a>
+        <a class="toc-item k-proposal" href="flat-record/"><span class="toc-title">Store the header as one record</span><span class="chip v-yes">supported</span>
+          <span class="affects">clients' flat databases</span>
+          <span class="tldr">Databases read whole pages of 4 KB or more, and a full header is about 2 KB. Keeping slots 0–63 in the account's record makes <b data-n="c3.lookups_share" data-f="pct0"></b> of storage reads free on disk, for <b data-n="c3.bytes_per_read" data-f="b"></b> more per account read.</span></a>
+        <a class="toc-item k-proposal" href="proxy-slots/"><span class="toc-title">Give proxy slots a place in the header</span><span class="chip v-yes">supported</span>
+          <span class="affects">EIP-8297 key mapping</span>
+          <span class="tldr">The three EIP-1967 proxy slots take <b data-n="c2.share" data-f="pct"></b> of cold storage charges and <b data-n="c2.paths_pb" data-f="n1"></b> storage paths per block. Mapping them to unused header positions removes those paths.</span></a>
+      </div>
+    </nav>
+    <aside class="toc-side" aria-live="polite">
+      <div class="toc-preview" id="toc-preview">
+        <div class="pv-head"><span class="kind">all notes</span></div>
+        <span class="pv-title">Where this leaves the header</span>
+        <span class="tldr">Keeping slots 0–63 in the header pays off on reads: <b data-n="a1.hdr_share" data-f="pct0"></b> of cold storage charges. 4 slots are too few; 32 or 64 is still open. Charging those slots with the header would save <b data-n="a3.default" data-f="pct"></b> of gas, storing them with the account costs clients almost nothing, and proxy slots belong there too.</span>
+      </div>
+      <div class="toc-hint">Hover or focus a note for its TL;DR. Click to open it.</div>
+    </aside>
+  </div>
+</section>
+
+<section class="sec" id="background"><div class="wrap prose">
+  <span class="lbl">background</span>
+  <h2 class="h2" style="margin:6px 0 14px">The account header stem</h2>
+  <p style="max-width:860px">Each account has a <b>header stem</b>: up to 256 leaves under one key prefix, <code>0x00 ‖ key_hash(address)</code>. EIP-8297 puts the basic data (nonce, balance, code size) at position 0, the code hash at 1, a 7702 delegation at 2, and <b>storage slots 0–63 at positions 64–127</b>. Slots from 64 up live in the storage zone, under the contract's own bucket. Running a contract always reads its header, so slots kept there come along with it.</p>
+  <figure style="max-width:1000px"><div id="fig-stem"></div><figcaption><b>Before</b>: EIP-8297 today. <b>After</b>: the changes these notes point to. 32 header slots (the <a href="how-many/">open alternative to 64</a>) follow the three fields, then come the three EIP-1967 <a href="proxy-slots/">proxy slots</a> and reserved positions up to 64, and positions 64–255 go. Hover a cell for its position. Empty positions occupy no nodes in either layout, so the after header holds less only by the live slots 32–63 it moves out: <span data-n="c1.hs_cut_32" data-f="pct"></span> of live header slots.</figcaption></figure>
+  <nav class="next" aria-label="More"><a href="../"><span>all topics</span>Design notes</a></nav>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <a href="../">Design notes</a> · <a href="method.html">Method &amp; data</a>
+  · <a href="https://eips.ethereum.org/EIPS/eip-8297" target="_blank" rel="noopener">EIP-8297</a>
+  · <a href="https://github.com/CPerezz/pbt-website" target="_blank" rel="noopener">GitHub</a>
+</div></footer>
+<script type="module" src="notes.js"></script>
+</body>
+</html>

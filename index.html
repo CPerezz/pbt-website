@@ -32,6 +32,13 @@
   .tile-title { font-family: VT323, monospace; font-size: 26px; line-height: 1; color: var(--ink); text-decoration: none }
   a.tile:hover .tile-title { color: var(--green) }
   .tile-desc { font-size: 12px; color: var(--ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+  .tile.wide { grid-column: 1 / -1; flex-direction: row }
+  .tile.wide .tile-media { height: auto; width: 420px; flex: none; padding: 24px 28px; display: grid; grid-template-columns: repeat(32, 1fr); gap: 2px; align-content: center }
+  .tile.wide .tile-media i { aspect-ratio: 1; border-radius: 2px; background: rgba(226,230,226,.07) }
+  .tile.wide .tile-media i.b { background: var(--blue) } .tile.wide .tile-media i.c { background: var(--amber) }
+  .tile.wide .tile-media i.d { background: var(--lilac) } .tile.wide .tile-media i.s { background: var(--mint) }
+  .tile.wide .tile-body { justify-content: center }
+  .tile.wide .tile-desc { white-space: normal }
   @media (prefers-reduced-motion: reduce) {
     .tile-media video { display: none }
     .tile-media img.fallback { display: block }
@@ -39,6 +46,8 @@
   @media (max-width: 760px) {
     .tiles { grid-template-columns: 1fr }
     .tile-desc { white-space: normal }
+    .tile.wide { flex-direction: column }
+    .tile.wide .tile-media { width: auto }
   }
 </style>
 </head>
@@ -49,6 +58,7 @@
   <nav class="row" aria-label="Primary" style="gap:20px;font-size:12.5px">
     <a href="lab.html">Explore</a>
     <a href="benchmarks/">Benchmarks</a>
+    <a href="design-notes/">Design notes</a>
     <a href="https://eips.ethereum.org/EIPS/eip-8297" target="_blank" rel="noopener">EIPs ↗</a>
     <a href="https://github.com/CPerezz/pbt-website" target="_blank" rel="noopener">GitHub ↗</a>
   </nav>
@@ -74,6 +84,13 @@
       <div class="tile-body">
         <div class="tile-title">Mainnet benchmarks →</div>
         <div class="tile-desc">One mainnet snapshot, every client.</div>
+      </div>
+    </a>
+    <a class="tile wide" href="design-notes/">
+      <div class="tile-media" id="stem-mini" aria-hidden="true"></div>
+      <div class="tile-body">
+        <div class="tile-title">Design notes →</div>
+        <div class="tile-desc">Claims, open questions and proposals about the PBT design, each tested on mainnet data.</div>
       </div>
     </a>
   </section>
