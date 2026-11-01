@@ -1,0 +1,92 @@
+/* Design notes: shared by the section index and every note. Builds on ../benchmarks/bench.css. */
+html { scroll-behavior: smooth }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } }
+.prose p, .prose li { font-size: 13.5px; line-height: 1.7; color: var(--ink2); text-wrap: pretty }
+.prose p { margin: 0 0 12px }
+.prose b, .prose strong { color: var(--ink); font-weight: 600 }
+.prose code { font-size: 12px; color: var(--ink); background: rgba(226,230,226,.06); padding: 1px 5px; border-radius: 4px }
+.prose ul { padding-left: 18px; margin: 0 0 12px }
+.kicker { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap }
+.lead { font-size: 15px; line-height: 1.65; color: var(--ink2); max-width: 780px; margin: 18px 0 0; text-wrap: pretty }
+.lead b { color: var(--ink) }
+
+/* Kind of note: what it is. Verdict chip: what the data says. */
+.kind { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 4px; border: 1px solid currentColor; line-height: 1.2 }
+.kind::before { content: ''; width: 7px; height: 7px; background: currentColor }
+.k-claim { color: var(--blue) }
+.k-claim::before { border-radius: 50% }
+.k-question { color: var(--amber) }
+.k-question::before { transform: rotate(45deg) }
+.k-proposal { color: var(--lilac) }
+.k-proposal::before { clip-path: polygon(50% 0, 100% 100%, 0 100%) }
+.chip.v-yes { color: var(--green); border-color: rgba(51,255,51,.4) }
+.chip.v-no { color: var(--orange); border-color: rgba(255,159,67,.45) }
+.chip.v-open { color: var(--ink) }
+.affects { font-size: 10.5px; color: var(--muted) }
+
+/* Interactive index: rows on the left, the hovered row's TL;DR on the right. */
+.toc { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 26px; align-items: start }
+.toc-group { margin-bottom: 18px }
+.toc-group > .lbl { display: block; margin: 0 0 6px 12px }
+.toc-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; padding: 10px 12px;
+  border: 1px solid var(--line); border-left: 3px solid var(--kc, var(--line)); border-radius: 6px; margin-bottom: 8px;
+  color: var(--ink); text-decoration: none; background: var(--panel) }
+.toc-item:hover, .toc-item:focus-visible, .toc-item.on { border-color: var(--kc); color: var(--ink) }
+.toc-item.k-claim { --kc: var(--blue) }
+.toc-item.k-question { --kc: var(--amber) }
+.toc-item.k-proposal { --kc: var(--lilac) }
+.toc-item.k-claim::before, .toc-item.k-question::before, .toc-item.k-proposal::before { content: none }
+.toc-title { font-size: 14px }
+.toc-item .affects { grid-column: 1 }
+.toc-item .chip { grid-column: 2; grid-row: 1 }
+.toc-item .tldr { display: none }
+.toc-side { position: sticky; top: 84px }
+.toc-preview { min-height: 230px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel) }
+.toc-preview .pv-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px }
+.toc-preview .pv-title { display: block; font-family: VT323, monospace; font-size: 28px; line-height: 1; color: var(--ink); margin-bottom: 10px }
+.toc-preview .tldr { display: block; font-size: 14px; line-height: 1.65; color: var(--ink2) }
+.toc-preview .pv-go { display: inline-block; margin-top: 12px; font-size: 12px }
+.toc-hint { font-size: 11px; color: var(--muted); margin-top: 8px }
+@media (max-width: 860px), (hover: none) {
+  .toc { grid-template-columns: 1fr }
+  .toc-side { display: none }
+  .toc-item .tldr { display: block; grid-column: 1 / -1; font-size: 12px; line-height: 1.55; color: var(--ink2) }
+}
+
+/* A note: A proposal (or claim, or question) and expectation · B data · C conclusion. */
+.parts-nav { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 22px; font-size: 12px }
+.part { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 0 26px; padding: 22px 0 8px;
+  border-top: 1px solid rgba(226,230,226,.07); scroll-margin-top: 70px }
+.part-k { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-top: 3px }
+.part-k b { display: block; font-family: VT323, monospace; font-weight: 400; font-size: 30px; letter-spacing: 0; text-transform: none;
+  line-height: 1; color: var(--ink); margin-bottom: 3px }
+.part-b > p, .part-b > ul { max-width: 820px }
+.part-b > figure, .part-b > .two { max-width: 1000px }
+.part-b h3 { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 22px 0 8px }
+.part-b h3:first-child { margin-top: 0 }
+.facts { list-style: none; padding: 0 !important }
+.facts li { padding-left: 16px; position: relative }
+.facts li::before { content: '▸'; position: absolute; left: 0; color: var(--green); font-size: 11px; top: 2px }
+.how { font-size: 11.5px !important; color: var(--muted) !important; border-left: 2px solid var(--line); padding-left: 12px }
+.how a { color: var(--ink2) }
+.rec { border-left: 2px solid var(--green); padding: 2px 0 2px 14px; margin: 0 0 14px; max-width: 860px }
+.next { display: flex; gap: 14px; flex-wrap: wrap; padding: 26px 0 70px; font-size: 12.5px }
+.next a { border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; text-decoration: none; color: var(--ink2) }
+.next a:hover { border-color: var(--green); color: var(--ink) }
+.next a span { display: block; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px }
+
+table.tbl { border-collapse: collapse; width: 100%; font-size: 12px; margin: 6px 0 14px }
+.tbl th { text-align: left; font-weight: 500; color: var(--muted); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase;
+  border-bottom: 1px solid var(--line); padding: 7px 10px 7px 0 }
+.tbl td { border-bottom: 1px solid rgba(226,230,226,.06); padding: 7px 10px 7px 0; color: var(--ink2); vertical-align: top }
+.tbl td:first-child { color: var(--ink) }
+.tbl tr.hl td { color: var(--ink); background: rgba(51,255,51,.04) }
+#tbl-grid td, #tbl-sweep td { white-space: nowrap }
+figure { margin: 12px 0 18px; padding: 14px 16px 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow-x: auto }
+figcaption { font-size: 11.5px; color: var(--muted); margin: 6px 0 4px; line-height: 1.5 }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px }
+a.addr { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--muted) }
+pre.cmd { background: rgba(226,230,226,.04); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; font-size: 12px; overflow-x: auto; color: var(--ink) }
+@media (max-width: 760px) { .part { grid-template-columns: minmax(0, 1fr) } .part-k { margin-bottom: 8px } .two { grid-template-columns: minmax(0, 1fr) } }

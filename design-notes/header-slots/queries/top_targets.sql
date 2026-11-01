@@ -1,5 +1,5 @@
--- A3 (clickhouse-raw, one W_R chunk): top 100 tx targets by gas saved at the default prices
--- (2,000 per cold charge on slots 0-63, 2,800 per header change rule A2 discounts; see tx_savings.sql).
+-- Note gas-rule (clickhouse-raw, one W_R chunk): top 100 tx targets by gas saved at the default prices
+-- (2,000 per cold charge on slots 0-63, 2,800 per header change the write rule discounts; see tx_savings.sql).
 WITH
 r AS (SELECT transaction_hash AS h, toInt64(countIf(slot < {L64})) AS t_hdr
       FROM (SELECT DISTINCT transaction_hash, contract_address, slot

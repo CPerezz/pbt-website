@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Name the addresses the article lists, by asking the contracts themselves (cast + a public RPC).
+"""Name the addresses the notes list, by asking the contracts themselves (cast + a public RPC).
 
     python3 labels.py    # after analyze.py; writes ../data/labels.json, then rerun analyze.py
 
@@ -50,8 +50,8 @@ def name(addr):
     return call(addr, "name()(string)")
 def main():
     s = json.load(open(os.path.join(DATA, "summary.json")))
-    addrs = {r["a"] for key in (("a3", "top_contracts"), ("a3", "top_targets"), ("c2", "top"), ("d2", "top"),
-                                ("b1", "split_top")) for r in s[key[0]][key[1]]["v"] if r["a"]}
+    addrs = {r["a"] for key in (("a3", "top_contracts"), ("a3", "top_targets"), ("c2", "top"), ("d2", "top"))
+             for r in s[key[0]][key[1]]["v"] if r["a"]}
     out = {}
     for a in sorted(addrs):
         n = name(a)

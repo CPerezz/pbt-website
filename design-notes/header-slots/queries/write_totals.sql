@@ -1,7 +1,7 @@
--- A2, C1 (clickhouse-raw, one W_R chunk).
+-- Notes gas-rule, how-many (clickhouse-raw, one W_R chunk).
 -- Net per-tx slot writes per (tx, contract). A write is a "create" if the slot was zero before the tx (EIP-2200 set,
 -- state growth), else a "change". dirty: the contract's nonce or balance also changed in that tx, so its header is
--- re-hashed anyway. Rule A2: the first header change in a tx pays as today unless dirty; every further one pays the
+-- re-hashed anyway. The write rule: the first header change in a tx pays as today unless dirty; every further one pays the
 -- warm-write price. discN: the changes that rule discounts if the header held slots < N.
 WITH
 sd AS (

@@ -1,4 +1,4 @@
--- A1 (witness), C1, C2 (clickhouse-raw, one W_R chunk).
+-- Notes in-the-header (witness), how-many, proxy-slots, flat-record (clickhouse-raw, one W_R chunk).
 -- Per block and contract: the slots the block reads. Under EIP-8297 slots 0-63 sit in the contract's header stem,
 -- which the block already opens to run its code. With no header slots they would sit in storage group 0 (slots
 -- 0-255) of its bucket, a separate path. sN: contracts whose group-0 path a header of N slots avoids (every slot

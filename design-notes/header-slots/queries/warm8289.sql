@@ -1,4 +1,4 @@
--- A1 (clickhouse-raw, one contiguous window).
+-- Note gas-rule (clickhouse-raw, one contiguous window).
 -- Of the cold charges on slots 0-63, how many hit a (contract, slot) the chain read in one of the previous W blocks.
 -- Under EIP-8289 (multi-block warming) those would be warm already, so a header-slot discount adds nothing there.
 -- Charges in the first 128 blocks of the window only feed the lookback (block_number >= SKIP_FROM below).

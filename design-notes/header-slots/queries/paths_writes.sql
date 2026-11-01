@@ -1,6 +1,6 @@
--- B1, C1 (clickhouse-raw, one W_R chunk).
+-- Note how-many, write paths (clickhouse-raw, one W_R chunk).
 -- Net changes per block. hc: the contract's nonce or balance changed in the block, so its header path is re-hashed.
--- sharedN: hc, and every changed slot below 256 is below N -> one path instead of two (slide-21 claim 1).
+-- sharedN: hc, and every changed slot below 256 is below N -> one path instead of two.
 -- splitN: no hc, and changed slots on both sides of N inside 0-255 -> two paths instead of one.
 WITH
 sd AS (SELECT block_number AS b, address AS a, slot,

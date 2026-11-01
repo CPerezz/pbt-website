@@ -4,32 +4,40 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Design notes — PBT Lab</title>
-<meta name="description" content="Case studies that justify, challenge or propose parts of the EIP-8297 Partitioned Binary Tree design, each one tested on mainnet data.">
+<meta name="description" content="Claims, open questions and proposals about the EIP-8297 Partitioned Binary Tree design, each one tested on mainnet data.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Design notes — PBT Lab">
-<meta property="og:description" content="Case studies on the EIP-8297 Partitioned Binary Tree design, tested on mainnet data.">
+<meta property="og:description" content="Claims, questions and proposals about the EIP-8297 design, tested on mainnet data.">
 <meta property="og:url" content="https://cperezz.github.io/pbt-website/design-notes/">
 <meta property="og:image" content="https://cperezz.github.io/pbt-website/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <link rel="stylesheet" href="../benchmarks/bench.css">
+<link rel="stylesheet" href="notes.css">
 <style>
-  .notes { display: grid; gap: 16px; padding-bottom: 72px }
-  .note { display: grid; grid-template-columns: 220px 1fr; gap: 22px; padding: 18px; border: 1px solid var(--line); border-radius: 10px;
+  .topics { display: grid; gap: 16px; padding-bottom: 72px }
+  .topic { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 24px; padding: 20px; border: 1px solid var(--line); border-radius: 10px;
     background: var(--panel); color: inherit; text-decoration: none; transition: border-color .15s }
-  a.note:hover { border-color: var(--green) }
-  .note h2 { font-family: VT323, monospace; font-weight: 400; font-size: 30px; line-height: 1; margin: 2px 0 8px; color: var(--ink) }
-  a.note:hover h2 { color: var(--green) }
-  .note p { margin: 0 0 10px; color: var(--ink2); font-size: 12.5px; line-height: 1.6; max-width: 760px }
-  .chips { display: flex; gap: 6px; flex-wrap: wrap }
-  .v-just { color: var(--green); border-color: rgba(51,255,51,.4) }
-  .v-chal { color: var(--orange); border-color: rgba(255,159,67,.45) }
-  .v-prop { color: var(--lilac); border-color: rgba(181,123,255,.45) }
-  .mini { display: grid; grid-template-columns: repeat(16, 1fr); gap: 2px; align-content: center }
-  .mini i { aspect-ratio: 1; border-radius: 2px; background: rgba(226,230,226,.07) }
+  a.topic:hover, a.topic:focus-visible { border-color: var(--green) }
+  .topic h2 { font-family: VT323, monospace; font-weight: 400; font-size: 32px; line-height: 1; margin: 4px 0 10px; color: var(--ink) }
+  a.topic:hover h2 { color: var(--green) }
+  .topic p { margin: 0 0 14px; color: var(--ink2); font-size: 12.5px; line-height: 1.6; max-width: 760px }
+  .topic-notes { display: grid; gap: 7px; font-size: 12.5px; color: var(--ink2) }
+  .topic-notes div { display: flex; gap: 10px; align-items: center; flex-wrap: wrap }
+  .topic-notes .kind { min-width: 86px; justify-content: center }
+  /* Miniature: the header stem before (256 positions) → after (64 positions), same cell size. */
+  .mini { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px }
+  .mini-row { display: flex; align-items: center; gap: 6px }
+  .mini .g { display: grid; gap: 1.5px }
+  .mini .g16 { grid-template-columns: repeat(16, 1fr); width: 112px }
+  .mini .g8 { grid-template-columns: repeat(8, 1fr); width: 56px }
+  .mini i { aspect-ratio: 1; border-radius: 1.5px; background: rgba(226,230,226,.10) }
+  .mini i.u { background: rgba(226,230,226,.04) }
   .mini i.b { background: var(--blue) } .mini i.c { background: var(--amber) } .mini i.d { background: var(--lilac) }
-  .mini i.s { background: var(--mint) }
-  @media (max-width: 760px) { .note { grid-template-columns: 1fr } }
+  .mini i.s { background: var(--mint) } .mini i.p { background: var(--orange) }
+  .mini .arrow { width: 24px; flex: none; color: var(--green) }
+  .mini-cap { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+  @media (max-width: 760px) { .topic { grid-template-columns: minmax(0, 1fr) } .mini { align-items: flex-start } }
 </style>
 </head>
 <body>
@@ -43,38 +51,47 @@
   </nav>
 </div></header>
 <main>
-  <section class="wrap" style="padding:64px 28px 40px">
-    <h1 class="h1">Design <span class="glow">notes.</span></h1>
-    <p class="cap" style="margin-top:12px;font-size:13px">Case studies on the EIP-8297 Partitioned Binary Tree. Each one states a claim about the design, tests it on mainnet data, and keeps the queries so anyone can rerun them. Verdicts: <span class="chip v-just">justified</span> <span class="chip v-chal">challenged</span> <span class="chip v-prop">proposal</span>.</p>
-  </section>
-  <section class="wrap notes">
-    <a class="note" href="header-slots/">
-      <div class="mini" aria-hidden="true" id="mini"></div>
-      <div>
-        <span class="lbl">EIP-8297 · storage layout · 2026-10</span>
-        <h2>The first 64 slots</h2>
-        <p>EIP-8297 keeps every account's storage slots 0–63 inside its header. We measured on seven months of mainnet what that buys today, what it could buy with a gas rule that treats the header as one unit, and whether 64 is the right number.</p>
-        <div class="chips">
-          <span class="chip v-prop">cheaper header reads and writes</span>
-          <span class="chip v-just">contracts that never need a bucket</span>
-          <span class="chip v-chal">"one path instead of two"</span>
-          <span class="chip v-just">64, not 4</span>
-          <span class="chip v-prop">proxy slots in the header</span>
-        </div>
+<section class="wrap" style="padding:64px 28px 36px">
+  <h1 class="h1">Design <span class="glow">notes.</span></h1>
+  <p class="lead">Each topic takes one part of the EIP-8297 design and tests it on mainnet data, as a set of notes: <span class="kind k-claim">claims</span> about choices the EIP already makes, <span class="kind k-question">questions</span> still open, and <span class="kind k-proposal">proposals</span> for changes.</p>
+</section>
+<section class="wrap topics">
+  <a class="topic" href="header-slots/">
+    <div class="mini" aria-hidden="true">
+      <div class="mini-row">
+        <div class="g g16" id="mini-before"></div>
+        <svg class="arrow" viewBox="0 0 24 12"><path d="M1 6h19M15 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        <div class="g g8" id="mini-after"></div>
       </div>
-    </a>
-  </section>
+      <span class="mini-cap">header: 256 → 64 positions</span>
+    </div>
+    <div>
+      <span class="lbl">EIP-8297 · account header · mainnet, March to October 2026</span>
+      <h2>The first 64 slots</h2>
+      <p>EIP-8297 keeps every account's storage slots 0–63 in its header. Does that pay off, how many slots should the header hold, and what could build on it?</p>
+      <div class="topic-notes">
+        <div><span class="kind k-claim">claim</span>Slots 0–63 belong in the header</div>
+        <div><span class="kind k-question">question</span>How many slots should the header hold?</div>
+        <div><span class="kind k-proposal">proposal</span>Charge slots 0–63 with the header</div>
+        <div><span class="kind k-proposal">proposal</span>Store the header as one record</div>
+        <div><span class="kind k-proposal">proposal</span>Give proxy slots a place in the header</div>
+      </div>
+    </div>
+  </a>
+</section>
 </main>
 <footer><div class="wrap">
   <a href="https://eips.ethereum.org/EIPS/eip-8297" target="_blank" rel="noopener">EIP-8297</a>
   · <a href="https://github.com/CPerezz/pbt-website" target="_blank" rel="noopener">GitHub</a>
 </div></footer>
 <script>
-  // 256 sub-indices of a header stem, in the article's colours.
-  const m = document.getElementById('mini');
-  for (let i = 0; i < 256; i++) {
-    const c = i === 0 ? 'b' : i === 1 ? 'c' : i === 2 ? 'd' : i >= 64 && i < 128 ? 's' : '';
-    m.insertAdjacentHTML('beforeend', `<i class="${c}"></i>`);
+  // An account header stem before (EIP-8297 today) and after the notes' changes: fields, 32 storage slots,
+  // three EIP-1967 proxy slots, reserved positions up to 64.
+  const cls = (i, after) => i < 3 ? 'bcd'[i] : after ? (i < 35 ? 's' : i < 38 ? 'p' : '')
+    : (i < 64 ? '' : i < 128 ? 's' : 'u');
+  for (const [id, n, after] of [['mini-before', 256, false], ['mini-after', 64, true]]) {
+    const g = document.getElementById(id);
+    for (let i = 0; i < n; i++) g.insertAdjacentHTML('beforeend', `<i class="${cls(i, after)}"></i>`);
   }
 </script>
 </body>

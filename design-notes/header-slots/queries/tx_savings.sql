@@ -1,5 +1,5 @@
--- A1, A2, A3 (clickhouse-raw, one W_R chunk).
--- Per tx: t_hdr = cold charges on slots 0-63 (A1); t_disc = header changes rule A2 discounts (see write_totals.sql).
+-- Note gas-rule (clickhouse-raw, one W_R chunk).
+-- Per tx: t_hdr = cold charges on slots 0-63 (the read rule); t_disc = header changes the write rule discounts (see write_totals.sql).
 -- Savings at the default prices (header-slot read 100, further header write 100) are 2,000 per t_hdr
 -- (2,100 cold -> 100) and 2,800 per t_disc (2,900 change -> 100). Shares are binned so chunks can be summed.
 -- Sources are read through DISTINCT: the canonical_* tables carry exact duplicate rows for some ranges.

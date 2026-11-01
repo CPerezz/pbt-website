@@ -1,4 +1,4 @@
--- A1 (clickhouse-raw, one W_R chunk): top 100 contracts by cold charges on slots 0-63.
+-- Note in-the-header (clickhouse-raw, one W_R chunk): top 100 contracts by cold charges on slots 0-63.
 SELECT contract_address AS a,
        count()          AS hdr_access,
        uniqExact(slot)  AS hdr_slots_used,

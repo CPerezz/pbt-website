@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charge slots 0–63 with the header — Design notes — PBT Lab</title>
+<meta name="description" content="A PBT gas rule that charges storage slots 0–63 with the account header they live in, tested on seven months of mainnet.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Charge slots 0–63 with the header — PBT Lab design notes">
+<meta property="og:description" content="Proposal: warm-priced header-slot reads and cheap further header writes. Mainnet says 5.9 % less gas.">
+<meta property="og:url" content="https://cperezz.github.io/pbt-website/design-notes/header-gas-rule/">
+<meta property="og:image" content="https://cperezz.github.io/pbt-website/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../../../benchmarks/bench.css">
+<link rel="stylesheet" href="../../notes.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="../../../" aria-label="PBT Lab home">PBT·LAB</a>
+  <span class="crumb"><a href="../../" style="color:inherit;text-decoration:none">Design notes</a> · <a href="../" style="color:inherit;text-decoration:none">The first 64 slots</a> · proposal</span>
+  <span class="grow"></span>
+  <nav class="row" aria-label="Parts" style="gap:16px;font-size:12px"><a href="#a">A · proposal</a><a href="#b">B · data</a><a href="#c">C · conclusion</a></nav>
+</div></header>
+
+<main>
+<section class="wrap" style="padding:56px 28px 18px">
+  <div class="kicker"><span class="kind k-proposal">proposal</span><span class="chip v-yes">supported</span><span>a PBT gas schedule · mainnet <span data-n="meta.from_date" data-f="s"></span> → <span data-n="meta.to_date" data-f="s"></span></span></div>
+  <h1 class="h1">Charge slots 0–63 with <span class="glow">the header.</span></h1>
+  <p class="lead"><b>TL;DR</b> A header-slot read at the warm price once the account is open, and cheap header writes after the first: mainnet would use <b data-n="a3.default" data-f="pct"></b> less gas, room for <b data-n="a3.more_txs" data-f="pct"></b> more transactions per block. But <b data-n="a1.warm32" data-f="pct0"></b> of the read saving overlaps EIP-8289's multi-block warming; shipped after it, the read half adds only <b data-n="a1.saved_r100_after_8289" data-f="pct"></b>.</p>
+</section>
+
+<section class="sec" style="padding-top:10px"><div class="wrap prose">
+  <div class="part" id="a"><div class="part-k"><b>A</b>proposal &amp; expectation</div><div class="part-b">
+    <p>EIP-8297 does not change gas, so a header slot is charged like any other slot: 2,100 for its first touch in a transaction, and 2,900 more to change it. The proposal is two rules that charge slots 0–63 with the header they live in:</p>
+    <ul>
+      <li><b>Reads.</b> Once a transaction has opened an account to run its code, the first touch of any of its slots 0–63 costs a warm read (100). The node pays almost nothing for it: the slot is one more leaf of a stem the block already opened (see the <a href="../in-the-header/">claim</a>).</li>
+      <li><b>Writes.</b> Once one header leaf changes, the node re-hashes that stem and its path to the root anyway, and further changes in the same block add no path hashing; a client may even re-hash the whole stem at once. So the first header change in a transaction pays as today, unless the nonce or balance already changed the header, and every further change to a slot in 0–63 pays a warm-write price (100). Creating a slot (zero to non-zero) keeps its state-growth price.</li>
+    </ul>
+    <p>We expected the read rule to carry most of it: a transaction reads far more slots than it changes, and the write rule only discounts the changes after the first.</p>
+  </div></div>
+
+  <div class="part" id="b"><div class="part-k"><b>B</b>data</div><div class="part-b">
+    <h3>Reads</h3>
+    <ul class="facts">
+      <li>Gas saved: <b data-n="a1.saved_r100" data-f="pct"></b> at a read price of 100, <b data-n="a1.saved_r0" data-f="pct"></b> if free, <b data-n="a1.saved_r200" data-f="pct"></b> at 200.</li>
+      <li>USDT is <b data-n="a1.usdt_share" data-f="pct0"></b> of the cold charges on slots 0–63. Without it the saving is <b data-n="a1.saved_r100_nousdt" data-f="pct"></b>.</li>
+    </ul>
+    <h3>Writes</h3>
+    <ul class="facts">
+      <li><span data-n="a2.hdr_writes" data-f="m"></span> header-slot writes. Header slots take <b data-n="a2.hdr_changes_share" data-f="pct0"></b> of all slot changes.</li>
+      <li>When a transaction changes a contract's header slots, <b data-n="a2.pairs_2plus" data-f="pct0"></b> of the time it changes two or more. Only <b data-n="a2.pairs_dirty" data-f="pct0"></b> of the time does it also change that contract's nonce or balance.</li>
+      <li>The rule discounts <b data-n="a2.disc_share" data-f="pct0"></b> of header-slot changes: <b data-n="a2.saved_w100" data-f="pct"></b> of gas at a warm-write price of 100, <b data-n="a2.saved_w1000" data-f="pct"></b> at 1,000.</li>
+    </ul>
+    <h3>Both rules</h3>
+    <ul class="facts">
+      <li>With both prices at 100, mainnet would have used <b data-n="a3.default" data-f="pct"></b> less gas: room for <b data-n="a3.more_txs" data-f="pct"></b> more transactions at the same limit. Without USDT, <b data-n="a3.default_nousdt" data-f="pct"></b>.</li>
+      <li><b data-n="a3.txs_gain" data-f="pct0"></b> of transactions pay less. Saving per sampled range (low · median · high): <b data-n="a3.chunk_range" data-f="pct"></b>.</li>
+    </ul>
+    <figure><div id="tbl-grid"></div><figcaption>Share of all gas saved, by the price of a header-slot read (rows) and of a further header write (columns).</figcaption></figure>
+    <div class="two">
+      <figure><div id="fig-bins"></div><figcaption>Transactions by share of their own gas saved. Of those that gain, the largest group saves 10–20 %.</figcaption></figure>
+      <figure><div id="fig-time"></div><figcaption>Share of gas saved in each sampled 1,000-block range.</figcaption></figure>
+    </div>
+    <figure><div id="tbl-top-targets"></div><figcaption>Transaction targets that would save the most gas in total.</figcaption></figure>
+    <h3>Overlap with multi-block warming</h3>
+    <ul class="facts">
+      <li><b data-n="a1.warm32" data-f="pct0"></b> of the cold charges on slots 0–63 hit a slot the chain read in the previous 32 blocks. Under <a href="https://eips.ethereum.org/EIPS/eip-8289" target="_blank" rel="noopener">EIP-8289</a> those would already be warm, so after it the read rule saves only <b data-n="a1.saved_r100_after_8289" data-f="pct"></b>.</li>
+    </ul>
+    <h3>EIP-7702 accounts</h3>
+    <ul class="facts">
+      <li>A delegated account's own transaction changes its nonce, so its header is already changed and every header-slot write it makes in that transaction would get the warm-write price.</li>
+      <li>Of <b data-n="d2.delegated" data-f="n"></b> delegated accounts, those that wrote storage over two days made <b data-n="d2.slot_writes" data-f="n"></b> slot writes. <b data-n="d2.hdr_share" data-f="pct0"></b> of them hit slots 0–63, and <b data-n="d2.nonce_share" data-f="pct0"></b> came in a transaction that also changed the account's nonce.</li>
+    </ul>
+    <figure><div id="tbl-delegates"></div><figcaption>Delegate contracts by slot writes of the accounts using them. Each of these keeps either all of its writes in slots 0–63 or none.</figcaption></figure>
+    <p class="how">How we measured it: over the full sample, <span data-n="meta.blocks" data-f="n"></span> blocks in <span data-n="meta.chunks" data-f="n"></span> ranges of 1,000, one every 10,000 (<span data-n="meta.txs" data-f="m"></span> transactions). Per transaction, its cold charges on slots 0–63 and its discounted header changes, set against its gas used (<a href="../queries/tx_savings.sql">tx_savings</a>, <a href="../queries/access_totals.sql">access_totals</a>, <a href="../queries/write_totals.sql">write_totals</a>, <a href="../queries/top_targets.sql">top_targets</a>). A header counts as already changed when the same account's balance or nonce changed in the same transaction. Warming overlap: <a href="../queries/warm8289.sql">warm8289</a>, two contiguous days. Delegated accounts: <a href="../queries/delegates.sql">delegates</a>. Writes are net per transaction, so the write saving is a lower bound. Windows and checks: <a href="../method.html">method</a>.</p>
+  </div></div>
+
+  <div class="part" id="c"><div class="part-k"><b>C</b>conclusion</div><div class="part-b">
+    <p><b>Supported, designed together with EIP-8289.</b> The rule is worth <b data-n="a3.default" data-f="pct"></b> of gas today, spread over <b data-n="a3.txs_gain" data-f="pct0"></b> of transactions, and it barely depends on the exact prices: across the grid the saving moves by less than a point. The read half carries almost all of it, and most of the read half goes away if multi-block warming ships first. The write half is small but cheap to specify alongside.</p>
+    <p>For the disk to be as cheap as the gas, clients need the <a href="../flat-record/">one-record header</a>.</p>
+  </div></div>
+
+  <nav class="next" aria-label="More notes">
+    <a href="../how-many/"><span>← previous · question</span>How many slots should the header hold?</a>
+    <a href="../"><span>all notes</span>The first 64 slots</a>
+    <a href="../flat-record/"><span>next · proposal</span>Store the header as one record →</a>
+  </nav>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <a href="../">The first 64 slots</a> · <a href="../method.html">Method &amp; data</a>
+  · <a href="https://eips.ethereum.org/EIPS/eip-8297" target="_blank" rel="noopener">EIP-8297</a>
+  · <a href="https://github.com/CPerezz/pbt-website" target="_blank" rel="noopener">GitHub</a>
+</div></footer>
+<script type="module" src="../notes.js"></script>
+</body>
+</html>

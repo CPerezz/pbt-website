@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Store the header as one record — Design notes — PBT Lab</title>
+<meta name="description" content="Clients could store each account header with its storage slots 0–63 as one database record. Mainnet data on what that saves and costs.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Store the header as one record — PBT Lab design notes">
+<meta property="og:description" content="Proposal for clients: one flat record per account header, slots 0–63 included.">
+<meta property="og:url" content="https://cperezz.github.io/pbt-website/design-notes/flat-header-record/">
+<meta property="og:image" content="https://cperezz.github.io/pbt-website/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../../../benchmarks/bench.css">
+<link rel="stylesheet" href="../../notes.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="../../../" aria-label="PBT Lab home">PBT·LAB</a>
+  <span class="crumb"><a href="../../" style="color:inherit;text-decoration:none">Design notes</a> · <a href="../" style="color:inherit;text-decoration:none">The first 64 slots</a> · proposal</span>
+  <span class="grow"></span>
+  <nav class="row" aria-label="Parts" style="gap:16px;font-size:12px"><a href="#a">A · proposal</a><a href="#b">B · data</a><a href="#c">C · conclusion</a></nav>
+</div></header>
+
+<main>
+<section class="wrap" style="padding:56px 28px 18px">
+  <div class="kicker"><span class="kind k-proposal">proposal</span><span class="chip v-yes">supported</span><span>clients' flat databases · mainnet <span data-n="meta.from_date" data-f="s"></span> → <span data-n="meta.to_date" data-f="s"></span></span></div>
+  <h1 class="h1">Store the header as <span class="glow">one record.</span></h1>
+  <p class="lead"><b>TL;DR</b> Client databases read whole pages of 4 KB or more, and a full header with all 64 slots is about 2 KB. Keeping slots 0–63 in the account's own record makes <b data-n="c3.lookups_share" data-f="pct0"></b> of storage reads free on disk, for <b data-n="c3.bytes_per_read" data-f="b"></b> more per account read on average.</p>
+</section>
+
+<section class="sec" style="padding-top:10px"><div class="wrap prose">
+  <div class="part" id="a"><div class="part-k"><b>A</b>proposal &amp; expectation</div><div class="part-b">
+    <p>Clients answer most state reads from a flat database rather than from the tree. There, every storage slot is a record of its own, keyed by account and slot or kept in a separate storage table. So even a header slot costs a lookup of its own, although the account read just before it already found the header.</p>
+    <p>The proposal: store each account's header as one record, with its basic data, code hash or delegation, and its live slots 0–63. Reading an account then brings its hot slots along.</p>
+    <p>We expected it to be cheap, because databases never read single records: they read and cache whole pages or blocks. A full header with all 64 slots holds about 2 KB of values, within one page of any client's database.</p>
+  </div></div>
+
+  <div class="part" id="b"><div class="part-k"><b>B</b>data</div><div class="part-b">
+    <ul class="facts">
+      <li>Each block reads <b data-n="c3.account_reads_pb" data-f="n"></b> accounts and <b data-n="c3.lookups_saved_pb" data-f="n"></b> distinct header slots. So <b data-n="c3.lookups_share" data-f="pct0"></b> of its storage reads would need no lookup of their own.</li>
+      <li>An account read would carry <b data-n="c3.bytes_per_read" data-f="b"></b> more on average. <b data-n="c3.reads_with_slots" data-f="pct0"></b> of account reads carry any header slots; in total about <b data-n="c3.kb_pb_actual" data-f="kb"></b> more per block.</li>
+      <li>Across all accounts, header slots hold <b data-n="c1.hs64_gb" data-f="gb"></b> of values (<span data-n="b2.hdr_slots" data-f="m"></span> slots). Today each of them also carries its own key of account and slot.</li>
+    </ul>
+    <table class="tbl" style="max-width:760px">
+      <thead><tr><th>client</th><th>database</th><th>smallest unit read from disk (default)</th></tr></thead>
+      <tbody>
+        <tr><td>geth</td><td>Pebble</td><td>4 KB block</td></tr>
+        <tr><td>Nethermind</td><td>RocksDB</td><td>4–64 KB block, by database</td></tr>
+        <tr><td>Besu</td><td>RocksDB</td><td>32 KB block</td></tr>
+        <tr><td>Erigon, Reth</td><td>MDBX</td><td>one page, at least 4 KB</td></tr>
+        <tr><td colspan="3" style="color:var(--muted)">A full header record: 3 header values plus 64 slot values of 32 B, about 2.1 KB.</td></tr>
+      </tbody>
+    </table>
+    <p class="how">How we measured it: reads per block over the full sample, <span data-n="meta.blocks" data-f="n"></span> blocks in <span data-n="meta.chunks" data-f="n"></span> ranges of 1,000 (<a href="../queries/paths_reads.sql">paths_reads</a>). Record sizes come from 4 of 256 address prefixes over two days (<a href="../queries/c3_accessed.sql">c3_accessed</a>, <a href="../queries/c3_live_header.sql">c3_live_header</a>), which under-represents vanity addresses. Database units are the clients' default settings as of October 2026. Windows and checks: <a href="../method.html">method</a>.</p>
+  </div></div>
+
+  <div class="part" id="c"><div class="part-k"><b>C</b>conclusion</div><div class="part-b">
+    <p><b>Supported.</b> On reads, a header record stays well inside the page or block a client reads anyway, so header-slot reads become free on disk as well as in the tree. The cost is on writes: changing any header slot rewrites the whole record, <b data-n="c3.bytes_per_read" data-f="b"></b> more on average and about 2 KB at most, small next to the pages a database rewrites anyway. The header slots also stop needing keys of their own.</p>
+    <p>This is what makes the "free" in the <a href="../gas-rule/">header gas rule</a> true for the disk. It needs no consensus change, so clients can adopt it on their own.</p>
+  </div></div>
+
+  <nav class="next" aria-label="More notes">
+    <a href="../gas-rule/"><span>← previous · proposal</span>Charge slots 0–63 with the header</a>
+    <a href="../"><span>all notes</span>The first 64 slots</a>
+    <a href="../proxy-slots/"><span>next · proposal</span>Give proxy slots a place in the header →</a>
+  </nav>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <a href="../">The first 64 slots</a> · <a href="../method.html">Method &amp; data</a>
+  · <a href="https://eips.ethereum.org/EIPS/eip-8297" target="_blank" rel="noopener">EIP-8297</a>
+  · <a href="https://github.com/CPerezz/pbt-website" target="_blank" rel="noopener">GitHub</a>
+</div></footer>
+<script type="module" src="../notes.js"></script>
+</body>
+</html>

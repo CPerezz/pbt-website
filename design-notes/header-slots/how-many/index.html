@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How many slots should the header hold? — Design notes — PBT Lab</title>
+<meta name="description" content="EIP-8297 keeps 64 storage slots in the account header, EIP-7864 keeps 4. Mainnet data on 4, 32 and 64.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How many slots should the header hold? — PBT Lab design notes">
+<meta property="og:description" content="4, 32 or 64 header storage slots, measured on seven months of mainnet.">
+<meta property="og:url" content="https://cperezz.github.io/pbt-website/design-notes/header-slot-count/">
+<meta property="og:image" content="https://cperezz.github.io/pbt-website/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../../../benchmarks/bench.css">
+<link rel="stylesheet" href="../../notes.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="../../../" aria-label="PBT Lab home">PBT·LAB</a>
+  <span class="crumb"><a href="../../" style="color:inherit;text-decoration:none">Design notes</a> · <a href="../" style="color:inherit;text-decoration:none">The first 64 slots</a> · question</span>
+  <span class="grow"></span>
+  <nav class="row" aria-label="Parts" style="gap:16px;font-size:12px"><a href="#a">A · question</a><a href="#b">B · data</a><a href="#c">C · conclusion</a></nav>
+</div></header>
+
+<main>
+<section class="wrap" style="padding:56px 28px 18px">
+  <div class="kicker"><span class="kind k-question">question</span><span class="chip v-open">open: 32 or 64</span><span>EIP-8297 parameter · mainnet <span data-n="meta.from_date" data-f="s"></span> → <span data-n="meta.to_date" data-f="s"></span></span></div>
+  <h1 class="h1">How many slots should the <span class="glow">header hold?</span></h1>
+  <p class="lead"><b>TL;DR</b> 4 slots, EIP-7864's number, catch only <b data-n="c1.n4_vs_64" data-f="pct0"></b> of the cold charges 64 do, and cost paths on writes. 32 and 64 are a few percent apart: 32 keep <b data-n="c1.n32_vs_64" data-f="pct0"></b> of the charges, and live headers would shrink by just <b data-n="c1.hs_cut_32" data-f="pct"></b>. What 32 does halve is the most one header can hold, from 2 KB to 1 KB.</p>
+</section>
+
+<section class="sec" style="padding-top:10px"><div class="wrap prose">
+  <div class="part" id="a"><div class="part-k"><b>A</b>question &amp; expectation</div><div class="part-b">
+    <p><b>Where 4 comes from.</b> EIP-8297 holds 64 slots. The number goes back to Vitalik's 2021 proposal for editable header fields and to EIP-6800 (Verkle), which kept 64 slots and 128 code chunks in the account stem. EIP-7864, the binary tree proposal, cut its header to 4 slots and 16 code chunks in June 2026 (<a href="https://github.com/ethereum/EIPs/pull/11832" target="_blank" rel="noopener">ethereum/EIPs#11832</a>) without stating a reason.</p>
+    <p><a href="https://eips.ethereum.org/EIPS/eip-8369" target="_blank" rel="noopener">EIP-8369</a> gives one reason a small number can appeal. Its AA-VOPS profile has partial-state nodes keep the first few storage slots of every account, so they can validate account-abstraction transactions without a witness. Every slot kept costs each such node storage, so it considers 2 to 4, pending benchmarks.</p>
+    <p><b>Why 32.</b> A 32-slot header halves the most one header can hold, from 64 slot values to 32 (2 KB to 1 KB). It shrinks nothing else: the reserved positions 3–63 and the unused 128–255 already cost nothing, since absent keys occupy no nodes. In live state, 32 only saves the slots 32–63 that contracts actually use.</p>
+    <p><b>The trade.</b> Fewer header slots leave hot slots outside the header. They also move the header boundary lower, so more contracts write slots on both sides of it and need two paths where one would do. More header slots catch little extra, and make full headers heavier wherever they are stored or moved whole.</p>
+    <p>We expected 4 slots to be too few, since contracts spread their hot variables over more than their first four slots, and the gains to flatten well before 64. What a smaller header saves in size was the open part.</p>
+  </div></div>
+
+  <div class="part" id="b"><div class="part-k"><b>B</b>data</div><div class="part-b">
+    <figure><div id="tbl-sweep"></div><figcaption>Every result for a header of N slots. Write paths: positive when contracts whose header and low slots change in the same block share one path, negative when more contracts write on both sides of the header boundary and need a second one. Gas saved: under the <a href="../gas-rule/">header gas rule</a>, reads and writes. * Reference only: a header starting at position 64 holds at most 192 slots.</figcaption></figure>
+    <ul class="facts">
+      <li><b>4 slots</b> catch <b data-n="c1.n4_vs_64" data-f="pct0"></b> of the cold charges 64 catch, and writes come out at <b data-n="c1.write_net_4" data-f="sn2"></b> paths per block. Headers would hold <span data-n="c1.hs4" data-f="m"></span> live slots (<b data-n="c1.hs4_gb" data-f="gb"></b> of values across all accounts) instead of <span data-n="c1.hs64" data-f="m"></span> (<b data-n="c1.hs64_gb" data-f="gb"></b>), and <b data-n="c1.nb4" data-f="pct"></b> of contracts with storage would have no bucket, against <b data-n="c1.nb64" data-f="pct"></b>.</li>
+      <li><b>32 slots</b> catch <b data-n="c1.n32_vs_64" data-f="pct0"></b> of the cold charges and <b data-n="c1.paths_n32_vs_64" data-f="pct0"></b> of the storage paths that 64 catch, and <b data-n="c1.gas_n32_vs_64" data-f="pct0"></b> of the gas the header gas rule saves. Writes: <b data-n="c1.write_net_32" data-f="sn2"></b> paths per block, against <b data-n="b1.net_pb" data-f="sn2"></b> at 64.</li>
+      <li>In live state, 32 and 64 barely differ: headers would hold <span data-n="c1.hs32" data-f="m"></span> slots (<b data-n="c1.hs32_gb" data-f="gb"></b>) instead of <span data-n="c1.hs64" data-f="m"></span> (<b data-n="c1.hs64_gb" data-f="gb"></b>), and <b data-n="c1.nb32" data-f="pct"></b> of contracts would have no bucket, against <b data-n="c1.nb64" data-f="pct"></b>. Almost no contract uses slots 32–63.</li>
+      <li>Of the cold charges below slot 256, <b data-n="c1.below4" data-f="pct0"></b> hit slots 0–3, <b data-n="c1.below16" data-f="pct0"></b> slots 0–15 and <b data-n="c1.below64" data-f="pct0"></b> slots 0–63.</li>
+    </ul>
+    <div class="two">
+      <figure><div id="fig-sweep-paths"></div><figcaption>What the header saves: storage paths each block avoids, by N.</figcaption></figure>
+      <figure><div id="fig-sweep-size"></div><figcaption>What the header holds: live header slot values across all accounts, by N.</figcaption></figure>
+    </div>
+    <figure><div id="fig-hist"></div><figcaption>Cold charges by slot number, 0–255 (log scale). Mint: inside today's 64-slot header.</figcaption></figure>
+    <p class="how">How we measured it: over the full sample, <span data-n="meta.blocks" data-f="n"></span> blocks in <span data-n="meta.chunks" data-f="n"></span> ranges of 1,000, one every 10,000 (<span data-n="meta.txs" data-f="m"></span> transactions). Same queries as the other notes, with N as a parameter (<a href="../queries/access_totals.sql">access_totals</a>, <a href="../queries/paths_reads.sql">paths_reads</a>, <a href="../queries/paths_writes.sql">paths_writes</a>, <a href="../queries/write_totals.sql">write_totals</a>), charges by slot number (<a href="../queries/hist.sql">hist</a>). Live state at block 26,300,000 for every N, over all accounts (<a href="../queries/state_n.sql">state_n</a>, all 256 address prefixes). Windows and checks: <a href="../method.html">method</a>.</p>
+  </div></div>
+
+  <div class="part" id="c"><div class="part-k"><b>C</b>conclusion</div><div class="part-b">
+    <p><b>4 is too few.</b> It loses more than half of the cold charges 64 catch and adds paths on writes. In exchange it trims header values across all of mainnet from <b data-n="c1.hs64_gb" data-f="gb"></b> to <b data-n="c1.hs4_gb" data-f="gb"></b>, which is the saving a partial-state node would see.</p>
+    <p><b>32 or 64 stays open.</b> The data puts them a few percent apart either way. 32 keeps <b data-n="c1.n32_vs_64" data-f="pct0"></b> of the cold charges and saves <b data-n="c1.hs_cut_32" data-f="pct"></b> of live header data. The one thing 32 halves is the worst case, the most one header can hold. That matters only where a whole header is stored or moved as one unit, such as a <a href="../flat-record/">one-record header</a> in a client, and even there 2 KB fits within one database page. Trimming the reserved positions or 128–255 would save nothing, since absent keys cost nothing. On today's data the choice turns on whether the worst-case header size matters anywhere.</p>
+  </div></div>
+
+  <nav class="next" aria-label="More notes">
+    <a href="../in-the-header/"><span>← previous · claim</span>Slots 0–63 belong in the header</a>
+    <a href="../"><span>all notes</span>The first 64 slots</a>
+    <a href="../gas-rule/"><span>next · proposal</span>Charge slots 0–63 with the header →</a>
+  </nav>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <a href="../">The first 64 slots</a> · <a href="../method.html">Method &amp; data</a>
+  · <a href="https://eips.ethereum.org/EIPS/eip-8297" target="_blank" rel="noopener">EIP-8297</a>
+  · <a href="https://github.com/CPerezz/pbt-website" target="_blank" rel="noopener">GitHub</a>
+</div></footer>
+<script type="module" src="../notes.js"></script>
+</body>
+</html>

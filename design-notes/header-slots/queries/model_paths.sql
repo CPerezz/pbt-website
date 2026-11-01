@@ -1,4 +1,4 @@
--- Model M input for A1 and C2 (clickhouse-raw, the model windows).
+-- Path-model input for notes in-the-header and proxy-slots (clickhouse-raw, the model windows).
 -- Per contract, over (block, contract) pairs:
 --   g0_*: pairs whose group-0 path EIP-8297 avoids. "alone": the contract opens no other storage group in that block,
 --         so the avoided path runs from the storage-zone top to its bucket; "with": it shares the bucket path.

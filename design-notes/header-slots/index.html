@@ -4,50 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The first 64 slots — Design notes — PBT Lab</title>
-<meta name="description" content="EIP-8297 keeps every account's storage slots 0–63 in its header. Seven months of mainnet data on what that buys today, what a header-as-one-unit gas rule could buy, and whether 64 is the right number.">
-<meta property="og:type" content="article">
+<meta name="description" content="EIP-8297 keeps every account's storage slots 0–63 in its header. One claim, one open question and three proposals, each tested on seven months of mainnet.">
+<meta property="og:type" content="website">
 <meta property="og:title" content="The first 64 slots — PBT Lab design notes">
-<meta property="og:description" content="What EIP-8297's 64 header storage slots buy, measured on seven months of mainnet.">
+<meta property="og:description" content="Claims, questions and proposals about EIP-8297's header storage slots, tested on mainnet data.">
 <meta property="og:url" content="https://cperezz.github.io/pbt-website/design-notes/header-slots/">
 <meta property="og:image" content="https://cperezz.github.io/pbt-website/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <link rel="stylesheet" href="../../benchmarks/bench.css">
+<link rel="stylesheet" href="../notes.css">
 <style>
-  .prose > p, .prose > ul, .prose > .case, .prose > h3 { max-width: 820px }
-  .prose > table, .prose > figure, .prose > .two { max-width: 1040px }
-  #tbl-grid td, #tbl-sweep td { white-space: nowrap }
-  figure { overflow-x: auto }
-  .prose p, .prose li { font-size: 13.5px; line-height: 1.7; color: var(--ink2); text-wrap: pretty }
-  .prose p { margin: 0 0 14px }
-  .prose b, .prose strong { color: var(--ink); font-weight: 600 }
-  .prose code { font-size: 12px; color: var(--ink); background: rgba(226,230,226,.06); padding: 1px 5px; border-radius: 4px }
-  .prose h3 { font-family: VT323, monospace; font-weight: 400; font-size: 26px; color: var(--ink); margin: 30px 0 8px }
-  .prose ul { padding-left: 18px; margin: 0 0 14px }
-  .kicker { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px }
-  .lead { font-size: 15px; line-height: 1.65; color: var(--ink2); max-width: 760px; margin: 18px 0 0 }
-  .case { display: grid; grid-template-columns: 140px 1fr; gap: 10px 22px; margin: 22px 0 }
-  .case .k { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-top: 3px }
-  .case p { margin: 0 }
-  .chip.v-just { color: var(--green); border-color: rgba(51,255,51,.4) }
-  .chip.v-chal { color: var(--orange); border-color: rgba(255,159,67,.45) }
-  .chip.v-prop { color: var(--lilac); border-color: rgba(181,123,255,.45) }
-  .chip.v-ctx { color: var(--blue); border-color: rgba(108,184,234,.45) }
-  table.tbl { border-collapse: collapse; width: 100%; font-size: 12px; margin: 6px 0 18px }
-  .tbl th { text-align: left; font-weight: 500; color: var(--muted); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase;
-    border-bottom: 1px solid var(--line); padding: 7px 10px 7px 0 }
-  .tbl td { border-bottom: 1px solid rgba(226,230,226,.06); padding: 7px 10px 7px 0; color: var(--ink2); vertical-align: top }
-  .tbl td:first-child { color: var(--ink) }
-  .verdicts td:nth-child(2) { white-space: nowrap }
-  .verdicts a { color: var(--ink) }
-  figure { margin: 14px 0 22px; padding: 14px 16px 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px }
-  figcaption { font-size: 11.5px; color: var(--muted); margin: 6px 0 4px; line-height: 1.5 }
-  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px }
-  .note { border-left: 2px solid var(--line); padding: 2px 0 2px 14px; margin: 0 0 14px }
-  .rec { border-left: 2px solid var(--green); padding: 2px 0 2px 14px; margin: 0 0 16px }
-  a.addr { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--muted) }
-  pre.cmd { background: rgba(226,230,226,.04); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; font-size: 12px; overflow-x: auto; color: var(--ink) }
-  @media (max-width: 760px) { .case { grid-template-columns: 1fr } .two { grid-template-columns: 1fr } }
+  .legend { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 28px; max-width: 1040px }
+  .legend div { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; font-size: 12px; line-height: 1.55; color: var(--ink2) }
+  .legend .kind { margin-bottom: 8px }
+  .sample { max-width: 860px; margin: 16px 0 0; padding: 2px 0 2px 12px; border-left: 2px solid var(--green); font-size: 12.5px; line-height: 1.65; color: var(--ink2) }
+  .sample b { color: var(--ink) }
+  @media (max-width: 760px) { .legend { grid-template-columns: 1fr } }
 </style>
 </head>
 <body>
@@ -55,191 +28,70 @@
   <a class="logo" href="../../" aria-label="PBT Lab home">PBT·LAB</a>
   <span class="crumb"><a href="../" style="color:inherit;text-decoration:none">Design notes</a> · The first 64 slots</span>
   <span class="grow"></span>
-  <nav class="row" aria-label="Sections" style="gap:16px;font-size:12px">
-    <a href="#rules">A · gas</a><a href="#claims">B · claims</a><a href="#design">C · design</a><a href="#context">D · context</a><a href="#method">method</a>
-  </nav>
+  <nav class="row" aria-label="Page" style="gap:16px;font-size:12px"><a href="#background">background</a><a href="method.html">method</a></nav>
 </div></header>
-
 <main>
-<section class="wrap" style="padding:60px 28px 30px">
-  <div class="kicker">Design note · EIP-8297 · mainnet <span data-n="meta.from_date" data-f="s"></span> → <span data-n="meta.to_date" data-f="s"></span></div>
+<section class="wrap" style="padding:60px 28px 24px">
+  <div class="kicker"><span>EIP-8297 · account header · mainnet <span data-n="meta.from_date" data-f="s"></span> → <span data-n="meta.to_date" data-f="s"></span></span></div>
   <h1 class="h1">The first <span class="glow">64 slots.</span></h1>
-  <p class="lead">EIP-8297 stores every account's storage slots 0–63 inside its header, next to its nonce, balance and code hash. Does that buy anything? We measured it on <b data-n="meta.txs" data-f="m"></b> mainnet transactions (one 1,000-block range in every 10,000, over seven months): what it saves the tree today, what a gas rule that treats the header as one unit would save users, and whether 64 is the right number.</p>
+  <p class="lead">EIP-8297 keeps every account's storage slots 0–63 in its header. These notes test that choice, and the changes it invites, on seven months of mainnet. Each has the same three parts: <b>A</b> what it says and what we expected, <b>B</b> the data, <b>C</b> the conclusion.</p>
+  <p class="sample"><b>Sample:</b> <b data-n="meta.blocks" data-f="n"></b> mainnet blocks in <span data-n="meta.chunks" data-f="n"></span> ranges of 1,000, one every 10,000, from <span data-n="meta.from_date" data-f="s"></span> to <span data-n="meta.to_date" data-f="s"></span>: <b data-n="meta.txs" data-f="m"></b> transactions. Plus the live storage of every account at block 26,300,000. A few measurements use smaller windows; each note's data part says which.</p>
+  <div class="legend">
+    <div><span class="kind k-claim">claim</span><br>A choice EIP-8297 already makes. The data justifies it or challenges it.</div>
+    <div><span class="kind k-question">question</span><br>A choice that is still open. The data narrows the options.</div>
+    <div><span class="kind k-proposal">proposal</span><br>A change we could make to the spec, a gas schedule or clients. The data says whether it is worth it.</div>
+  </div>
 </section>
 
-<section class="wrap prose">
-  <table class="tbl verdicts">
-    <thead><tr><th>case</th><th>verdict</th><th>what the data says</th></tr></thead>
-    <tbody>
-      <tr><td><a href="#a1">A1 · free reads of slots 0–63</a></td><td><span class="chip v-prop">proposal</span></td>
-        <td>Users would pay <b data-n="a1.saved_r100" data-f="pct"></b> less gas. If EIP-8289's multi-block warming ships first, only <b data-n="a1.saved_r100_after_8289" data-f="pct"></b>.</td></tr>
-      <tr><td><a href="#a2">A2 · cheap header writes after the first</a></td><td><span class="chip v-prop">proposal</span></td>
-        <td><b data-n="a2.saved_w100" data-f="pct"></b> less gas: header-slot changes are only <b data-n="a2.hdr_changes_share" data-f="pct0"></b> of slot changes, and the first one in each transaction still pays.</td></tr>
-      <tr><td><a href="#a3">A3 · both rules</a></td><td><span class="chip v-prop">proposal</span></td>
-        <td><b data-n="a3.default" data-f="pct"></b> less gas, room for <b data-n="a3.more_txs" data-f="pct"></b> more transactions per block; <b data-n="a3.default_nousdt" data-f="pct"></b> without USDT.</td></tr>
-      <tr><td><a href="#b1">B1 · one path instead of two</a></td><td><span class="chip v-chal">challenged</span></td>
-        <td>True, but rare: net <b data-n="b1.net_pb" data-f="n2"></b> paths per block out of <b data-n="b1.dirty_pb" data-f="n"></b> (<b data-n="b1.net_share" data-f="pct2"></b>).</td></tr>
-      <tr><td><a href="#b2">B2 · contracts that live in their header</a></td><td><span class="chip v-just">justified</span></td>
-        <td><b data-n="b2.no_bucket" data-f="pct0"></b> of contracts with storage never need a storage bucket.</td></tr>
-      <tr><td><a href="#c1">C1 · 64, not 4</a></td><td><span class="chip v-just">justified</span></td>
-        <td>64 slots catch <b data-n="c1.n64_vs_256" data-f="pct0"></b> of what 256 would. EIP-7864's 4 catch <b data-n="c1.n4_vs_64" data-f="pct0"></b> of what 64 does.</td></tr>
-      <tr><td><a href="#c2">C2 · proxy slots in the header</a></td><td><span class="chip v-prop">proposal</span></td>
-        <td>Five fixed proxy slots take <b data-n="c2.share" data-f="pct"></b> of all cold storage charges and <b data-n="c2.paths_pb" data-f="n1"></b> storage paths per block.</td></tr>
-      <tr><td><a href="#c3">C3 · one flat record per header</a></td><td><span class="chip v-prop">proposal</span></td>
-        <td><b data-n="c3.lookups_share" data-f="pct0"></b> of storage reads could ride on the account read, for <b data-n="c3.bytes_per_read" data-f="b"></b> more per account read.</td></tr>
-      <tr><td><a href="#d1">D1 · are low slots fading?</a></td><td><span class="chip v-ctx">context</span></td>
-        <td>New contracts use them less (<b data-n="b2.create_early" data-f="pct0"></b> → <b data-n="b2.create_late" data-f="pct0"></b> header-only), traffic doesn't (<b data-n="d1.writes_since_2021" data-f="pct0"></b> of writes since block 11 M).</td></tr>
-      <tr><td><a href="#d2">D2 · EIP-7702 accounts</a></td><td><span class="chip v-ctx">context</span></td>
-        <td><b data-n="d2.hdr_share" data-f="pct0"></b> of their slot writes hit slots 0–63; each delegate is all-or-nothing.</td></tr>
-    </tbody>
-  </table>
+<section class="wrap prose" style="padding-bottom:40px">
+  <div class="toc">
+    <nav class="toc-list" aria-label="Notes">
+      <div class="toc-group"><span class="lbl">claims about EIP-8297</span>
+        <a class="toc-item k-claim" href="in-the-header/"><span class="toc-title">Slots 0–63 belong in the header</span><span class="chip v-yes">justified</span>
+          <span class="affects">EIP-8297 storage layout</span>
+          <span class="tldr">Running a contract always opens its header, so slots kept there ride along. <b data-n="a1.hdr_share" data-f="pct0"></b> of cold storage charges hit slots 0–63, and <b data-n="b2.no_bucket" data-f="pct0"></b> of contracts with storage never need a storage bucket.</span></a>
+      </div>
+      <div class="toc-group"><span class="lbl">open questions</span>
+        <a class="toc-item k-question" href="how-many/"><span class="toc-title">How many slots should the header hold?</span><span class="chip v-open">open: 32 or 64</span>
+          <span class="affects">EIP-8297 parameter · EIP-7864 uses 4</span>
+          <span class="tldr">4 slots catch only <b data-n="c1.n4_vs_64" data-f="pct0"></b> of the cold charges 64 do. 32 and 64 are a few percent apart: 32 keep <b data-n="c1.n32_vs_64" data-f="pct0"></b> of the charges, and live headers would shrink by just <b data-n="c1.hs_cut_32" data-f="pct"></b>, because almost no contract uses slots 32–63. What 32 does halve is the most one header can hold.</span></a>
+      </div>
+      <div class="toc-group"><span class="lbl">proposals</span>
+        <a class="toc-item k-proposal" href="gas-rule/"><span class="toc-title">Charge slots 0–63 with the header</span><span class="chip v-yes">supported</span>
+          <span class="affects">a PBT gas schedule · overlaps EIP-8289</span>
+          <span class="tldr">Warm-priced header-slot reads once the account is open, and cheap header writes after the first: <b data-n="a3.default" data-f="pct"></b> less gas, room for <b data-n="a3.more_txs" data-f="pct"></b> more transactions. If EIP-8289's multi-block warming ships first, the read half adds only <b data-n="a1.saved_r100_after_8289" data-f="pct"></b>.</span></a>
+        <a class="toc-item k-proposal" href="flat-record/"><span class="toc-title">Store the header as one record</span><span class="chip v-yes">supported</span>
+          <span class="affects">clients' flat databases</span>
+          <span class="tldr">Databases read whole pages of 4 KB or more, and a full header is about 2 KB. Keeping slots 0–63 in the account's record makes <b data-n="c3.lookups_share" data-f="pct0"></b> of storage reads free on disk, for <b data-n="c3.bytes_per_read" data-f="b"></b> more per account read.</span></a>
+        <a class="toc-item k-proposal" href="proxy-slots/"><span class="toc-title">Give proxy slots a place in the header</span><span class="chip v-yes">supported</span>
+          <span class="affects">EIP-8297 key mapping</span>
+          <span class="tldr">The three EIP-1967 proxy slots take <b data-n="c2.share" data-f="pct"></b> of cold storage charges and <b data-n="c2.paths_pb" data-f="n1"></b> storage paths per block. Mapping them to unused header positions removes those paths.</span></a>
+      </div>
+    </nav>
+    <aside class="toc-side" aria-live="polite">
+      <div class="toc-preview" id="toc-preview">
+        <div class="pv-head"><span class="kind">all notes</span></div>
+        <span class="pv-title">Where this leaves the header</span>
+        <span class="tldr">Keeping slots 0–63 in the header pays off on reads: <b data-n="a1.hdr_share" data-f="pct0"></b> of cold storage charges. 4 slots are too few; 32 or 64 is still open. Charging those slots with the header would save <b data-n="a3.default" data-f="pct"></b> of gas, storing them with the account costs clients almost nothing, and proxy slots belong there too.</span>
+      </div>
+      <div class="toc-hint">Hover or focus a note for its TL;DR. Click to open it.</div>
+    </aside>
+  </div>
 </section>
 
-<section class="sec" id="stem"><div class="wrap prose">
-  <h2 class="h2">One stem per account</h2>
-  <p>Each account has a <b>header stem</b>: 256 leaves under one key prefix, <code>0x00 ‖ key_hash(address)</code>. EIP-8297 puts the basic data (nonce, balance, code size) at position 0, the code hash at 1, a 7702 delegation at 2, and <b>storage slots 0–63 at positions 64–127</b>. Slots from 64 up live in the storage zone, in groups of 256 consecutive slot numbers under the contract's own <b>bucket</b>. Mapping entries hash to random slot numbers, so each one lands in its own group.</p>
-  <figure><div id="fig-stem"></div><figcaption>An account header stem. Blue: basic data, amber: code hash, lilac: delegation, mint: storage slots 0–63.</figcaption></figure>
-  <p>Five terms are enough for the rest:</p>
-  <ul>
-    <li><b>Path</b>: the branches from a leaf up to the state root, about 31 levels for a header (<span data-n="meta.accounts" data-f="m"></span> accounts in our mainnet snapshot) and about 24 down to a bucket (<span data-n="meta.buckets" data-f="m"></span> buckets), plus the levels inside the bucket. Leaves under one stem share everything above it.</li>
-    <li><b>Witness</b>: what a stateless or zk verifier receives with a block: each value the block touched plus the sibling hashes along its path. Every separate path costs a few hundred bytes more.</li>
-    <li><b>Cold and warm</b> (EIP-2929): the first touch of a slot in a transaction costs 2,100 gas, later touches 100. Changing a slot costs 2,900 more (20,000 if it was zero).</li>
-    <li><b>Group 0</b>: slots 0–255 of a contract. EIP-8297 splits it: 0–63 in the header, 64–255 in the bucket.</li>
-    <li><b>The header is always open</b>: to run a contract the node needs its code hash and code size, both in the header. So every SLOAD and SSTORE lands on an account whose header the block already opened. A slot in 0–63 adds one leaf to that open stem; any other slot needs a path of its own.</li>
-  </ul>
-  <p class="note">EIP-8297 does not change the gas schedule. Group A asks what a gas rule built on the last point would save; groups B to D look at the tree itself. Clients today still read each slot separately from their flat databases (geth and Besu key every slot by <code>(account, slot)</code>, Nethermind keeps slots in their own column), so "free" here means free for the tree and the witness, not yet for the disk; see <a href="#c3">C3</a>.</p>
-</div></section>
-
-<section class="sec" id="rules"><div class="wrap prose">
-  <div class="kicker">group A · a gas rule that treats the header as one unit</div>
-  <h2 class="h2" id="a1">A1 · Free reads of slots 0–63</h2>
-  <div class="case">
-    <span class="k">situation</span><p>Calling a contract opens its header, and most contracts then read their own low slots on every call: USDT reads its owner/paused word, fee settings and upgrade flag; Uniswap pools read their price and liquidity; Safes read threshold and nonce. Each first read in a transaction pays 2,100 gas.</p>
-    <span class="k">why the header</span><p>Those slots are leaves of the stem the transaction already opened. The witness needs one more 32-byte leaf and a few hashes inside the stem, not a second path into the storage zone.</p>
-    <span class="k">rule tested</span><p>Once the account is opened, the first touch of one of its slots 0–63 costs a warm read (100) instead of 2,100.</p>
-  </div>
-  <p><b data-n="a1.hdr_share" data-f="pct"></b> of all cold storage charges hit slots 0–63, and <b data-n="a1.txs_hdr_share" data-f="pct0"></b> of transactions make at least one. Pricing them warm cuts <b data-n="a1.saved_r100" data-f="pct"></b> of all gas (<b data-n="a1.saved_r0" data-f="pct"></b> if they were free). USDT accounts for <b data-n="a1.usdt_share" data-f="pct0"></b> of these charges; without it the saving is <b data-n="a1.saved_r100_nousdt" data-f="pct"></b>.</p>
-  <p>For the tree, each block skips <b data-n="a1.paths_saved_pb" data-f="n1"></b> storage paths it would otherwise open (<b data-n="a1.zone_paths_cut" data-f="pct"></b> of its storage-zone paths). Our path model puts that at <b data-n="model.a1_kb_pb" data-f="kb"></b> of witness per block, about <b data-n="model.a1_bytes_per_path" data-f="b"></b> per avoided path.</p>
-  <p class="note">The overlap with <a href="https://eips.ethereum.org/EIPS/eip-8289" target="_blank" rel="noopener">EIP-8289</a> (multi-block warming) is large: <b data-n="a1.warm32" data-f="pct0"></b> of these charges hit a slot the chain read in the previous 32 blocks, because the hot header slots are hot everywhere. If multi-block warming ships first, this rule adds only <b data-n="a1.saved_r100_after_8289" data-f="pct"></b> of gas.</p>
-
-  <h2 class="h2" id="a2" style="margin-top:46px">A2 · Cheap header writes after the first</h2>
-  <div class="case">
-    <span class="k">situation</span><p>A Uniswap V3 swap changes the price word, fee growth and protocol fees; a V2 swap changes reserves and price accumulators; a Safe bumps its nonce; a mint changes total supply. Each first change of a slot pays 2,900 gas whether or not its stem is already being rewritten.</p>
-    <span class="k">why the header</span><p>Once one header leaf changes, the node re-hashes that stem and its path to the root anyway. geth re-hashes the whole stem in one go (<code>trie/pbt/node.go</code> <code>hashAt</code>), so further header writes in the same block add no hashing at all.</p>
-    <span class="k">rule tested</span><p>The first header change in a transaction pays as today, unless the nonce or balance already changed it; every further header-slot change pays a warm-write price (100). Writes that create a slot keep their state-growth price.</p>
-  </div>
-  <p>Header slots take <b data-n="a2.hdr_changes_share" data-f="pct0"></b> of all slot changes. Of the transactions that change a contract's header slots, <b data-n="a2.pairs_2plus" data-f="pct0"></b> change two or more, but only <b data-n="a2.pairs_dirty" data-f="pct0"></b> also change that contract's nonce or balance. The rule discounts <b data-n="a2.disc_share" data-f="pct0"></b> of header-slot changes and saves <b data-n="a2.saved_w100" data-f="pct"></b> of gas (<b data-n="a2.saved_w1000" data-f="pct"></b> at a warm-write price of 1,000).</p>
-
-  <h2 class="h2" id="a3" style="margin-top:46px">A3 · Both rules on mainnet</h2>
-  <p>With header-slot reads at 100 and further header writes at 100, mainnet would have used <b data-n="a3.default" data-f="pct"></b> less gas over the seven months: the same transactions in less gas, or room for <b data-n="a3.more_txs" data-f="pct"></b> more of them at the same limit. Without USDT it is <b data-n="a3.default_nousdt" data-f="pct"></b>. Per sampled range the saving is <b data-n="a3.chunk_range" data-f="pct"></b> (low · median · high).</p>
-  <figure><div id="tbl-grid"></div><figcaption>Share of all gas saved, by the price of a header-slot read (rows) and of a further header write (columns).</figcaption></figure>
-  <div class="two">
-    <figure><div id="fig-bins"></div><figcaption>Transactions by share of their own gas saved. <span data-n="a3.txs_gain" data-f="pct0"></span> save something; the largest group saves 10–20 %.</figcaption></figure>
-    <figure><div id="fig-time"></div><figcaption>Share of gas saved in each sampled 1,000-block range.</figcaption></figure>
-  </div>
-  <h3>Who gains</h3>
-  <figure><div id="tbl-top-contracts"></div><figcaption>Contracts whose slots 0–63 take the most cold charges.</figcaption></figure>
-  <figure><div id="tbl-top-targets"></div><figcaption>Transaction targets that would save the most gas in total.</figcaption></figure>
-</div></section>
-
-<section class="sec" id="claims"><div class="wrap prose">
-  <div class="kicker">group B · what the tree saves today, without any gas change</div>
-  <h2 class="h2" id="b1">B1 · "One path instead of two"</h2>
-  <div class="case">
-    <span class="k">claim</span><p>A transaction that changes a contract's balance or nonce and one of its first 64 slots updates one path instead of two.</p>
-    <span class="k">but</span><p>It needs the header to change in the same block. And a contract that writes slots on both sides of 64 without touching its header now needs two stems instead of one, because group 0 is split.</p>
-  </div>
-  <p>Per block, <b data-n="b1.shared_pb" data-f="n2"></b> contracts get one path instead of two: Curve pools whose ETH balance moves, the EIP-7002 withdrawal-request contract collecting its fee, and every new contract whose constructor writes header slots. <b data-n="b1.split_pb" data-f="n2"></b> get two instead of one, mostly Uniswap V3 pools whose oracle write lands at slot 64 or above while their price word sits in the header. Net: <b data-n="b1.net_pb" data-f="sn2"></b> paths out of <b data-n="b1.dirty_pb" data-f="n"></b> rewritten per block (<b data-n="b1.net_share" data-f="pct2"></b>), about <b data-n="b1.hashes_pb" data-f="n1"></b> fewer hashes. True, and too small to argue for the design.</p>
-
-  <h2 class="h2" id="b2" style="margin-top:46px">B2 · Contracts that live in their header</h2>
-  <div class="case">
-    <span class="k">claim</span><p>A contract whose storage fits in slots 0–63 never gets a storage bucket: deploying it writes one stem, and its whole state is one stem to read, prove or store.</p>
-  </div>
-  <p>Of <b data-n="b2.contracts" data-f="m"></b> contracts holding storage, <b data-n="b2.no_bucket" data-f="pct"></b> keep all of it in slots 0–63 (<span data-n="b2.with_bucket" data-f="m"></span> have a bucket; our snapshot counted <span data-n="meta.buckets" data-f="m"></span> at block <span data-n="meta.snapshot_block" data-f="n"></span>). Most need very little: <b data-n="b2.h_le4_share" data-f="pct0"></b> hold four header slots or fewer, <b data-n="b2.h_eq1" data-f="m"></b> exactly one. Header slots are <b data-n="b2.hdr_slots_share" data-f="pct"></b> of all live slots (<span data-n="b2.hdr_slots" data-f="m"></span>). Among new contracts that write storage when deployed, <b data-n="b2.header_only" data-f="pct0"></b> write only header slots.</p>
-  <figure><div id="fig-h"></div><figcaption>Contracts by number of live slots in 0–63 (log scale).</figcaption></figure>
-  <p class="note">This does not make the state smaller: every branch has two children, so a tree has one branch fewer than it has leaves in any layout. Header slots move leaves to shorter, shared paths.</p>
-</div></section>
-
-<section class="sec" id="design"><div class="wrap prose">
-  <div class="kicker">group C · design choices the data can settle</div>
-  <h2 class="h2" id="c1">C1 · Why 64, and not 4</h2>
-  <p>EIP-7864 recently cut its header to 4 slots (no rationale given) and EIP-8369's AA-VOPS profile talks of 2 to 4. Fewer header slots leave more hot slots outside the stem and split group 0 more often; more slots catch little extra. <b data-n="c1.below4" data-f="pct0"></b> of reads below slot 256 hit slots 0–3, <b data-n="c1.below16" data-f="pct0"></b> slots 0–15, <b data-n="c1.below64" data-f="pct0"></b> slots 0–63.</p>
-  <figure><div id="tbl-sweep"></div><figcaption>Everything above, for a header of N slots.</figcaption></figure>
-  <div class="two">
-    <figure><div id="fig-sweep-paths"></div><figcaption>Storage paths each block avoids, by N.</figcaption></figure>
-    <figure><div id="fig-sweep-gas"></div><figcaption>Gas saved under the A rules, by N.</figcaption></figure>
-  </div>
-  <figure><div id="fig-hist"></div><figcaption>Cold charges by slot number, 0–255 (log scale). Mint: inside today's header.</figcaption></figure>
-  <p class="rec"><b>Keep 64.</b> It catches <b data-n="c1.n64_vs_256" data-f="pct0"></b> of the reads a 256-slot header would and <b data-n="c1.paths_n64_vs_256" data-f="pct0"></b> of the paths; 4 slots catch <b data-n="c1.n4_vs_64" data-f="pct0"></b> of what 64 does and lose paths on writes.</p>
-
-  <h2 class="h2" id="c2" style="margin-top:46px">C2 · Put the proxy slots in the header</h2>
-  <div class="case">
-    <span class="k">situation</span><p>Upgradeable contracts keep their implementation address in a fixed, hashed slot (EIP-1967, or the older zos slots) and read it on every call. USDC and much of DeFi do. Hashed means storage zone: a separate path per proxy, and no benefit from A1.</p>
-    <span class="k">proposal</span><p>Map these five slot numbers to unused header positions 3–63. Contracts can't tell; the mapping stays one-to-one.</p>
-  </div>
-  <p>The five slots take <b data-n="c2.share" data-f="pct"></b> of all cold storage charges (<span data-n="c2.charges" data-f="m"></span> in the sample). Each block would skip <b data-n="c2.paths_pb" data-f="n1"></b> storage paths, about <b data-n="model.c2_kb_pb" data-f="kb"></b> of witness, and under A1 users would save another <b data-n="c2.gas" data-f="pct"></b> of gas.</p>
-  <figure><div id="tbl-proxies"></div><figcaption>Proxies by share of proxy-slot charges.</figcaption></figure>
-
-  <h2 class="h2" id="c3" style="margin-top:46px">C3 · One flat record per header</h2>
-  <div class="case">
-    <span class="k">situation</span><p>Most reads are answered by the client's flat database, not the tree, and every client stores each slot as its own record. So a header-slot read is still its own disk lookup.</p>
-    <span class="k">proposal</span><p>Store the header stem (basic data, code hash or delegation, slots 0–63) as one record, so the account read brings its hot slots with it.</p>
-  </div>
-  <p>Each block reads <b data-n="c3.account_reads_pb" data-f="n"></b> accounts and <b data-n="c3.lookups_saved_pb" data-f="n"></b> distinct header slots: <b data-n="c3.lookups_share" data-f="pct0"></b> of its storage reads would need no lookup of their own. The cost is that every account read carries its header slots: <b data-n="c3.bytes_per_read" data-f="b"></b> more on average (<b data-n="c3.reads_with_slots" data-f="pct0"></b> of account reads carry any), about <b data-n="c3.kb_pb_actual" data-f="kb"></b> per block. This is what would make A1's "free" true for the disk too.</p>
-</div></section>
-
-<section class="sec" id="context"><div class="wrap prose">
-  <div class="kicker">group D · context</div>
-  <h2 class="h2" id="d1">D1 · Are low slots fading?</h2>
-  <p>Newer patterns keep state away from slots 0–63: namespaced storage (ERC-7201, OpenZeppelin 5), proxies, singletons such as Uniswap V4, transient locks. New contracts show it: <b data-n="b2.create_early" data-f="pct0"></b> of storage-writing deployments before block 15 M wrote only header slots, <b data-n="b2.create_late" data-f="pct0"></b> since block 22 M. Traffic does not: slots 0–63 took <b data-n="d1.writes_2017_2020" data-f="pct0"></b> of slot writes in blocks 4–11 M (2017–2020), <b data-n="d1.writes_since_2021" data-f="pct0"></b> since block 11 M and <b data-n="d1.writes_recent" data-f="pct0"></b> since block 24 M, and <b data-n="d1.reads_range" data-f="pct0"></b> of cold charges in the sampled 2026 ranges (low · median · high). The old hot contracts carry the load.</p>
-  <div class="two">
-    <figure><div id="fig-eras"></div><figcaption>Share of slot writes that hit slots 0–63, by million-block era.</figcaption></figure>
-    <figure><div id="fig-eras-create"></div><figcaption>Share of new storage-writing contracts that wrote only slots 0–63.</figcaption></figure>
-  </div>
-
-  <h2 class="h2" id="d2" style="margin-top:46px">D2 · EIP-7702 accounts</h2>
-  <p>When a delegated account sends its own transaction its nonce changes, so under A2 its header is already open and every header-slot write it makes in that transaction is cheap. Of <b data-n="d2.delegated" data-f="n"></b> delegated accounts, those that wrote storage in two days of blocks made <b data-n="d2.slot_writes" data-f="n"></b> slot writes: <b data-n="d2.hdr_share" data-f="pct0"></b> in slots 0–63, and <b data-n="d2.nonce_share" data-f="pct0"></b> in a transaction that also changed their nonce. Each delegate is all or nothing: some keep everything in low slots, the namespaced ones nothing.</p>
-  <figure><div id="tbl-delegates"></div><figcaption>Delegate contracts by slot writes of the accounts using them.</figcaption></figure>
-</div></section>
-
-<section class="sec" id="recs"><div class="wrap prose">
-  <h2 class="h2">What the data supports</h2>
-  <p class="rec"><b>Keep 64 header slots</b> (C1). Fewer lose most of the reads; more add little.</p>
-  <p class="rec"><b>Drop "one path instead of two" as an argument</b> (B1). The argument that holds is about reads: the header is always open, so its slots cost the witness almost nothing (A1, B2).</p>
-  <p class="rec"><b>If PBT gets its own gas schedule, price slots 0–63 with the header.</b> It would save <span data-n="a3.default" data-f="pct"></span> of gas today. Most of that overlaps with multi-block warming, so the two should be designed together.</p>
-  <p class="rec"><b>Proxy slots and a flat header record are worth writing up</b> (C2, C3). Both are cheap to specify or build, and the data says they matter: <span data-n="c2.share" data-f="pct"></span> of cold storage charges, <span data-n="c3.lookups_share" data-f="pct0"></span> of storage reads.</p>
-</div></section>
-
-<section class="sec" id="method"><div class="wrap prose">
-  <h2 class="h2">Method and caveats</h2>
-  <ul>
-    <li><b>Data.</b> xatu's canonical execution tables in ethPandaOps' ClickHouse, through the <code>panda</code> CLI. A storage-read row is one (transaction, contract, slot) the transaction touched, written slots included, so one row is one cold charge. Those reads are complete only from block 24,700,000, so every read-based number covers blocks <span data-n="meta.from_block" data-f="n"></span>–<span data-n="meta.to_block" data-f="n"></span>: <span data-n="meta.chunks" data-f="n"></span> ranges of 1,000 blocks, one every 10,000 (<span data-n="meta.blocks" data-f="n"></span> blocks, <span data-n="meta.txs" data-f="m"></span> transactions).</li>
-    <li><b>Checks.</b> In every range, every written slot appears among the touched slots (<span data-n="meta.gate_diffs_missing" data-f="n"></span> missing) and every transaction has its touched-account rows (<span data-n="meta.gate_txs_missing" data-f="n"></span> missing). Some ranges hold exact duplicate rows, so every count reads its source through <code>DISTINCT</code>.</li>
-    <li><b>Writes</b> are net per transaction: a slot set and reset inside one transaction (a reentrancy lock) is invisible, so A2 is a lower bound. <b>Access lists</b> aren't in the data, so A1 counts a few slots as cold that were pre-warmed.</li>
-    <li><b>State</b> (B2) is rebuilt from history by xatu's CBT tables at block 26,300,000; their total, 1.69 B live slots, matches our mainnet snapshot. Snapshot counts: <span data-n="meta.accounts" data-f="n"></span> accounts, <span data-n="meta.buckets" data-f="n"></span> buckets at block <span data-n="meta.snapshot_block" data-f="n"></span>.</li>
-    <li><b>Paths and witness</b> are a model: a header path is about 2 + log₂(accounts) levels, a bucket path 1 + log₂(buckets) plus log₂ of the contract's groups, and paths in one block share their top log₂(paths) levels. Bucket sizes come from CBT live-slot counts (range: with or without 64 header slots subtracted).</li>
-    <li><b>Long trends</b> (D1) use writes only: 200 blocks every 250,000 from block 1,000,000. C3 uses 4 of 256 address prefixes over two days, which under-represents vanity addresses.</li>
-    <li><b>Gas rules are hypothetical.</b> EIP-8297 changes no gas, and no PBT gas schedule exists yet.</li>
-  </ul>
-</div></section>
-
-<section class="sec" id="reproduce"><div class="wrap prose">
-  <h2 class="h2">Reproduce</h2>
-  <p>Every number on this page links to the raw query output behind it. To rerun from scratch (about 30 minutes):</p>
-<pre class="cmd">panda auth login
-cd design-notes/header-slots/queries
-python3 run.py        # every query through `panda clickhouse query-raw`, resumable → ../data/raw/*.jsonl
-python3 analyze.py    # → ../data/summary.json
-python3 labels.py && python3 analyze.py   # names from the contracts themselves (cast + public RPC)</pre>
-  <p>The SQL lives next to it, one file per question: <a href="queries/tx_savings.sql">tx_savings</a>, <a href="queries/write_totals.sql">write_totals</a>, <a href="queries/access_totals.sql">access_totals</a>, <a href="queries/paths_reads.sql">paths_reads</a>, <a href="queries/paths_writes.sql">paths_writes</a>, <a href="queries/creations.sql">creations</a>, <a href="queries/state_prefix.sql">state_prefix</a>, <a href="queries/warm8289.sql">warm8289</a>, <a href="queries/model_paths.sql">model_paths</a>, <a href="queries/hist.sql">hist</a>, <a href="queries/trend_writes.sql">trend_writes</a>, <a href="queries/delegates.sql">delegates</a>, and the rest in <a href="https://github.com/CPerezz/pbt-website/tree/main/design-notes/header-slots/queries" target="_blank" rel="noopener">queries/ on GitHub</a>.</p>
+<section class="sec" id="background"><div class="wrap prose">
+  <span class="lbl">background</span>
+  <h2 class="h2" style="margin:6px 0 14px">The account header stem</h2>
+  <p style="max-width:860px">Each account has a <b>header stem</b>: up to 256 leaves under one key prefix, <code>0x00 ‖ key_hash(address)</code>. EIP-8297 puts the basic data (nonce, balance, code size) at position 0, the code hash at 1, a 7702 delegation at 2, and <b>storage slots 0–63 at positions 64–127</b>. Slots from 64 up live in the storage zone, under the contract's own bucket. Running a contract always reads its header, so slots kept there come along with it.</p>
+  <figure style="max-width:1000px"><div id="fig-stem"></div><figcaption><b>Before</b>: EIP-8297 today. <b>After</b>: the changes these notes point to. 32 header slots (the <a href="how-many/">open alternative to 64</a>) follow the three fields, then come the three EIP-1967 <a href="proxy-slots/">proxy slots</a> and reserved positions up to 64, and positions 64–255 go. Hover a cell for its position. Empty positions occupy no nodes in either layout, so the after header holds less only by the live slots 32–63 it moves out: <span data-n="c1.hs_cut_32" data-f="pct"></span> of live header slots.</figcaption></figure>
+  <nav class="next" aria-label="More"><a href="../"><span>all topics</span>Design notes</a></nav>
 </div></section>
 </main>
-
 <footer><div class="wrap">
-  <a href="../">Design notes</a>
+  <a href="../">Design notes</a> · <a href="method.html">Method &amp; data</a>
   · <a href="https://eips.ethereum.org/EIPS/eip-8297" target="_blank" rel="noopener">EIP-8297</a>
   · <a href="https://github.com/CPerezz/pbt-website" target="_blank" rel="noopener">GitHub</a>
 </div></footer>
-<script type="module" src="article.js"></script>
+<script type="module" src="notes.js"></script>
 </body>
 </html>

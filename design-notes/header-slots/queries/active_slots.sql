@@ -1,4 +1,4 @@
--- Model M input (clickhouse-refined): live storage slots per contract at block {X}, for a batch of contracts.
+-- Path-model input (clickhouse-refined): live storage slots per contract at block {X}, for a batch of contracts.
 -- For mapping-heavy contracts this is close to the number of storage groups in the contract's bucket.
 SELECT address AS a, argMax(active_slots, block_number) AS slots
 FROM mainnet.int_storage_slot_state_by_address FINAL

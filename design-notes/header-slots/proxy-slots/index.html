@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Give proxy slots a place in the header — Design notes — PBT Lab</title>
+<meta name="description" content="Map the three fixed EIP-1967 proxy slots to unused header positions in EIP-8297. Mainnet data on what that saves.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Give proxy slots a place in the header — PBT Lab design notes">
+<meta property="og:description" content="Proposal: give the three EIP-1967 proxy slots a place in the account header. Tested on seven months of mainnet.">
+<meta property="og:url" content="https://cperezz.github.io/pbt-website/design-notes/proxy-slots/">
+<meta property="og:image" content="https://cperezz.github.io/pbt-website/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../../../benchmarks/bench.css">
+<link rel="stylesheet" href="../../notes.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="../../../" aria-label="PBT Lab home">PBT·LAB</a>
+  <span class="crumb"><a href="../../" style="color:inherit;text-decoration:none">Design notes</a> · <a href="../" style="color:inherit;text-decoration:none">The first 64 slots</a> · proposal</span>
+  <span class="grow"></span>
+  <nav class="row" aria-label="Parts" style="gap:16px;font-size:12px"><a href="#a">A · proposal</a><a href="#b">B · data</a><a href="#c">C · conclusion</a></nav>
+</div></header>
+
+<main>
+<section class="wrap" style="padding:56px 28px 18px">
+  <div class="kicker"><span class="kind k-proposal">proposal</span><span class="chip v-yes">supported</span><span>EIP-8297 key mapping · mainnet <span data-n="meta.from_date" data-f="s"></span> → <span data-n="meta.to_date" data-f="s"></span></span></div>
+  <h1 class="h1">Give proxy slots a place <span class="glow">in the header.</span></h1>
+  <p class="lead"><b>TL;DR</b> The three EIP-1967 proxy slots take <b data-n="c2.share" data-f="pct"></b> of cold storage charges and <b data-n="c2.paths_pb" data-f="n1"></b> storage paths per block. Mapping them to unused header positions would remove those paths, and save another <b data-n="c2.gas" data-f="pct"></b> of gas under the header gas rule.</p>
+</section>
+
+<section class="sec" style="padding-top:10px"><div class="wrap prose">
+  <div class="part" id="a"><div class="part-k"><b>A</b>proposal &amp; expectation</div><div class="part-b">
+    <p>Upgradeable contracts read their implementation address from a fixed, hashed slot on every call. EIP-1967 standardised three such slots (implementation, admin and beacon), and today's common proxy libraries use them. Because those slot numbers are hashes, EIP-8297 puts them in the storage zone, so every proxy call opens a separate path and gains nothing from living next to the header.</p>
+    <p>The proposal: map these three slot numbers to unused header positions. Contracts can't tell the difference, and the mapping stays one-to-one. It works the same whether the header holds <a href="../how-many/">32 or 64 slots</a>. Only the slots EIP-1967 standardised are covered; the header doesn't reserve positions for any one library's own scheme.</p>
+    <p>We expected a few percent of all charges.</p>
+  </div></div>
+
+  <div class="part" id="b"><div class="part-k"><b>B</b>data</div><div class="part-b">
+    <ul class="facts">
+      <li>The three slots take <b data-n="c2.share" data-f="pct"></b> of all cold storage charges (<span data-n="c2.charges" data-f="m"></span>).</li>
+      <li>Each block would skip <b data-n="c2.paths_pb" data-f="n1"></b> storage paths. For <span data-n="c2.whole_bucket_pb" data-f="n1"></span> contracts per block, the whole path down to the bucket would go.</li>
+      <li>That is about <b data-n="model.c2_kb_pb" data-f="kb"></b> of witness per block, and another <b data-n="c2.gas" data-f="pct"></b> of gas under the <a href="../gas-rule/">header gas rule</a>.</li>
+    </ul>
+    <figure><div id="tbl-proxies"></div><figcaption>Proxies by share of EIP-1967 slot charges.</figcaption></figure>
+    <p class="how">How we measured it: over the full sample, <span data-n="meta.blocks" data-f="n"></span> blocks in <span data-n="meta.chunks" data-f="n"></span> ranges of 1,000, one every 10,000 (<span data-n="meta.txs" data-f="m"></span> transactions). Charges on the three EIP-1967 slot numbers (<a href="../queries/access_totals.sql">access_totals</a>, <a href="../queries/top_proxies.sql">top_proxies</a>), paths per block (<a href="../queries/paths_reads.sql">paths_reads</a>), witness from the path model, run on 1,000 of those blocks. Windows and checks: <a href="../method.html">method</a>.</p>
+  </div></div>
+
+  <div class="part" id="c"><div class="part-k"><b>C</b>conclusion</div><div class="part-b">
+    <p><b>Supported.</b> A small special case in the key mapping covers <b data-n="c2.share" data-f="pct"></b> of cold storage charges. The paths matter more than the charges: proxy reads are spread over many contracts (see the table), and each contract a block touches needs a path of its own. So the three slots spare each block <b data-n="c2.paths_pb" data-f="n1"></b> paths, against <b data-n="a1.paths_saved_pb" data-f="n1"></b> for all of slots 0–63. Without a header gas rule it saves witness and paths; with one, users save gas too. ERC-7201 namespaces can't be covered the same way, since their slot numbers differ per contract.</p>
+  </div></div>
+
+  <nav class="next" aria-label="More notes">
+    <a href="../flat-record/"><span>← previous · proposal</span>Store the header as one record</a>
+    <a href="../"><span>all notes</span>The first 64 slots</a>
+  </nav>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <a href="../">The first 64 slots</a> · <a href="../method.html">Method &amp; data</a>
+  · <a href="https://eips.ethereum.org/EIPS/eip-8297" target="_blank" rel="noopener">EIP-8297</a>
+  · <a href="https://github.com/CPerezz/pbt-website" target="_blank" rel="noopener">GitHub</a>
+</div></footer>
+<script type="module" src="../notes.js"></script>
+</body>
+</html>

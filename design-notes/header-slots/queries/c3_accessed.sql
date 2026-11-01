@@ -1,4 +1,4 @@
--- C3 (clickhouse-raw, one contiguous window, one address prefix).
+-- Note flat-record (clickhouse-raw, one contiguous window, one address prefix).
 -- Accounts the block touches (their header stem is read) and in how many blocks.
 SELECT address AS a, uniqExact(block_number) AS blocks
 FROM canonical_execution_balance_reads

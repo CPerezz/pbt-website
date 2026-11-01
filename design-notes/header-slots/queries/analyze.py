@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Turn ../data/raw/*.jsonl (written by run.py) into ../data/summary.json, the only file the article reads.
+"""Turn ../data/raw/*.jsonl (written by run.py) into ../data/summary.json, the only file the notes read.
 
     python3 analyze.py
 
@@ -90,7 +90,7 @@ def main():
         "snapshot_block": {"v": SNAPSHOT_BLOCK, "src": [SNAPSHOT_META]},
     }
 
-    # ---- A1: reads -----------------------------------------------------------------------------------------------
+    # ---- reads (in-the-header, gas-rule) -------------------------------------------------------------------------
     at = total("access_totals")
     ts = total("tx_savings")
     gas = ts["gas"]
@@ -164,7 +164,7 @@ def main():
                                  "model_paths", "active_slots", digits=0),
     }
 
-    # ---- A2: writes ----------------------------------------------------------------------------------------------
+    # ---- writes (gas-rule) ---------------------------------------------------------------------------------------
     wt = total("write_totals")
     s["a2"] = {
         "hdr_writes": val(int(wt["hdr_writes64"]), "write_totals"),
@@ -179,7 +179,7 @@ def main():
     for p in (0, 100, 500, 1000):
         s["a2"][f"saved_w{p}"] = val((2900 - p) * wt["disc64"] / gas, "write_totals", "tx_savings", digits=4)
 
-    # ---- A3: the full rule ---------------------------------------------------------------------------------------
+    # ---- both rules (gas-rule) -----------------------------------------------------------------------------------
     grid = []
     for pr_ in (0, 100, 200):
         for pw in (0, 100, 500, 1000):
@@ -223,37 +223,11 @@ def main():
                                    "their_gas_saved": round(v[0] / v[2], 4) if v[2] else 0}
                                   for a, v in sorted(tgt.items(), key=lambda kv: -kv[1][0])[:15]], "top_targets")
 
-    # ---- B1: one path instead of two -----------------------------------------------------------------------------
+    # ---- write paths (how-many) ----------------------------------------------------------------------------------
     pw_ = total("paths_writes")
-    dirty_8297 = pw_["header_changed"] + pw_["header_dirty_by_slots64"] + pw_["zone_groups_other"] + pw_["g0_zone_8297"]
-    s["b1"] = {
-        "shared_pb": val(pw_["shared64"] / blocks, "paths_writes", digits=2),
-        "split_pb": val(pw_["split64"] / blocks, "paths_writes", digits=2),
-        "net_pb": val((pw_["shared64"] - pw_["split64"]) / blocks, "paths_writes", digits=2),
-        "dirty_pb": val(dirty_8297 / blocks, "paths_writes", digits=0),
-        "net_share": val((pw_["shared64"] - pw_["split64"]) / dirty_8297, "paths_writes", digits=5),
-        "header_changed_pb": val(pw_["header_changed"] / blocks, "paths_writes", digits=0),
-        "hdr_only_pb": val(pw_["header_dirty_by_slots64"] / blocks, "paths_writes", digits=1),
-    }
-    hw = (pw_["header_changed"] + pw_["header_dirty_by_slots64"]) / blocks
-    kw = (pw_["zone_groups_other"] + pw_["g0_zone_8297"]) / blocks
-    # Hashes per path: a shared write saves the contract's group-0 path below the part shared with the block's other
-    # storage paths (log2 kw levels); a split write adds a header path below the shared top (log2 hw). The bucket
-    # depth of the "shared" contracts (log2 groups) comes from the model windows; the counts from the full window.
-    mw = [r for _, r in rows("model_writes")]
-    sh = sum(r["shared64"] for r in mw)
-    lg_sh = sum(r["shared64"] * math.log2(max(1, act.get(r["a"], 1))) for r in mw) / max(1, sh)
-    save_path = 1 + lb + lg_sh - math.log2(kw)
-    cost_path = 2 + la - math.log2(hw)
-    s["b1"]["hashes_saved_path"] = val(save_path, "model_writes", "active_slots", "paths_writes", digits=1)
-    s["b1"]["hashes_added_path"] = val(cost_path, "paths_writes", digits=1)
-    s["b1"]["hashes_pb"] = val((pw_["shared64"] * save_path - pw_["split64"] * cost_path) / blocks,
-                               "paths_writes", "model_writes", "active_slots", digits=1)
-    s["b1"]["hashes_total_pb"] = val(hw * cost_path + kw * (save_path), "paths_writes", digits=0)
-    split_top = sorted(mw, key=lambda r: -r["split64"])[:5]
-    s["b1"]["split_top"] = val([{"a": r["a"], "split": r["split64"]} for r in split_top], "model_writes")
+    s["b1"] = {"net_pb": val((pw_["shared64"] - pw_["split64"]) / blocks, "paths_writes", digits=2)}
 
-    # ---- B2: contracts that live in their header -----------------------------------------------------------------
+    # ---- contracts that live in their header (in-the-header) -----------------------------------------------------
     cr = total("creations")
     holding = cr["header_only"] + cr["zone_only"] + cr["both"]
     s["b2"] = {
@@ -297,29 +271,50 @@ def main():
     s["b2"]["create_early"] = val(wavg([r for r in eras if r["mblock"] <= 14]), "creations_eras", digits=4)
     s["b2"]["create_late"] = val(wavg([r for r in eras if r["mblock"] >= 22]), "creations_eras", digits=4)
 
-    # ---- C1: how many header slots -------------------------------------------------------------------------------
+    # ---- how many header slots (how-many) ------------------------------------------------------------------------
+    st = total("state_n")
     sweep = []
     for n in NS:
         row = {"n": n,
+               "reads_share": round(at[f"hdr{n}"] / at["accesses"], 4),
                "paths_pb": round(pr[f"s{n}"] / blocks, 1),
                "write_net_pb": round((pw_[f"shared{n}"] - pw_.get(f"split{n}", 0)) / blocks, 2),
                "a1": round(2000 * at[f"hdr{n}"] / gas, 4),
-               "a2": round(2800 * wt[f"disc{n}"] / gas, 4) if f"disc{n}" in wt else None}
+               "a2": round(2800 * wt[f"disc{n}"] / gas, 4) if f"disc{n}" in wt else None,
+               "no_bucket": round(st[f"nb{n}"] / st["contracts"], 4),
+               "hdr_slots": int(st[f"hs{n}"])}
         sweep.append(row)
+    by_n = {r["n"]: r for r in sweep}
     hist = {"read": [0] * 256, "write": [0] * 256}
     for _, r in rows("hist"):
         hist[r["kind"]][r["idx"]] += r["n"]
     reads256 = sum(hist["read"])
-    s["c1"] = {"sweep": val(sweep, "paths_reads", "paths_writes", "access_totals", "write_totals", "tx_savings"),
+    s["c1"] = {"sweep": val(sweep, "paths_reads", "paths_writes", "access_totals", "write_totals", "tx_savings", "state_n"),
                "hist": val(hist, "hist"),
                "below4": val(sum(hist["read"][:4]) / reads256, "hist", digits=4),
                "below16": val(sum(hist["read"][:16]) / reads256, "hist", digits=4),
                "below64": val(sum(hist["read"][:64]) / reads256, "hist", digits=4),
                "n4_vs_64": val(at["hdr4"] / at["hdr64"], "access_totals", digits=4),
+               "n32_vs_64": val(at["hdr32"] / at["hdr64"], "access_totals", digits=4),
                "n64_vs_256": val(at["hdr64"] / at["hdr256"], "access_totals", digits=4),
-               "paths_n64_vs_256": val(pr["s64"] / pr["s256"], "paths_reads", digits=4)}
+               "paths_n64_vs_256": val(pr["s64"] / pr["s256"], "paths_reads", digits=4),
+               "paths_n32_vs_64": val(pr["s32"] / pr["s64"], "paths_reads", digits=4),
+               "gas_n32_vs_64": val((by_n[32]["a1"] + by_n[32]["a2"]) / (by_n[64]["a1"] + by_n[64]["a2"]),
+                                    "access_totals", "write_totals", "tx_savings", digits=4),
+               "write_net_32": val(by_n[32]["write_net_pb"], "paths_writes"),
+               "write_net_4": val(by_n[4]["write_net_pb"], "paths_writes"),
+               "nb4": val(st["nb4"] / st["contracts"], "state_n", digits=4),
+               "nb32": val(st["nb32"] / st["contracts"], "state_n", digits=4),
+               "nb64": val(st["nb64"] / st["contracts"], "state_n", digits=4),
+               "hs4": val(int(st["hs4"]), "state_n"), "hs32": val(int(st["hs32"]), "state_n"),
+               "hs64": val(int(st["hs64"]), "state_n"),
+               "hs32_vs_64": val(st["hs32"] / st["hs64"], "state_n", digits=4),
+               "hs_cut_32": val(1 - st["hs32"] / st["hs64"], "state_n", digits=4),
+               "hs4_gb": val(st["hs4"] * 32 / 1e9, "state_n", digits=2),
+               "hs32_gb": val(st["hs32"] * 32 / 1e9, "state_n", digits=2),
+               "hs64_gb": val(st["hs64"] * 32 / 1e9, "state_n", digits=2)}
 
-    # ---- C2: proxy slots -----------------------------------------------------------------------------------------
+    # ---- proxy slots (proxy-slots) -------------------------------------------------------------------------------
     pxt = defaultdict(int)
     for _, r in rows("top_proxies"):
         pxt[r["a"]] += r["proxy_access"]
@@ -334,7 +329,7 @@ def main():
                     for a, n in sorted(pxt.items(), key=lambda kv: -kv[1])[:10]], "top_proxies"),
     }
 
-    # ---- C3: one flat record per header --------------------------------------------------------------------------
+    # ---- one flat record per header (flat-record) ----------------------------------------------------------------
     blk = {r["a"]: r["blocks"] for _, r in rows("c3_accessed")}
     hh = {r["a"]: r["h"] for _, r in rows("c3_live_header")}
     reads = sum(blk.values())
@@ -352,7 +347,7 @@ def main():
                             "c3_accessed", "c3_live_header", "paths_reads", digits=1),
     }
 
-    # ---- D1: trend ----------------------------------------------------------------------------------------------
+    # ---- trend (in-the-header) -----------------------------------------------------------------------------------
     s["d1"] = {
         "eras": val([{"mblock": r["mblock"], "share": round(r["hdr_writes"] / r["writes"], 4), "writes": r["writes"]}
                      for _, r in rows("trend_writes") if r["writes"]], "trend_writes"),
@@ -369,7 +364,7 @@ def main():
     s["d1"]["writes_since_2021"] = val(era(11, 26), "trend_writes", digits=4)
     s["d1"]["writes_recent"] = val(era(24, 26), "trend_writes", digits=4)
 
-    # ---- D2: EIP-7702 accounts ----------------------------------------------------------------------------------
+    # ---- EIP-7702 accounts (gas-rule) ----------------------------------------------------------------------------
     dg = [r for _, r in rows("delegates")]
     sw = sum(r["slot_writes"] for r in dg)
     s["d2"] = {

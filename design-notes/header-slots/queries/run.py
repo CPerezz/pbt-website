@@ -19,12 +19,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 RAW = os.path.join(HERE, "..", "data", "raw")
 
 USDT = "0xdac17f958d2ee523a2206206994597c13d831ec7"
-PROXY_SLOTS = [
-    "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",  # EIP-1967 implementation
-    "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103",  # EIP-1967 admin
-    "0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50",  # EIP-1967 beacon
-    "0x7050c9e0f4ca769c69bd3a8ef740bc37934f8e2c036e5a723fd8ee048ed3f8c3",  # zos implementation
-    "0x10d6a54a4754c8869d6886b5f5d7fbfa5b4522237ea5c60d11bc4e7a1ff9390b",  # zos admin
+PROXY_SLOTS = [  # EIP-1967
+    "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",  # implementation
+    "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103",  # admin
+    "0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50",  # beacon
 ]
 
 
@@ -35,7 +33,7 @@ def slot(n):
 CONST = {f"L{n}": slot(n) for n in (2, 4, 16, 32, 64, 128, 192, 256)}
 CONST.update(ZERO=slot(0), USDT=f"'{USDT}'", PROXY=", ".join(f"'{s}'" for s in PROXY_SLOTS))
 
-# Windows (see the article's Method section). Storage reads are complete from block 24,700,000.
+# Windows (see ../method.html). Storage reads are complete from block 24,700,000.
 CHUNKS = [(24_700_000 + k * 10_000, 24_700_000 + k * 10_000 + 999) for k in range(161)]
 ERAS = [(s, s + 199) for s in range(1_000_000, 26_250_001, 250_000)]
 WINDOW = (26_285_600, 26_299_999)  # two contiguous days
@@ -137,16 +135,17 @@ def main(only):
         "warm8289":       lambda: run("warm8289", "warm8289.sql", raw,
                                       [("window", dict(win, SKIP_FROM=WINDOW[0] + 128))], 1),
         "model_paths":    lambda: run("model_paths", "model_paths.sql", raw, [("model", {"R": rngs(MODEL_WINDOWS)})], 1),
-        "model_writes":   lambda: run("model_writes", "model_writes.sql", raw, [("model", {"R": rngs(MODEL_WINDOWS)})], 1),
         "delegates":      lambda: run("delegates", "delegates.sql", raw,
                                       [("window", dict(win, T_END="2026-10-30"))], 1),
         "state_prefix":   lambda: run("state_prefix", "state_prefix.sql", refined,
+                                      [(f"0x{p:02x}", {"PREFIX": f"0x{p:02x}"}) for p in range(256)], 3),
+        "state_n":        lambda: run("state_n", "state_n.sql", refined,
                                       [(f"0x{p:02x}", {"PREFIX": f"0x{p:02x}"}) for p in range(256)], 3),
         "c3_accessed":    lambda: run("c3_accessed", "c3_accessed.sql", raw,
                                       [(p, dict(win, PREFIX=p)) for p in C3_PREFIXES], 2),
         "active_slots":   lambda: run("active_slots", "active_slots.sql", refined, [
             (lab, {"ADDRS": lst, "X": WINDOW[1]}) for lab, lst in
-            batches({r["a"] for _, r in rows("model_paths")} | {r["a"] for _, r in rows("model_writes")})], 2),
+            batches({r["a"] for _, r in rows("model_paths")})], 2),
         "c3_live_header": lambda: run("c3_live_header", "c3_live_header.sql", refined, [
             (lab, {"ADDRS": lst, "X": WINDOW[1]}) for lab, lst in
             batches({r["a"] for _, r in rows("c3_accessed")})], 2),

@@ -1,4 +1,4 @@
--- D1 (clickhouse-raw, the W_L ranges: 200 blocks every 250,000 from block 1,000,000).
+-- Note in-the-header, over time (clickhouse-raw, the W_L ranges: 200 blocks every 250,000 from block 1,000,000).
 -- Share of net per-tx slot writes that land in slots 0-63, by million-block era.
 SELECT intDiv(block_number, 1000000)                         AS mblock,
        count()                                               AS writes,

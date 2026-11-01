@@ -1,4 +1,4 @@
--- B2, D1 (clickhouse-raw, a W_R chunk or the W_L ranges).
+-- Note in-the-header (clickhouse-raw, a W_R chunk or the W_L ranges).
 -- New contracts, classed by the storage they hold when their creation tx ends:
 -- header_only = every non-zero slot is below 64 (EIP-8297 never creates a storage bucket for them).
 -- empty_code: created with no code (or destroyed in the same tx); kept apart.

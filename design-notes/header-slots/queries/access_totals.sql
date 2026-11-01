@@ -1,4 +1,4 @@
--- A1, C1, C2 (clickhouse-raw, one W_R chunk).
+-- Notes in-the-header, gas-rule, how-many, proxy-slots (clickhouse-raw, one W_R chunk).
 -- storage_reads holds one row per (tx, contract, slot) the tx touched, written slots included: one row = one
 -- EIP-2929 cold charge. hdrN counts the charges on slots < N, the slots a header of N slots would hold.
 -- The canonical_* tables carry exact duplicate rows for some ranges, so every source is read through DISTINCT.

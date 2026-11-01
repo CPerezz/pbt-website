@@ -283,8 +283,8 @@
   },
   "c2_kb_pb": {
    "v": [
-    18.3,
-    19.7
+    15.4,
+    16.8
    ],
    "src": [
     "raw/model_paths.jsonl",
@@ -293,8 +293,8 @@
   },
   "c2_bytes_per_slot": {
    "v": [
-    322.0,
-    346.0
+    304.0,
+    331.0
    ],
    "src": [
     "raw/model_paths.jsonl",
@@ -1507,101 +1507,10 @@
   }
  },
  "b1": {
-  "shared_pb": {
-   "v": 3.58,
-   "src": [
-    "raw/paths_writes.jsonl"
-   ]
-  },
-  "split_pb": {
-   "v": 1.51,
-   "src": [
-    "raw/paths_writes.jsonl"
-   ]
-  },
   "net_pb": {
    "v": 2.06,
    "src": [
     "raw/paths_writes.jsonl"
-   ]
-  },
-  "dirty_pb": {
-   "v": 1105.0,
-   "src": [
-    "raw/paths_writes.jsonl"
-   ]
-  },
-  "net_share": {
-   "v": 0.00187,
-   "src": [
-    "raw/paths_writes.jsonl"
-   ]
-  },
-  "header_changed_pb": {
-   "v": 496.0,
-   "src": [
-    "raw/paths_writes.jsonl"
-   ]
-  },
-  "hdr_only_pb": {
-   "v": 43.8,
-   "src": [
-    "raw/paths_writes.jsonl"
-   ]
-  },
-  "hashes_saved_path": {
-   "v": 19.9,
-   "src": [
-    "raw/model_writes.jsonl",
-    "raw/active_slots.jsonl",
-    "raw/paths_writes.jsonl"
-   ]
-  },
-  "hashes_added_path": {
-   "v": 21.6,
-   "src": [
-    "raw/paths_writes.jsonl"
-   ]
-  },
-  "hashes_pb": {
-   "v": 38.7,
-   "src": [
-    "raw/paths_writes.jsonl",
-    "raw/model_writes.jsonl",
-    "raw/active_slots.jsonl"
-   ]
-  },
-  "hashes_total_pb": {
-   "v": 22934.0,
-   "src": [
-    "raw/paths_writes.jsonl"
-   ]
-  },
-  "split_top": {
-   "v": [
-    {
-     "a": "0x11b815efb8f581194ae79006d24e0d814b7697f6",
-     "split": 276
-    },
-    {
-     "a": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-     "split": 154
-    },
-    {
-     "a": "0x60594a405d53811d3bc4766596efd80fd545a270",
-     "split": 146
-    },
-    {
-     "a": "0x4585fe77225b41b697c938b018e2ac67ac5a20c0",
-     "split": 146
-    },
-    {
-     "a": "0x6ca298d2983ab03aa1da7679389d955a4efee15c",
-     "split": 142
-    }
-   ],
-   "src": [
-    "raw/model_writes.jsonl"
    ]
   }
  },
@@ -2108,59 +2017,83 @@
    "v": [
     {
      "n": 2,
+     "reads_share": 0.0783,
      "paths_pb": 24.0,
      "write_net_pb": -13.33,
      "a1": 0.0132,
-     "a2": null
+     "a2": null,
+     "no_bucket": 0.6369,
+     "hdr_slots": 33922793
     },
     {
      "n": 4,
+     "reads_share": 0.1329,
      "paths_pb": 41.1,
      "write_net_pb": -11.85,
      "a1": 0.0224,
-     "a2": 0.0036
+     "a2": 0.0036,
+     "no_bucket": 0.7133,
+     "hdr_slots": 44745419
     },
     {
      "n": 16,
+     "reads_share": 0.2739,
      "paths_pb": 97.9,
      "write_net_pb": -2.86,
      "a1": 0.0461,
-     "a2": 0.0075
+     "a2": 0.0075,
+     "no_bucket": 0.7461,
+     "hdr_slots": 62032414
     },
     {
      "n": 32,
+     "reads_share": 0.293,
      "paths_pb": 108.4,
      "write_net_pb": -0.49,
      "a1": 0.0493,
-     "a2": 0.0082
+     "a2": 0.0082,
+     "no_bucket": 0.7512,
+     "hdr_slots": 64928991
     },
     {
      "n": 64,
+     "reads_share": 0.3015,
      "paths_pb": 115.1,
      "write_net_pb": 2.06,
      "a1": 0.0507,
-     "a2": 0.0086
+     "a2": 0.0086,
+     "no_bucket": 0.752,
+     "hdr_slots": 65714314
     },
     {
      "n": 128,
+     "reads_share": 0.3086,
      "paths_pb": 121.3,
      "write_net_pb": 3.07,
      "a1": 0.0519,
-     "a2": 0.0088
+     "a2": 0.0088,
+     "no_bucket": 0.7523,
+     "hdr_slots": 66763380
     },
     {
      "n": 192,
+     "reads_share": 0.3117,
      "paths_pb": 124.1,
      "write_net_pb": 3.56,
      "a1": 0.0524,
-     "a2": 0.0089
+     "a2": 0.0089,
+     "no_bucket": 0.7525,
+     "hdr_slots": 67247107
     },
     {
      "n": 256,
+     "reads_share": 0.3141,
      "paths_pb": 127.1,
      "write_net_pb": 3.84,
      "a1": 0.0528,
-     "a2": null
+     "a2": null,
+     "no_bucket": 0.7529,
+     "hdr_slots": 67829060
     }
    ],
    "src": [
@@ -2168,7 +2101,8 @@
     "raw/paths_writes.jsonl",
     "raw/access_totals.jsonl",
     "raw/write_totals.jsonl",
-    "raw/tx_savings.jsonl"
+    "raw/tx_savings.jsonl",
+    "raw/state_n.jsonl"
    ]
   },
   "hist": {
@@ -2718,6 +2652,12 @@
     "raw/access_totals.jsonl"
    ]
   },
+  "n32_vs_64": {
+   "v": 0.9719,
+   "src": [
+    "raw/access_totals.jsonl"
+   ]
+  },
   "n64_vs_256": {
    "v": 0.9599,
    "src": [
@@ -2729,29 +2669,121 @@
    "src": [
     "raw/paths_reads.jsonl"
    ]
+  },
+  "paths_n32_vs_64": {
+   "v": 0.9416,
+   "src": [
+    "raw/paths_reads.jsonl"
+   ]
+  },
+  "gas_n32_vs_64": {
+   "v": 0.9696,
+   "src": [
+    "raw/access_totals.jsonl",
+    "raw/write_totals.jsonl",
+    "raw/tx_savings.jsonl"
+   ]
+  },
+  "write_net_32": {
+   "v": -0.49,
+   "src": [
+    "raw/paths_writes.jsonl"
+   ]
+  },
+  "write_net_4": {
+   "v": -11.85,
+   "src": [
+    "raw/paths_writes.jsonl"
+   ]
+  },
+  "nb4": {
+   "v": 0.7133,
+   "src": [
+    "raw/state_n.jsonl"
+   ]
+  },
+  "nb32": {
+   "v": 0.7512,
+   "src": [
+    "raw/state_n.jsonl"
+   ]
+  },
+  "nb64": {
+   "v": 0.752,
+   "src": [
+    "raw/state_n.jsonl"
+   ]
+  },
+  "hs4": {
+   "v": 44745419,
+   "src": [
+    "raw/state_n.jsonl"
+   ]
+  },
+  "hs32": {
+   "v": 64928991,
+   "src": [
+    "raw/state_n.jsonl"
+   ]
+  },
+  "hs64": {
+   "v": 65714314,
+   "src": [
+    "raw/state_n.jsonl"
+   ]
+  },
+  "hs32_vs_64": {
+   "v": 0.988,
+   "src": [
+    "raw/state_n.jsonl"
+   ]
+  },
+  "hs_cut_32": {
+   "v": 0.012,
+   "src": [
+    "raw/state_n.jsonl"
+   ]
+  },
+  "hs4_gb": {
+   "v": 1.43,
+   "src": [
+    "raw/state_n.jsonl"
+   ]
+  },
+  "hs32_gb": {
+   "v": 2.08,
+   "src": [
+    "raw/state_n.jsonl"
+   ]
+  },
+  "hs64_gb": {
+   "v": 2.1,
+   "src": [
+    "raw/state_n.jsonl"
+   ]
   }
  },
  "c2": {
   "charges": {
-   "v": 22644165,
+   "v": 9335156,
    "src": [
     "raw/access_totals.jsonl"
    ]
   },
   "share": {
-   "v": 0.055,
+   "v": 0.0227,
    "src": [
     "raw/access_totals.jsonl"
    ]
   },
   "paths_pb": {
-   "v": 49.4,
+   "v": 44.2,
    "src": [
     "raw/paths_reads.jsonl"
    ]
   },
   "contracts_pb": {
-   "v": 37.2,
+   "v": 34.6,
    "src": [
     "raw/paths_reads.jsonl"
    ]
@@ -2763,7 +2795,7 @@
    ]
   },
   "gas": {
-   "v": 0.0093,
+   "v": 0.0038,
    "src": [
     "raw/access_totals.jsonl",
     "raw/tx_savings.jsonl"
@@ -2772,44 +2804,44 @@
   "top": {
    "v": [
     {
-     "a": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-     "share": 0.5549
-    },
-    {
      "a": "0x4313c378cc91ea583c91387b9216e2c03096b27f",
-     "share": 0.0179
-    },
-    {
-     "a": "0x6c3ea9036406852006290770bedfcaba0e23a0e8",
-     "share": 0.0108
+     "share": 0.0434
     },
     {
      "a": "0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5",
-     "share": 0.0107
+     "share": 0.026
     },
     {
      "a": "0x3d90f66b534dd8482b181e24655a9e8265316be9",
-     "share": 0.01
+     "share": 0.0243
     },
     {
      "a": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
-     "share": 0.0099
+     "share": 0.024
     },
     {
      "a": "0x68749665ff8d2d112fa859aa293f07a622782f38",
-     "share": 0.0094
+     "share": 0.0229
     },
     {
      "a": "0xbee3211ab312a8d065c4fef0247448e17a8da000",
-     "share": 0.0089
-    },
-    {
-     "a": "0x45804880de22913dafe09f4980848ece6ecbaf78",
-     "share": 0.0073
+     "share": 0.0217
     },
     {
      "a": "0x3328f7f4a1d1c57c35df56bbf0c9dcafca309c49",
-     "share": 0.0065
+     "share": 0.0157
+    },
+    {
+     "a": "0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+     "share": 0.0132
+    },
+    {
+     "a": "0x8164cc65827dcfe994ab23944cbc90e0aa80bfcb",
+     "share": 0.0106
+    },
+    {
+     "a": "0x173272739bd7aa6e4e214714048a9fe699453059",
+     "share": 0.01
     }
    ],
    "src": [
@@ -3954,16 +3986,10 @@
  "labels": {
   "0x0000000071727de22e5e9d8baf0edac6f37da032": "ERC-4337 EntryPoint v0.7",
   "0x04571c32a4e1c5f39bc3a238cb95b215058c432c": "GLP",
-  "0x11b815efb8f581194ae79006d24e0d814b7697f6": "Uniswap V3 WETH/USDT 0.05%",
   "0x1445f32d1a74872ba41f3d8cf4022e9996120b31": "V3-style pool USDC/WETH 0.01%",
-  "0x45804880de22913dafe09f4980848ece6ecbaf78": "PAXG",
-  "0x4585fe77225b41b697c938b018e2ac67ac5a20c0": "Uniswap V3 WBTC/WETH 0.05%",
   "0x4ebdf703948ddcea3b11f675b4d1fba9d2414a14": "crvUSDETHCRV",
-  "0x60594a405d53811d3bc4766596efd80fd545a270": "Uniswap V3 DAI/WETH 0.05%",
   "0x68749665ff8d2d112fa859aa293f07a622782f38": "XAUt",
   "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45": "Uniswap V3 router",
-  "0x6c3ea9036406852006290770bedfcaba0e23a0e8": "PYUSD",
-  "0x6ca298d2983ab03aa1da7679389d955a4efee15c": "V3-style pool WETH/USDT 0.05%",
   "0x7a250d5630b4cf539739df2c5dacb4c659f2488d": "Uniswap V2 router",
   "0x7f86bf177dd4f3494b841a37e810a34dd56c829b": "crvUSDCWBTCWETH",
   "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9": "AAVE",

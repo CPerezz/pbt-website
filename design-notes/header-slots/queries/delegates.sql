@@ -1,4 +1,4 @@
--- D2 (clickhouse-raw, one contiguous window).
+-- Note gas-rule (clickhouse-raw, one contiguous window).
 -- EOAs with a live EIP-7702 delegation (latest authorization before {T_END} points to a non-zero target), their net
 -- per-tx slot writes in the window by delegate, and how many came in a tx that also changed the EOA's nonce.
 WITH

@@ -1,4 +1,4 @@
--- B2, C3 (clickhouse-refined, one address prefix).
+-- Notes in-the-header, flat-record (clickhouse-refined, one address prefix).
 -- Live storage at block 26,300,000 per contract: h = live slots 0-63, o = live slots from 64 up, groups = the
 -- storage groups those slots fill (one bucket per contract with o > 0). Grouped by h so prefixes can be summed.
 WITH
