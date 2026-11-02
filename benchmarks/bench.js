@@ -151,7 +151,7 @@ export function num(text, src, attrs = {}) {
   return hover(a, `<span class="lbl">source</span><br><b>${src.replace(DATA, '')}</b> ↗`);
 }
 // Glossary: one sentence per term (HANDOVER §4 / EIP-8347). term(key, text?) → dotted-underline span, hover defines it.
-const GLOSSARY = {
+export const GLOSSARY = {
   newpayload: "The <code>engine_newPayload</code> call a proxy times between Lighthouse and the EL: how long the EL takes to validate and execute one block.",
   mgas: 'Execution throughput while following the head — Σ gas ÷ Σ newPayload time over the window, not sync speed.',
   headcov: 'Valid newPayloads ÷ (window ÷ 12 s); ~0.99 is a perfect score given mainnet\u2019s own ~1% missed slots, below 0.9 would mean the node fell behind.',
