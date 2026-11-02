@@ -71,7 +71,11 @@ python3 -m http.server 8000   # then open http://localhost:8000/lab.html
 13. Mobile/touch layout is desktop-oriented (floating windows, mouse-only hover leader-lines and drag/scroll hints). **Resolved (minimal, not a redesign):** added a one-time dismissible notice on the hero screen, shown when the existing `narrow` viewport model is true, "Best viewed on desktop — some controls need a mouse."; dismissal is remembered via one `localStorage` key so it never reappears, and it never shows on desktop widths. Verified via viewport emulation (show → dismiss → reload → stays hidden; desktop width → never shown).
 
 ## Files
-`index.html` (home page), `lab.html` (the 3D app), `support.js`, `pbt-core.js`, `pbt-scene-v4.js`, `pbt-beats-v5.js`, `vendor/*` (vendored three.js/React so the site has no CDN dependency), `og.png`, `.nojekyll`, `uploads/fixtures/*`, `docs/*`, `dist/PBT-Explainer.html`, `benchmarks/*`, `design-notes/*`.
+`index.html` (home page), `lab.html` (the 3D app), `support.js`, `pbt-core.js`, `pbt-scene-v4.js`, `pbt-beats-v5.js`, `vendor/*` (vendored three.js/React so the site has no CDN dependency), `og.png`, `.nojekyll`, `uploads/fixtures/*`, `docs/*`, `dist/PBT-Explainer.html`, `benchmarks/*`, `design-notes/*`, `devnets/*`.
+
+`benchmarks/` (the EIP-8347 import benchmark page: `bench.js` kit, one module per section, data under `uploads/benchmarks/`, gate `uploads/benchmarks/check.py`).
+
+`devnets/` (one page per migration devnet, built like `benchmarks/`): `devnets/index.html` lists them; `devnets/pbt-devnet-1/` has `kit.js` (bench.js plus the devnet's glossary, provenance links, nine-day clock and lane helpers), `main.js` (section registry), one module per section (`intro, timeline, methods, validating, cost, fork, network, setup, conclusions, provenance`), `devnet.css`. Data: seven JSON files under `uploads/devnets/pbt-devnet-1/`, exported from the devnet's post-mortem catalog by its `export_site.py` (not in this repo); every number on the page links to its file, and each file lists the catalog views behind it. Gate before pushing: `python3 uploads/devnets/check.py` (no local paths, every referenced file present with the contract's keys, re-export byte-identical when the catalog is reachable).
 
 ## Deployment
 GitHub Pages, deployed from the `main` branch root (`.nojekyll` present so the `vendor/`/`uploads/` dot-free paths serve as static files, not processed by Jekyll). Any push to `main` updates the live site within a minute or two.

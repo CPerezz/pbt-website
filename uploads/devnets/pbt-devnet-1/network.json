@@ -1,0 +1,10676 @@
+{
+ "_views": [
+  "h1_network_hourly",
+  "h2_node_hourly",
+  "h4_finality_network",
+  "failures",
+  "k2_recovery"
+ ],
+ "fixes": [
+  {
+   "host": "besu-1",
+   "label": "Besu 76a88a11: batched BAL catch-up",
+   "t": 1792708440,
+   "url": null
+  },
+  {
+   "host": "erigon-2",
+   "label": "erigon build",
+   "t": 1792687920,
+   "url": null
+  },
+  {
+   "host": "erigon-1",
+   "label": "erigon build",
+   "t": 1792688160,
+   "url": null
+  },
+  {
+   "host": "nethermind-1",
+   "label": "Nethermind f609f2fd: memory budget",
+   "t": 1793096220,
+   "url": null
+  },
+  {
+   "host": "geth-1",
+   "label": "#78 profiler leak",
+   "t": 1793105580,
+   "url": "https://github.com/CPerezz/go-ethereum/pull/78"
+  },
+  {
+   "host": "geth-1",
+   "label": "#79 recover",
+   "t": 1793276460,
+   "url": "https://github.com/CPerezz/go-ethereum/pull/79"
+  },
+  {
+   "host": "geth-3",
+   "label": "#79 recover",
+   "t": 1793276520,
+   "url": "https://github.com/CPerezz/go-ethereum/pull/79"
+  },
+  {
+   "host": "erigon-1",
+   "label": "erigon build",
+   "t": 1793333400,
+   "url": null
+  },
+  {
+   "host": "erigon-2",
+   "label": "erigon build",
+   "t": 1793333400,
+   "url": null
+  },
+  {
+   "host": "geth-1",
+   "label": "#80–#82",
+   "t": 1793353980,
+   "url": "https://github.com/CPerezz/go-ethereum/pull/80"
+  },
+  {
+   "host": "geth-3",
+   "label": "#80–#82",
+   "t": 1793354100,
+   "url": "https://github.com/CPerezz/go-ethereum/pull/80"
+  },
+  {
+   "host": "geth-2",
+   "label": "#83 replay route",
+   "t": 1793356260,
+   "url": "https://github.com/CPerezz/go-ethereum/pull/83"
+  }
+ ],
+ "hourly": [
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1792659600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 11,
+   "participation": 1.0,
+   "t": 1792663200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 8,
+   "participation": 1.0,
+   "t": 1792666800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 64,
+   "participation": 0.778,
+   "t": 1792670400,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 64,
+   "participation": 0.778,
+   "t": 1792674000,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 67,
+   "participation": 0.778,
+   "t": 1792677600,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 63,
+   "participation": 0.778,
+   "t": 1792681200,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 61,
+   "participation": 0.778,
+   "t": 1792684800,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 58,
+   "participation": 0.778,
+   "t": 1792688400,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 66,
+   "participation": 0.778,
+   "t": 1792692000,
+   "validating": 7
+  },
+  {
+   "finality_lag": 3,
+   "missed": 71,
+   "participation": 0.778,
+   "t": 1792695600,
+   "validating": 7
+  },
+  {
+   "finality_lag": 4,
+   "missed": 92,
+   "participation": 0.778,
+   "t": 1792699200,
+   "validating": 6
+  },
+  {
+   "finality_lag": 4,
+   "missed": 99,
+   "participation": 0.667,
+   "t": 1792702800,
+   "validating": 6
+  },
+  {
+   "finality_lag": 7,
+   "missed": 104,
+   "participation": 0.667,
+   "t": 1792706400,
+   "validating": 6
+  },
+  {
+   "finality_lag": 3,
+   "missed": 81,
+   "participation": 0.778,
+   "t": 1792710000,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 76,
+   "participation": 0.778,
+   "t": 1792713600,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 64,
+   "participation": 0.778,
+   "t": 1792717200,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 70,
+   "participation": 0.778,
+   "t": 1792720800,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 58,
+   "participation": 0.778,
+   "t": 1792724400,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 71,
+   "participation": 0.778,
+   "t": 1792728000,
+   "validating": 7
+  },
+  {
+   "finality_lag": 4,
+   "missed": 75,
+   "participation": 0.778,
+   "t": 1792731600,
+   "validating": 7
+  },
+  {
+   "finality_lag": 4,
+   "missed": 105,
+   "participation": 0.667,
+   "t": 1792735200,
+   "validating": 6
+  },
+  {
+   "finality_lag": 4,
+   "missed": 93,
+   "participation": 0.667,
+   "t": 1792738800,
+   "validating": 6
+  },
+  {
+   "finality_lag": 4,
+   "missed": 82,
+   "participation": 0.778,
+   "t": 1792742400,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 54,
+   "participation": 0.778,
+   "t": 1792746000,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 64,
+   "participation": 0.778,
+   "t": 1792749600,
+   "validating": 7
+  },
+  {
+   "finality_lag": 3,
+   "missed": 79,
+   "participation": 0.778,
+   "t": 1792753200,
+   "validating": 7
+  },
+  {
+   "finality_lag": 4,
+   "missed": 84,
+   "participation": 0.732,
+   "t": 1792756800,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 67,
+   "participation": 0.778,
+   "t": 1792760400,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 46,
+   "participation": 0.889,
+   "t": 1792764000,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 41,
+   "participation": 0.886,
+   "t": 1792767600,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 24,
+   "participation": 0.889,
+   "t": 1792771200,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 31,
+   "participation": 0.889,
+   "t": 1792774800,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 31,
+   "participation": 0.889,
+   "t": 1792778400,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 29,
+   "participation": 0.889,
+   "t": 1792782000,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 27,
+   "participation": 0.889,
+   "t": 1792785600,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 37,
+   "participation": 0.889,
+   "t": 1792789200,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 38,
+   "participation": 0.889,
+   "t": 1792792800,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 38,
+   "participation": 0.889,
+   "t": 1792796400,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 32,
+   "participation": 0.889,
+   "t": 1792800000,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 36,
+   "participation": 0.889,
+   "t": 1792803600,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 35,
+   "participation": 0.889,
+   "t": 1792807200,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 37,
+   "participation": 0.889,
+   "t": 1792810800,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 26,
+   "participation": 0.889,
+   "t": 1792814400,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 33,
+   "participation": 0.889,
+   "t": 1792818000,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 28,
+   "participation": 0.889,
+   "t": 1792821600,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 32,
+   "participation": 0.889,
+   "t": 1792825200,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 38,
+   "participation": 0.889,
+   "t": 1792828800,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 27,
+   "participation": 0.889,
+   "t": 1792832400,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 28,
+   "participation": 0.889,
+   "t": 1792836000,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 34,
+   "participation": 0.889,
+   "t": 1792839600,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 38,
+   "participation": 0.889,
+   "t": 1792843200,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 35,
+   "participation": 0.889,
+   "t": 1792846800,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 29,
+   "participation": 0.889,
+   "t": 1792850400,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 36,
+   "participation": 0.889,
+   "t": 1792854000,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 28,
+   "participation": 0.889,
+   "t": 1792857600,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 32,
+   "participation": null,
+   "t": 1792861200,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 30,
+   "participation": 0.889,
+   "t": 1792864800,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 32,
+   "participation": null,
+   "t": 1792868400,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1792872000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1792875600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1792879200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1792882800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1792886400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792890000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792893600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1792897200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 11,
+   "participation": 1.0,
+   "t": 1792900800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 15,
+   "participation": null,
+   "t": 1792904400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 10,
+   "participation": null,
+   "t": 1792908000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1792911600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792915200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1792918800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792922400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792926000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792929600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792933200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792936800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792940400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792944000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792947600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792951200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1792954800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792958400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792962000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792965600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792969200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792972800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792976400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792980000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792983600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792987200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792990800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792994400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1792998000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793001600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793005200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793008800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793012400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793016000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793019600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793023200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793026800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793030400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793034000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793037600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793041200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1793044800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793048400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793052000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1793055600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 16,
+   "participation": null,
+   "t": 1793059200,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 39,
+   "participation": null,
+   "t": 1793062800,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 32,
+   "participation": 1.0,
+   "t": 1793066400,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 32,
+   "participation": null,
+   "t": 1793070000,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 41,
+   "participation": null,
+   "t": 1793073600,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 2,
+   "participation": null,
+   "t": 1793077200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793080800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793084400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793088000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793091600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 1,
+   "participation": 1.0,
+   "t": 1793095200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793098800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 1,
+   "participation": 1.0,
+   "t": 1793102400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793106000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793109600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793113200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793116800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793120400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793124000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793127600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793131200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793134800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793138400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793142000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793145600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793149200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793152800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793156400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793160000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793163600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793167200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793170800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793174400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793178000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793181600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793185200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793188800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793192400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793196000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793199600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793203200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793206800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793210400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793214000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793217600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793221200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793224800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1793228400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793232000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1793235600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1793239200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1793242800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1793246400,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": null,
+   "t": 1793250000,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793253600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793257200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793260800,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 75,
+   "participation": 0.778,
+   "t": 1793264400,
+   "validating": 7
+  },
+  {
+   "finality_lag": 4,
+   "missed": 102,
+   "participation": 0.667,
+   "t": 1793268000,
+   "validating": 6
+  },
+  {
+   "finality_lag": 4,
+   "missed": 90,
+   "participation": 0.667,
+   "t": 1793271600,
+   "validating": 6
+  },
+  {
+   "finality_lag": 11,
+   "missed": 113,
+   "participation": 0.217,
+   "t": 1793275200,
+   "validating": 4
+  },
+  {
+   "finality_lag": 12,
+   "missed": 88,
+   "participation": 0.667,
+   "t": 1793278800,
+   "validating": 6
+  },
+  {
+   "finality_lag": 4,
+   "missed": 90,
+   "participation": 0.667,
+   "t": 1793282400,
+   "validating": 6
+  },
+  {
+   "finality_lag": 4,
+   "missed": 72,
+   "participation": 0.778,
+   "t": 1793286000,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 70,
+   "participation": 0.778,
+   "t": 1793289600,
+   "validating": 7
+  },
+  {
+   "finality_lag": 2,
+   "missed": 38,
+   "participation": 0.889,
+   "t": 1793293200,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 34,
+   "participation": 0.889,
+   "t": 1793296800,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 30,
+   "participation": 0.889,
+   "t": 1793300400,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 42,
+   "participation": 0.889,
+   "t": 1793304000,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 24,
+   "participation": 0.889,
+   "t": 1793307600,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 35,
+   "participation": 0.889,
+   "t": 1793311200,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 44,
+   "participation": 0.889,
+   "t": 1793314800,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 46,
+   "participation": 0.889,
+   "t": 1793318400,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 34,
+   "participation": 0.889,
+   "t": 1793322000,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 45,
+   "participation": 0.889,
+   "t": 1793325600,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 25,
+   "participation": 0.889,
+   "t": 1793329200,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 32,
+   "participation": 0.889,
+   "t": 1793332800,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 34,
+   "participation": 0.889,
+   "t": 1793336400,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 35,
+   "participation": 0.889,
+   "t": 1793340000,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 24,
+   "participation": 0.889,
+   "t": 1793343600,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 35,
+   "participation": 0.889,
+   "t": 1793347200,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 40,
+   "participation": 0.889,
+   "t": 1793350800,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 39,
+   "participation": 0.889,
+   "t": 1793354400,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 22,
+   "participation": 0.889,
+   "t": 1793358000,
+   "validating": 8
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793361600,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793365200,
+   "validating": 9
+  },
+  {
+   "finality_lag": 2,
+   "missed": 0,
+   "participation": 1.0,
+   "t": 1793368800,
+   "validating": 9
+  }
+ ],
+ "ledger": [
+  {
+   "host": "besu-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-22 09:38:42 (Besu version 26.10-develop-39377a2)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792676971
+  },
+  {
+   "host": "besu-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792677036,
+   "recovery_s": 36,
+   "t": 1792677000
+  },
+  {
+   "host": "besu-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-22 22:34:07 (Besu version 26.10-develop-76a88a1)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792708447
+  },
+  {
+   "host": "besu-1",
+   "kind": "jvm_heap_oom",
+   "note": "java.lang.OutOfMemoryError: Java heap space",
+   "recovered_t": 1792710180,
+   "recovery_s": 673,
+   "t": 1792709508
+  },
+  {
+   "host": "besu-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-22 22:34:07 (Besu version 26.10-develop-76a88a1)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792709585
+  },
+  {
+   "host": "besu-1",
+   "kind": "jvm_heap_oom",
+   "note": "java.lang.OutOfMemoryError: Java heap space",
+   "recovered_t": 1792715088,
+   "recovery_s": 118,
+   "t": 1792714970
+  },
+  {
+   "host": "besu-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-22 22:53:04 (Besu version 26.10-develop-76a88a1)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792715067
+  },
+  {
+   "host": "erigon-1",
+   "kind": "segv",
+   "note": "SIGSEGV: segmentation violation",
+   "recovered_t": 1792666308,
+   "recovery_s": 36,
+   "t": 1792666272
+  },
+  {
+   "host": "erigon-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-22 08:15:13 (git_commit=372df0e68f52f9975370bff38dee6e41aefff0d7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792666277
+  },
+  {
+   "host": "erigon-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 14:18:55 (git_commit=fb9da7fd2ea08139062c3e15962198b99628661d)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793283638
+  },
+  {
+   "host": "erigon-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 14:20:37 (git_commit=fb9da7fd2ea08139062c3e15962198b99628661d)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793283761
+  },
+  {
+   "host": "erigon-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 14:22:40 (git_commit=fb9da7fd2ea08139062c3e15962198b99628661d)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793283866
+  },
+  {
+   "host": "erigon-2",
+   "kind": "segv",
+   "note": "SIGSEGV: segmentation violation",
+   "recovered_t": 1792665624,
+   "recovery_s": 84,
+   "t": 1792665540
+  },
+  {
+   "host": "erigon-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-22 08:15:08 (git_commit=372df0e68f52f9975370bff38dee6e41aefff0d7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792665543
+  },
+  {
+   "host": "erigon-2",
+   "kind": "segv",
+   "note": "SIGSEGV: segmentation violation",
+   "recovered_t": 1792668828,
+   "recovery_s": 60,
+   "t": 1792668768
+  },
+  {
+   "host": "erigon-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-22 10:56:09 (git_commit=b4a42b6b1a997bdf50acf27a3662a6e755287b1b)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792668771
+  },
+  {
+   "host": "erigon-2",
+   "kind": "shadow_stopped",
+   "note": "51595 lines 10-23 12:55 → 10-25 05:02",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792760153
+  },
+  {
+   "host": "erigon-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 13:59:50 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792763997
+  },
+  {
+   "host": "erigon-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 13:59:56 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792764002
+  },
+  {
+   "host": "erigon-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:00:02 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792764008
+  },
+  {
+   "host": "erigon-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:00:08 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792764014
+  },
+  {
+   "host": "erigon-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:00:13 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792764020
+  },
+  {
+   "host": "erigon-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:00:20 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792764028
+  },
+  {
+   "host": "erigon-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:00:28 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792764039
+  },
+  {
+   "host": "erigon-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:00:39 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792764057
+  },
+  {
+   "host": "erigon-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:00:56 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792764798
+  },
+  {
+   "host": "erigon-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 15:25:10 (git_commit=fb9da7fd2ea08139062c3e15962198b99628661d)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793287663
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-22 09:38:42 (Geth/v1.17.6-unstable-84a12eff-20261020)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793076722
+  },
+  {
+   "host": "geth-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1793076792,
+   "recovery_s": 42,
+   "t": 1793076750
+  },
+  {
+   "host": "geth-1",
+   "kind": "replay_stall",
+   "note": "WARN [10-27|05:02:42.228] Migration direction stalled              pbt=true head=24,535,082 err=\"shadow position unresolvable: re-anchor\"",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793077362
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-27 12:58:01 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264525
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:02:05 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264530
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:02:10 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264533
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:02:13 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264537
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:02:16 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264541
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:02:21 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264547
+  },
+  {
+   "host": "geth-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1793277708,
+   "recovery_s": 13158,
+   "t": 1793264550
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:02:26 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264556
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:02:35 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264571
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:02:51 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264599
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:03:19 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264653
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:04:12 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264715
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:05:15 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264778
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:06:17 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264818
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:06:58 (Geth/v1.17.6-unstable-9acab9ef-20261029)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793276474
+  },
+  {
+   "host": "geth-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-30 14:35:04 (Geth/v1.17.6-unstable-fb992547-20261030)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793370957
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-27 12:53:20 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793268757
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:12:36 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793268761
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:12:40 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793268764
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:12:43 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793268767
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:12:46 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793268771
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:12:50 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793268776
+  },
+  {
+   "host": "geth-2",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1793360809,
+   "recovery_s": 92029,
+   "t": 1793268780
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:12:56 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793268785
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:13:05 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793268800
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:13:20 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793268828
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:13:48 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793268882
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:14:41 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793268944
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:15:44 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269007
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:16:46 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269069
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:17:49 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269132
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:18:51 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269194
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:19:53 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269257
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:20:56 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269319
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:21:59 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269382
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:23:01 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269444
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:24:04 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269506
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:25:06 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269569
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:26:08 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269631
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:27:10 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269693
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:28:13 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269756
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:29:15 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269818
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:30:18 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269881
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:31:20 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793269943
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:32:22 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270005
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:33:25 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270068
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:34:27 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270130
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:35:29 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270192
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:36:32 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270255
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:37:34 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270317
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:38:36 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270379
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:39:39 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270441
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:40:41 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270504
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:41:43 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270566
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:42:46 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270628
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:43:48 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270691
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:44:50 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270753
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:45:53 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270816
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:46:55 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270878
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:47:57 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793270940
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:49:00 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271002
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:50:02 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271065
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:51:04 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271127
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:52:07 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271190
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:53:09 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271252
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:54:11 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271314
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:55:14 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271376
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:56:16 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271439
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:57:18 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271501
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:58:21 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271563
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 10:59:23 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271626
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:00:25 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271688
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:01:28 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271750
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:02:30 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271813
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:03:32 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271875
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:04:35 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793271938
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:05:37 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272000
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:06:39 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272062
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:07:42 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272125
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:08:44 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272187
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:09:46 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272249
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:10:49 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272312
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:11:51 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272374
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:12:54 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272437
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:13:56 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272499
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:14:59 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272561
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:16:01 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272624
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:17:03 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272686
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:18:06 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272749
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:19:08 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272811
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:20:11 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272873
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:21:13 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272936
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:22:15 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793272998
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:23:18 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273061
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:24:20 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273123
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:25:22 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273185
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:26:25 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273248
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:27:28 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273311
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:28:30 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273373
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:29:33 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273436
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:30:35 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273498
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:31:38 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273561
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:32:40 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273623
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:33:43 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273686
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:34:45 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273748
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:35:47 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273810
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:36:50 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273873
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:37:52 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273935
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:38:54 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793273997
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:39:57 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793274060
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:40:59 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793274122
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:42:01 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793274184
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:43:04 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793274247
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:44:06 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793274309
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:45:08 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793274371
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:46:11 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793274434
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:47:13 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793274496
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:48:16 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793274559
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:49:18 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793274621
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:50:20 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793274683
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:51:23 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793274746
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:52:25 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793274750
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 11:52:29 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793355671
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-30 10:21:10 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793355674
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-30 10:21:13 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793355677
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-30 10:21:16 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793355680
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-30 10:21:19 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793355683
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-30 10:21:23 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793355687
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-30 10:21:27 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793355693
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-30 10:21:33 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793355702
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-30 10:21:41 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793355717
+  },
+  {
+   "host": "geth-2",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-30 10:21:57 (Geth/v1.17.6-unstable-f009a166-20261030)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793356281
+  },
+  {
+   "host": "geth-2",
+   "kind": "replay_stall",
+   "note": "ERROR[10-30|10:38:24.149] Migration direction stalled              pbt=true head=24,550,938 err=\"access list missing for block 24550938 334c88c81ef0f772fda2ef2cdbd6f0a1ccc63d953335e2eff7620dc6776ccfb8\"",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793356704
+  },
+  {
+   "host": "geth-2",
+   "kind": "replay_stall",
+   "note": "ERROR[10-30|11:04:00.259] Migration direction stalled              pbt=true head=24,550,938 err=\"access list missing for block 24550938 334c88c81ef0f772fda2ef2cdbd6f0a1ccc63d953335e2eff7620dc6776ccfb8\"",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793358240
+  },
+  {
+   "host": "geth-2",
+   "kind": "replay_stall",
+   "note": "ERROR[10-30|11:17:50.504] Migration direction stalled              pbt=true head=24,552,911 err=\"replaying block 24550947 23ec2b7578ba86da8da7e3d1ef9ddbf02c6fdabf0c1e46b321aa8175ebbd8ae7: missing trie node dec2ae4d7f46b11d9dd411ec59dbf47aa9",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793359071
+  },
+  {
+   "host": "geth-3",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-27 12:56:12 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264650
+  },
+  {
+   "host": "geth-3",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:04:10 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264655
+  },
+  {
+   "host": "geth-3",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:04:14 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264658
+  },
+  {
+   "host": "geth-3",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:04:18 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264662
+  },
+  {
+   "host": "geth-3",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:04:21 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264666
+  },
+  {
+   "host": "geth-3",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:04:26 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264672
+  },
+  {
+   "host": "geth-3",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:04:31 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264681
+  },
+  {
+   "host": "geth-3",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:04:41 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264697
+  },
+  {
+   "host": "geth-3",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1793277624,
+   "recovery_s": 12924,
+   "t": 1793264700
+  },
+  {
+   "host": "geth-3",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:04:56 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264725
+  },
+  {
+   "host": "geth-3",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:05:25 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264779
+  },
+  {
+   "host": "geth-3",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:06:18 (nan)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793264842
+  },
+  {
+   "host": "geth-3",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-29 09:07:21 (Geth/v1.17.6-unstable-9acab9ef-20261029)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793276520
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-22 10:02:47 (Version: 2.3.0-preview+f4e29519)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792674020
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792674193,
+   "recovery_s": 163,
+   "t": 1792674030
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-22 13:00:20 (Version: 2.3.0-preview+f4e29519)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792682791
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792682856,
+   "recovery_s": 36,
+   "t": 1792682820
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-22 17:42:06 (Version: 2.3.0-preview+f4e29519)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792698752
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792698816,
+   "recovery_s": 36,
+   "t": 1792698780
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-22 19:52:31 (Version: 2.3.0-preview+f4e29519)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792707962
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792708021,
+   "recovery_s": 31,
+   "t": 1792707990
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-22 22:26:02 (Version: 2.3.0-preview+f4e29519)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792716768
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792716828,
+   "recovery_s": 48,
+   "t": 1792716780
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 00:52:47 (Version: 2.3.0-preview+f4e29519)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792725784
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792725888,
+   "recovery_s": 78,
+   "t": 1792725810
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 03:23:04 (Version: 2.3.0-preview+f4e29519)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792734936
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792735044,
+   "recovery_s": 84,
+   "t": 1792734960
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 05:55:35 (Version: 2.3.0-preview+f4e29519)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792743303
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792743360,
+   "recovery_s": 30,
+   "t": 1792743330
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 08:15:03 (Version: 2.3.0-preview+f4e29519)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792752846
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792752912,
+   "recovery_s": 42,
+   "t": 1792752870
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 11:55:50 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792764525
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792764576,
+   "recovery_s": 36,
+   "t": 1792764540
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:08:45 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792765015
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792765201,
+   "recovery_s": 181,
+   "t": 1792765020
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:16:54 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792765218
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792765272,
+   "recovery_s": 42,
+   "t": 1792765230
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:20:17 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792765762
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792765824,
+   "recovery_s": 54,
+   "t": 1792765770
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:29:22 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792766082
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792766184,
+   "recovery_s": 84,
+   "t": 1792766100
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:34:41 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792766455
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792766628,
+   "recovery_s": 168,
+   "t": 1792766460
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:40:54 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792766822
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792767121,
+   "recovery_s": 271,
+   "t": 1792766850
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:47:02 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792767072
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792767121,
+   "recovery_s": 31,
+   "t": 1792767090
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:51:11 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792767317
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792767516,
+   "recovery_s": 186,
+   "t": 1792767330
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:55:17 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792767451
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792767516,
+   "recovery_s": 36,
+   "t": 1792767480
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 14:57:31 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792767670
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792767852,
+   "recovery_s": 162,
+   "t": 1792767690
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:01:09 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792767792
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792767852,
+   "recovery_s": 42,
+   "t": 1792767810
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:03:12 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792768011
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792768068,
+   "recovery_s": 48,
+   "t": 1792768020
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:06:50 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792768180
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792768332,
+   "recovery_s": 132,
+   "t": 1792768200
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:09:40 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792768268
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792768332,
+   "recovery_s": 42,
+   "t": 1792768290
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:11:07 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792768506
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792768572,
+   "recovery_s": 42,
+   "t": 1792768530
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:15:05 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792768692
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792768776,
+   "recovery_s": 66,
+   "t": 1792768710
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:18:12 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792768912
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792768980,
+   "recovery_s": 60,
+   "t": 1792768920
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:21:51 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792769112
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792769184,
+   "recovery_s": 54,
+   "t": 1792769130
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:25:12 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792769359
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792769437,
+   "recovery_s": 67,
+   "t": 1792769370
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:29:18 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792769608
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792769796,
+   "recovery_s": 186,
+   "t": 1792769610
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:33:28 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792769696
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792769796,
+   "recovery_s": 96,
+   "t": 1792769700
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:34:55 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792769824
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792769953,
+   "recovery_s": 103,
+   "t": 1792769850
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:37:03 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792770050
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792770192,
+   "recovery_s": 132,
+   "t": 1792770060
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:40:49 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792770140
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792770192,
+   "recovery_s": 42,
+   "t": 1792770150
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:42:19 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792770350
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792770516,
+   "recovery_s": 156,
+   "t": 1792770360
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:45:50 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792770443
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792770516,
+   "recovery_s": 66,
+   "t": 1792770450
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:47:23 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1792770722
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1792770804,
+   "recovery_s": 54,
+   "t": 1792770750
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "crash_restart",
+   "note": "start with no clean stop since 10-23 15:52:02 (Version: 2.3.0-preview+713979e7)",
+   "recovered_t": null,
+   "recovery_s": null,
+   "t": 1793014166
+  },
+  {
+   "host": "nethermind-1",
+   "kind": "oom_kill",
+   "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+   "recovered_t": 1793014260,
+   "recovery_s": 90,
+   "t": 1793014170
+  }
+ ],
+ "pause": {
+  "down": [
+   "geth-1",
+   "geth-2",
+   "geth-3",
+   "erigon-1",
+   "erigon-2"
+  ],
+  "epochs": 12,
+  "from": 1793275800,
+  "participation_min": 0.22,
+  "to": 1793279280,
+  "validating": 4
+ },
+ "totals": {
+  "corr": 0.98,
+  "missed": 4497,
+  "missed_all_up": 59,
+  "missed_share_node_down": 0.987,
+  "network_reorgs": 0,
+  "sentry_reorgs": 616,
+  "slots": 59158
+ },
+ "valid_share": {
+  "besu-1": [
+   [
+    1792659600,
+    0.93
+   ],
+   [
+    1792663200,
+    0.889
+   ],
+   [
+    1792666800,
+    0.86
+   ],
+   [
+    1792670400,
+    1.0
+   ],
+   [
+    1792674000,
+    0.996
+   ],
+   [
+    1792677600,
+    0.996
+   ],
+   [
+    1792681200,
+    0.996
+   ],
+   [
+    1792684800,
+    1.0
+   ],
+   [
+    1792688400,
+    1.0
+   ],
+   [
+    1792692000,
+    1.0
+   ],
+   [
+    1792695600,
+    0.991
+   ],
+   [
+    1792699200,
+    0.49
+   ],
+   [
+    1792702800,
+    0.0
+   ],
+   [
+    1792706400,
+    0.0
+   ],
+   [
+    1792710000,
+    0.959
+   ],
+   [
+    1792713600,
+    0.942
+   ],
+   [
+    1792717200,
+    1.0
+   ],
+   [
+    1792720800,
+    1.0
+   ],
+   [
+    1792724400,
+    0.996
+   ],
+   [
+    1792728000,
+    1.0
+   ],
+   [
+    1792731600,
+    0.653
+   ],
+   [
+    1792735200,
+    0.0
+   ],
+   [
+    1792738800,
+    0.0
+   ],
+   [
+    1792742400,
+    0.807
+   ],
+   [
+    1792746000,
+    1.0
+   ],
+   [
+    1792749600,
+    0.996
+   ],
+   [
+    1792753200,
+    0.995
+   ],
+   [
+    1792756800,
+    1.0
+   ],
+   [
+    1792760400,
+    1.0
+   ],
+   [
+    1792764000,
+    0.969
+   ],
+   [
+    1792767600,
+    0.942
+   ],
+   [
+    1792771200,
+    1.0
+   ],
+   [
+    1792774800,
+    0.993
+   ],
+   [
+    1792778400,
+    1.0
+   ],
+   [
+    1792782000,
+    1.0
+   ],
+   [
+    1792785600,
+    1.0
+   ],
+   [
+    1792789200,
+    1.0
+   ],
+   [
+    1792792800,
+    1.0
+   ],
+   [
+    1792796400,
+    1.0
+   ],
+   [
+    1792800000,
+    1.0
+   ],
+   [
+    1792803600,
+    1.0
+   ],
+   [
+    1792807200,
+    1.0
+   ],
+   [
+    1792810800,
+    1.0
+   ],
+   [
+    1792814400,
+    1.0
+   ],
+   [
+    1792818000,
+    1.0
+   ],
+   [
+    1792821600,
+    1.0
+   ],
+   [
+    1792825200,
+    1.0
+   ],
+   [
+    1792828800,
+    1.0
+   ],
+   [
+    1792832400,
+    1.0
+   ],
+   [
+    1792836000,
+    1.0
+   ],
+   [
+    1792839600,
+    1.0
+   ],
+   [
+    1792843200,
+    1.0
+   ],
+   [
+    1792846800,
+    1.0
+   ],
+   [
+    1792850400,
+    1.0
+   ],
+   [
+    1792854000,
+    1.0
+   ],
+   [
+    1792857600,
+    1.0
+   ],
+   [
+    1792861200,
+    1.0
+   ],
+   [
+    1792864800,
+    1.0
+   ],
+   [
+    1792868400,
+    1.0
+   ],
+   [
+    1792872000,
+    1.0
+   ],
+   [
+    1792875600,
+    1.0
+   ],
+   [
+    1792879200,
+    1.0
+   ],
+   [
+    1792882800,
+    1.0
+   ],
+   [
+    1792886400,
+    1.0
+   ],
+   [
+    1792890000,
+    1.0
+   ],
+   [
+    1792893600,
+    1.0
+   ],
+   [
+    1792897200,
+    1.0
+   ],
+   [
+    1792900800,
+    0.997
+   ],
+   [
+    1792904400,
+    0.996
+   ],
+   [
+    1792908000,
+    0.993
+   ],
+   [
+    1792911600,
+    0.997
+   ],
+   [
+    1792915200,
+    1.0
+   ],
+   [
+    1792918800,
+    1.0
+   ],
+   [
+    1792922400,
+    1.0
+   ],
+   [
+    1792926000,
+    1.0
+   ],
+   [
+    1792929600,
+    1.0
+   ],
+   [
+    1792933200,
+    1.0
+   ],
+   [
+    1792936800,
+    1.0
+   ],
+   [
+    1792940400,
+    1.0
+   ],
+   [
+    1792944000,
+    1.0
+   ],
+   [
+    1792947600,
+    1.0
+   ],
+   [
+    1792951200,
+    1.0
+   ],
+   [
+    1792954800,
+    1.0
+   ],
+   [
+    1792958400,
+    1.0
+   ],
+   [
+    1792962000,
+    1.0
+   ],
+   [
+    1792965600,
+    1.0
+   ],
+   [
+    1792969200,
+    1.0
+   ],
+   [
+    1792972800,
+    1.0
+   ],
+   [
+    1792976400,
+    1.0
+   ],
+   [
+    1792980000,
+    1.0
+   ],
+   [
+    1792983600,
+    1.0
+   ],
+   [
+    1792987200,
+    1.0
+   ],
+   [
+    1792990800,
+    1.0
+   ],
+   [
+    1792994400,
+    1.0
+   ],
+   [
+    1792998000,
+    1.0
+   ],
+   [
+    1793001600,
+    1.0
+   ],
+   [
+    1793005200,
+    1.0
+   ],
+   [
+    1793008800,
+    1.0
+   ],
+   [
+    1793012400,
+    0.987
+   ],
+   [
+    1793016000,
+    1.0
+   ],
+   [
+    1793019600,
+    0.997
+   ],
+   [
+    1793023200,
+    1.0
+   ],
+   [
+    1793026800,
+    1.0
+   ],
+   [
+    1793030400,
+    1.0
+   ],
+   [
+    1793034000,
+    1.0
+   ],
+   [
+    1793037600,
+    1.0
+   ],
+   [
+    1793041200,
+    1.0
+   ],
+   [
+    1793044800,
+    1.0
+   ],
+   [
+    1793048400,
+    1.0
+   ],
+   [
+    1793052000,
+    1.0
+   ],
+   [
+    1793055600,
+    1.0
+   ],
+   [
+    1793059200,
+    0.465
+   ],
+   [
+    1793062800,
+    0.0
+   ],
+   [
+    1793066400,
+    0.0
+   ],
+   [
+    1793070000,
+    0.0
+   ],
+   [
+    1793073600,
+    0.0
+   ],
+   [
+    1793077200,
+    0.876
+   ],
+   [
+    1793080800,
+    1.0
+   ],
+   [
+    1793084400,
+    0.997
+   ],
+   [
+    1793088000,
+    1.0
+   ],
+   [
+    1793091600,
+    1.0
+   ],
+   [
+    1793095200,
+    0.997
+   ],
+   [
+    1793098800,
+    1.0
+   ],
+   [
+    1793102400,
+    0.997
+   ],
+   [
+    1793106000,
+    1.0
+   ],
+   [
+    1793109600,
+    1.0
+   ],
+   [
+    1793113200,
+    1.0
+   ],
+   [
+    1793116800,
+    1.0
+   ],
+   [
+    1793120400,
+    1.0
+   ],
+   [
+    1793124000,
+    1.0
+   ],
+   [
+    1793127600,
+    1.0
+   ],
+   [
+    1793131200,
+    1.0
+   ],
+   [
+    1793134800,
+    1.0
+   ],
+   [
+    1793138400,
+    1.0
+   ],
+   [
+    1793142000,
+    1.0
+   ],
+   [
+    1793145600,
+    1.0
+   ],
+   [
+    1793149200,
+    1.0
+   ],
+   [
+    1793152800,
+    1.0
+   ],
+   [
+    1793156400,
+    1.0
+   ],
+   [
+    1793160000,
+    1.0
+   ],
+   [
+    1793163600,
+    1.0
+   ],
+   [
+    1793167200,
+    1.0
+   ],
+   [
+    1793170800,
+    1.0
+   ],
+   [
+    1793174400,
+    1.0
+   ],
+   [
+    1793178000,
+    1.0
+   ],
+   [
+    1793181600,
+    1.0
+   ],
+   [
+    1793185200,
+    1.0
+   ],
+   [
+    1793188800,
+    1.0
+   ],
+   [
+    1793192400,
+    1.0
+   ],
+   [
+    1793196000,
+    1.0
+   ],
+   [
+    1793199600,
+    1.0
+   ],
+   [
+    1793203200,
+    1.0
+   ],
+   [
+    1793206800,
+    1.0
+   ],
+   [
+    1793210400,
+    1.0
+   ],
+   [
+    1793214000,
+    1.0
+   ],
+   [
+    1793217600,
+    1.0
+   ],
+   [
+    1793221200,
+    1.0
+   ],
+   [
+    1793224800,
+    1.0
+   ],
+   [
+    1793228400,
+    1.0
+   ],
+   [
+    1793232000,
+    1.0
+   ],
+   [
+    1793235600,
+    1.0
+   ],
+   [
+    1793239200,
+    1.0
+   ],
+   [
+    1793242800,
+    1.0
+   ],
+   [
+    1793246400,
+    1.0
+   ],
+   [
+    1793250000,
+    1.0
+   ],
+   [
+    1793253600,
+    1.0
+   ],
+   [
+    1793257200,
+    1.0
+   ],
+   [
+    1793260800,
+    1.0
+   ],
+   [
+    1793264400,
+    0.996
+   ],
+   [
+    1793268000,
+    0.995
+   ],
+   [
+    1793271600,
+    0.995
+   ],
+   [
+    1793275200,
+    0.791
+   ],
+   [
+    1793278800,
+    0.877
+   ],
+   [
+    1793282400,
+    0.957
+   ],
+   [
+    1793286000,
+    0.969
+   ],
+   [
+    1793289600,
+    1.0
+   ],
+   [
+    1793293200,
+    0.996
+   ],
+   [
+    1793296800,
+    1.0
+   ],
+   [
+    1793300400,
+    0.974
+   ],
+   [
+    1793304000,
+    0.988
+   ],
+   [
+    1793307600,
+    0.993
+   ],
+   [
+    1793311200,
+    0.996
+   ],
+   [
+    1793314800,
+    1.0
+   ],
+   [
+    1793318400,
+    0.996
+   ],
+   [
+    1793322000,
+    1.0
+   ],
+   [
+    1793325600,
+    1.0
+   ],
+   [
+    1793329200,
+    0.985
+   ],
+   [
+    1793332800,
+    0.966
+   ],
+   [
+    1793336400,
+    0.996
+   ],
+   [
+    1793340000,
+    0.996
+   ],
+   [
+    1793343600,
+    0.996
+   ],
+   [
+    1793347200,
+    0.992
+   ],
+   [
+    1793350800,
+    0.992
+   ],
+   [
+    1793354400,
+    1.0
+   ],
+   [
+    1793358000,
+    0.993
+   ],
+   [
+    1793361600,
+    0.997
+   ],
+   [
+    1793365200,
+    0.993
+   ],
+   [
+    1793368800,
+    1.0
+   ]
+  ],
+  "besu-2": [
+   [
+    1792659600,
+    0.926
+   ],
+   [
+    1792663200,
+    0.889
+   ],
+   [
+    1792666800,
+    0.86
+   ],
+   [
+    1792670400,
+    1.0
+   ],
+   [
+    1792674000,
+    0.996
+   ],
+   [
+    1792677600,
+    0.996
+   ],
+   [
+    1792681200,
+    0.996
+   ],
+   [
+    1792684800,
+    1.0
+   ],
+   [
+    1792688400,
+    1.0
+   ],
+   [
+    1792692000,
+    1.0
+   ],
+   [
+    1792695600,
+    0.991
+   ],
+   [
+    1792699200,
+    1.0
+   ],
+   [
+    1792702800,
+    1.0
+   ],
+   [
+    1792706400,
+    0.995
+   ],
+   [
+    1792710000,
+    1.0
+   ],
+   [
+    1792713600,
+    0.942
+   ],
+   [
+    1792717200,
+    1.0
+   ],
+   [
+    1792720800,
+    1.0
+   ],
+   [
+    1792724400,
+    0.996
+   ],
+   [
+    1792728000,
+    1.0
+   ],
+   [
+    1792731600,
+    1.0
+   ],
+   [
+    1792735200,
+    1.0
+   ],
+   [
+    1792738800,
+    1.0
+   ],
+   [
+    1792742400,
+    0.991
+   ],
+   [
+    1792746000,
+    1.0
+   ],
+   [
+    1792749600,
+    0.996
+   ],
+   [
+    1792753200,
+    0.837
+   ],
+   [
+    1792756800,
+    0.0
+   ],
+   [
+    1792760400,
+    0.034
+   ],
+   [
+    1792764000,
+    0.969
+   ],
+   [
+    1792767600,
+    0.942
+   ],
+   [
+    1792771200,
+    1.0
+   ],
+   [
+    1792774800,
+    0.993
+   ],
+   [
+    1792778400,
+    1.0
+   ],
+   [
+    1792782000,
+    1.0
+   ],
+   [
+    1792785600,
+    1.0
+   ],
+   [
+    1792789200,
+    1.0
+   ],
+   [
+    1792792800,
+    1.0
+   ],
+   [
+    1792796400,
+    1.0
+   ],
+   [
+    1792800000,
+    1.0
+   ],
+   [
+    1792803600,
+    1.0
+   ],
+   [
+    1792807200,
+    1.0
+   ],
+   [
+    1792810800,
+    1.0
+   ],
+   [
+    1792814400,
+    1.0
+   ],
+   [
+    1792818000,
+    1.0
+   ],
+   [
+    1792821600,
+    1.0
+   ],
+   [
+    1792825200,
+    1.0
+   ],
+   [
+    1792828800,
+    1.0
+   ],
+   [
+    1792832400,
+    1.0
+   ],
+   [
+    1792836000,
+    1.0
+   ],
+   [
+    1792839600,
+    1.0
+   ],
+   [
+    1792843200,
+    1.0
+   ],
+   [
+    1792846800,
+    1.0
+   ],
+   [
+    1792850400,
+    1.0
+   ],
+   [
+    1792854000,
+    1.0
+   ],
+   [
+    1792857600,
+    1.0
+   ],
+   [
+    1792861200,
+    1.0
+   ],
+   [
+    1792864800,
+    1.0
+   ],
+   [
+    1792868400,
+    1.0
+   ],
+   [
+    1792872000,
+    1.0
+   ],
+   [
+    1792875600,
+    1.0
+   ],
+   [
+    1792879200,
+    1.0
+   ],
+   [
+    1792882800,
+    1.0
+   ],
+   [
+    1792886400,
+    1.0
+   ],
+   [
+    1792890000,
+    0.997
+   ],
+   [
+    1792893600,
+    1.0
+   ],
+   [
+    1792897200,
+    1.0
+   ],
+   [
+    1792900800,
+    0.997
+   ],
+   [
+    1792904400,
+    0.996
+   ],
+   [
+    1792908000,
+    0.993
+   ],
+   [
+    1792911600,
+    0.997
+   ],
+   [
+    1792915200,
+    1.0
+   ],
+   [
+    1792918800,
+    1.0
+   ],
+   [
+    1792922400,
+    1.0
+   ],
+   [
+    1792926000,
+    1.0
+   ],
+   [
+    1792929600,
+    0.997
+   ],
+   [
+    1792933200,
+    1.0
+   ],
+   [
+    1792936800,
+    1.0
+   ],
+   [
+    1792940400,
+    1.0
+   ],
+   [
+    1792944000,
+    1.0
+   ],
+   [
+    1792947600,
+    1.0
+   ],
+   [
+    1792951200,
+    1.0
+   ],
+   [
+    1792954800,
+    1.0
+   ],
+   [
+    1792958400,
+    1.0
+   ],
+   [
+    1792962000,
+    1.0
+   ],
+   [
+    1792965600,
+    1.0
+   ],
+   [
+    1792969200,
+    1.0
+   ],
+   [
+    1792972800,
+    1.0
+   ],
+   [
+    1792976400,
+    1.0
+   ],
+   [
+    1792980000,
+    1.0
+   ],
+   [
+    1792983600,
+    1.0
+   ],
+   [
+    1792987200,
+    1.0
+   ],
+   [
+    1792990800,
+    1.0
+   ],
+   [
+    1792994400,
+    1.0
+   ],
+   [
+    1792998000,
+    1.0
+   ],
+   [
+    1793001600,
+    1.0
+   ],
+   [
+    1793005200,
+    1.0
+   ],
+   [
+    1793008800,
+    1.0
+   ],
+   [
+    1793012400,
+    0.987
+   ],
+   [
+    1793016000,
+    1.0
+   ],
+   [
+    1793019600,
+    0.997
+   ],
+   [
+    1793023200,
+    1.0
+   ],
+   [
+    1793026800,
+    1.0
+   ],
+   [
+    1793030400,
+    1.0
+   ],
+   [
+    1793034000,
+    1.0
+   ],
+   [
+    1793037600,
+    1.0
+   ],
+   [
+    1793041200,
+    1.0
+   ],
+   [
+    1793044800,
+    1.0
+   ],
+   [
+    1793048400,
+    1.0
+   ],
+   [
+    1793052000,
+    1.0
+   ],
+   [
+    1793055600,
+    1.0
+   ],
+   [
+    1793059200,
+    1.0
+   ],
+   [
+    1793062800,
+    1.0
+   ],
+   [
+    1793066400,
+    1.0
+   ],
+   [
+    1793070000,
+    1.0
+   ],
+   [
+    1793073600,
+    1.0
+   ],
+   [
+    1793077200,
+    0.997
+   ],
+   [
+    1793080800,
+    1.0
+   ],
+   [
+    1793084400,
+    0.997
+   ],
+   [
+    1793088000,
+    1.0
+   ],
+   [
+    1793091600,
+    1.0
+   ],
+   [
+    1793095200,
+    0.997
+   ],
+   [
+    1793098800,
+    1.0
+   ],
+   [
+    1793102400,
+    0.997
+   ],
+   [
+    1793106000,
+    1.0
+   ],
+   [
+    1793109600,
+    1.0
+   ],
+   [
+    1793113200,
+    1.0
+   ],
+   [
+    1793116800,
+    1.0
+   ],
+   [
+    1793120400,
+    1.0
+   ],
+   [
+    1793124000,
+    1.0
+   ],
+   [
+    1793127600,
+    1.0
+   ],
+   [
+    1793131200,
+    1.0
+   ],
+   [
+    1793134800,
+    1.0
+   ],
+   [
+    1793138400,
+    1.0
+   ],
+   [
+    1793142000,
+    1.0
+   ],
+   [
+    1793145600,
+    1.0
+   ],
+   [
+    1793149200,
+    1.0
+   ],
+   [
+    1793152800,
+    1.0
+   ],
+   [
+    1793156400,
+    1.0
+   ],
+   [
+    1793160000,
+    1.0
+   ],
+   [
+    1793163600,
+    1.0
+   ],
+   [
+    1793167200,
+    1.0
+   ],
+   [
+    1793170800,
+    1.0
+   ],
+   [
+    1793174400,
+    1.0
+   ],
+   [
+    1793178000,
+    1.0
+   ],
+   [
+    1793181600,
+    1.0
+   ],
+   [
+    1793185200,
+    1.0
+   ],
+   [
+    1793188800,
+    1.0
+   ],
+   [
+    1793192400,
+    1.0
+   ],
+   [
+    1793196000,
+    1.0
+   ],
+   [
+    1793199600,
+    1.0
+   ],
+   [
+    1793203200,
+    1.0
+   ],
+   [
+    1793206800,
+    1.0
+   ],
+   [
+    1793210400,
+    1.0
+   ],
+   [
+    1793214000,
+    1.0
+   ],
+   [
+    1793217600,
+    1.0
+   ],
+   [
+    1793221200,
+    1.0
+   ],
+   [
+    1793224800,
+    1.0
+   ],
+   [
+    1793228400,
+    1.0
+   ],
+   [
+    1793232000,
+    1.0
+   ],
+   [
+    1793235600,
+    1.0
+   ],
+   [
+    1793239200,
+    1.0
+   ],
+   [
+    1793242800,
+    1.0
+   ],
+   [
+    1793246400,
+    1.0
+   ],
+   [
+    1793250000,
+    1.0
+   ],
+   [
+    1793253600,
+    1.0
+   ],
+   [
+    1793257200,
+    1.0
+   ],
+   [
+    1793260800,
+    1.0
+   ],
+   [
+    1793264400,
+    0.996
+   ],
+   [
+    1793268000,
+    0.995
+   ],
+   [
+    1793271600,
+    0.995
+   ],
+   [
+    1793275200,
+    0.791
+   ],
+   [
+    1793278800,
+    0.877
+   ],
+   [
+    1793282400,
+    0.957
+   ],
+   [
+    1793286000,
+    0.969
+   ],
+   [
+    1793289600,
+    1.0
+   ],
+   [
+    1793293200,
+    0.996
+   ],
+   [
+    1793296800,
+    1.0
+   ],
+   [
+    1793300400,
+    0.974
+   ],
+   [
+    1793304000,
+    0.988
+   ],
+   [
+    1793307600,
+    0.993
+   ],
+   [
+    1793311200,
+    0.996
+   ],
+   [
+    1793314800,
+    1.0
+   ],
+   [
+    1793318400,
+    0.996
+   ],
+   [
+    1793322000,
+    1.0
+   ],
+   [
+    1793325600,
+    1.0
+   ],
+   [
+    1793329200,
+    0.985
+   ],
+   [
+    1793332800,
+    0.966
+   ],
+   [
+    1793336400,
+    0.996
+   ],
+   [
+    1793340000,
+    0.996
+   ],
+   [
+    1793343600,
+    0.996
+   ],
+   [
+    1793347200,
+    0.992
+   ],
+   [
+    1793350800,
+    0.992
+   ],
+   [
+    1793354400,
+    1.0
+   ],
+   [
+    1793358000,
+    0.993
+   ],
+   [
+    1793361600,
+    0.997
+   ],
+   [
+    1793365200,
+    0.993
+   ],
+   [
+    1793368800,
+    1.0
+   ]
+  ],
+  "erigon-1": [
+   [
+    1792659600,
+    0.926
+   ],
+   [
+    1792663200,
+    0.848
+   ],
+   [
+    1792666800,
+    0.836
+   ],
+   [
+    1792670400,
+    0.004
+   ],
+   [
+    1792674000,
+    0.0
+   ],
+   [
+    1792677600,
+    0.004
+   ],
+   [
+    1792681200,
+    0.0
+   ],
+   [
+    1792684800,
+    0.004
+   ],
+   [
+    1792688400,
+    0.0
+   ],
+   [
+    1792692000,
+    0.0
+   ],
+   [
+    1792695600,
+    0.0
+   ],
+   [
+    1792699200,
+    0.0
+   ],
+   [
+    1792702800,
+    0.0
+   ],
+   [
+    1792706400,
+    0.0
+   ],
+   [
+    1792710000,
+    0.0
+   ],
+   [
+    1792713600,
+    0.0
+   ],
+   [
+    1792717200,
+    0.0
+   ],
+   [
+    1792720800,
+    0.0
+   ],
+   [
+    1792724400,
+    0.0
+   ],
+   [
+    1792728000,
+    0.0
+   ],
+   [
+    1792731600,
+    0.0
+   ],
+   [
+    1792735200,
+    0.0
+   ],
+   [
+    1792738800,
+    0.0
+   ],
+   [
+    1792742400,
+    0.0
+   ],
+   [
+    1792746000,
+    0.0
+   ],
+   [
+    1792749600,
+    0.0
+   ],
+   [
+    1792753200,
+    0.0
+   ],
+   [
+    1792756800,
+    0.671
+   ],
+   [
+    1792760400,
+    1.0
+   ],
+   [
+    1792764000,
+    0.969
+   ],
+   [
+    1792767600,
+    0.942
+   ],
+   [
+    1792771200,
+    1.0
+   ],
+   [
+    1792774800,
+    0.989
+   ],
+   [
+    1792778400,
+    1.0
+   ],
+   [
+    1792782000,
+    1.0
+   ],
+   [
+    1792785600,
+    1.0
+   ],
+   [
+    1792789200,
+    1.0
+   ],
+   [
+    1792792800,
+    1.0
+   ],
+   [
+    1792796400,
+    1.0
+   ],
+   [
+    1792800000,
+    1.0
+   ],
+   [
+    1792803600,
+    1.0
+   ],
+   [
+    1792807200,
+    1.0
+   ],
+   [
+    1792810800,
+    1.0
+   ],
+   [
+    1792814400,
+    1.0
+   ],
+   [
+    1792818000,
+    1.0
+   ],
+   [
+    1792821600,
+    1.0
+   ],
+   [
+    1792825200,
+    1.0
+   ],
+   [
+    1792828800,
+    1.0
+   ],
+   [
+    1792832400,
+    1.0
+   ],
+   [
+    1792836000,
+    1.0
+   ],
+   [
+    1792839600,
+    1.0
+   ],
+   [
+    1792843200,
+    1.0
+   ],
+   [
+    1792846800,
+    1.0
+   ],
+   [
+    1792850400,
+    1.0
+   ],
+   [
+    1792854000,
+    1.0
+   ],
+   [
+    1792857600,
+    1.0
+   ],
+   [
+    1792861200,
+    1.0
+   ],
+   [
+    1792864800,
+    1.0
+   ],
+   [
+    1792868400,
+    1.0
+   ],
+   [
+    1792872000,
+    1.0
+   ],
+   [
+    1792875600,
+    1.0
+   ],
+   [
+    1792879200,
+    1.0
+   ],
+   [
+    1792882800,
+    1.0
+   ],
+   [
+    1792886400,
+    1.0
+   ],
+   [
+    1792890000,
+    1.0
+   ],
+   [
+    1792893600,
+    1.0
+   ],
+   [
+    1792897200,
+    1.0
+   ],
+   [
+    1792900800,
+    0.997
+   ],
+   [
+    1792904400,
+    0.996
+   ],
+   [
+    1792908000,
+    0.948
+   ],
+   [
+    1792911600,
+    0.997
+   ],
+   [
+    1792915200,
+    1.0
+   ],
+   [
+    1792918800,
+    1.0
+   ],
+   [
+    1792922400,
+    1.0
+   ],
+   [
+    1792926000,
+    1.0
+   ],
+   [
+    1792929600,
+    1.0
+   ],
+   [
+    1792933200,
+    1.0
+   ],
+   [
+    1792936800,
+    1.0
+   ],
+   [
+    1792940400,
+    1.0
+   ],
+   [
+    1792944000,
+    1.0
+   ],
+   [
+    1792947600,
+    1.0
+   ],
+   [
+    1792951200,
+    1.0
+   ],
+   [
+    1792954800,
+    1.0
+   ],
+   [
+    1792958400,
+    1.0
+   ],
+   [
+    1792962000,
+    1.0
+   ],
+   [
+    1792965600,
+    1.0
+   ],
+   [
+    1792969200,
+    1.0
+   ],
+   [
+    1792972800,
+    1.0
+   ],
+   [
+    1792976400,
+    1.0
+   ],
+   [
+    1792980000,
+    1.0
+   ],
+   [
+    1792983600,
+    1.0
+   ],
+   [
+    1792987200,
+    1.0
+   ],
+   [
+    1792990800,
+    1.0
+   ],
+   [
+    1792994400,
+    1.0
+   ],
+   [
+    1792998000,
+    1.0
+   ],
+   [
+    1793001600,
+    1.0
+   ],
+   [
+    1793005200,
+    1.0
+   ],
+   [
+    1793008800,
+    1.0
+   ],
+   [
+    1793012400,
+    0.92
+   ],
+   [
+    1793016000,
+    1.0
+   ],
+   [
+    1793019600,
+    0.997
+   ],
+   [
+    1793023200,
+    1.0
+   ],
+   [
+    1793026800,
+    1.0
+   ],
+   [
+    1793030400,
+    1.0
+   ],
+   [
+    1793034000,
+    1.0
+   ],
+   [
+    1793037600,
+    1.0
+   ],
+   [
+    1793041200,
+    1.0
+   ],
+   [
+    1793044800,
+    1.0
+   ],
+   [
+    1793048400,
+    1.0
+   ],
+   [
+    1793052000,
+    1.0
+   ],
+   [
+    1793055600,
+    1.0
+   ],
+   [
+    1793059200,
+    1.0
+   ],
+   [
+    1793062800,
+    1.0
+   ],
+   [
+    1793066400,
+    1.0
+   ],
+   [
+    1793070000,
+    1.0
+   ],
+   [
+    1793073600,
+    1.0
+   ],
+   [
+    1793077200,
+    0.997
+   ],
+   [
+    1793080800,
+    1.0
+   ],
+   [
+    1793084400,
+    0.99
+   ],
+   [
+    1793088000,
+    1.0
+   ],
+   [
+    1793091600,
+    1.0
+   ],
+   [
+    1793095200,
+    0.997
+   ],
+   [
+    1793098800,
+    1.0
+   ],
+   [
+    1793102400,
+    0.997
+   ],
+   [
+    1793106000,
+    1.0
+   ],
+   [
+    1793109600,
+    1.0
+   ],
+   [
+    1793113200,
+    1.0
+   ],
+   [
+    1793116800,
+    1.0
+   ],
+   [
+    1793120400,
+    1.0
+   ],
+   [
+    1793124000,
+    1.0
+   ],
+   [
+    1793127600,
+    1.0
+   ],
+   [
+    1793131200,
+    1.0
+   ],
+   [
+    1793134800,
+    1.0
+   ],
+   [
+    1793138400,
+    1.0
+   ],
+   [
+    1793142000,
+    1.0
+   ],
+   [
+    1793145600,
+    1.0
+   ],
+   [
+    1793149200,
+    1.0
+   ],
+   [
+    1793152800,
+    1.0
+   ],
+   [
+    1793156400,
+    1.0
+   ],
+   [
+    1793160000,
+    1.0
+   ],
+   [
+    1793163600,
+    1.0
+   ],
+   [
+    1793167200,
+    1.0
+   ],
+   [
+    1793170800,
+    1.0
+   ],
+   [
+    1793174400,
+    1.0
+   ],
+   [
+    1793178000,
+    1.0
+   ],
+   [
+    1793181600,
+    1.0
+   ],
+   [
+    1793185200,
+    1.0
+   ],
+   [
+    1793188800,
+    1.0
+   ],
+   [
+    1793192400,
+    1.0
+   ],
+   [
+    1793196000,
+    1.0
+   ],
+   [
+    1793199600,
+    1.0
+   ],
+   [
+    1793203200,
+    1.0
+   ],
+   [
+    1793206800,
+    1.0
+   ],
+   [
+    1793210400,
+    1.0
+   ],
+   [
+    1793214000,
+    1.0
+   ],
+   [
+    1793217600,
+    1.0
+   ],
+   [
+    1793221200,
+    1.0
+   ],
+   [
+    1793224800,
+    1.0
+   ],
+   [
+    1793228400,
+    1.0
+   ],
+   [
+    1793232000,
+    1.0
+   ],
+   [
+    1793235600,
+    1.0
+   ],
+   [
+    1793239200,
+    1.0
+   ],
+   [
+    1793242800,
+    1.0
+   ],
+   [
+    1793246400,
+    1.0
+   ],
+   [
+    1793250000,
+    1.0
+   ],
+   [
+    1793253600,
+    1.0
+   ],
+   [
+    1793257200,
+    1.0
+   ],
+   [
+    1793260800,
+    1.0
+   ],
+   [
+    1793264400,
+    0.996
+   ],
+   [
+    1793268000,
+    0.995
+   ],
+   [
+    1793271600,
+    0.986
+   ],
+   [
+    1793275200,
+    0.348
+   ],
+   [
+    1793278800,
+    0.269
+   ],
+   [
+    1793282400,
+    0.0
+   ],
+   [
+    1793286000,
+    0.899
+   ],
+   [
+    1793289600,
+    1.0
+   ],
+   [
+    1793293200,
+    0.996
+   ],
+   [
+    1793296800,
+    1.0
+   ],
+   [
+    1793300400,
+    0.974
+   ],
+   [
+    1793304000,
+    0.988
+   ],
+   [
+    1793307600,
+    0.993
+   ],
+   [
+    1793311200,
+    0.996
+   ],
+   [
+    1793314800,
+    1.0
+   ],
+   [
+    1793318400,
+    0.996
+   ],
+   [
+    1793322000,
+    1.0
+   ],
+   [
+    1793325600,
+    1.0
+   ],
+   [
+    1793329200,
+    0.985
+   ],
+   [
+    1793332800,
+    0.966
+   ],
+   [
+    1793336400,
+    0.996
+   ],
+   [
+    1793340000,
+    0.996
+   ],
+   [
+    1793343600,
+    0.996
+   ],
+   [
+    1793347200,
+    0.992
+   ],
+   [
+    1793350800,
+    0.992
+   ],
+   [
+    1793354400,
+    1.0
+   ],
+   [
+    1793358000,
+    0.993
+   ],
+   [
+    1793361600,
+    0.997
+   ],
+   [
+    1793365200,
+    0.993
+   ],
+   [
+    1793368800,
+    1.0
+   ]
+  ],
+  "erigon-2": [
+   [
+    1792659600,
+    0.93
+   ],
+   [
+    1792663200,
+    0.844
+   ],
+   [
+    1792666800,
+    0.808
+   ],
+   [
+    1792670400,
+    0.0
+   ],
+   [
+    1792674000,
+    0.0
+   ],
+   [
+    1792677600,
+    0.004
+   ],
+   [
+    1792681200,
+    0.004
+   ],
+   [
+    1792684800,
+    0.0
+   ],
+   [
+    1792688400,
+    0.0
+   ],
+   [
+    1792692000,
+    0.0
+   ],
+   [
+    1792695600,
+    0.0
+   ],
+   [
+    1792699200,
+    0.0
+   ],
+   [
+    1792702800,
+    0.0
+   ],
+   [
+    1792706400,
+    0.0
+   ],
+   [
+    1792710000,
+    0.0
+   ],
+   [
+    1792713600,
+    0.0
+   ],
+   [
+    1792717200,
+    0.0
+   ],
+   [
+    1792720800,
+    0.0
+   ],
+   [
+    1792724400,
+    0.0
+   ],
+   [
+    1792728000,
+    0.0
+   ],
+   [
+    1792731600,
+    0.0
+   ],
+   [
+    1792735200,
+    0.0
+   ],
+   [
+    1792738800,
+    0.0
+   ],
+   [
+    1792742400,
+    0.0
+   ],
+   [
+    1792746000,
+    0.0
+   ],
+   [
+    1792749600,
+    0.0
+   ],
+   [
+    1792753200,
+    0.0
+   ],
+   [
+    1792756800,
+    0.0
+   ],
+   [
+    1792760400,
+    0.0
+   ],
+   [
+    1792764000,
+    0.0
+   ],
+   [
+    1792767600,
+    0.0
+   ],
+   [
+    1792771200,
+    0.0
+   ],
+   [
+    1792774800,
+    0.0
+   ],
+   [
+    1792778400,
+    0.0
+   ],
+   [
+    1792782000,
+    0.0
+   ],
+   [
+    1792785600,
+    0.0
+   ],
+   [
+    1792789200,
+    0.0
+   ],
+   [
+    1792792800,
+    0.0
+   ],
+   [
+    1792796400,
+    0.0
+   ],
+   [
+    1792800000,
+    0.0
+   ],
+   [
+    1792803600,
+    0.0
+   ],
+   [
+    1792807200,
+    0.0
+   ],
+   [
+    1792810800,
+    0.0
+   ],
+   [
+    1792814400,
+    0.0
+   ],
+   [
+    1792818000,
+    0.0
+   ],
+   [
+    1792821600,
+    0.0
+   ],
+   [
+    1792825200,
+    0.0
+   ],
+   [
+    1792828800,
+    0.0
+   ],
+   [
+    1792832400,
+    0.0
+   ],
+   [
+    1792836000,
+    0.0
+   ],
+   [
+    1792839600,
+    0.0
+   ],
+   [
+    1792843200,
+    0.0
+   ],
+   [
+    1792846800,
+    0.0
+   ],
+   [
+    1792850400,
+    0.0
+   ],
+   [
+    1792854000,
+    0.0
+   ],
+   [
+    1792857600,
+    0.0
+   ],
+   [
+    1792861200,
+    0.0
+   ],
+   [
+    1792864800,
+    0.0
+   ],
+   [
+    1792868400,
+    0.116
+   ],
+   [
+    1792872000,
+    1.0
+   ],
+   [
+    1792875600,
+    1.0
+   ],
+   [
+    1792879200,
+    1.0
+   ],
+   [
+    1792882800,
+    1.0
+   ],
+   [
+    1792886400,
+    1.0
+   ],
+   [
+    1792890000,
+    1.0
+   ],
+   [
+    1792893600,
+    1.0
+   ],
+   [
+    1792897200,
+    1.0
+   ],
+   [
+    1792900800,
+    0.865
+   ],
+   [
+    1792904400,
+    0.505
+   ],
+   [
+    1792908000,
+    0.993
+   ],
+   [
+    1792911600,
+    0.993
+   ],
+   [
+    1792915200,
+    1.0
+   ],
+   [
+    1792918800,
+    1.0
+   ],
+   [
+    1792922400,
+    1.0
+   ],
+   [
+    1792926000,
+    1.0
+   ],
+   [
+    1792929600,
+    1.0
+   ],
+   [
+    1792933200,
+    1.0
+   ],
+   [
+    1792936800,
+    1.0
+   ],
+   [
+    1792940400,
+    1.0
+   ],
+   [
+    1792944000,
+    1.0
+   ],
+   [
+    1792947600,
+    1.0
+   ],
+   [
+    1792951200,
+    1.0
+   ],
+   [
+    1792954800,
+    1.0
+   ],
+   [
+    1792958400,
+    1.0
+   ],
+   [
+    1792962000,
+    1.0
+   ],
+   [
+    1792965600,
+    1.0
+   ],
+   [
+    1792969200,
+    1.0
+   ],
+   [
+    1792972800,
+    1.0
+   ],
+   [
+    1792976400,
+    1.0
+   ],
+   [
+    1792980000,
+    1.0
+   ],
+   [
+    1792983600,
+    1.0
+   ],
+   [
+    1792987200,
+    1.0
+   ],
+   [
+    1792990800,
+    1.0
+   ],
+   [
+    1792994400,
+    1.0
+   ],
+   [
+    1792998000,
+    1.0
+   ],
+   [
+    1793001600,
+    1.0
+   ],
+   [
+    1793005200,
+    1.0
+   ],
+   [
+    1793008800,
+    1.0
+   ],
+   [
+    1793012400,
+    0.983
+   ],
+   [
+    1793016000,
+    1.0
+   ],
+   [
+    1793019600,
+    0.997
+   ],
+   [
+    1793023200,
+    1.0
+   ],
+   [
+    1793026800,
+    1.0
+   ],
+   [
+    1793030400,
+    1.0
+   ],
+   [
+    1793034000,
+    1.0
+   ],
+   [
+    1793037600,
+    1.0
+   ],
+   [
+    1793041200,
+    1.0
+   ],
+   [
+    1793044800,
+    1.0
+   ],
+   [
+    1793048400,
+    1.0
+   ],
+   [
+    1793052000,
+    1.0
+   ],
+   [
+    1793055600,
+    1.0
+   ],
+   [
+    1793059200,
+    1.0
+   ],
+   [
+    1793062800,
+    1.0
+   ],
+   [
+    1793066400,
+    1.0
+   ],
+   [
+    1793070000,
+    1.0
+   ],
+   [
+    1793073600,
+    1.0
+   ],
+   [
+    1793077200,
+    0.997
+   ],
+   [
+    1793080800,
+    1.0
+   ],
+   [
+    1793084400,
+    0.997
+   ],
+   [
+    1793088000,
+    0.997
+   ],
+   [
+    1793091600,
+    1.0
+   ],
+   [
+    1793095200,
+    0.997
+   ],
+   [
+    1793098800,
+    1.0
+   ],
+   [
+    1793102400,
+    0.997
+   ],
+   [
+    1793106000,
+    1.0
+   ],
+   [
+    1793109600,
+    1.0
+   ],
+   [
+    1793113200,
+    1.0
+   ],
+   [
+    1793116800,
+    1.0
+   ],
+   [
+    1793120400,
+    1.0
+   ],
+   [
+    1793124000,
+    1.0
+   ],
+   [
+    1793127600,
+    1.0
+   ],
+   [
+    1793131200,
+    1.0
+   ],
+   [
+    1793134800,
+    1.0
+   ],
+   [
+    1793138400,
+    1.0
+   ],
+   [
+    1793142000,
+    1.0
+   ],
+   [
+    1793145600,
+    1.0
+   ],
+   [
+    1793149200,
+    1.0
+   ],
+   [
+    1793152800,
+    1.0
+   ],
+   [
+    1793156400,
+    1.0
+   ],
+   [
+    1793160000,
+    1.0
+   ],
+   [
+    1793163600,
+    1.0
+   ],
+   [
+    1793167200,
+    1.0
+   ],
+   [
+    1793170800,
+    1.0
+   ],
+   [
+    1793174400,
+    1.0
+   ],
+   [
+    1793178000,
+    1.0
+   ],
+   [
+    1793181600,
+    1.0
+   ],
+   [
+    1793185200,
+    1.0
+   ],
+   [
+    1793188800,
+    1.0
+   ],
+   [
+    1793192400,
+    1.0
+   ],
+   [
+    1793196000,
+    1.0
+   ],
+   [
+    1793199600,
+    1.0
+   ],
+   [
+    1793203200,
+    1.0
+   ],
+   [
+    1793206800,
+    1.0
+   ],
+   [
+    1793210400,
+    1.0
+   ],
+   [
+    1793214000,
+    1.0
+   ],
+   [
+    1793217600,
+    1.0
+   ],
+   [
+    1793221200,
+    1.0
+   ],
+   [
+    1793224800,
+    1.0
+   ],
+   [
+    1793228400,
+    1.0
+   ],
+   [
+    1793232000,
+    1.0
+   ],
+   [
+    1793235600,
+    1.0
+   ],
+   [
+    1793239200,
+    1.0
+   ],
+   [
+    1793242800,
+    1.0
+   ],
+   [
+    1793246400,
+    1.0
+   ],
+   [
+    1793250000,
+    1.0
+   ],
+   [
+    1793253600,
+    1.0
+   ],
+   [
+    1793257200,
+    1.0
+   ],
+   [
+    1793260800,
+    1.0
+   ],
+   [
+    1793264400,
+    0.996
+   ],
+   [
+    1793268000,
+    0.995
+   ],
+   [
+    1793271600,
+    0.986
+   ],
+   [
+    1793275200,
+    0.348
+   ],
+   [
+    1793278800,
+    0.278
+   ],
+   [
+    1793282400,
+    0.133
+   ],
+   [
+    1793286000,
+    0.066
+   ],
+   [
+    1793289600,
+    0.104
+   ],
+   [
+    1793293200,
+    0.996
+   ],
+   [
+    1793296800,
+    1.0
+   ],
+   [
+    1793300400,
+    0.974
+   ],
+   [
+    1793304000,
+    0.988
+   ],
+   [
+    1793307600,
+    0.993
+   ],
+   [
+    1793311200,
+    0.996
+   ],
+   [
+    1793314800,
+    1.0
+   ],
+   [
+    1793318400,
+    0.996
+   ],
+   [
+    1793322000,
+    1.0
+   ],
+   [
+    1793325600,
+    1.0
+   ],
+   [
+    1793329200,
+    0.985
+   ],
+   [
+    1793332800,
+    0.966
+   ],
+   [
+    1793336400,
+    0.996
+   ],
+   [
+    1793340000,
+    0.996
+   ],
+   [
+    1793343600,
+    0.996
+   ],
+   [
+    1793347200,
+    0.992
+   ],
+   [
+    1793350800,
+    0.992
+   ],
+   [
+    1793354400,
+    1.0
+   ],
+   [
+    1793358000,
+    0.993
+   ],
+   [
+    1793361600,
+    0.997
+   ],
+   [
+    1793365200,
+    0.993
+   ],
+   [
+    1793368800,
+    1.0
+   ]
+  ],
+  "geth-1": [
+   [
+    1792659600,
+    0.926
+   ],
+   [
+    1792663200,
+    0.889
+   ],
+   [
+    1792666800,
+    0.86
+   ],
+   [
+    1792670400,
+    1.0
+   ],
+   [
+    1792674000,
+    0.996
+   ],
+   [
+    1792677600,
+    0.996
+   ],
+   [
+    1792681200,
+    0.996
+   ],
+   [
+    1792684800,
+    1.0
+   ],
+   [
+    1792688400,
+    1.0
+   ],
+   [
+    1792692000,
+    1.0
+   ],
+   [
+    1792695600,
+    0.991
+   ],
+   [
+    1792699200,
+    1.0
+   ],
+   [
+    1792702800,
+    1.0
+   ],
+   [
+    1792706400,
+    0.995
+   ],
+   [
+    1792710000,
+    1.0
+   ],
+   [
+    1792713600,
+    0.942
+   ],
+   [
+    1792717200,
+    1.0
+   ],
+   [
+    1792720800,
+    1.0
+   ],
+   [
+    1792724400,
+    0.996
+   ],
+   [
+    1792728000,
+    1.0
+   ],
+   [
+    1792731600,
+    1.0
+   ],
+   [
+    1792735200,
+    1.0
+   ],
+   [
+    1792738800,
+    1.0
+   ],
+   [
+    1792742400,
+    0.991
+   ],
+   [
+    1792746000,
+    1.0
+   ],
+   [
+    1792749600,
+    0.996
+   ],
+   [
+    1792753200,
+    0.995
+   ],
+   [
+    1792756800,
+    1.0
+   ],
+   [
+    1792760400,
+    1.0
+   ],
+   [
+    1792764000,
+    0.969
+   ],
+   [
+    1792767600,
+    0.942
+   ],
+   [
+    1792771200,
+    1.0
+   ],
+   [
+    1792774800,
+    0.985
+   ],
+   [
+    1792778400,
+    1.0
+   ],
+   [
+    1792782000,
+    0.996
+   ],
+   [
+    1792785600,
+    1.0
+   ],
+   [
+    1792789200,
+    0.996
+   ],
+   [
+    1792792800,
+    1.0
+   ],
+   [
+    1792796400,
+    1.0
+   ],
+   [
+    1792800000,
+    1.0
+   ],
+   [
+    1792803600,
+    1.0
+   ],
+   [
+    1792807200,
+    1.0
+   ],
+   [
+    1792810800,
+    1.0
+   ],
+   [
+    1792814400,
+    1.0
+   ],
+   [
+    1792818000,
+    1.0
+   ],
+   [
+    1792821600,
+    1.0
+   ],
+   [
+    1792825200,
+    0.996
+   ],
+   [
+    1792828800,
+    1.0
+   ],
+   [
+    1792832400,
+    1.0
+   ],
+   [
+    1792836000,
+    0.996
+   ],
+   [
+    1792839600,
+    1.0
+   ],
+   [
+    1792843200,
+    0.992
+   ],
+   [
+    1792846800,
+    1.0
+   ],
+   [
+    1792850400,
+    1.0
+   ],
+   [
+    1792854000,
+    1.0
+   ],
+   [
+    1792857600,
+    1.0
+   ],
+   [
+    1792861200,
+    1.0
+   ],
+   [
+    1792864800,
+    1.0
+   ],
+   [
+    1792868400,
+    1.0
+   ],
+   [
+    1792872000,
+    1.0
+   ],
+   [
+    1792875600,
+    1.0
+   ],
+   [
+    1792879200,
+    1.0
+   ],
+   [
+    1792882800,
+    1.0
+   ],
+   [
+    1792886400,
+    1.0
+   ],
+   [
+    1792890000,
+    1.0
+   ],
+   [
+    1792893600,
+    1.0
+   ],
+   [
+    1792897200,
+    1.0
+   ],
+   [
+    1792900800,
+    0.997
+   ],
+   [
+    1792904400,
+    0.996
+   ],
+   [
+    1792908000,
+    0.993
+   ],
+   [
+    1792911600,
+    0.997
+   ],
+   [
+    1792915200,
+    1.0
+   ],
+   [
+    1792918800,
+    1.0
+   ],
+   [
+    1792922400,
+    1.0
+   ],
+   [
+    1792926000,
+    1.0
+   ],
+   [
+    1792929600,
+    1.0
+   ],
+   [
+    1792933200,
+    1.0
+   ],
+   [
+    1792936800,
+    1.0
+   ],
+   [
+    1792940400,
+    1.0
+   ],
+   [
+    1792944000,
+    1.0
+   ],
+   [
+    1792947600,
+    1.0
+   ],
+   [
+    1792951200,
+    1.0
+   ],
+   [
+    1792954800,
+    1.0
+   ],
+   [
+    1792958400,
+    1.0
+   ],
+   [
+    1792962000,
+    1.0
+   ],
+   [
+    1792965600,
+    1.0
+   ],
+   [
+    1792969200,
+    1.0
+   ],
+   [
+    1792972800,
+    1.0
+   ],
+   [
+    1792976400,
+    1.0
+   ],
+   [
+    1792980000,
+    1.0
+   ],
+   [
+    1792983600,
+    1.0
+   ],
+   [
+    1792987200,
+    1.0
+   ],
+   [
+    1792990800,
+    1.0
+   ],
+   [
+    1792994400,
+    1.0
+   ],
+   [
+    1792998000,
+    1.0
+   ],
+   [
+    1793001600,
+    1.0
+   ],
+   [
+    1793005200,
+    1.0
+   ],
+   [
+    1793008800,
+    1.0
+   ],
+   [
+    1793012400,
+    0.987
+   ],
+   [
+    1793016000,
+    1.0
+   ],
+   [
+    1793019600,
+    0.997
+   ],
+   [
+    1793023200,
+    1.0
+   ],
+   [
+    1793026800,
+    1.0
+   ],
+   [
+    1793030400,
+    1.0
+   ],
+   [
+    1793034000,
+    1.0
+   ],
+   [
+    1793037600,
+    1.0
+   ],
+   [
+    1793041200,
+    1.0
+   ],
+   [
+    1793044800,
+    1.0
+   ],
+   [
+    1793048400,
+    0.997
+   ],
+   [
+    1793052000,
+    1.0
+   ],
+   [
+    1793055600,
+    1.0
+   ],
+   [
+    1793059200,
+    1.0
+   ],
+   [
+    1793062800,
+    1.0
+   ],
+   [
+    1793066400,
+    1.0
+   ],
+   [
+    1793070000,
+    1.0
+   ],
+   [
+    1793073600,
+    0.985
+   ],
+   [
+    1793077200,
+    0.997
+   ],
+   [
+    1793080800,
+    1.0
+   ],
+   [
+    1793084400,
+    0.997
+   ],
+   [
+    1793088000,
+    1.0
+   ],
+   [
+    1793091600,
+    1.0
+   ],
+   [
+    1793095200,
+    0.997
+   ],
+   [
+    1793098800,
+    1.0
+   ],
+   [
+    1793102400,
+    0.997
+   ],
+   [
+    1793106000,
+    1.0
+   ],
+   [
+    1793109600,
+    1.0
+   ],
+   [
+    1793113200,
+    1.0
+   ],
+   [
+    1793116800,
+    1.0
+   ],
+   [
+    1793120400,
+    1.0
+   ],
+   [
+    1793124000,
+    1.0
+   ],
+   [
+    1793127600,
+    1.0
+   ],
+   [
+    1793131200,
+    1.0
+   ],
+   [
+    1793134800,
+    1.0
+   ],
+   [
+    1793138400,
+    1.0
+   ],
+   [
+    1793142000,
+    1.0
+   ],
+   [
+    1793145600,
+    1.0
+   ],
+   [
+    1793149200,
+    1.0
+   ],
+   [
+    1793152800,
+    1.0
+   ],
+   [
+    1793156400,
+    1.0
+   ],
+   [
+    1793160000,
+    1.0
+   ],
+   [
+    1793163600,
+    1.0
+   ],
+   [
+    1793167200,
+    1.0
+   ],
+   [
+    1793170800,
+    1.0
+   ],
+   [
+    1793174400,
+    1.0
+   ],
+   [
+    1793178000,
+    1.0
+   ],
+   [
+    1793181600,
+    1.0
+   ],
+   [
+    1793185200,
+    1.0
+   ],
+   [
+    1793188800,
+    1.0
+   ],
+   [
+    1793192400,
+    1.0
+   ],
+   [
+    1793196000,
+    1.0
+   ],
+   [
+    1793199600,
+    1.0
+   ],
+   [
+    1793203200,
+    1.0
+   ],
+   [
+    1793206800,
+    1.0
+   ],
+   [
+    1793210400,
+    1.0
+   ],
+   [
+    1793214000,
+    1.0
+   ],
+   [
+    1793217600,
+    1.0
+   ],
+   [
+    1793221200,
+    1.0
+   ],
+   [
+    1793224800,
+    1.0
+   ],
+   [
+    1793228400,
+    1.0
+   ],
+   [
+    1793232000,
+    1.0
+   ],
+   [
+    1793235600,
+    1.0
+   ],
+   [
+    1793239200,
+    1.0
+   ],
+   [
+    1793242800,
+    1.0
+   ],
+   [
+    1793246400,
+    1.0
+   ],
+   [
+    1793250000,
+    1.0
+   ],
+   [
+    1793253600,
+    1.0
+   ],
+   [
+    1793257200,
+    1.0
+   ],
+   [
+    1793260800,
+    1.0
+   ],
+   [
+    1793264400,
+    0.049
+   ],
+   [
+    1793268000,
+    0.0
+   ],
+   [
+    1793271600,
+    0.0
+   ],
+   [
+    1793275200,
+    0.321
+   ],
+   [
+    1793278800,
+    0.877
+   ],
+   [
+    1793282400,
+    0.957
+   ],
+   [
+    1793286000,
+    0.969
+   ],
+   [
+    1793289600,
+    1.0
+   ],
+   [
+    1793293200,
+    0.996
+   ],
+   [
+    1793296800,
+    1.0
+   ],
+   [
+    1793300400,
+    0.974
+   ],
+   [
+    1793304000,
+    0.988
+   ],
+   [
+    1793307600,
+    0.993
+   ],
+   [
+    1793311200,
+    0.996
+   ],
+   [
+    1793314800,
+    1.0
+   ],
+   [
+    1793318400,
+    0.996
+   ],
+   [
+    1793322000,
+    1.0
+   ],
+   [
+    1793325600,
+    1.0
+   ],
+   [
+    1793329200,
+    0.985
+   ],
+   [
+    1793332800,
+    0.966
+   ],
+   [
+    1793336400,
+    0.996
+   ],
+   [
+    1793340000,
+    0.996
+   ],
+   [
+    1793343600,
+    0.996
+   ],
+   [
+    1793347200,
+    0.992
+   ],
+   [
+    1793350800,
+    0.992
+   ],
+   [
+    1793354400,
+    1.0
+   ],
+   [
+    1793358000,
+    0.993
+   ],
+   [
+    1793361600,
+    0.997
+   ],
+   [
+    1793365200,
+    0.993
+   ],
+   [
+    1793368800,
+    1.0
+   ]
+  ],
+  "geth-2": [
+   [
+    1792659600,
+    0.93
+   ],
+   [
+    1792663200,
+    0.889
+   ],
+   [
+    1792666800,
+    0.86
+   ],
+   [
+    1792670400,
+    1.0
+   ],
+   [
+    1792674000,
+    0.996
+   ],
+   [
+    1792677600,
+    0.996
+   ],
+   [
+    1792681200,
+    0.996
+   ],
+   [
+    1792684800,
+    0.996
+   ],
+   [
+    1792688400,
+    1.0
+   ],
+   [
+    1792692000,
+    1.0
+   ],
+   [
+    1792695600,
+    0.991
+   ],
+   [
+    1792699200,
+    1.0
+   ],
+   [
+    1792702800,
+    1.0
+   ],
+   [
+    1792706400,
+    0.995
+   ],
+   [
+    1792710000,
+    1.0
+   ],
+   [
+    1792713600,
+    0.942
+   ],
+   [
+    1792717200,
+    1.0
+   ],
+   [
+    1792720800,
+    1.0
+   ],
+   [
+    1792724400,
+    0.996
+   ],
+   [
+    1792728000,
+    1.0
+   ],
+   [
+    1792731600,
+    1.0
+   ],
+   [
+    1792735200,
+    1.0
+   ],
+   [
+    1792738800,
+    1.0
+   ],
+   [
+    1792742400,
+    0.991
+   ],
+   [
+    1792746000,
+    1.0
+   ],
+   [
+    1792749600,
+    0.996
+   ],
+   [
+    1792753200,
+    0.995
+   ],
+   [
+    1792756800,
+    1.0
+   ],
+   [
+    1792760400,
+    1.0
+   ],
+   [
+    1792764000,
+    0.969
+   ],
+   [
+    1792767600,
+    0.942
+   ],
+   [
+    1792771200,
+    1.0
+   ],
+   [
+    1792774800,
+    0.993
+   ],
+   [
+    1792778400,
+    1.0
+   ],
+   [
+    1792782000,
+    1.0
+   ],
+   [
+    1792785600,
+    1.0
+   ],
+   [
+    1792789200,
+    1.0
+   ],
+   [
+    1792792800,
+    1.0
+   ],
+   [
+    1792796400,
+    1.0
+   ],
+   [
+    1792800000,
+    1.0
+   ],
+   [
+    1792803600,
+    1.0
+   ],
+   [
+    1792807200,
+    1.0
+   ],
+   [
+    1792810800,
+    1.0
+   ],
+   [
+    1792814400,
+    1.0
+   ],
+   [
+    1792818000,
+    1.0
+   ],
+   [
+    1792821600,
+    1.0
+   ],
+   [
+    1792825200,
+    1.0
+   ],
+   [
+    1792828800,
+    1.0
+   ],
+   [
+    1792832400,
+    1.0
+   ],
+   [
+    1792836000,
+    1.0
+   ],
+   [
+    1792839600,
+    1.0
+   ],
+   [
+    1792843200,
+    0.996
+   ],
+   [
+    1792846800,
+    1.0
+   ],
+   [
+    1792850400,
+    1.0
+   ],
+   [
+    1792854000,
+    1.0
+   ],
+   [
+    1792857600,
+    1.0
+   ],
+   [
+    1792861200,
+    1.0
+   ],
+   [
+    1792864800,
+    1.0
+   ],
+   [
+    1792868400,
+    1.0
+   ],
+   [
+    1792872000,
+    1.0
+   ],
+   [
+    1792875600,
+    1.0
+   ],
+   [
+    1792879200,
+    1.0
+   ],
+   [
+    1792882800,
+    1.0
+   ],
+   [
+    1792886400,
+    1.0
+   ],
+   [
+    1792890000,
+    1.0
+   ],
+   [
+    1792893600,
+    1.0
+   ],
+   [
+    1792897200,
+    1.0
+   ],
+   [
+    1792900800,
+    0.997
+   ],
+   [
+    1792904400,
+    0.996
+   ],
+   [
+    1792908000,
+    0.993
+   ],
+   [
+    1792911600,
+    0.997
+   ],
+   [
+    1792915200,
+    1.0
+   ],
+   [
+    1792918800,
+    1.0
+   ],
+   [
+    1792922400,
+    1.0
+   ],
+   [
+    1792926000,
+    1.0
+   ],
+   [
+    1792929600,
+    1.0
+   ],
+   [
+    1792933200,
+    1.0
+   ],
+   [
+    1792936800,
+    1.0
+   ],
+   [
+    1792940400,
+    1.0
+   ],
+   [
+    1792944000,
+    1.0
+   ],
+   [
+    1792947600,
+    1.0
+   ],
+   [
+    1792951200,
+    1.0
+   ],
+   [
+    1792954800,
+    1.0
+   ],
+   [
+    1792958400,
+    1.0
+   ],
+   [
+    1792962000,
+    1.0
+   ],
+   [
+    1792965600,
+    1.0
+   ],
+   [
+    1792969200,
+    1.0
+   ],
+   [
+    1792972800,
+    1.0
+   ],
+   [
+    1792976400,
+    1.0
+   ],
+   [
+    1792980000,
+    1.0
+   ],
+   [
+    1792983600,
+    1.0
+   ],
+   [
+    1792987200,
+    1.0
+   ],
+   [
+    1792990800,
+    1.0
+   ],
+   [
+    1792994400,
+    1.0
+   ],
+   [
+    1792998000,
+    1.0
+   ],
+   [
+    1793001600,
+    1.0
+   ],
+   [
+    1793005200,
+    1.0
+   ],
+   [
+    1793008800,
+    1.0
+   ],
+   [
+    1793012400,
+    0.987
+   ],
+   [
+    1793016000,
+    1.0
+   ],
+   [
+    1793019600,
+    0.997
+   ],
+   [
+    1793023200,
+    1.0
+   ],
+   [
+    1793026800,
+    1.0
+   ],
+   [
+    1793030400,
+    1.0
+   ],
+   [
+    1793034000,
+    1.0
+   ],
+   [
+    1793037600,
+    1.0
+   ],
+   [
+    1793041200,
+    1.0
+   ],
+   [
+    1793044800,
+    1.0
+   ],
+   [
+    1793048400,
+    1.0
+   ],
+   [
+    1793052000,
+    1.0
+   ],
+   [
+    1793055600,
+    1.0
+   ],
+   [
+    1793059200,
+    1.0
+   ],
+   [
+    1793062800,
+    1.0
+   ],
+   [
+    1793066400,
+    1.0
+   ],
+   [
+    1793070000,
+    1.0
+   ],
+   [
+    1793073600,
+    1.0
+   ],
+   [
+    1793077200,
+    0.997
+   ],
+   [
+    1793080800,
+    1.0
+   ],
+   [
+    1793084400,
+    0.997
+   ],
+   [
+    1793088000,
+    1.0
+   ],
+   [
+    1793091600,
+    1.0
+   ],
+   [
+    1793095200,
+    0.997
+   ],
+   [
+    1793098800,
+    1.0
+   ],
+   [
+    1793102400,
+    0.997
+   ],
+   [
+    1793106000,
+    1.0
+   ],
+   [
+    1793109600,
+    1.0
+   ],
+   [
+    1793113200,
+    1.0
+   ],
+   [
+    1793116800,
+    0.997
+   ],
+   [
+    1793120400,
+    1.0
+   ],
+   [
+    1793124000,
+    1.0
+   ],
+   [
+    1793127600,
+    1.0
+   ],
+   [
+    1793131200,
+    1.0
+   ],
+   [
+    1793134800,
+    1.0
+   ],
+   [
+    1793138400,
+    1.0
+   ],
+   [
+    1793142000,
+    1.0
+   ],
+   [
+    1793145600,
+    1.0
+   ],
+   [
+    1793149200,
+    1.0
+   ],
+   [
+    1793152800,
+    1.0
+   ],
+   [
+    1793156400,
+    1.0
+   ],
+   [
+    1793160000,
+    1.0
+   ],
+   [
+    1793163600,
+    1.0
+   ],
+   [
+    1793167200,
+    1.0
+   ],
+   [
+    1793170800,
+    1.0
+   ],
+   [
+    1793174400,
+    1.0
+   ],
+   [
+    1793178000,
+    1.0
+   ],
+   [
+    1793181600,
+    1.0
+   ],
+   [
+    1793185200,
+    1.0
+   ],
+   [
+    1793188800,
+    1.0
+   ],
+   [
+    1793192400,
+    1.0
+   ],
+   [
+    1793196000,
+    1.0
+   ],
+   [
+    1793199600,
+    1.0
+   ],
+   [
+    1793203200,
+    1.0
+   ],
+   [
+    1793206800,
+    1.0
+   ],
+   [
+    1793210400,
+    1.0
+   ],
+   [
+    1793214000,
+    1.0
+   ],
+   [
+    1793217600,
+    1.0
+   ],
+   [
+    1793221200,
+    1.0
+   ],
+   [
+    1793224800,
+    1.0
+   ],
+   [
+    1793228400,
+    1.0
+   ],
+   [
+    1793232000,
+    1.0
+   ],
+   [
+    1793235600,
+    1.0
+   ],
+   [
+    1793239200,
+    1.0
+   ],
+   [
+    1793242800,
+    1.0
+   ],
+   [
+    1793246400,
+    1.0
+   ],
+   [
+    1793250000,
+    1.0
+   ],
+   [
+    1793253600,
+    1.0
+   ],
+   [
+    1793257200,
+    1.0
+   ],
+   [
+    1793260800,
+    1.0
+   ],
+   [
+    1793264400,
+    0.996
+   ],
+   [
+    1793268000,
+    0.247
+   ],
+   [
+    1793271600,
+    0.0
+   ],
+   [
+    1793275200,
+    0.0
+   ],
+   [
+    1793278800,
+    0.0
+   ],
+   [
+    1793282400,
+    0.0
+   ],
+   [
+    1793286000,
+    0.0
+   ],
+   [
+    1793289600,
+    0.0
+   ],
+   [
+    1793293200,
+    0.0
+   ],
+   [
+    1793296800,
+    0.0
+   ],
+   [
+    1793300400,
+    0.0
+   ],
+   [
+    1793304000,
+    0.0
+   ],
+   [
+    1793307600,
+    0.0
+   ],
+   [
+    1793311200,
+    0.0
+   ],
+   [
+    1793314800,
+    0.0
+   ],
+   [
+    1793318400,
+    0.0
+   ],
+   [
+    1793322000,
+    0.0
+   ],
+   [
+    1793325600,
+    0.0
+   ],
+   [
+    1793329200,
+    0.0
+   ],
+   [
+    1793332800,
+    0.0
+   ],
+   [
+    1793336400,
+    0.0
+   ],
+   [
+    1793340000,
+    0.0
+   ],
+   [
+    1793343600,
+    0.0
+   ],
+   [
+    1793347200,
+    0.0
+   ],
+   [
+    1793350800,
+    0.0
+   ],
+   [
+    1793354400,
+    0.0
+   ],
+   [
+    1793358000,
+    0.23
+   ],
+   [
+    1793361600,
+    0.997
+   ],
+   [
+    1793365200,
+    0.993
+   ],
+   [
+    1793368800,
+    1.0
+   ]
+  ],
+  "geth-3": [
+   [
+    1792659600,
+    0.93
+   ],
+   [
+    1792663200,
+    0.889
+   ],
+   [
+    1792666800,
+    0.86
+   ],
+   [
+    1792670400,
+    1.0
+   ],
+   [
+    1792674000,
+    0.996
+   ],
+   [
+    1792677600,
+    0.996
+   ],
+   [
+    1792681200,
+    0.996
+   ],
+   [
+    1792684800,
+    0.996
+   ],
+   [
+    1792688400,
+    1.0
+   ],
+   [
+    1792692000,
+    1.0
+   ],
+   [
+    1792695600,
+    0.991
+   ],
+   [
+    1792699200,
+    1.0
+   ],
+   [
+    1792702800,
+    1.0
+   ],
+   [
+    1792706400,
+    0.995
+   ],
+   [
+    1792710000,
+    1.0
+   ],
+   [
+    1792713600,
+    0.942
+   ],
+   [
+    1792717200,
+    1.0
+   ],
+   [
+    1792720800,
+    1.0
+   ],
+   [
+    1792724400,
+    0.996
+   ],
+   [
+    1792728000,
+    1.0
+   ],
+   [
+    1792731600,
+    1.0
+   ],
+   [
+    1792735200,
+    1.0
+   ],
+   [
+    1792738800,
+    1.0
+   ],
+   [
+    1792742400,
+    0.991
+   ],
+   [
+    1792746000,
+    1.0
+   ],
+   [
+    1792749600,
+    0.996
+   ],
+   [
+    1792753200,
+    0.995
+   ],
+   [
+    1792756800,
+    1.0
+   ],
+   [
+    1792760400,
+    1.0
+   ],
+   [
+    1792764000,
+    0.969
+   ],
+   [
+    1792767600,
+    0.942
+   ],
+   [
+    1792771200,
+    1.0
+   ],
+   [
+    1792774800,
+    0.993
+   ],
+   [
+    1792778400,
+    1.0
+   ],
+   [
+    1792782000,
+    1.0
+   ],
+   [
+    1792785600,
+    1.0
+   ],
+   [
+    1792789200,
+    1.0
+   ],
+   [
+    1792792800,
+    1.0
+   ],
+   [
+    1792796400,
+    1.0
+   ],
+   [
+    1792800000,
+    1.0
+   ],
+   [
+    1792803600,
+    1.0
+   ],
+   [
+    1792807200,
+    1.0
+   ],
+   [
+    1792810800,
+    1.0
+   ],
+   [
+    1792814400,
+    1.0
+   ],
+   [
+    1792818000,
+    1.0
+   ],
+   [
+    1792821600,
+    1.0
+   ],
+   [
+    1792825200,
+    1.0
+   ],
+   [
+    1792828800,
+    1.0
+   ],
+   [
+    1792832400,
+    1.0
+   ],
+   [
+    1792836000,
+    1.0
+   ],
+   [
+    1792839600,
+    1.0
+   ],
+   [
+    1792843200,
+    1.0
+   ],
+   [
+    1792846800,
+    1.0
+   ],
+   [
+    1792850400,
+    1.0
+   ],
+   [
+    1792854000,
+    1.0
+   ],
+   [
+    1792857600,
+    1.0
+   ],
+   [
+    1792861200,
+    1.0
+   ],
+   [
+    1792864800,
+    1.0
+   ],
+   [
+    1792868400,
+    1.0
+   ],
+   [
+    1792872000,
+    1.0
+   ],
+   [
+    1792875600,
+    1.0
+   ],
+   [
+    1792879200,
+    1.0
+   ],
+   [
+    1792882800,
+    1.0
+   ],
+   [
+    1792886400,
+    1.0
+   ],
+   [
+    1792890000,
+    1.0
+   ],
+   [
+    1792893600,
+    1.0
+   ],
+   [
+    1792897200,
+    1.0
+   ],
+   [
+    1792900800,
+    0.997
+   ],
+   [
+    1792904400,
+    0.996
+   ],
+   [
+    1792908000,
+    0.993
+   ],
+   [
+    1792911600,
+    0.997
+   ],
+   [
+    1792915200,
+    1.0
+   ],
+   [
+    1792918800,
+    1.0
+   ],
+   [
+    1792922400,
+    1.0
+   ],
+   [
+    1792926000,
+    1.0
+   ],
+   [
+    1792929600,
+    1.0
+   ],
+   [
+    1792933200,
+    1.0
+   ],
+   [
+    1792936800,
+    1.0
+   ],
+   [
+    1792940400,
+    1.0
+   ],
+   [
+    1792944000,
+    1.0
+   ],
+   [
+    1792947600,
+    1.0
+   ],
+   [
+    1792951200,
+    1.0
+   ],
+   [
+    1792954800,
+    1.0
+   ],
+   [
+    1792958400,
+    1.0
+   ],
+   [
+    1792962000,
+    1.0
+   ],
+   [
+    1792965600,
+    1.0
+   ],
+   [
+    1792969200,
+    1.0
+   ],
+   [
+    1792972800,
+    1.0
+   ],
+   [
+    1792976400,
+    1.0
+   ],
+   [
+    1792980000,
+    1.0
+   ],
+   [
+    1792983600,
+    1.0
+   ],
+   [
+    1792987200,
+    1.0
+   ],
+   [
+    1792990800,
+    1.0
+   ],
+   [
+    1792994400,
+    1.0
+   ],
+   [
+    1792998000,
+    1.0
+   ],
+   [
+    1793001600,
+    1.0
+   ],
+   [
+    1793005200,
+    1.0
+   ],
+   [
+    1793008800,
+    1.0
+   ],
+   [
+    1793012400,
+    0.987
+   ],
+   [
+    1793016000,
+    1.0
+   ],
+   [
+    1793019600,
+    0.997
+   ],
+   [
+    1793023200,
+    1.0
+   ],
+   [
+    1793026800,
+    1.0
+   ],
+   [
+    1793030400,
+    1.0
+   ],
+   [
+    1793034000,
+    1.0
+   ],
+   [
+    1793037600,
+    1.0
+   ],
+   [
+    1793041200,
+    1.0
+   ],
+   [
+    1793044800,
+    1.0
+   ],
+   [
+    1793048400,
+    1.0
+   ],
+   [
+    1793052000,
+    1.0
+   ],
+   [
+    1793055600,
+    1.0
+   ],
+   [
+    1793059200,
+    1.0
+   ],
+   [
+    1793062800,
+    1.0
+   ],
+   [
+    1793066400,
+    1.0
+   ],
+   [
+    1793070000,
+    1.0
+   ],
+   [
+    1793073600,
+    1.0
+   ],
+   [
+    1793077200,
+    0.997
+   ],
+   [
+    1793080800,
+    1.0
+   ],
+   [
+    1793084400,
+    0.997
+   ],
+   [
+    1793088000,
+    1.0
+   ],
+   [
+    1793091600,
+    1.0
+   ],
+   [
+    1793095200,
+    0.997
+   ],
+   [
+    1793098800,
+    1.0
+   ],
+   [
+    1793102400,
+    0.997
+   ],
+   [
+    1793106000,
+    1.0
+   ],
+   [
+    1793109600,
+    1.0
+   ],
+   [
+    1793113200,
+    1.0
+   ],
+   [
+    1793116800,
+    1.0
+   ],
+   [
+    1793120400,
+    1.0
+   ],
+   [
+    1793124000,
+    1.0
+   ],
+   [
+    1793127600,
+    1.0
+   ],
+   [
+    1793131200,
+    1.0
+   ],
+   [
+    1793134800,
+    1.0
+   ],
+   [
+    1793138400,
+    1.0
+   ],
+   [
+    1793142000,
+    1.0
+   ],
+   [
+    1793145600,
+    1.0
+   ],
+   [
+    1793149200,
+    1.0
+   ],
+   [
+    1793152800,
+    1.0
+   ],
+   [
+    1793156400,
+    1.0
+   ],
+   [
+    1793160000,
+    1.0
+   ],
+   [
+    1793163600,
+    1.0
+   ],
+   [
+    1793167200,
+    1.0
+   ],
+   [
+    1793170800,
+    1.0
+   ],
+   [
+    1793174400,
+    1.0
+   ],
+   [
+    1793178000,
+    1.0
+   ],
+   [
+    1793181600,
+    1.0
+   ],
+   [
+    1793185200,
+    1.0
+   ],
+   [
+    1793188800,
+    1.0
+   ],
+   [
+    1793192400,
+    1.0
+   ],
+   [
+    1793196000,
+    1.0
+   ],
+   [
+    1793199600,
+    1.0
+   ],
+   [
+    1793203200,
+    1.0
+   ],
+   [
+    1793206800,
+    1.0
+   ],
+   [
+    1793210400,
+    1.0
+   ],
+   [
+    1793214000,
+    1.0
+   ],
+   [
+    1793217600,
+    1.0
+   ],
+   [
+    1793221200,
+    1.0
+   ],
+   [
+    1793224800,
+    1.0
+   ],
+   [
+    1793228400,
+    1.0
+   ],
+   [
+    1793232000,
+    1.0
+   ],
+   [
+    1793235600,
+    1.0
+   ],
+   [
+    1793239200,
+    1.0
+   ],
+   [
+    1793242800,
+    1.0
+   ],
+   [
+    1793246400,
+    1.0
+   ],
+   [
+    1793250000,
+    1.0
+   ],
+   [
+    1793253600,
+    1.0
+   ],
+   [
+    1793257200,
+    1.0
+   ],
+   [
+    1793260800,
+    1.0
+   ],
+   [
+    1793264400,
+    0.084
+   ],
+   [
+    1793268000,
+    0.0
+   ],
+   [
+    1793271600,
+    0.0
+   ],
+   [
+    1793275200,
+    0.342
+   ],
+   [
+    1793278800,
+    0.877
+   ],
+   [
+    1793282400,
+    0.957
+   ],
+   [
+    1793286000,
+    0.969
+   ],
+   [
+    1793289600,
+    1.0
+   ],
+   [
+    1793293200,
+    0.996
+   ],
+   [
+    1793296800,
+    1.0
+   ],
+   [
+    1793300400,
+    0.974
+   ],
+   [
+    1793304000,
+    0.988
+   ],
+   [
+    1793307600,
+    0.993
+   ],
+   [
+    1793311200,
+    0.996
+   ],
+   [
+    1793314800,
+    1.0
+   ],
+   [
+    1793318400,
+    0.996
+   ],
+   [
+    1793322000,
+    1.0
+   ],
+   [
+    1793325600,
+    1.0
+   ],
+   [
+    1793329200,
+    0.985
+   ],
+   [
+    1793332800,
+    0.966
+   ],
+   [
+    1793336400,
+    0.996
+   ],
+   [
+    1793340000,
+    0.996
+   ],
+   [
+    1793343600,
+    0.996
+   ],
+   [
+    1793347200,
+    0.992
+   ],
+   [
+    1793350800,
+    0.992
+   ],
+   [
+    1793354400,
+    1.0
+   ],
+   [
+    1793358000,
+    0.993
+   ],
+   [
+    1793361600,
+    0.997
+   ],
+   [
+    1793365200,
+    0.993
+   ],
+   [
+    1793368800,
+    1.0
+   ]
+  ],
+  "nethermind-1": [
+   [
+    1792659600,
+    0.926
+   ],
+   [
+    1792663200,
+    0.893
+   ],
+   [
+    1792666800,
+    0.86
+   ],
+   [
+    1792670400,
+    1.0
+   ],
+   [
+    1792674000,
+    0.996
+   ],
+   [
+    1792677600,
+    0.996
+   ],
+   [
+    1792681200,
+    0.996
+   ],
+   [
+    1792684800,
+    1.0
+   ],
+   [
+    1792688400,
+    1.0
+   ],
+   [
+    1792692000,
+    1.0
+   ],
+   [
+    1792695600,
+    0.991
+   ],
+   [
+    1792699200,
+    1.0
+   ],
+   [
+    1792702800,
+    1.0
+   ],
+   [
+    1792706400,
+    0.995
+   ],
+   [
+    1792710000,
+    1.0
+   ],
+   [
+    1792713600,
+    0.942
+   ],
+   [
+    1792717200,
+    1.0
+   ],
+   [
+    1792720800,
+    1.0
+   ],
+   [
+    1792724400,
+    0.996
+   ],
+   [
+    1792728000,
+    1.0
+   ],
+   [
+    1792731600,
+    1.0
+   ],
+   [
+    1792735200,
+    1.0
+   ],
+   [
+    1792738800,
+    1.0
+   ],
+   [
+    1792742400,
+    0.991
+   ],
+   [
+    1792746000,
+    1.0
+   ],
+   [
+    1792749600,
+    0.996
+   ],
+   [
+    1792753200,
+    0.995
+   ],
+   [
+    1792756800,
+    1.0
+   ],
+   [
+    1792760400,
+    1.0
+   ],
+   [
+    1792764000,
+    0.969
+   ],
+   [
+    1792767600,
+    0.942
+   ],
+   [
+    1792771200,
+    1.0
+   ],
+   [
+    1792774800,
+    0.993
+   ],
+   [
+    1792778400,
+    1.0
+   ],
+   [
+    1792782000,
+    1.0
+   ],
+   [
+    1792785600,
+    1.0
+   ],
+   [
+    1792789200,
+    1.0
+   ],
+   [
+    1792792800,
+    1.0
+   ],
+   [
+    1792796400,
+    1.0
+   ],
+   [
+    1792800000,
+    1.0
+   ],
+   [
+    1792803600,
+    1.0
+   ],
+   [
+    1792807200,
+    1.0
+   ],
+   [
+    1792810800,
+    1.0
+   ],
+   [
+    1792814400,
+    1.0
+   ],
+   [
+    1792818000,
+    1.0
+   ],
+   [
+    1792821600,
+    1.0
+   ],
+   [
+    1792825200,
+    1.0
+   ],
+   [
+    1792828800,
+    1.0
+   ],
+   [
+    1792832400,
+    1.0
+   ],
+   [
+    1792836000,
+    1.0
+   ],
+   [
+    1792839600,
+    1.0
+   ],
+   [
+    1792843200,
+    1.0
+   ],
+   [
+    1792846800,
+    1.0
+   ],
+   [
+    1792850400,
+    1.0
+   ],
+   [
+    1792854000,
+    1.0
+   ],
+   [
+    1792857600,
+    1.0
+   ],
+   [
+    1792861200,
+    1.0
+   ],
+   [
+    1792864800,
+    1.0
+   ],
+   [
+    1792868400,
+    1.0
+   ],
+   [
+    1792872000,
+    1.0
+   ],
+   [
+    1792875600,
+    1.0
+   ],
+   [
+    1792879200,
+    1.0
+   ],
+   [
+    1792882800,
+    1.0
+   ],
+   [
+    1792886400,
+    1.0
+   ],
+   [
+    1792890000,
+    1.0
+   ],
+   [
+    1792893600,
+    1.0
+   ],
+   [
+    1792897200,
+    1.0
+   ],
+   [
+    1792900800,
+    0.997
+   ],
+   [
+    1792904400,
+    0.996
+   ],
+   [
+    1792908000,
+    0.993
+   ],
+   [
+    1792911600,
+    0.997
+   ],
+   [
+    1792915200,
+    1.0
+   ],
+   [
+    1792918800,
+    1.0
+   ],
+   [
+    1792922400,
+    1.0
+   ],
+   [
+    1792926000,
+    1.0
+   ],
+   [
+    1792929600,
+    1.0
+   ],
+   [
+    1792933200,
+    1.0
+   ],
+   [
+    1792936800,
+    1.0
+   ],
+   [
+    1792940400,
+    1.0
+   ],
+   [
+    1792944000,
+    1.0
+   ],
+   [
+    1792947600,
+    1.0
+   ],
+   [
+    1792951200,
+    1.0
+   ],
+   [
+    1792954800,
+    1.0
+   ],
+   [
+    1792958400,
+    1.0
+   ],
+   [
+    1792962000,
+    1.0
+   ],
+   [
+    1792965600,
+    1.0
+   ],
+   [
+    1792969200,
+    1.0
+   ],
+   [
+    1792972800,
+    1.0
+   ],
+   [
+    1792976400,
+    1.0
+   ],
+   [
+    1792980000,
+    1.0
+   ],
+   [
+    1792983600,
+    1.0
+   ],
+   [
+    1792987200,
+    1.0
+   ],
+   [
+    1792990800,
+    1.0
+   ],
+   [
+    1792994400,
+    1.0
+   ],
+   [
+    1792998000,
+    1.0
+   ],
+   [
+    1793001600,
+    1.0
+   ],
+   [
+    1793005200,
+    1.0
+   ],
+   [
+    1793008800,
+    1.0
+   ],
+   [
+    1793012400,
+    0.987
+   ],
+   [
+    1793016000,
+    1.0
+   ],
+   [
+    1793019600,
+    0.997
+   ],
+   [
+    1793023200,
+    1.0
+   ],
+   [
+    1793026800,
+    1.0
+   ],
+   [
+    1793030400,
+    1.0
+   ],
+   [
+    1793034000,
+    1.0
+   ],
+   [
+    1793037600,
+    1.0
+   ],
+   [
+    1793041200,
+    1.0
+   ],
+   [
+    1793044800,
+    1.0
+   ],
+   [
+    1793048400,
+    1.0
+   ],
+   [
+    1793052000,
+    1.0
+   ],
+   [
+    1793055600,
+    1.0
+   ],
+   [
+    1793059200,
+    1.0
+   ],
+   [
+    1793062800,
+    1.0
+   ],
+   [
+    1793066400,
+    1.0
+   ],
+   [
+    1793070000,
+    1.0
+   ],
+   [
+    1793073600,
+    1.0
+   ],
+   [
+    1793077200,
+    0.997
+   ],
+   [
+    1793080800,
+    1.0
+   ],
+   [
+    1793084400,
+    0.997
+   ],
+   [
+    1793088000,
+    1.0
+   ],
+   [
+    1793091600,
+    1.0
+   ],
+   [
+    1793095200,
+    0.997
+   ],
+   [
+    1793098800,
+    1.0
+   ],
+   [
+    1793102400,
+    0.997
+   ],
+   [
+    1793106000,
+    1.0
+   ],
+   [
+    1793109600,
+    1.0
+   ],
+   [
+    1793113200,
+    1.0
+   ],
+   [
+    1793116800,
+    1.0
+   ],
+   [
+    1793120400,
+    1.0
+   ],
+   [
+    1793124000,
+    1.0
+   ],
+   [
+    1793127600,
+    1.0
+   ],
+   [
+    1793131200,
+    1.0
+   ],
+   [
+    1793134800,
+    1.0
+   ],
+   [
+    1793138400,
+    1.0
+   ],
+   [
+    1793142000,
+    1.0
+   ],
+   [
+    1793145600,
+    1.0
+   ],
+   [
+    1793149200,
+    1.0
+   ],
+   [
+    1793152800,
+    1.0
+   ],
+   [
+    1793156400,
+    1.0
+   ],
+   [
+    1793160000,
+    1.0
+   ],
+   [
+    1793163600,
+    1.0
+   ],
+   [
+    1793167200,
+    1.0
+   ],
+   [
+    1793170800,
+    1.0
+   ],
+   [
+    1793174400,
+    1.0
+   ],
+   [
+    1793178000,
+    1.0
+   ],
+   [
+    1793181600,
+    1.0
+   ],
+   [
+    1793185200,
+    1.0
+   ],
+   [
+    1793188800,
+    1.0
+   ],
+   [
+    1793192400,
+    1.0
+   ],
+   [
+    1793196000,
+    1.0
+   ],
+   [
+    1793199600,
+    1.0
+   ],
+   [
+    1793203200,
+    1.0
+   ],
+   [
+    1793206800,
+    1.0
+   ],
+   [
+    1793210400,
+    1.0
+   ],
+   [
+    1793214000,
+    1.0
+   ],
+   [
+    1793217600,
+    1.0
+   ],
+   [
+    1793221200,
+    1.0
+   ],
+   [
+    1793224800,
+    1.0
+   ],
+   [
+    1793228400,
+    1.0
+   ],
+   [
+    1793232000,
+    1.0
+   ],
+   [
+    1793235600,
+    1.0
+   ],
+   [
+    1793239200,
+    1.0
+   ],
+   [
+    1793242800,
+    1.0
+   ],
+   [
+    1793246400,
+    1.0
+   ],
+   [
+    1793250000,
+    1.0
+   ],
+   [
+    1793253600,
+    1.0
+   ],
+   [
+    1793257200,
+    1.0
+   ],
+   [
+    1793260800,
+    1.0
+   ],
+   [
+    1793264400,
+    0.996
+   ],
+   [
+    1793268000,
+    0.995
+   ],
+   [
+    1793271600,
+    0.995
+   ],
+   [
+    1793275200,
+    0.791
+   ],
+   [
+    1793278800,
+    0.877
+   ],
+   [
+    1793282400,
+    0.957
+   ],
+   [
+    1793286000,
+    0.969
+   ],
+   [
+    1793289600,
+    1.0
+   ],
+   [
+    1793293200,
+    0.996
+   ],
+   [
+    1793296800,
+    1.0
+   ],
+   [
+    1793300400,
+    0.974
+   ],
+   [
+    1793304000,
+    0.988
+   ],
+   [
+    1793307600,
+    0.993
+   ],
+   [
+    1793311200,
+    0.996
+   ],
+   [
+    1793314800,
+    1.0
+   ],
+   [
+    1793318400,
+    0.996
+   ],
+   [
+    1793322000,
+    1.0
+   ],
+   [
+    1793325600,
+    1.0
+   ],
+   [
+    1793329200,
+    0.985
+   ],
+   [
+    1793332800,
+    0.966
+   ],
+   [
+    1793336400,
+    0.996
+   ],
+   [
+    1793340000,
+    0.996
+   ],
+   [
+    1793343600,
+    0.996
+   ],
+   [
+    1793347200,
+    0.992
+   ],
+   [
+    1793350800,
+    0.992
+   ],
+   [
+    1793354400,
+    1.0
+   ],
+   [
+    1793358000,
+    0.993
+   ],
+   [
+    1793361600,
+    0.997
+   ],
+   [
+    1793365200,
+    0.993
+   ],
+   [
+    1793368800,
+    1.0
+   ]
+  ],
+  "nethermind-2": [
+   [
+    1792659600,
+    0.926
+   ],
+   [
+    1792663200,
+    0.896
+   ],
+   [
+    1792666800,
+    0.86
+   ],
+   [
+    1792670400,
+    1.0
+   ],
+   [
+    1792674000,
+    0.996
+   ],
+   [
+    1792677600,
+    0.996
+   ],
+   [
+    1792681200,
+    0.996
+   ],
+   [
+    1792684800,
+    1.0
+   ],
+   [
+    1792688400,
+    1.0
+   ],
+   [
+    1792692000,
+    1.0
+   ],
+   [
+    1792695600,
+    0.991
+   ],
+   [
+    1792699200,
+    1.0
+   ],
+   [
+    1792702800,
+    1.0
+   ],
+   [
+    1792706400,
+    0.995
+   ],
+   [
+    1792710000,
+    1.0
+   ],
+   [
+    1792713600,
+    0.942
+   ],
+   [
+    1792717200,
+    1.0
+   ],
+   [
+    1792720800,
+    1.0
+   ],
+   [
+    1792724400,
+    0.996
+   ],
+   [
+    1792728000,
+    1.0
+   ],
+   [
+    1792731600,
+    1.0
+   ],
+   [
+    1792735200,
+    1.0
+   ],
+   [
+    1792738800,
+    1.0
+   ],
+   [
+    1792742400,
+    0.991
+   ],
+   [
+    1792746000,
+    1.0
+   ],
+   [
+    1792749600,
+    0.996
+   ],
+   [
+    1792753200,
+    0.995
+   ],
+   [
+    1792756800,
+    1.0
+   ],
+   [
+    1792760400,
+    1.0
+   ],
+   [
+    1792764000,
+    0.969
+   ],
+   [
+    1792767600,
+    0.942
+   ],
+   [
+    1792771200,
+    1.0
+   ],
+   [
+    1792774800,
+    0.993
+   ],
+   [
+    1792778400,
+    1.0
+   ],
+   [
+    1792782000,
+    1.0
+   ],
+   [
+    1792785600,
+    1.0
+   ],
+   [
+    1792789200,
+    1.0
+   ],
+   [
+    1792792800,
+    1.0
+   ],
+   [
+    1792796400,
+    1.0
+   ],
+   [
+    1792800000,
+    1.0
+   ],
+   [
+    1792803600,
+    1.0
+   ],
+   [
+    1792807200,
+    1.0
+   ],
+   [
+    1792810800,
+    1.0
+   ],
+   [
+    1792814400,
+    0.996
+   ],
+   [
+    1792818000,
+    1.0
+   ],
+   [
+    1792821600,
+    1.0
+   ],
+   [
+    1792825200,
+    1.0
+   ],
+   [
+    1792828800,
+    1.0
+   ],
+   [
+    1792832400,
+    1.0
+   ],
+   [
+    1792836000,
+    1.0
+   ],
+   [
+    1792839600,
+    1.0
+   ],
+   [
+    1792843200,
+    1.0
+   ],
+   [
+    1792846800,
+    1.0
+   ],
+   [
+    1792850400,
+    1.0
+   ],
+   [
+    1792854000,
+    1.0
+   ],
+   [
+    1792857600,
+    1.0
+   ],
+   [
+    1792861200,
+    1.0
+   ],
+   [
+    1792864800,
+    1.0
+   ],
+   [
+    1792868400,
+    1.0
+   ],
+   [
+    1792872000,
+    1.0
+   ],
+   [
+    1792875600,
+    0.997
+   ],
+   [
+    1792879200,
+    1.0
+   ],
+   [
+    1792882800,
+    1.0
+   ],
+   [
+    1792886400,
+    1.0
+   ],
+   [
+    1792890000,
+    1.0
+   ],
+   [
+    1792893600,
+    1.0
+   ],
+   [
+    1792897200,
+    1.0
+   ],
+   [
+    1792900800,
+    0.997
+   ],
+   [
+    1792904400,
+    0.996
+   ],
+   [
+    1792908000,
+    0.993
+   ],
+   [
+    1792911600,
+    0.997
+   ],
+   [
+    1792915200,
+    1.0
+   ],
+   [
+    1792918800,
+    1.0
+   ],
+   [
+    1792922400,
+    1.0
+   ],
+   [
+    1792926000,
+    1.0
+   ],
+   [
+    1792929600,
+    1.0
+   ],
+   [
+    1792933200,
+    1.0
+   ],
+   [
+    1792936800,
+    1.0
+   ],
+   [
+    1792940400,
+    1.0
+   ],
+   [
+    1792944000,
+    1.0
+   ],
+   [
+    1792947600,
+    1.0
+   ],
+   [
+    1792951200,
+    1.0
+   ],
+   [
+    1792954800,
+    1.0
+   ],
+   [
+    1792958400,
+    1.0
+   ],
+   [
+    1792962000,
+    1.0
+   ],
+   [
+    1792965600,
+    1.0
+   ],
+   [
+    1792969200,
+    1.0
+   ],
+   [
+    1792972800,
+    1.0
+   ],
+   [
+    1792976400,
+    1.0
+   ],
+   [
+    1792980000,
+    1.0
+   ],
+   [
+    1792983600,
+    1.0
+   ],
+   [
+    1792987200,
+    1.0
+   ],
+   [
+    1792990800,
+    1.0
+   ],
+   [
+    1792994400,
+    1.0
+   ],
+   [
+    1792998000,
+    1.0
+   ],
+   [
+    1793001600,
+    1.0
+   ],
+   [
+    1793005200,
+    1.0
+   ],
+   [
+    1793008800,
+    1.0
+   ],
+   [
+    1793012400,
+    0.987
+   ],
+   [
+    1793016000,
+    1.0
+   ],
+   [
+    1793019600,
+    0.997
+   ],
+   [
+    1793023200,
+    1.0
+   ],
+   [
+    1793026800,
+    1.0
+   ],
+   [
+    1793030400,
+    1.0
+   ],
+   [
+    1793034000,
+    1.0
+   ],
+   [
+    1793037600,
+    1.0
+   ],
+   [
+    1793041200,
+    1.0
+   ],
+   [
+    1793044800,
+    1.0
+   ],
+   [
+    1793048400,
+    1.0
+   ],
+   [
+    1793052000,
+    1.0
+   ],
+   [
+    1793055600,
+    1.0
+   ],
+   [
+    1793059200,
+    1.0
+   ],
+   [
+    1793062800,
+    1.0
+   ],
+   [
+    1793066400,
+    1.0
+   ],
+   [
+    1793070000,
+    1.0
+   ],
+   [
+    1793073600,
+    1.0
+   ],
+   [
+    1793077200,
+    0.997
+   ],
+   [
+    1793080800,
+    1.0
+   ],
+   [
+    1793084400,
+    0.997
+   ],
+   [
+    1793088000,
+    1.0
+   ],
+   [
+    1793091600,
+    1.0
+   ],
+   [
+    1793095200,
+    0.997
+   ],
+   [
+    1793098800,
+    1.0
+   ],
+   [
+    1793102400,
+    0.997
+   ],
+   [
+    1793106000,
+    1.0
+   ],
+   [
+    1793109600,
+    1.0
+   ],
+   [
+    1793113200,
+    1.0
+   ],
+   [
+    1793116800,
+    1.0
+   ],
+   [
+    1793120400,
+    1.0
+   ],
+   [
+    1793124000,
+    1.0
+   ],
+   [
+    1793127600,
+    1.0
+   ],
+   [
+    1793131200,
+    1.0
+   ],
+   [
+    1793134800,
+    1.0
+   ],
+   [
+    1793138400,
+    1.0
+   ],
+   [
+    1793142000,
+    1.0
+   ],
+   [
+    1793145600,
+    1.0
+   ],
+   [
+    1793149200,
+    1.0
+   ],
+   [
+    1793152800,
+    1.0
+   ],
+   [
+    1793156400,
+    1.0
+   ],
+   [
+    1793160000,
+    1.0
+   ],
+   [
+    1793163600,
+    1.0
+   ],
+   [
+    1793167200,
+    1.0
+   ],
+   [
+    1793170800,
+    1.0
+   ],
+   [
+    1793174400,
+    1.0
+   ],
+   [
+    1793178000,
+    1.0
+   ],
+   [
+    1793181600,
+    1.0
+   ],
+   [
+    1793185200,
+    0.987
+   ],
+   [
+    1793188800,
+    1.0
+   ],
+   [
+    1793192400,
+    1.0
+   ],
+   [
+    1793196000,
+    1.0
+   ],
+   [
+    1793199600,
+    1.0
+   ],
+   [
+    1793203200,
+    1.0
+   ],
+   [
+    1793206800,
+    1.0
+   ],
+   [
+    1793210400,
+    1.0
+   ],
+   [
+    1793214000,
+    1.0
+   ],
+   [
+    1793217600,
+    1.0
+   ],
+   [
+    1793221200,
+    1.0
+   ],
+   [
+    1793224800,
+    1.0
+   ],
+   [
+    1793228400,
+    1.0
+   ],
+   [
+    1793232000,
+    1.0
+   ],
+   [
+    1793235600,
+    1.0
+   ],
+   [
+    1793239200,
+    1.0
+   ],
+   [
+    1793242800,
+    1.0
+   ],
+   [
+    1793246400,
+    1.0
+   ],
+   [
+    1793250000,
+    1.0
+   ],
+   [
+    1793253600,
+    1.0
+   ],
+   [
+    1793257200,
+    1.0
+   ],
+   [
+    1793260800,
+    1.0
+   ],
+   [
+    1793264400,
+    0.996
+   ],
+   [
+    1793268000,
+    0.995
+   ],
+   [
+    1793271600,
+    0.995
+   ],
+   [
+    1793275200,
+    0.791
+   ],
+   [
+    1793278800,
+    0.877
+   ],
+   [
+    1793282400,
+    0.957
+   ],
+   [
+    1793286000,
+    0.969
+   ],
+   [
+    1793289600,
+    1.0
+   ],
+   [
+    1793293200,
+    0.996
+   ],
+   [
+    1793296800,
+    1.0
+   ],
+   [
+    1793300400,
+    0.974
+   ],
+   [
+    1793304000,
+    0.988
+   ],
+   [
+    1793307600,
+    0.993
+   ],
+   [
+    1793311200,
+    0.996
+   ],
+   [
+    1793314800,
+    1.0
+   ],
+   [
+    1793318400,
+    0.996
+   ],
+   [
+    1793322000,
+    1.0
+   ],
+   [
+    1793325600,
+    1.0
+   ],
+   [
+    1793329200,
+    0.985
+   ],
+   [
+    1793332800,
+    0.966
+   ],
+   [
+    1793336400,
+    0.996
+   ],
+   [
+    1793340000,
+    0.996
+   ],
+   [
+    1793343600,
+    0.996
+   ],
+   [
+    1793347200,
+    0.992
+   ],
+   [
+    1793350800,
+    0.992
+   ],
+   [
+    1793354400,
+    1.0
+   ],
+   [
+    1793358000,
+    0.993
+   ],
+   [
+    1793361600,
+    0.997
+   ],
+   [
+    1793365200,
+    0.993
+   ],
+   [
+    1793368800,
+    1.0
+   ]
+  ]
+ }
+}

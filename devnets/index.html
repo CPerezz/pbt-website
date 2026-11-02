@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Devnets — PBT Lab</title>
+<meta name="description" content="The binary-tree migration devnets, in numbers: nodes, clients, methods, what was measured and what came out.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Devnets — PBT Lab">
+<meta property="og:description" content="pbt-devnet-1: nine nodes, four clients, three methods, nine days, one fork. The data.">
+<meta property="og:url" content="https://cperezz.github.io/pbt-website/devnets/">
+<meta property="og:image" content="https://cperezz.github.io/pbt-website/devnets/pbt-devnet-1/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Devnets — PBT Lab">
+<meta name="twitter:description" content="pbt-devnet-1: nine nodes, four clients, three methods, nine days, one fork. The data.">
+<meta name="twitter:image" content="https://cperezz.github.io/pbt-website/devnets/pbt-devnet-1/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../benchmarks/bench.css">
+<style>
+  .hero { padding: 64px 28px 36px }
+  .list { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; padding-bottom: 72px }
+  .dev { display: flex; flex-direction: column; gap: 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); padding: 18px 20px; text-decoration: none; color: inherit; transition: border-color .15s }
+  a.dev:hover { border-color: var(--green); color: inherit }
+  .dev .name { font-family: VT323, monospace; font-size: 38px; line-height: 1; color: var(--ink) }
+  .dev .status { display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(240,80,74,.5); color: var(--red); border-radius: 999px; padding: 2px 10px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase }
+  .dev .status .dot { background: var(--red) }
+  .dev .meta { display: flex; gap: 14px; flex-wrap: wrap; font-size: 11.5px; color: var(--muted) }
+  .dev .clients { display: flex; gap: 10px; align-items: center; font-size: 12px; font-weight: 600; flex-wrap: wrap }
+  .dev .clients span { white-space: nowrap }
+  .dev .clients svg { width: 16px; height: 16px; overflow: visible; filter: drop-shadow(0 0 5px color-mix(in srgb, currentColor 45%, transparent)) }
+  .dev .result { font-size: 12.5px; color: var(--ink2); line-height: 1.55; text-wrap: pretty }
+  .dev .go { color: var(--green); font-size: 12.5px }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="../" aria-label="PBT Lab home">PBT·LAB</a>
+  <span class="crumb">Devnets</span>
+  <span class="grow"></span>
+  <nav class="row" aria-label="Primary" style="gap:20px;font-size:12.5px">
+    <a href="../lab.html">Explore</a>
+    <a href="../benchmarks/">Benchmarks</a>
+  </nav>
+</div></header>
+<main>
+  <section class="wrap hero">
+    <h1 class="h1">Devnets, <span class="glow">in numbers.</span></h1>
+    <p class="cap" style="margin-top:10px;font-size:13px">Each devnet ran the EIP-8347 migration on a live chain with several clients at once. One page per devnet: what ran, what it cost, what broke, what came out.</p>
+  </section>
+  <section class="wrap list">
+    <a class="dev" href="pbt-devnet-1/">
+      <div class="row" style="justify-content:space-between;align-items:center">
+        <span class="name">pbt-devnet-1</span>
+        <span class="status"><span class="dot"></span>terminated</span>
+      </div>
+      <div class="meta"><span>2026-10-22 → 10-30 UTC</span><span>9 nodes</span><span>3 methods</span><span>fork 10-29 09:00</span></div>
+      <div class="clients">
+        <span style="color:var(--geth)"><svg><use href="../benchmarks/clients.svg#geth"></use></svg> geth ×3</span>
+        <span style="color:var(--nethermind)"><svg><use href="../benchmarks/clients.svg#nethermind"></use></svg> Nethermind ×2</span>
+        <span style="color:var(--besu)"><svg><use href="../benchmarks/clients.svg#besu"></use></svg> Besu ×2</span>
+        <span style="color:var(--erigon)"><svg><use href="../benchmarks/clients.svg#erigon"></use></svg> erigon ×2</span>
+      </div>
+      <p class="result">Mainnet's state bloated to 3.55 B leaves, migrated live under three times mainnet's load on 16 and 32 GiB caps. Self-conversion reached the head in 2h41m; all nine nodes crossed the fork on one root, 0 divergences in 34,391 root comparisons.</p>
+      <span class="go">Open →</span>
+    </a>
+  </section>
+</main>
+<footer><div class="wrap">
+  <a href="https://eips.ethereum.org/EIPS/eip-8297" target="_blank" rel="noopener">EIP-8297</a>
+  · <a href="https://eips.ethereum.org/EIPS/eip-8347" target="_blank" rel="noopener">EIP-8347</a>
+</div></footer>
+</body>
+</html>

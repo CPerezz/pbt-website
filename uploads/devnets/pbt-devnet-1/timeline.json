@@ -1,0 +1,2250 @@
+{
+ "_views": [
+  "runs",
+  "c0_states",
+  "h2_node_hourly",
+  "failures",
+  "k2_recovery",
+  "p1_builds"
+ ],
+ "fork_t": 1793264400,
+ "lanes": [
+  {
+   "builds": [
+    {
+     "label": "build 84a12eff",
+     "sha": "84a12eff",
+     "t": 1792656544
+    },
+    {
+     "label": "pbt + #78",
+     "sha": "91b1f422",
+     "t": 1793105882
+    },
+    {
+     "label": "pbt + #79",
+     "sha": "9acab9ef",
+     "t": 1793276474
+    },
+    {
+     "label": "pbt + #80–#82",
+     "sha": "c44a5c12",
+     "t": 1793354018
+    },
+    {
+     "label": "build c9474454",
+     "sha": "c9474454",
+     "t": 1793361396
+    },
+    {
+     "label": "build fb992547",
+     "sha": "fb992547",
+     "t": 1793366847
+    }
+   ],
+   "cap_gib": 16,
+   "client": "geth",
+   "down_hours": [
+    1793264400,
+    1793268000,
+    1793271600,
+    1793275200
+   ],
+   "dual_from": null,
+   "events": [
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-22 09:38:42 (Geth/v1.17.6-unstable-84a12eff-20261020)",
+     "recovered_t": null,
+     "t": 1793076722
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1793076792,
+     "t": 1793076750
+    },
+    {
+     "kind": "replay_stall",
+     "note": "WARN [10-27|05:02:42.228] Migration direction stalled              pbt=true head=24,535,082 err=\"shadow position unresolvable: re-anchor\"",
+     "recovered_t": null,
+     "t": 1793077362
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-27 12:58:01 (nan)",
+     "recovered_t": null,
+     "t": 1793264525
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:02:05 (nan)",
+     "recovered_t": null,
+     "t": 1793264530
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:02:10 (nan)",
+     "recovered_t": null,
+     "t": 1793264533
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:02:13 (nan)",
+     "recovered_t": null,
+     "t": 1793264537
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:02:16 (nan)",
+     "recovered_t": null,
+     "t": 1793264541
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:02:21 (nan)",
+     "recovered_t": null,
+     "t": 1793264547
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1793277708,
+     "t": 1793264550
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:02:26 (nan)",
+     "recovered_t": null,
+     "t": 1793264556
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:02:35 (nan)",
+     "recovered_t": null,
+     "t": 1793264571
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:02:51 (nan)",
+     "recovered_t": null,
+     "t": 1793264599
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:03:19 (nan)",
+     "recovered_t": null,
+     "t": 1793264653
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:04:12 (nan)",
+     "recovered_t": null,
+     "t": 1793264715
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:05:15 (nan)",
+     "recovered_t": null,
+     "t": 1793264778
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:06:17 (nan)",
+     "recovered_t": null,
+     "t": 1793264818
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:06:58 (Geth/v1.17.6-unstable-9acab9ef-20261029)",
+     "recovered_t": null,
+     "t": 1793276474
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-30 14:35:04 (Geth/v1.17.6-unstable-fb992547-20261030)",
+     "recovered_t": null,
+     "t": 1793370957
+    }
+   ],
+   "host": "geth-1",
+   "runs": [
+    {
+     "complete": 1792670042,
+     "method": "import",
+     "run_id": "geth-1/import",
+     "start": 1792661927,
+     "status": "valid",
+     "synced": 1792683738,
+     "t_total_s": 21811
+    }
+   ]
+  },
+  {
+   "builds": [
+    {
+     "label": "build 84a12eff",
+     "sha": "84a12eff",
+     "t": 1792656653
+    },
+    {
+     "label": "build 91b1f422",
+     "sha": "91b1f422",
+     "t": 1793105601
+    },
+    {
+     "label": "pbt + #83",
+     "sha": "f009a166",
+     "t": 1793356281
+    },
+    {
+     "label": "pbt + #83",
+     "sha": "1de3c7d7",
+     "t": 1793357345
+    },
+    {
+     "label": "pbt + #83",
+     "sha": "9b5dfd0d",
+     "t": 1793357960
+    },
+    {
+     "label": "build 14b827d9",
+     "sha": "14b827d9",
+     "t": 1793359082
+    },
+    {
+     "label": "build fb992547",
+     "sha": "fb992547",
+     "t": 1793362838
+    }
+   ],
+   "cap_gib": 32,
+   "client": "geth",
+   "down_hours": [
+    1793268000,
+    1793271600,
+    1793275200,
+    1793278800,
+    1793282400,
+    1793286000,
+    1793289600,
+    1793293200,
+    1793296800,
+    1793300400,
+    1793304000,
+    1793307600,
+    1793311200,
+    1793314800,
+    1793318400,
+    1793322000,
+    1793325600,
+    1793329200,
+    1793332800,
+    1793336400,
+    1793340000,
+    1793343600,
+    1793347200,
+    1793350800,
+    1793354400,
+    1793358000
+   ],
+   "dual_from": null,
+   "events": [
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-27 12:53:20 (nan)",
+     "recovered_t": null,
+     "t": 1793268757
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:12:36 (nan)",
+     "recovered_t": null,
+     "t": 1793268761
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:12:40 (nan)",
+     "recovered_t": null,
+     "t": 1793268764
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:12:43 (nan)",
+     "recovered_t": null,
+     "t": 1793268767
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:12:46 (nan)",
+     "recovered_t": null,
+     "t": 1793268771
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:12:50 (nan)",
+     "recovered_t": null,
+     "t": 1793268776
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1793360809,
+     "t": 1793268780
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:12:56 (nan)",
+     "recovered_t": null,
+     "t": 1793268785
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:13:05 (nan)",
+     "recovered_t": null,
+     "t": 1793268800
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:13:20 (nan)",
+     "recovered_t": null,
+     "t": 1793268828
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:13:48 (nan)",
+     "recovered_t": null,
+     "t": 1793268882
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:14:41 (nan)",
+     "recovered_t": null,
+     "t": 1793268944
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:15:44 (nan)",
+     "recovered_t": null,
+     "t": 1793269007
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:16:46 (nan)",
+     "recovered_t": null,
+     "t": 1793269069
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:17:49 (nan)",
+     "recovered_t": null,
+     "t": 1793269132
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:18:51 (nan)",
+     "recovered_t": null,
+     "t": 1793269194
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:19:53 (nan)",
+     "recovered_t": null,
+     "t": 1793269257
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:20:56 (nan)",
+     "recovered_t": null,
+     "t": 1793269319
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:21:59 (nan)",
+     "recovered_t": null,
+     "t": 1793269382
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:23:01 (nan)",
+     "recovered_t": null,
+     "t": 1793269444
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:24:04 (nan)",
+     "recovered_t": null,
+     "t": 1793269506
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:25:06 (nan)",
+     "recovered_t": null,
+     "t": 1793269569
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:26:08 (nan)",
+     "recovered_t": null,
+     "t": 1793269631
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:27:10 (nan)",
+     "recovered_t": null,
+     "t": 1793269693
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:28:13 (nan)",
+     "recovered_t": null,
+     "t": 1793269756
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:29:15 (nan)",
+     "recovered_t": null,
+     "t": 1793269818
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:30:18 (nan)",
+     "recovered_t": null,
+     "t": 1793269881
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:31:20 (nan)",
+     "recovered_t": null,
+     "t": 1793269943
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:32:22 (nan)",
+     "recovered_t": null,
+     "t": 1793270005
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:33:25 (nan)",
+     "recovered_t": null,
+     "t": 1793270068
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:34:27 (nan)",
+     "recovered_t": null,
+     "t": 1793270130
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:35:29 (nan)",
+     "recovered_t": null,
+     "t": 1793270192
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:36:32 (nan)",
+     "recovered_t": null,
+     "t": 1793270255
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:37:34 (nan)",
+     "recovered_t": null,
+     "t": 1793270317
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:38:36 (nan)",
+     "recovered_t": null,
+     "t": 1793270379
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:39:39 (nan)",
+     "recovered_t": null,
+     "t": 1793270441
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:40:41 (nan)",
+     "recovered_t": null,
+     "t": 1793270504
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:41:43 (nan)",
+     "recovered_t": null,
+     "t": 1793270566
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:42:46 (nan)",
+     "recovered_t": null,
+     "t": 1793270628
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:43:48 (nan)",
+     "recovered_t": null,
+     "t": 1793270691
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:44:50 (nan)",
+     "recovered_t": null,
+     "t": 1793270753
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:45:53 (nan)",
+     "recovered_t": null,
+     "t": 1793270816
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:46:55 (nan)",
+     "recovered_t": null,
+     "t": 1793270878
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:47:57 (nan)",
+     "recovered_t": null,
+     "t": 1793270940
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:49:00 (nan)",
+     "recovered_t": null,
+     "t": 1793271002
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:50:02 (nan)",
+     "recovered_t": null,
+     "t": 1793271065
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:51:04 (nan)",
+     "recovered_t": null,
+     "t": 1793271127
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:52:07 (nan)",
+     "recovered_t": null,
+     "t": 1793271190
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:53:09 (nan)",
+     "recovered_t": null,
+     "t": 1793271252
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:54:11 (nan)",
+     "recovered_t": null,
+     "t": 1793271314
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:55:14 (nan)",
+     "recovered_t": null,
+     "t": 1793271376
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:56:16 (nan)",
+     "recovered_t": null,
+     "t": 1793271439
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:57:18 (nan)",
+     "recovered_t": null,
+     "t": 1793271501
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:58:21 (nan)",
+     "recovered_t": null,
+     "t": 1793271563
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 10:59:23 (nan)",
+     "recovered_t": null,
+     "t": 1793271626
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:00:25 (nan)",
+     "recovered_t": null,
+     "t": 1793271688
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:01:28 (nan)",
+     "recovered_t": null,
+     "t": 1793271750
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:02:30 (nan)",
+     "recovered_t": null,
+     "t": 1793271813
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:03:32 (nan)",
+     "recovered_t": null,
+     "t": 1793271875
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:04:35 (nan)",
+     "recovered_t": null,
+     "t": 1793271938
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:05:37 (nan)",
+     "recovered_t": null,
+     "t": 1793272000
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:06:39 (nan)",
+     "recovered_t": null,
+     "t": 1793272062
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:07:42 (nan)",
+     "recovered_t": null,
+     "t": 1793272125
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:08:44 (nan)",
+     "recovered_t": null,
+     "t": 1793272187
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:09:46 (nan)",
+     "recovered_t": null,
+     "t": 1793272249
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:10:49 (nan)",
+     "recovered_t": null,
+     "t": 1793272312
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:11:51 (nan)",
+     "recovered_t": null,
+     "t": 1793272374
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:12:54 (nan)",
+     "recovered_t": null,
+     "t": 1793272437
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:13:56 (nan)",
+     "recovered_t": null,
+     "t": 1793272499
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:14:59 (nan)",
+     "recovered_t": null,
+     "t": 1793272561
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:16:01 (nan)",
+     "recovered_t": null,
+     "t": 1793272624
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:17:03 (nan)",
+     "recovered_t": null,
+     "t": 1793272686
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:18:06 (nan)",
+     "recovered_t": null,
+     "t": 1793272749
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:19:08 (nan)",
+     "recovered_t": null,
+     "t": 1793272811
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:20:11 (nan)",
+     "recovered_t": null,
+     "t": 1793272873
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:21:13 (nan)",
+     "recovered_t": null,
+     "t": 1793272936
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:22:15 (nan)",
+     "recovered_t": null,
+     "t": 1793272998
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:23:18 (nan)",
+     "recovered_t": null,
+     "t": 1793273061
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:24:20 (nan)",
+     "recovered_t": null,
+     "t": 1793273123
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:25:22 (nan)",
+     "recovered_t": null,
+     "t": 1793273185
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:26:25 (nan)",
+     "recovered_t": null,
+     "t": 1793273248
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:27:28 (nan)",
+     "recovered_t": null,
+     "t": 1793273311
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:28:30 (nan)",
+     "recovered_t": null,
+     "t": 1793273373
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:29:33 (nan)",
+     "recovered_t": null,
+     "t": 1793273436
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:30:35 (nan)",
+     "recovered_t": null,
+     "t": 1793273498
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:31:38 (nan)",
+     "recovered_t": null,
+     "t": 1793273561
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:32:40 (nan)",
+     "recovered_t": null,
+     "t": 1793273623
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:33:43 (nan)",
+     "recovered_t": null,
+     "t": 1793273686
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:34:45 (nan)",
+     "recovered_t": null,
+     "t": 1793273748
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:35:47 (nan)",
+     "recovered_t": null,
+     "t": 1793273810
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:36:50 (nan)",
+     "recovered_t": null,
+     "t": 1793273873
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:37:52 (nan)",
+     "recovered_t": null,
+     "t": 1793273935
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:38:54 (nan)",
+     "recovered_t": null,
+     "t": 1793273997
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:39:57 (nan)",
+     "recovered_t": null,
+     "t": 1793274060
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:40:59 (nan)",
+     "recovered_t": null,
+     "t": 1793274122
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:42:01 (nan)",
+     "recovered_t": null,
+     "t": 1793274184
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:43:04 (nan)",
+     "recovered_t": null,
+     "t": 1793274247
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:44:06 (nan)",
+     "recovered_t": null,
+     "t": 1793274309
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:45:08 (nan)",
+     "recovered_t": null,
+     "t": 1793274371
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:46:11 (nan)",
+     "recovered_t": null,
+     "t": 1793274434
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:47:13 (nan)",
+     "recovered_t": null,
+     "t": 1793274496
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:48:16 (nan)",
+     "recovered_t": null,
+     "t": 1793274559
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:49:18 (nan)",
+     "recovered_t": null,
+     "t": 1793274621
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:50:20 (nan)",
+     "recovered_t": null,
+     "t": 1793274683
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:51:23 (nan)",
+     "recovered_t": null,
+     "t": 1793274746
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:52:25 (nan)",
+     "recovered_t": null,
+     "t": 1793274750
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 11:52:29 (nan)",
+     "recovered_t": null,
+     "t": 1793355671
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-30 10:21:10 (nan)",
+     "recovered_t": null,
+     "t": 1793355674
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-30 10:21:13 (nan)",
+     "recovered_t": null,
+     "t": 1793355677
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-30 10:21:16 (nan)",
+     "recovered_t": null,
+     "t": 1793355680
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-30 10:21:19 (nan)",
+     "recovered_t": null,
+     "t": 1793355683
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-30 10:21:23 (nan)",
+     "recovered_t": null,
+     "t": 1793355687
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-30 10:21:27 (nan)",
+     "recovered_t": null,
+     "t": 1793355693
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-30 10:21:33 (nan)",
+     "recovered_t": null,
+     "t": 1793355702
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-30 10:21:41 (nan)",
+     "recovered_t": null,
+     "t": 1793355717
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-30 10:21:57 (Geth/v1.17.6-unstable-f009a166-20261030)",
+     "recovered_t": null,
+     "t": 1793356281
+    },
+    {
+     "kind": "replay_stall",
+     "note": "ERROR[10-30|10:38:24.149] Migration direction stalled              pbt=true head=24,550,938 err=\"access list missing for block 24550938 334c88c81ef0f772fda2ef2cdbd6f0a1ccc63d953335e2eff7620dc6776ccfb8\"",
+     "recovered_t": null,
+     "t": 1793356704
+    },
+    {
+     "kind": "replay_stall",
+     "note": "ERROR[10-30|11:04:00.259] Migration direction stalled              pbt=true head=24,550,938 err=\"access list missing for block 24550938 334c88c81ef0f772fda2ef2cdbd6f0a1ccc63d953335e2eff7620dc6776ccfb8\"",
+     "recovered_t": null,
+     "t": 1793358240
+    },
+    {
+     "kind": "replay_stall",
+     "note": "ERROR[10-30|11:17:50.504] Migration direction stalled              pbt=true head=24,552,911 err=\"replaying block 24550947 23ec2b7578ba86da8da7e3d1ef9ddbf02c6fdabf0c1e46b321aa8175ebbd8ae7: missing trie node dec2ae4d7f46b11d9dd411ec59dbf47aa9",
+     "recovered_t": null,
+     "t": 1793359071
+    }
+   ],
+   "host": "geth-2",
+   "runs": [
+    {
+     "complete": 1792673562,
+     "method": "import",
+     "run_id": "geth-2/import",
+     "start": 1792665156,
+     "status": "valid",
+     "synced": 1792680858,
+     "t_total_s": 15702
+    }
+   ]
+  },
+  {
+   "builds": [
+    {
+     "label": "build 84a12eff",
+     "sha": "84a12eff",
+     "t": 1792656653
+    },
+    {
+     "label": "build 91b1f422",
+     "sha": "91b1f422",
+     "t": 1793105772
+    },
+    {
+     "label": "pbt + #79",
+     "sha": "9acab9ef",
+     "t": 1793276520
+    },
+    {
+     "label": "pbt + #80–#82",
+     "sha": "c44a5c12",
+     "t": 1793354111
+    },
+    {
+     "label": "build c9474454",
+     "sha": "c9474454",
+     "t": 1793361453
+    },
+    {
+     "label": "build fb992547",
+     "sha": "fb992547",
+     "t": 1793366993
+    }
+   ],
+   "cap_gib": 16,
+   "client": "geth",
+   "down_hours": [
+    1793264400,
+    1793268000,
+    1793271600,
+    1793275200
+   ],
+   "dual_from": null,
+   "events": [
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-27 12:56:12 (nan)",
+     "recovered_t": null,
+     "t": 1793264650
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:04:10 (nan)",
+     "recovered_t": null,
+     "t": 1793264655
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:04:14 (nan)",
+     "recovered_t": null,
+     "t": 1793264658
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:04:18 (nan)",
+     "recovered_t": null,
+     "t": 1793264662
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:04:21 (nan)",
+     "recovered_t": null,
+     "t": 1793264666
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:04:26 (nan)",
+     "recovered_t": null,
+     "t": 1793264672
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:04:31 (nan)",
+     "recovered_t": null,
+     "t": 1793264681
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:04:41 (nan)",
+     "recovered_t": null,
+     "t": 1793264697
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1793277624,
+     "t": 1793264700
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:04:56 (nan)",
+     "recovered_t": null,
+     "t": 1793264725
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:05:25 (nan)",
+     "recovered_t": null,
+     "t": 1793264779
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:06:18 (nan)",
+     "recovered_t": null,
+     "t": 1793264842
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 09:07:21 (Geth/v1.17.6-unstable-9acab9ef-20261029)",
+     "recovered_t": null,
+     "t": 1793276520
+    }
+   ],
+   "host": "geth-3",
+   "runs": [
+    {
+     "complete": 1792672612,
+     "method": "self",
+     "run_id": "geth-3/self",
+     "start": 1792663050,
+     "status": "valid",
+     "synced": 1792672802,
+     "t_total_s": 9752
+    }
+   ]
+  },
+  {
+   "builds": [
+    {
+     "label": "build f4e29519",
+     "sha": "f4e29519",
+     "t": 1792656662
+    },
+    {
+     "label": "build 713979e7",
+     "sha": "713979e7",
+     "t": 1792756550
+    },
+    {
+     "label": "build 3f29bb53",
+     "sha": "3f29bb53",
+     "t": 1793060968
+    },
+    {
+     "label": "Nethermind f609f2fd: memory budget",
+     "sha": "f609f2fd",
+     "t": 1793096252
+    },
+    {
+     "label": "build afc0e1f9",
+     "sha": "afc0e1f9",
+     "t": 1793333593
+    }
+   ],
+   "cap_gib": 16,
+   "client": "nethermind",
+   "down_hours": [],
+   "dual_from": null,
+   "events": [
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-22 10:02:47 (Version: 2.3.0-preview+f4e29519)",
+     "recovered_t": null,
+     "t": 1792674020
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792674193,
+     "t": 1792674030
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-22 13:00:20 (Version: 2.3.0-preview+f4e29519)",
+     "recovered_t": null,
+     "t": 1792682791
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792682856,
+     "t": 1792682820
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-22 17:42:06 (Version: 2.3.0-preview+f4e29519)",
+     "recovered_t": null,
+     "t": 1792698752
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792698816,
+     "t": 1792698780
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-22 19:52:31 (Version: 2.3.0-preview+f4e29519)",
+     "recovered_t": null,
+     "t": 1792707962
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792708021,
+     "t": 1792707990
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-22 22:26:02 (Version: 2.3.0-preview+f4e29519)",
+     "recovered_t": null,
+     "t": 1792716768
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792716828,
+     "t": 1792716780
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 00:52:47 (Version: 2.3.0-preview+f4e29519)",
+     "recovered_t": null,
+     "t": 1792725784
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792725888,
+     "t": 1792725810
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 03:23:04 (Version: 2.3.0-preview+f4e29519)",
+     "recovered_t": null,
+     "t": 1792734936
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792735044,
+     "t": 1792734960
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 05:55:35 (Version: 2.3.0-preview+f4e29519)",
+     "recovered_t": null,
+     "t": 1792743303
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792743360,
+     "t": 1792743330
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 08:15:03 (Version: 2.3.0-preview+f4e29519)",
+     "recovered_t": null,
+     "t": 1792752846
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792752912,
+     "t": 1792752870
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 11:55:50 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792764525
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792764576,
+     "t": 1792764540
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:08:45 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792765015
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792765201,
+     "t": 1792765020
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:16:54 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792765218
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792765272,
+     "t": 1792765230
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:20:17 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792765762
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792765824,
+     "t": 1792765770
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:29:22 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792766082
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792766184,
+     "t": 1792766100
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:34:41 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792766455
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792766628,
+     "t": 1792766460
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:40:54 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792766822
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792767121,
+     "t": 1792766850
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:47:02 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792767072
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792767121,
+     "t": 1792767090
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:51:11 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792767317
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792767516,
+     "t": 1792767330
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:55:17 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792767451
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792767516,
+     "t": 1792767480
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:57:31 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792767670
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792767852,
+     "t": 1792767690
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:01:09 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792767792
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792767852,
+     "t": 1792767810
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:03:12 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792768011
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792768068,
+     "t": 1792768020
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:06:50 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792768180
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792768332,
+     "t": 1792768200
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:09:40 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792768268
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792768332,
+     "t": 1792768290
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:11:07 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792768506
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792768572,
+     "t": 1792768530
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:15:05 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792768692
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792768776,
+     "t": 1792768710
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:18:12 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792768912
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792768980,
+     "t": 1792768920
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:21:51 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792769112
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792769184,
+     "t": 1792769130
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:25:12 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792769359
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792769437,
+     "t": 1792769370
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:29:18 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792769608
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792769796,
+     "t": 1792769610
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:33:28 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792769696
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792769796,
+     "t": 1792769700
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:34:55 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792769824
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792769953,
+     "t": 1792769850
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:37:03 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792770050
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792770192,
+     "t": 1792770060
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:40:49 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792770140
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792770192,
+     "t": 1792770150
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:42:19 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792770350
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792770516,
+     "t": 1792770360
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:45:50 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792770443
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792770516,
+     "t": 1792770450
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:47:23 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1792770722
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792770804,
+     "t": 1792770750
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 15:52:02 (Version: 2.3.0-preview+713979e7)",
+     "recovered_t": null,
+     "t": 1793014166
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1793014260,
+     "t": 1793014170
+    }
+   ],
+   "host": "nethermind-1",
+   "runs": [
+    {
+     "complete": null,
+     "method": "import",
+     "run_id": "nethermind-1/import-f4e2-a1",
+     "start": 1792663381,
+     "status": "failed",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": null,
+     "method": "import",
+     "run_id": "nethermind-1/import-f4e2-a2",
+     "start": 1792673992,
+     "status": "failed",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": null,
+     "method": "import",
+     "run_id": "nethermind-1/import-f4e2-a3",
+     "start": 1792682762,
+     "status": "failed",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": null,
+     "method": "import",
+     "run_id": "nethermind-1/import-f4e2-a4",
+     "start": 1792684509,
+     "status": "failed",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": null,
+     "method": "import",
+     "run_id": "nethermind-1/import-f4e2-a5",
+     "start": 1792690899,
+     "status": "failed",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": null,
+     "method": "import",
+     "run_id": "nethermind-1/import-f4e2-a6",
+     "start": 1792698726,
+     "status": "failed",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": null,
+     "method": "import",
+     "run_id": "nethermind-1/import-f4e2-a7",
+     "start": 1792707934,
+     "status": "failed",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": null,
+     "method": "import",
+     "run_id": "nethermind-1/import-f4e2-a8",
+     "start": 1792716738,
+     "status": "failed",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": null,
+     "method": "import",
+     "run_id": "nethermind-1/import-f4e2-a9",
+     "start": 1792725756,
+     "status": "failed",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": null,
+     "method": "import",
+     "run_id": "nethermind-1/import-f4e2-a10",
+     "start": 1792734907,
+     "status": "failed",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": null,
+     "method": "import",
+     "run_id": "nethermind-1/import-f4e2-a11",
+     "start": 1792743274,
+     "status": "failed",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": null,
+     "method": "import",
+     "run_id": "nethermind-1/import-f4e2-a12",
+     "start": 1792752816,
+     "status": "failed",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": 1792764441,
+     "method": "import",
+     "run_id": "nethermind-1/import",
+     "start": 1792756565,
+     "status": "valid",
+     "synced": 1792770963,
+     "t_total_s": 14399
+    },
+    {
+     "complete": 1793078852,
+     "method": "self",
+     "run_id": "nethermind-1/self",
+     "start": 1793060993,
+     "status": "valid",
+     "synced": 1793079060,
+     "t_total_s": 18067
+    }
+   ]
+  },
+  {
+   "builds": [
+    {
+     "label": "build f4e29519",
+     "sha": "f4e29519",
+     "t": 1792656662
+    },
+    {
+     "label": "build afc0e1f9",
+     "sha": "afc0e1f9",
+     "t": 1793333430
+    }
+   ],
+   "cap_gib": 32,
+   "client": "nethermind",
+   "down_hours": [],
+   "dual_from": null,
+   "events": [],
+   "host": "nethermind-2",
+   "runs": [
+    {
+     "complete": 1792677821,
+     "method": "import",
+     "run_id": "nethermind-2/import",
+     "start": 1792664477,
+     "status": "valid",
+     "synced": 1792681278,
+     "t_total_s": 16801
+    }
+   ]
+  },
+  {
+   "builds": [
+    {
+     "label": "build 39377a2",
+     "sha": "39377a2",
+     "t": 1792656652
+    },
+    {
+     "label": "Besu 76a88a11: batched BAL catch-up",
+     "sha": "76a88a1",
+     "t": 1792708447
+    },
+    {
+     "label": "build cc56425",
+     "sha": "cc56425",
+     "t": 1793068565
+    }
+   ],
+   "cap_gib": 16,
+   "client": "besu",
+   "down_hours": [
+    1792699200,
+    1792702800,
+    1792706400,
+    1792735200,
+    1792738800,
+    1793059200,
+    1793062800,
+    1793066400,
+    1793070000,
+    1793073600
+   ],
+   "dual_from": null,
+   "events": [
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-22 09:38:42 (Besu version 26.10-develop-39377a2)",
+     "recovered_t": null,
+     "t": 1792676971
+    },
+    {
+     "kind": "oom_kill",
+     "note": "host node_vmstat_oom_kill increment (30 s resolution)",
+     "recovered_t": 1792677036,
+     "t": 1792677000
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-22 22:34:07 (Besu version 26.10-develop-76a88a1)",
+     "recovered_t": null,
+     "t": 1792708447
+    },
+    {
+     "kind": "jvm_heap_oom",
+     "note": "java.lang.OutOfMemoryError: Java heap space",
+     "recovered_t": 1792710180,
+     "t": 1792709508
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-22 22:34:07 (Besu version 26.10-develop-76a88a1)",
+     "recovered_t": null,
+     "t": 1792709585
+    },
+    {
+     "kind": "jvm_heap_oom",
+     "note": "java.lang.OutOfMemoryError: Java heap space",
+     "recovered_t": 1792715088,
+     "t": 1792714970
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-22 22:53:04 (Besu version 26.10-develop-76a88a1)",
+     "recovered_t": null,
+     "t": 1792715067
+    }
+   ],
+   "host": "besu-1",
+   "runs": [
+    {
+     "complete": 1792675048,
+     "method": "import",
+     "run_id": "besu-1/import-run1",
+     "start": 1792661942,
+     "status": "superseded",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": 1792727583,
+     "method": "import",
+     "run_id": "besu-1/import-run2",
+     "start": 1792710171,
+     "status": "failed",
+     "synced": null,
+     "t_total_s": null
+    },
+    {
+     "complete": 1792755864,
+     "method": "import",
+     "run_id": "besu-1/import",
+     "start": 1792743180,
+     "status": "valid",
+     "synced": 1792764894,
+     "t_total_s": 21715
+    },
+    {
+     "complete": 1793087218,
+     "method": "self",
+     "run_id": "besu-1/self",
+     "start": 1793077657,
+     "status": "valid",
+     "synced": 1793087324,
+     "t_total_s": 9667
+    }
+   ]
+  },
+  {
+   "builds": [
+    {
+     "label": "build 39377a2",
+     "sha": "39377a2",
+     "t": 1792656652
+    },
+    {
+     "label": "build cd2e227",
+     "sha": "cd2e227",
+     "t": 1792761626
+    }
+   ],
+   "cap_gib": 32,
+   "client": "besu",
+   "down_hours": [
+    1792756800,
+    1792760400
+   ],
+   "dual_from": null,
+   "events": [],
+   "host": "besu-2",
+   "runs": [
+    {
+     "complete": 1792675812,
+     "method": "import",
+     "run_id": "besu-2/import-run1",
+     "start": 1792663945,
+     "status": "reference",
+     "synced": 1792733447,
+     "t_total_s": 69502
+    },
+    {
+     "complete": 1792774883,
+     "method": "import",
+     "run_id": "besu-2/import",
+     "start": 1792763896,
+     "status": "valid",
+     "synced": 1792781859,
+     "t_total_s": 17963
+    }
+   ]
+  },
+  {
+   "builds": [
+    {
+     "label": "build 372df0e68f52f9975370bff38dee6e41aefff0d7",
+     "sha": "372df0e68f52f9975370bff38dee6e41aefff0d7",
+     "t": 1792656659
+    },
+    {
+     "label": "build b4a42b6b1a997bdf50acf27a3662a6e755287b1b",
+     "sha": "b4a42b6b1a997bdf50acf27a3662a6e755287b1b",
+     "t": 1792666731
+    },
+    {
+     "label": "build afd8a88821a836b7e1c5ddc20fe180a9d79e1726",
+     "sha": "afd8a88821a836b7e1c5ddc20fe180a9d79e1726",
+     "t": 1792684897
+    },
+    {
+     "label": "build 9ac7b46251a5636be0a167c60daf01e2b92f4bff",
+     "sha": "9ac7b46251a5636be0a167c60daf01e2b92f4bff",
+     "t": 1792775540
+    },
+    {
+     "label": "build d65d13beebc71da12f951941d444b78a91fe29a1",
+     "sha": "d65d13beebc71da12f951941d444b78a91fe29a1",
+     "t": 1793014897
+    },
+    {
+     "label": "build 7a8c3af17e0a099930e03180a066524ef54bd047",
+     "sha": "7a8c3af17e0a099930e03180a066524ef54bd047",
+     "t": 1793022025
+    },
+    {
+     "label": "build fb9da7fd2ea08139062c3e15962198b99628661d",
+     "sha": "fb9da7fd2ea08139062c3e15962198b99628661d",
+     "t": 1793084871
+    },
+    {
+     "label": "build d3ce394b5b13ac70d5b9493ff8da14ac4e640add",
+     "sha": "d3ce394b5b13ac70d5b9493ff8da14ac4e640add",
+     "t": 1793284952
+    }
+   ],
+   "cap_gib": 32,
+   "client": "erigon",
+   "down_hours": [
+    1792670400,
+    1792674000,
+    1792677600,
+    1792681200,
+    1792684800,
+    1792688400,
+    1792692000,
+    1792695600,
+    1792699200,
+    1792702800,
+    1792706400,
+    1792710000,
+    1792713600,
+    1792717200,
+    1792720800,
+    1792724400,
+    1792728000,
+    1792731600,
+    1792735200,
+    1792738800,
+    1792742400,
+    1792746000,
+    1792749600,
+    1792753200,
+    1793275200,
+    1793278800,
+    1793282400
+   ],
+   "dual_from": 1792909612,
+   "events": [
+    {
+     "kind": "segv",
+     "note": "SIGSEGV: segmentation violation",
+     "recovered_t": 1792666308,
+     "t": 1792666272
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-22 08:15:13 (git_commit=372df0e68f52f9975370bff38dee6e41aefff0d7)",
+     "recovered_t": null,
+     "t": 1792666277
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 14:18:55 (git_commit=fb9da7fd2ea08139062c3e15962198b99628661d)",
+     "recovered_t": null,
+     "t": 1793283638
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 14:20:37 (git_commit=fb9da7fd2ea08139062c3e15962198b99628661d)",
+     "recovered_t": null,
+     "t": 1793283761
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 14:22:40 (git_commit=fb9da7fd2ea08139062c3e15962198b99628661d)",
+     "recovered_t": null,
+     "t": 1793283866
+    }
+   ],
+   "host": "erigon-1",
+   "runs": []
+  },
+  {
+   "builds": [
+    {
+     "label": "build 372df0e68f52f9975370bff38dee6e41aefff0d7",
+     "sha": "372df0e68f52f9975370bff38dee6e41aefff0d7",
+     "t": 1792656659
+    },
+    {
+     "label": "build b4a42b6b1a997bdf50acf27a3662a6e755287b1b",
+     "sha": "b4a42b6b1a997bdf50acf27a3662a6e755287b1b",
+     "t": 1792666570
+    },
+    {
+     "label": "build afd8a88821a836b7e1c5ddc20fe180a9d79e1726",
+     "sha": "afd8a88821a836b7e1c5ddc20fe180a9d79e1726",
+     "t": 1792685114
+    },
+    {
+     "label": "build 9ac7b46251a5636be0a167c60daf01e2b92f4bff",
+     "sha": "9ac7b46251a5636be0a167c60daf01e2b92f4bff",
+     "t": 1792775620
+    },
+    {
+     "label": "build 2f9840d28ee2dafdb200d5012a3c04b7492526b6",
+     "sha": "2f9840d28ee2dafdb200d5012a3c04b7492526b6",
+     "t": 1792781247
+    },
+    {
+     "label": "build 2f02feb5ba7c49f94b7e868d88ca2a62bf8f7d30",
+     "sha": "2f02feb5ba7c49f94b7e868d88ca2a62bf8f7d30",
+     "t": 1792822593
+    },
+    {
+     "label": "build 7a8c3af17e0a099930e03180a066524ef54bd047",
+     "sha": "7a8c3af17e0a099930e03180a066524ef54bd047",
+     "t": 1793024429
+    },
+    {
+     "label": "build fb9da7fd2ea08139062c3e15962198b99628661d",
+     "sha": "fb9da7fd2ea08139062c3e15962198b99628661d",
+     "t": 1793088195
+    },
+    {
+     "label": "build d3ce394b5b13ac70d5b9493ff8da14ac4e640add",
+     "sha": "d3ce394b5b13ac70d5b9493ff8da14ac4e640add",
+     "t": 1793288248
+    }
+   ],
+   "cap_gib": 16,
+   "client": "erigon",
+   "down_hours": [
+    1792670400,
+    1792674000,
+    1792677600,
+    1792681200,
+    1792684800,
+    1792688400,
+    1792692000,
+    1792695600,
+    1792699200,
+    1792702800,
+    1792706400,
+    1792710000,
+    1792713600,
+    1792717200,
+    1792720800,
+    1792724400,
+    1792728000,
+    1792731600,
+    1792735200,
+    1792738800,
+    1792742400,
+    1792746000,
+    1792749600,
+    1792753200,
+    1792756800,
+    1792760400,
+    1792764000,
+    1792767600,
+    1792771200,
+    1792774800,
+    1792778400,
+    1792782000,
+    1792785600,
+    1792789200,
+    1792792800,
+    1792796400,
+    1792800000,
+    1792803600,
+    1792807200,
+    1792810800,
+    1792814400,
+    1792818000,
+    1792821600,
+    1792825200,
+    1792828800,
+    1792832400,
+    1792836000,
+    1792839600,
+    1792843200,
+    1792846800,
+    1792850400,
+    1792854000,
+    1792857600,
+    1792861200,
+    1792864800,
+    1792868400,
+    1793275200,
+    1793278800,
+    1793282400,
+    1793286000,
+    1793289600
+   ],
+   "dual_from": 1792905442,
+   "events": [
+    {
+     "kind": "segv",
+     "note": "SIGSEGV: segmentation violation",
+     "recovered_t": 1792665624,
+     "t": 1792665540
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-22 08:15:08 (git_commit=372df0e68f52f9975370bff38dee6e41aefff0d7)",
+     "recovered_t": null,
+     "t": 1792665543
+    },
+    {
+     "kind": "segv",
+     "note": "SIGSEGV: segmentation violation",
+     "recovered_t": 1792668828,
+     "t": 1792668768
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-22 10:56:09 (git_commit=b4a42b6b1a997bdf50acf27a3662a6e755287b1b)",
+     "recovered_t": null,
+     "t": 1792668771
+    },
+    {
+     "kind": "replay_stall",
+     "note": "51595 lines 10-23 12:55 → 10-25 05:02",
+     "recovered_t": null,
+     "t": 1792760153
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 13:59:50 (nan)",
+     "recovered_t": null,
+     "t": 1792763997
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 13:59:56 (nan)",
+     "recovered_t": null,
+     "t": 1792764002
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:00:02 (nan)",
+     "recovered_t": null,
+     "t": 1792764008
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:00:08 (nan)",
+     "recovered_t": null,
+     "t": 1792764014
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:00:13 (nan)",
+     "recovered_t": null,
+     "t": 1792764020
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:00:20 (nan)",
+     "recovered_t": null,
+     "t": 1792764028
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:00:28 (nan)",
+     "recovered_t": null,
+     "t": 1792764039
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:00:39 (nan)",
+     "recovered_t": null,
+     "t": 1792764057
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-23 14:00:56 (nan)",
+     "recovered_t": null,
+     "t": 1792764798
+    },
+    {
+     "kind": "crash_loop",
+     "note": "start with no clean stop since 10-29 15:25:10 (git_commit=fb9da7fd2ea08139062c3e15962198b99628661d)",
+     "recovered_t": null,
+     "t": 1793287663
+    }
+   ],
+   "host": "erigon-2",
+   "runs": []
+  }
+ ],
+ "t0": 1792656000,
+ "t1": 1793369508,
+ "xen_t": 1793012940
+}

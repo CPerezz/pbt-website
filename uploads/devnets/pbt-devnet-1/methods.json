@@ -1,0 +1,649 @@
+{
+ "_views": [
+  "a1_runs",
+  "a2_phases",
+  "c1_run_resources",
+  "failures",
+  "j2_projection"
+ ],
+ "projection": {
+  "ages_d": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39,
+   40
+  ],
+  "clients": {
+   "besu": {
+    "basis": "besu-1 import, besu-1 self",
+    "breakeven_d": null,
+    "import_h": [
+     3.54,
+     3.63,
+     3.73,
+     3.83,
+     3.92,
+     4.02,
+     4.11,
+     4.21,
+     4.3,
+     4.4,
+     4.5,
+     4.59,
+     4.69,
+     4.78,
+     4.88,
+     4.98,
+     5.07,
+     5.17,
+     5.26,
+     5.36,
+     5.46,
+     5.55,
+     5.65,
+     5.74,
+     5.84,
+     5.93,
+     6.03,
+     6.13,
+     6.22,
+     6.32,
+     6.41,
+     6.51,
+     6.61,
+     6.7,
+     6.8,
+     6.89,
+     6.99,
+     7.09,
+     7.18,
+     7.28,
+     7.37
+    ],
+    "self_h": 2.67,
+    "wins": "self"
+   },
+   "geth": {
+    "basis": "geth-1 import, geth-3 self",
+    "breakeven_d": 1.2,
+    "import_h": [
+     2.29,
+     2.63,
+     2.97,
+     3.31,
+     3.65,
+     3.99,
+     4.33,
+     4.66,
+     5.0,
+     5.34,
+     5.68,
+     6.02,
+     6.36,
+     6.7,
+     7.04,
+     7.38,
+     7.72,
+     8.06,
+     8.4,
+     8.74,
+     9.08,
+     9.42,
+     9.76,
+     10.1,
+     10.44,
+     10.78,
+     11.12,
+     11.46,
+     11.8,
+     12.14,
+     12.48,
+     12.82,
+     13.16,
+     13.5,
+     13.84,
+     14.18,
+     14.52,
+     14.86,
+     15.2,
+     15.54,
+     15.88
+    ],
+    "self_h": 2.69,
+    "wins": "import"
+   },
+   "nethermind": {
+    "basis": "nethermind-1 import, nethermind-1 self",
+    "breakeven_d": 33.0,
+    "import_h": [
+     2.2,
+     2.28,
+     2.36,
+     2.45,
+     2.53,
+     2.62,
+     2.7,
+     2.79,
+     2.87,
+     2.95,
+     3.04,
+     3.12,
+     3.21,
+     3.29,
+     3.37,
+     3.46,
+     3.54,
+     3.63,
+     3.71,
+     3.8,
+     3.88,
+     3.96,
+     4.05,
+     4.13,
+     4.22,
+     4.3,
+     4.39,
+     4.47,
+     4.55,
+     4.64,
+     4.72,
+     4.81,
+     4.89,
+     4.97,
+     5.06,
+     5.14,
+     5.23,
+     5.31,
+     5.4,
+     5.48,
+     5.56
+    ],
+    "self_h": 4.98,
+    "wins": "import"
+   }
+  }
+ },
+ "runs": [
+  {
+   "build": "84a12eff9",
+   "cap_gib": 16,
+   "client": "geth",
+   "host": "geth-1",
+   "mem_core": 0.433,
+   "mem_replay": 0.711,
+   "method": "import",
+   "oom_kills": 0,
+   "phases": [
+    {
+     "end_s": 566,
+     "kind": "verify",
+     "name": "U1 preimages",
+     "start_s": 0
+    },
+    {
+     "end_s": 2900,
+     "kind": "build",
+     "name": "U2 leaves+check1",
+     "start_s": 566
+    },
+    {
+     "end_s": 5064,
+     "kind": "build",
+     "name": "U3 write nodes",
+     "start_s": 2900
+    },
+    {
+     "end_s": 5303,
+     "kind": "verify",
+     "name": "U4 code",
+     "start_s": 5064
+    },
+    {
+     "end_s": 7751,
+     "kind": "verify",
+     "name": "U5 check2",
+     "start_s": 5305
+    },
+    {
+     "end_s": 8115,
+     "kind": "verify",
+     "name": "U6 read-back",
+     "start_s": 7751
+    },
+    {
+     "end_s": 21811,
+     "kind": "replay",
+     "name": "U7 replay",
+     "start_s": 8115
+    }
+   ],
+   "replay_blocks": 52096,
+   "run_id": "geth-1/import",
+   "status": "valid",
+   "t_core_s": 8115,
+   "t_total_s": 21811,
+   "verify": "preimages · check 1 · check 2"
+  },
+  {
+   "build": "84a12eff9",
+   "cap_gib": 32,
+   "client": "geth",
+   "host": "geth-2",
+   "mem_core": 0.213,
+   "mem_replay": 0.346,
+   "method": "import",
+   "oom_kills": 0,
+   "phases": [
+    {
+     "end_s": 620,
+     "kind": "verify",
+     "name": "U1 preimages",
+     "start_s": 0
+    },
+    {
+     "end_s": 2938,
+     "kind": "build",
+     "name": "U2 leaves+check1",
+     "start_s": 620
+    },
+    {
+     "end_s": 5326,
+     "kind": "build",
+     "name": "U3 write nodes",
+     "start_s": 2938
+    },
+    {
+     "end_s": 5564,
+     "kind": "verify",
+     "name": "U4 code",
+     "start_s": 5326
+    },
+    {
+     "end_s": 8048,
+     "kind": "verify",
+     "name": "U5 check2",
+     "start_s": 5566
+    },
+    {
+     "end_s": 8407,
+     "kind": "verify",
+     "name": "U6 read-back",
+     "start_s": 8048
+    },
+    {
+     "end_s": 15702,
+     "kind": "replay",
+     "name": "U7 replay",
+     "start_s": 8407
+    }
+   ],
+   "replay_blocks": 51906,
+   "run_id": "geth-2/import",
+   "status": "valid",
+   "t_core_s": 8407,
+   "t_total_s": 15702,
+   "verify": "preimages · check 1 · check 2"
+  },
+  {
+   "build": "84a12eff9",
+   "cap_gib": 16,
+   "client": "geth",
+   "host": "geth-3",
+   "mem_core": 0.533,
+   "mem_replay": 0.499,
+   "method": "self",
+   "oom_kills": 0,
+   "phases": [
+    {
+     "end_s": 1800,
+     "kind": "build",
+     "name": "U2 scan",
+     "start_s": 0
+    },
+    {
+     "end_s": 6507,
+     "kind": "build",
+     "name": "U3 build+write",
+     "start_s": 1800
+    },
+    {
+     "end_s": 6728,
+     "kind": "verify",
+     "name": "U4 code",
+     "start_s": 6507
+    },
+    {
+     "end_s": 9208,
+     "kind": "verify",
+     "name": "U5 check2",
+     "start_s": 6730
+    },
+    {
+     "end_s": 9561,
+     "kind": "verify",
+     "name": "U6 read-back",
+     "start_s": 9208
+    },
+    {
+     "end_s": 9752,
+     "kind": "replay",
+     "name": "U7 replay",
+     "start_s": 9561
+    }
+   ],
+   "replay_blocks": 1114,
+   "run_id": "geth-3/self",
+   "status": "valid",
+   "t_core_s": 9561,
+   "t_total_s": 9752,
+   "verify": "check 2 at P"
+  },
+  {
+   "build": "713979e7",
+   "cap_gib": 16,
+   "client": "nethermind",
+   "host": "nethermind-1",
+   "mem_core": 0.83,
+   "mem_replay": 0.985,
+   "method": "import",
+   "oom_kills": 28,
+   "phases": [
+    {
+     "end_s": 7875,
+     "kind": "build",
+     "name": "U2+U3 leaves+build",
+     "start_s": 0
+    },
+    {
+     "end_s": 7877,
+     "kind": "build",
+     "name": "U6 commit",
+     "start_s": 7875
+    },
+    {
+     "end_s": 14399,
+     "kind": "replay",
+     "name": "U7 replay",
+     "start_s": 7877
+    }
+   ],
+   "replay_blocks": 57541,
+   "run_id": "nethermind-1/import",
+   "status": "valid",
+   "t_core_s": 7877,
+   "t_total_s": 14399,
+   "verify": "check 1"
+  },
+  {
+   "build": "f4e29519",
+   "cap_gib": 32,
+   "client": "nethermind",
+   "host": "nethermind-2",
+   "mem_core": 0.615,
+   "mem_replay": 0.918,
+   "method": "import",
+   "oom_kills": 0,
+   "phases": [
+    {
+     "end_s": 1701,
+     "kind": "verify",
+     "name": "U1 preimages",
+     "start_s": 0
+    },
+    {
+     "end_s": 10647,
+     "kind": "build",
+     "name": "U2+U3 leaves+build",
+     "start_s": 1706
+    },
+    {
+     "end_s": 13344,
+     "kind": "verify",
+     "name": "U5 check2",
+     "start_s": 10651
+    },
+    {
+     "end_s": 13344,
+     "kind": "build",
+     "name": "U6 commit",
+     "start_s": 13344
+    },
+    {
+     "end_s": 16801,
+     "kind": "replay",
+     "name": "U7 replay",
+     "start_s": 13344
+    }
+   ],
+   "replay_blocks": 51934,
+   "run_id": "nethermind-2/import",
+   "status": "valid",
+   "t_core_s": 13344,
+   "t_total_s": 16801,
+   "verify": "check 1 · check 2"
+  },
+  {
+   "build": "3f29bb53",
+   "cap_gib": 16,
+   "client": "nethermind",
+   "host": "nethermind-1",
+   "mem_core": 0.897,
+   "mem_replay": 0.933,
+   "method": "self",
+   "oom_kills": 0,
+   "phases": [
+    {
+     "end_s": 414,
+     "kind": "build",
+     "name": "U1 BAL keys",
+     "start_s": 0
+    },
+    {
+     "end_s": 8252,
+     "kind": "build",
+     "name": "U2 scan",
+     "start_s": 414
+    },
+    {
+     "end_s": 17857,
+     "kind": "build",
+     "name": "U3 build",
+     "start_s": 8257
+    },
+    {
+     "end_s": 17859,
+     "kind": "build",
+     "name": "U6 commit",
+     "start_s": 17857
+    },
+    {
+     "end_s": 18067,
+     "kind": "replay",
+     "name": "U7 replay",
+     "start_s": 17859
+    }
+   ],
+   "replay_blocks": 1479,
+   "run_id": "nethermind-1/self",
+   "status": "valid",
+   "t_core_s": 17859,
+   "t_total_s": 18067,
+   "verify": "none until the fork's header"
+  },
+  {
+   "build": "76a88a1",
+   "cap_gib": 16,
+   "client": "besu",
+   "host": "besu-1",
+   "mem_core": 0.622,
+   "mem_replay": 0.576,
+   "method": "import",
+   "oom_kills": 0,
+   "phases": [
+    {
+     "end_s": 9615,
+     "kind": "build",
+     "name": "U1-U3 preimages+leaves+build (check 1)",
+     "start_s": 0
+    },
+    {
+     "end_s": 12669,
+     "kind": "verify",
+     "name": "U5 check2",
+     "start_s": 9615
+    },
+    {
+     "end_s": 12685,
+     "kind": "build",
+     "name": "U6 commit",
+     "start_s": 12669
+    },
+    {
+     "end_s": 21715,
+     "kind": "replay",
+     "name": "U7 replay",
+     "start_s": 12685
+    }
+   ],
+   "replay_blocks": 57133,
+   "run_id": "besu-1/import",
+   "status": "valid",
+   "t_core_s": 12685,
+   "t_total_s": 21715,
+   "verify": "check 1 · check 2"
+  },
+  {
+   "build": "cd2e227",
+   "cap_gib": 32,
+   "client": "besu",
+   "host": "besu-2",
+   "mem_core": 0.63,
+   "mem_replay": 0.953,
+   "method": "import",
+   "oom_kills": 0,
+   "phases": [
+    {
+     "end_s": 8273,
+     "kind": "build",
+     "name": "U1-U3 preimages+leaves+build (check 1)",
+     "start_s": 0
+    },
+    {
+     "end_s": 10977,
+     "kind": "verify",
+     "name": "U5 check2",
+     "start_s": 8273
+    },
+    {
+     "end_s": 10987,
+     "kind": "build",
+     "name": "U6 commit",
+     "start_s": 10977
+    },
+    {
+     "end_s": 17963,
+     "kind": "replay",
+     "name": "U7 replay",
+     "start_s": 10987
+    }
+   ],
+   "replay_blocks": 58362,
+   "run_id": "besu-2/import",
+   "status": "valid",
+   "t_core_s": 10987,
+   "t_total_s": 17963,
+   "verify": "check 1 · check 2"
+  },
+  {
+   "build": "cc56425",
+   "cap_gib": 16,
+   "client": "besu",
+   "host": "besu-1",
+   "mem_core": 0.717,
+   "mem_replay": 0.621,
+   "method": "self",
+   "oom_kills": 0,
+   "phases": [
+    {
+     "end_s": 573,
+     "kind": "build",
+     "name": "U1 BAL keys",
+     "start_s": 0
+    },
+    {
+     "end_s": 2694,
+     "kind": "build",
+     "name": "U2 scan",
+     "start_s": 573
+    },
+    {
+     "end_s": 3198,
+     "kind": "build",
+     "name": "U4 code",
+     "start_s": 2694
+    },
+    {
+     "end_s": 9545,
+     "kind": "build",
+     "name": "U3 build",
+     "start_s": 3198
+    },
+    {
+     "end_s": 9562,
+     "kind": "build",
+     "name": "U6 commit",
+     "start_s": 9545
+    },
+    {
+     "end_s": 9667,
+     "kind": "replay",
+     "name": "U7 replay",
+     "start_s": 9562
+    }
+   ],
+   "replay_blocks": 880,
+   "run_id": "besu-1/self",
+   "status": "valid",
+   "t_core_s": 9562,
+   "t_total_s": 9667,
+   "verify": "none until the fork's header"
+  }
+ ]
+}
